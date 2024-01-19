@@ -10,7 +10,7 @@ lab:
 
 ## Requisitos del laboratorio
 
-- Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps.](https://docs.microsoft.com/azure/devops/server/compatibility)
+- Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
 
 - **Configurar una organización de Azure DevOp:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization).
 
@@ -37,19 +37,19 @@ Después de completar este laboratorio, podrá:
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-En este ejercicio, configurarás los requisitos previos para el laboratorio, que consta de un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
-#### Tarea 1: (omitir si ha terminado) crear y configurar el proyecto de equipo
+#### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
 
-En esta tarea, crearás un proyecto de Azure DevOps **eShopOnWeb** que usarán varios laboratorios.
+En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usará en varios laboratorios.
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y deja los demás campos con los valores predeterminados. Haga clic en **Crear**.
 
     ![Crear proyecto](images/create-project.png)
 
-#### Tarea 2: (omitir si ha terminado) importar repositorio de Git eShopOnWeb
+#### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
-En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios laboratorios.
+En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
@@ -57,8 +57,8 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios l
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
     - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
     - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
 
@@ -66,9 +66,9 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios l
 
 En este laboratorio, revisarás una plantilla de Azure Bicep y la simplificarás mediante un módulo reutilizable.
 
-#### Tarea 1: crear una plantilla de Azure Bicep
+#### Tarea 1: Creación de plantillas de Azure Bicep
 
-En esta tarea, usarás Visual Studio Code para crear una plantilla de Azure Bicep
+En esta tarea, usará Visual Studio Code para crear una plantilla de Azure Bicep.
 
 1. En la pestaña del explorador que tiene abierto el proyecto de Azure DevOps, ve a **Repos** y **Archivos**. Abre la carpeta `.azure\bicep` y busca el archivo `simple-windows-vm.bicep`.
 
@@ -82,11 +82,11 @@ En esta tarea, usarás Visual Studio Code para crear una plantilla de Azure Bice
    - Microsoft.Network/networkInterfaces
    - Microsoft.Compute/virtualMachines
 
-1. Presta atención a lo simples que son las definiciones de recursos y a la capacidad de hacer referencia implícitamente a nombres simbólicos en lugar de explícitos `dependsOn` en toda la plantilla.
+1. Presta atención a lo sencillo que son las definiciones de recursos y a la capacidad de hacer referencia implícitamente a nombres simbólicos en lugar de explícitos `dependsOn` en toda la plantilla.
 
-#### Tarea 2: crear un módulo de bicep reutilizable para los recursos de almacenamiento.
+#### Tarea 2: Crear un módulo de bicep reutilizable para los recursos de almacenamiento
 
-En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bicep ** que creará solo una cuenta de almacenamiento y la importará la plantilla principal. El módulo de plantilla de almacenamiento debe volver a pasar un valor a la plantilla principal, **main.bicep**, y este valor se definirá en el elemento outputs del módulo de plantilla de almacenamiento.
+En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bicep** que creará solo una cuenta de almacenamiento y la importará la plantilla principal. El módulo de plantilla de almacenamiento debe volver a pasar un valor a la plantilla principal, **main.bicep**, y este valor se definirá en el elemento outputs del módulo de plantilla de almacenamiento.
 
 1. En primer lugar, es necesario quitar el recurso de almacenamiento de nuestra plantilla principal. En la esquina superior derecha de la ventana del explorador, haz clic en el botón **Editar**:
 
@@ -105,11 +105,11 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
    }
    ```
 
-1. Confirma el archivo. Pero aún no hemos terminado.
+1. Sin embargo, confirma el archivo. Aún no hemos terminado con él.
 
    ![Confirmación del archivo](./images/m06/commit.png)
 
-1. Luego mantén el ratón sobre la carpeta bicep y haz clic en el icono de puntos suspensivos y después selecciona **Nuevo** y **Archivo**. Escribe **storage.bicep** para el nombre y haz clic en **Crear**.
+1. Luego, mantén el ratón sobre la carpeta bicep, haz clic en el icono de puntos suspensivos y luego selecciona **Nuevo** y **Archivo**. Escribe **storage.bicep** para el nombre y haz clic en **Crear**.
 
    ![Menú Nuevo archivo](./images/m06/newfile.png)
 
@@ -134,13 +134,13 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
    output storageURI string = storageAccount.properties.primaryEndpoints.blob
    ```
 
-#### Tarea 3: modificar la plantilla principal para usar el módulo de plantilla
+#### Tarea 3: Modificar la plantilla principal para usar el módulo de plantilla
 
-En esta tarea, modificarás la plantilla principal para hacer referencia al módulo de plantilla que has creado en la tarea anterior.
+En esta tarea, modificarás la plantilla principal para hacer referencia al módulo de plantilla que creaste en la tarea anterior.
 
-1. Vuelve al archivo `simple-windows-vm.bicep` y haz clic en el botón **Editar** una vez más.
+1. Vuelve a navegar al archivo `simple-windows-vm.bicep` y haz clic de nuevo en el botón **Editar**.
 
-1. A continuación, añade el siguiente código después de las variables:
+1. A continuación, agrega el siguiente código después de las variables:
 
    ```bicep
    module storageModule './storage.bicep' = {
@@ -163,40 +163,40 @@ En esta tarea, modificarás la plantilla principal para hacer referencia al mód
    }
    ```
 
-1. En la plantilla principal revisa los siguientes detalles:
+1. En la plantilla se solicitan los siguientes detalles:
 
    - Un recurso en la plantilla principal se usa para vincular a otra plantilla.
-   - El módulo tiene un nombre simbólico denominado `storageModule`. Este nombre se usa para configurar cualquier dependencia.
-   - Solo puedes usar el modo de implementación **incremental** al usar módulos de plantilla.
+   - El módulo tiene un nombre simbólico denominado `storageModule`. Este nombre de usa para configurar cualquier dependencia.
+   - Al usar módulos de plantilla, solo puedes usar el modo de implementación **incremental**.
    - Se usa una ruta de acceso relativa para el módulo de plantilla.
-   - Usa parámetros para pasar valores de la plantilla principal a los módulos de plantilla.
+   - Usa parámetros para pasar valores de la plantilla principal a la plantilla vinculada.
 
 1. Confirma la plantilla.
 
-### Ejercicio 2: implementación de las plantillas en Azure mediante canalizaciones de YAML
+### Ejercicio 2: Implementación de las plantillas en Azure mediante canalizaciones de YAML
 
 En este laboratorio, crearás una conexión de servicio y la usarás en una canalización de YAML de Azure DevOps para implementar la plantilla en tu entorno de Azure.
 
-#### Tarea 1: (omitir si ya la has completado) crear una conexión de servicio para la implementación
+#### Tarea 1: (omitir si se ha realizado) Crear una conexión de servicio para la implementación
 
-En esta tarea, crearás una entidad de servicio mediante la CLI de Azure, que permitirá a Azure DevOps realizar lo siguiente:
+En esta tarea, crearás una entidad de servicio mediante la CLI de Azure, que permitirá que Azure DevOps haga lo siguiente:
 
-- Implementar recursos en tu suscripción de Azure
-- Tener acceso de lectura a los secretos de Key Vault creados más adelante.
+- Implementar recursos en tu suscripción de Azure.
+- Tener acceso de lectura en los secretos de Key Vault creados posteriormente.
 
-> **Nota**: si ya tienes una entidad de servicio, puedes continuar directamente con la siguiente tarea.
+> **Nota**: Si ya tienes una entidad de servicio, puedes continuar directamente con la siguiente tarea.
 
 Necesitarás una entidad de servicio para implementar recursos de Azure desde Azure Pipelines. Dado que vamos a recuperar secretos en una canalización, es necesario conceder permiso al servicio al crear Azure Key Vault.
 
-Azure Pipelines crea automáticamente una entidad de servicio cuando se conecta a una suscripción de Azure desde dentro de una definición de canalización o al crear una nueva conexión de servicio desde la página de configuración del proyecto (opción automática). También puedes crear manualmente la entidad de servicio desde el portal o mediante la CLI de Azure y volver a usarla en proyectos.
+Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas a una suscripción de Azure desde dentro de una definición de canalización o al crear una nueva conexión de servicio desde la página de configuración del proyecto (opción automática). También puedes crear manualmente la entidad de servicio desde el portal o mediante la CLI de Azure y volver a usarla en proyectos.
 
-1. En el equipo del laboratorio, inicia un explorador web, ve a [**Azure Portal**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción de Azure que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a esta suscripción.
-1. En Azure Portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página.
+1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
+1. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
 1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
 
-   >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tiene ningún almacenamiento montado**, selecciona la suscripción que usas en este laboratorio y haz clic en **Crear almacenamiento**.
+   >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
-1. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores del Id. de suscripción de Azure y los atributos de nombre de suscripción:
+1. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores de la id. de suscripción de Azure y los atributos de la id. de suscripción:
 
     ```bash
     az account show --query id --output tsv
@@ -205,7 +205,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando se conecta 
 
     > **Nota**: copia ambos valores en un archivo de texto. Los necesitará más adelante en este laboratorio.
 
-1. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio (reemplaza **myServicePrincipalName** por cualquier cadena única de caracteres que consta de letras y dígitos) y **mySubscriptionID** por tu subscriptionId de Azure:
+1. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio (reemplaza **myServicePrincipalName** por cualquier cadena única de caracteres que consta de letras y dígitos) y **mySubscriptionID** por su subscriptionId de Azure:
 
     ```bash
     az ad sp create-for-rbac --name myServicePrincipalName \
@@ -224,15 +224,15 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando se conecta 
 1. Elige **Entidad de servicio (manual)** y haz clic en **Siguiente**.
 
 1. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
-    - Id. y nombre de la suscripción.
-    - Id. de entidad del servicio (appId), clave de entidad de servicio (contraseña) e Id. de inquilino (inquilino).
-    - En **Nombre de conexión de servicio**, escribe **azure subs**.  Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
+    - Identificador y nombre de la suscripción.
+    - Identificador de entidad de servicio (appId), clave de entidad de servicio (contraseña) e identificador de inquilino (inquilino).
+    - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
 
     ![Conexión del servicio de Azure](images/azure-service-connection.png)
 
-1. Haz clic en **Verificar y guardar**.
+1. Haz clic en **Comprobar y guardar**.
 
-#### Tarea 2: implementar los recursos en Azure mediante canalizaciones de YAML
+#### Tarea 2: Implementar los recursos en Azure mediante canalizaciones de YAML
 1. Vuelve al panel **Canalizaciones** del centro de **Canalizaciones**.
 1. En la ventana **Crear la primera canalización**, haz clic en **Crear canalización**.
 
@@ -253,7 +253,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando se conecta 
 1. Espera a que la implementación finalice y revisa los resultados.
    ![Implementación correcta de recursos en Azure mediante canalizaciones de YAML](./images/m06/deploy.png)
 
-#### Tarea 3: eliminar los recursos del laboratorio de Azure
+#### Tarea 3: Eliminar los recursos del laboratorio de Azure
 
 En esta tarea, usarás Azure Cloud Shell para quitar los recursos de Azure aprovisionados en este laboratorio con el propósito de eliminar cargos innecesarios.
 

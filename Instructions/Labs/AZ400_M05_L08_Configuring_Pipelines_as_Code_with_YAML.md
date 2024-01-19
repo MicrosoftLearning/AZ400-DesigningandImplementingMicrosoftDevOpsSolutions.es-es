@@ -10,7 +10,7 @@ lab:
 
 ## Requisitos del laboratorio
 
-- Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps.](https://docs.microsoft.com/azure/devops/server/compatibility)
+- Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
 
 - **Configurar una organización de Azure DevOp:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization).
 
@@ -34,28 +34,28 @@ Después de completar este laboratorio, podrá:
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-En este ejercicio, configurarás los requisitos previos para el laboratorio, que consta de un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
-#### Tarea 1: (omitir si ha terminado) crear y configurar el proyecto de equipo
+#### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
 
-En esta tarea, crearás un proyecto **eShopOnWeb_MultiStageYAML** de Azure DevOps que usarán varios laboratorios.
+En esta tarea, crearás un proyecto de **eShopOnWeb_MultiStageYAML** Azure DevOps que usarán varios laboratorios.
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asigna al proyecto el nombre **eShopOnWeb_MultiStageYAML** y deja el resto de los campos con los valores predeterminados. Haga clic en **Crear**.
 
     ![Crear proyecto](images/create-project.png)
 
-#### Tarea 2: (omitir si ha terminado) importar repositorio de Git eShopOnWeb
+#### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
-En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios laboratorios.
+En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo de laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto de **eShopOnWeb_MultiStageYAML**. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo de laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto de **eShopOnWeb_MultiStageYAML creado **anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
     ![Importar repositorio](images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
     - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
     - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
 
@@ -63,19 +63,19 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios l
 
 En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
 
-1. En el equipo del laboratorio, inicia un explorador web, ve a [**Azure Portal**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción de Azure que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a esta suscripción.
-2. En Azure Portal, en la barra de herramientas, haz clic en el icono **Cloud Shell** situado directamente a la derecha del cuadro de texto de búsqueda.
+1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
+2. Haz clic en el icono de la barra de herramientas a la derecha del cuadro de texto de búsqueda en Azure Portal para abrir el panel de **Cloud Shell**.
 3. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
 
-    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tiene ningún almacenamiento montado**, selecciona la suscripción que usas en este laboratorio y haz clic en **Crear almacenamiento**.
+    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
-    > **Nota:** para obtener una lista de regiones y su alias, ejecuta el siguiente comando desde Azure Cloud Shell - Bash:
+    > **Nota:** Para obtener una lista de regiones y su alias, ejecuta el siguiente comando desde Azure Cloud Shell - Bash:
 
     ```bash
     az account list-locations -o table
     ```
 
-4. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el marcador de posición `<region>` por el nombre de la región de Azure más cercana, como "centralus", "westeurope" u otra región que prefieras).
+4. En el símbolo del **sistema de Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el `<region>` marcador de posición por el nombre de la región de Azure más cercana, como “centralus”, “westeurope” u otra región que prefieras).
 
     ```bash
     LOCATION='<region>'
@@ -86,7 +86,7 @@ En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
 
-5. Para crear un plan de App Service ejecuta el comando siguiente:
+5. Ejecuta el comando siguiente para crear un plan de Windows App Service:
 
     ```bash
     SERVICEPLANNAME='az400m05l11-sp1'
@@ -106,9 +106,9 @@ En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
 
 ### Ejercicio 1: configuración de canalizaciones de CI/CD como código con YAML en Azure DevOps
 
-En este ejercicio, configurarás canalizaciones de CI/CD como código con YAML en Azure DevOps.
+En este ejercicio, configurarás las canalizaciones de CI/CD como código con YAML en Azure DevOps.
 
-#### Tarea 1: agregar una definición de compilación de YAML
+#### Tarea 1: Agregar una definición de compilación de YAML
 
 En esta tarea, agregarás una definición de compilación de YAML al proyecto existente.
 
@@ -127,19 +127,19 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
 8. En la pantalla **Revisar YAML de canalización**, haz clic en **Ejecutar** para iniciar el proceso de canalización de compilación.
 9. Espera a que la canalización de compilación se complete correctamente. Omite las advertencias relacionadas con el propio código fuente, ya que no son pertinentes para este ejercicio de laboratorio.
 
-    > **Nota**: cada tarea del archivo YAML está disponible para su revisión, incluidas las advertencias y errores.
+    > **Nota**: Cada tarea del archivo YAML está disponible para su revisión, incluidas las advertencias y errores.
 
-#### Tarea 2: agregar entrega continua a la definición de YAML
+#### Tarea 2: Agregar entrega continua a la definición de YAML
 
 En esta tarea, agregarás la entrega continua a la definición basada en YAML de la canalización que creaste en la tarea anterior.
 
-> **Nota**: ahora que los procesos de compilación y prueba son correctos, podemos agregar la entrega a la definición de YAML.
+> **Nota**: Ahora que los procesos de compilación y prueba son correctos, podemos agregar la entrega a la definición de YAML.
 
-1. En el panel de ejecución de la canalización, haz clic en el símbolo de puntos suspensivos en la esquina superior derecha y, en el menú desplegable, haz clic en **Editar canalización**.
+1. En el panel de ejecución de la canalización, haz clic en los puntos suspensivos en la esquina superior derecha y, en el menú desplegable, haz clic en **Editar canalización**.
 2. En el panel que muestra el contenido del archivo **eShopOnWeb_MultiStageYAML/.ado/eshoponweb-ci.yml**, navega hasta el final del archivo (línea 56) y presiona **Entrar/Retorno** para agregar una nueva línea vacía.
-3. Al estar en la línea **57**, añade el siguiente contenido para definir la fase de la **Versión** en la canalización de YAML.
+3. En la línea **57**, agrega el siguiente contenido para definir la fase de la **Versión** en la canalización de YAML.
 
-    > **Nota**: puedes definir las fases que necesites para organizar y hacer un seguimiento del progreso de la canalización.
+    > **Nota**: Puedes definir las fases que necesites para organizar y hacer un seguimiento del progreso de la canalización.
 
     ```yaml
     - stage: Deploy
@@ -153,19 +153,19 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
 
 4. Establece el cursor en una nueva línea al final de la definición de YAML.
 
-    > **Nota**: esta será la ubicación donde se agregan nuevas tareas.
+    > **Nota**: aquí se agregarán nuevas tareas.
 
-5. En la lista de tareas del lado derecho del panel de código, busca y selecciona la tarea **Implementación de Azure App Service**.
+5. En la lista de tareas a la derecha del panel de código, busca y selecciona la tarea **Implementación de Azure App Service**.
 6. En el panel **Implementación de Azure App Service**, especifica la siguiente configuración y haz clic en **Agregar**:
 
-    - En la lista desplegable de **Suscripción de Azure**, selecciona la suscripción de Azure en la que has implementado los recursos de Azure anteriormente en el laboratorio, haz clic en **Autorizar** y, cuando se te solicite, autentícate mediante la misma cuenta de usuario que has usado durante la implementación de recursos de Azure.
-    - En la lista desplegable **Nombre de App Service** selecciona el nombre de la aplicación web que has implementado anteriormente en el laboratorio.
+    - En la lista desplegable **Suscripción a Azure**, selecciona la suscripción en la que has implementado los recursos de Azure en el laboratorio, haz clic en **Autorizar** y, cuando se solicite, ingresa con las credenciales de la misma cuenta que has usado durante la implementación de recursos de Azure.
+    - En la lista desplegable **Nombre de App Service**, selecciona el nombre de la aplicación web que has implementado en el laboratorio.
     - En el cuadro de texto **Paquete o carpeta**, **actualiza** el valor predeterminado a `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
 7. Para confirmar la configuración del panel Asistente, haz clic en el botón **Agregar**.
 
     > **Nota**: esto agregará automáticamente la tarea de implementación a la definición de canalización de YAML.
 
-8. El fragmento de código agregado al editor debe ser similar a lo siguiente, lo que refleja el nombre de los parámetros azureSubscription y WebappName:
+8. El fragmento de código agregado al editor debe ser similar al siguiente, lo que refleja el nombre de los parámetros azureSubscription y WebappName:
 
     ```yaml
         - task: AzureRmWebAppDeployment@4
@@ -177,18 +177,18 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
             packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
     ```
 
-9. Verifica si la tarea aparece como elemento secundario de la tarea de **pasos**. Si no es así, selecciona todas las líneas de la tarea añadida, presiona la tecla **Tab** dos veces para que haya una sangría de cuatro espacios, de forma que aparezca como elemento secundario de la tarea de **pasos**.
+9. Verifica si la tarea aparece como elemento secundario de la tarea **Pasos**. Si no es así, selecciona todas las líneas de la tarea agregada, presiona la tecla **Tabulador** dos veces para que haya una sangría de cuatro espacios, de forma que aparezca como elemento secundario de la tarea **Pasos**.
 
-    > **Nota**: el parámetro **packageForLinux** es engañoso en el contexto de este laboratorio, pero es válido para Windows o Linux.
+    > **Nota**: el parámetro **packageForLinux** es confuso en este laboratorio, pero es válido para Windows o Linux.
 
-    > **Nota**: de forma predeterminada, estas dos fases se ejecutan de forma independiente. Como resultado, es posible que la salida de compilación de la primera fase no esté disponible en la segunda fase sin cambios adicionales. Para implementar estos cambios, agregaremos una nueva tarea para descargar el artefacto de implementación al principio de la fase de implementación.
+    > **Nota**: De forma predeterminada, estas dos fases se ejecutan de forma independiente. Como resultado, es posible que la salida de compilación de la primera fase no esté disponible en la segunda fase sin cambios adicionales. Para implementar estos cambios, agregaremos una nueva tarea para descargar el artefacto de implementación al principio de la fase de implementación.
 
-10. Coloca el cursor en la primera línea bajo el nodo de **pasos** de la fase de **implementación** y presiona Entrar/Retorno para agregar una nueva línea vacía (línea 64).
+10. Coloca el cursor en la primera línea bajo el nodo **steps** de la fase **implementación** y presiona Entrar/Retorno para agregar una nueva línea vacía (línea 64).
 11. En el panel **Tareas**, busca y selecciona la tarea **Descargar artefactos de compilación**.
 12. Especifica los siguientes parámetros para esta tarea:
-    - Descarga de los artefactos producidos por: **compilación actual**
-    - Tipo de descarga: **artefacto específico**
-    - Nombre de artefacto: **selecciona "Sitio web" en la lista** (o **escribe "Sitio web"** directamente si no aparece automáticamente en la lista)
+    - Descarga de los artefactos producidos por: **Compilación actual**
+    - Tipo de descarga: **Artefacto específico**
+    - Nombre de artefacto: **selecciona "Sitio web" en la lista** (o **escribe "Sitio web"** directamente si no aparece automáticamente en la lista).
     - Directorio de destino: **$(Build.ArtifactStagingDirectory)**
 13. Haga clic en **Agregar**.
 14. El fragmento de código agregado debe tener un aspecto similar al siguiente:
@@ -204,29 +204,29 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
 
 15. Si la sangría de YAML está desactivada, con la tarea agregada aún seleccionada en el editor, presiona la tecla **Tabulador** dos veces para sangría en cuatro espacios.
 
-    > **Nota**: aquí también se recomienda agregar una línea vacía antes y después para facilitar la lectura.
+    > **Nota**: aquí puede que también quieras agregar una línea vacía antes y después para facilitar la lectura.
 
 16. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama principal.
 
-    > **Nota**: dado que el CI-YAML original no se ha configurado para desencadenar automáticamente una nueva compilación, tenemos que iniciarla manualmente.
+    > **Nota**: dado que el sistema CI-YAML original no se ha configurado para desencadenar automáticamente una nueva compilación, tenemos que iniciarla manualmente.
 
-17. En Azure DevOps del menú izquierdo, ve a la pestaña **Canalizaciones** y selecciona **Canalizaciones** de nuevo.
+17. En el menú a la izquierda de Azure DevOps, ve a la pestaña **Canalizaciones** y selecciona **Canalizaciones**.
 18. Abre la canalización **EShopOnWeb_MultiStageYAML** y haz clic en **Ejecutar canalización**.
-19. Confirma **Ejecutar** desde el panel que aparece.
-20. Observa que aparecen las dos fases diferentes: **Compilar una solución .Net Core** e **Implementación de una aplicación web en Azure**.
-21. Espera a que se inicie la canalización y a que finalice correctamente la fase de compilación.
-22. Una vez que la fase de implementación quiere iniciarse, se te pedirán **los permisos necesarios**, así como una barra naranja que indica:
+19. Confirma la opción **Ejecutar** desde el panel que aparece.
+20. Verás que aparecen dos fases diferentes: **Compilar una solución .Net Core** e **Implementar en una aplicación web de Azure**.
+21. Espera a que se inicie la canalización y a que finalice la fase de compilación.
+22. Cuando la fase de implementación quiera iniciarse, deberás introducir **los permisos necesarios** y verás una barra naranja que dice:
 
     ```text
     This pipeline needs permission to access a resource before this run can continue to Deploy to an Azure Web App
     ```
 
-23. Haz clic en **Vista**.
+23. Haz clic en **Ver**.
 24. En el panel **Esperando revisión**, haz clic en **Permitir**.
-25. Valida el mensaje en la ventana emergente **Permitir** y confirma haciendo clic en **Permitir**.
+25. Valida el mensaje en la ventana **Permitir ventana emergente** y confirma haciendo clic en **Permitir**.
 26. Esto activa la fase de implementación. Espera a que la implementación se complete correctamente.
 
-     > **Nota**: si se debe producir un error en la implementación, debido a un problema con la sintaxis de canalización de YAML, úsalo como referencia:
+     > **Nota**: si se debe producir un error en la implementación, debido a un problema con la sintaxis de canalización de YAML, usa esto como referencia:
 
      ```yaml
     #NAME THE PIPELINE SAME AS FILE (WITHOUT ".yml")
@@ -308,19 +308,19 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
     
     ```
 
-#### Tarea 4: revisar el sitio implementado
+#### Tarea 4: Revisar el sitio implementado
 
-1. Vuelve a la ventana del explorador web que muestra Azure Portal y ve a la hoja que muestra las propiedades de la aplicación web de Azure
-2. En la hoja Aplicación web de Azure, haz clic en **Información general** y, en la hoja de información general, haz clic en **Examinar** para abrir el sitio en una nueva pestaña del explorador web.
+1. Vuelve a la ventana del explorador web que muestra el portal de Azure y ve a la hoja que muestra las propiedades de la aplicación web de Azure.
+2. En la hoja de aplicación web de Azure, haz clic en **Información general** y, en la hoja de información general, haz clic en **Examinar** para abrir el sitio en una nueva pestaña del explorador web.
 3. Comprueba que el sitio implementado se cargue según lo previsto en la nueva pestaña del explorador, que muestra el sitio web de comercio electrónico EShopOnWeb.
 
-### Ejercicio 2: ajustar la configuración del entorno para canalizaciones de CI/CD como código con YAML en Azure DevOps
+### Ejercicio 2: Configurar canalizaciones de CI/CD como código con YAML en Azure DevOps
 
 En este ejercicio, agregarás aprobaciones a una canalización basada en YAML en Azure DevOps.
 
-#### Tarea 1: configurar entornos de canalización
+#### Tarea 1: Configurar entornos de canalización
 
-Las canalizaciones de YAML como código no tienen puertas de versión o pruebas de calidad como tenemos con canalizaciones de versión clásica de Azure DevOps. Pero algunas similitudes se pueden configurar para canalizaciones YAML como código mediante **entornos**. En esta tarea, usarás este mecanismo para configurar aprobaciones para la fase de compilación.
+Las canalizaciones de YAML como código no tienen puertas de versión o calidad, como tenemos con canalizaciones de versión clásicas de Azure DevOps. Pero algunas similitudes se pueden configurar para canalizaciones YAML como código mediante **entornos**. En esta tarea, usarás este mecanismo para configurar aprobaciones para la fase de compilación.
 
 1. En el proyecto de Azure DevOps **EShopOnWeb_MultiStageYAML**, ve a **Canalizaciones**.
 2. En el menú Canalizaciones de la izquierda, selecciona **Entornos**.
@@ -330,22 +330,22 @@ Las canalizaciones de YAML como código no tienen puertas de versión o pruebas 
 6. Confirma la configuración presionando el botón **Crear**.
 7. Una vez creado el entorno, haz clic en el botón "puntos suspensivos" (...) situado junto al botón "Agregar recurso".
 8. Selecciona **Aprobaciones y comprobaciones**.
-9. En **Agregue su primera comprobación**, selecciona **Aprobaciones**.
+9. En la casilla **Agregue su primera comprobación**, selecciona **Aprobaciones**.
 10. Agrega el nombre de la cuenta de usuario de Azure DevOps al campo **aprobadores**.
 
     > **Nota:** en un escenario real, esto reflejaría el nombre del equipo de DevOps que trabaja en este proyecto.
 
 11. Confirma la configuración de aprobación definida presionando el botón **Crear**.
-12. Por último, es necesario agregar la configuración necesaria de "entorno: aprobaciones" al código de canalización de YAML para la fase de implementación. Para ello, ve a **Repos**, ve a la carpeta **.ado** y selecciona el archivo de canalización como código **eshoponweb-ci.yml**.
+12. Por último, es necesario agregar la configuración necesaria de "entorno: aprobaciones" al código de canalización de YAML para la fase de implementación. Para ello, ve a **Repos**, ve a la carpeta **.ado** y selecciona el archivo **eshoponweb-ci.yml**.
 13. En la vista Contenido, haz clic en el botón **Editar** para cambiar al modo de edición.
-14. Ve al inicio del **Trabajo de implementación** (-job: Deploy on Line 60)
+14. Ve al inicio del **Trabajo de implementación** (-job: Deploy on Line 60)
 15. Agrega una nueva línea vacía justo debajo y agrega el siguiente fragmento de código:
 
     ```yaml
       environment: approvals
     ```
 
-    El fragmento de código resultante debería tener este aspecto:
+    El fragmento de código resultante debe tener este aspecto:
 
     ```yaml
      jobs:
@@ -358,7 +358,7 @@ Las canalizaciones de YAML como código no tienen puertas de versión o pruebas 
 16. Dado que el entorno es una configuración específica de una fase de implementación, no se puede usar en "trabajos". Por lo tanto, tenemos que realizar algunos cambios adicionales en la definición de trabajo actual.
 17. En la línea **60**, cambia el nombre "- job: Deploy" por **- deployment: Deploy**
 18. Después, en la línea **63** (vmImage: Windows-2019), agrega una nueva línea vacía.
-19. Pega el siguiente fragmento de código YAML:
+19. Pega el siguiente código YAML:
 
     ```yaml
         strategy:
@@ -366,9 +366,9 @@ Las canalizaciones de YAML como código no tienen puertas de versión o pruebas 
             deploy:
     ```
 
-20. Selecciona el fragmento de código restante (línea **67** hasta el final) y usa la tecla **Tabulador** para corregir la marca de YAML.
+20. Selecciona el fragmento de código restante (línea **67** hasta el final) y usa la tecla **Tab** para corregir la marca de YAML.
 
-    El fragmento de código YAML resultante debe tener este aspecto ahora, lo que refleja la **fase de implementación**:
+    El fragmento de código YAML resultante ahora debería tener este aspecto, lo que refleja la **fase de implementación**:
 
     ```yaml
     - stage: Deploy
@@ -398,20 +398,20 @@ Las canalizaciones de YAML como código no tienen puertas de versión o pruebas 
     ```
 
 21. Confirma los cambios en el archivo YAML de código haciendo clic en **Confirmar** y haciendo clic en **Confirmar de nuevo** en el panel Confirmar que aparece.
-22. Ve al menú Proyecto de Azure DevOps a la izquierda, selecciona **Canalizaciones**, selecciona **Canalizaciones** y observa la canalización **EshopOnWeb_MultiStageYAML** usada anteriormente.
+22. Ve al menú Proyecto de Azure DevOps a la izquierda, selecciona **Canalizaciones**, canalizaciones**** y observa el **EshopOnWeb_MultiStageYAML** Canalización usada anteriormente.
 23. Abre la canalización.
-24. Haz clic en **Ejecutar canalización** para desencadenar una nueva ejecución de canalización; para ello, haz clic en **Ejecutar**.
+24. Haz clic en **Ejecutar canalización** para desencadenar una nueva ejecución de canalización; para ello, haz clic en **Ejecutar**.
 25. Al igual que antes, la fase de compilación comienza según lo previsto. Espera a que la implementación se complete correctamente.
-26. A continuación, dado que tenemos el *entorno: aprobaciones configuradas* para la fase de implementación, solicitarás una confirmación de aprobación antes de que se inicie.
-27. Esto es visible desde la vista Canalización, donde indica **Esperando (0/1 comprobaciones pasadas)**. También se muestra un mensaje de notificación que indica que **la aprobación necesita revisión antes de que esta ejecución pueda continuar con la Implementación en una aplicación web de Azure**.
+26. A continuación, dado que tenemos el *entorno: aprobaciones* configuradas para la fase de implementación, solicitarás una confirmación de aprobación antes de que se inicie.
+27. Esto es visible desde la vista Canalización, donde indica **Esperando (0/1 comprobaciones pasadas).** También se muestra un mensaje de notificación que indica que **la aprobación necesita revisión antes de que esta ejecución pueda continuar con la Implementación en una aplicación web de Azure**.
 28. Haz clic en el botón **Vista** situado junto a este mensaje.
-29. En el panel que aparece **Comprobaciones y validaciones manuales para implementar en Azure Web App**, haz clic en el mensaje **Aprobación en espera**.
+29. En el panel que aparece **Comprobaciones y validaciones manuales para Implementar en Azure Web App**, haz clic en el **mensaje Aprobación en espera**.
 30. Haga clic en **Approve** (Aprobar).
 31. Esto permite que la fase de implementación inicie e implemente correctamente el código fuente de Azure Web App.
 
-    > **Nota:**: aunque en este ejemplo solo se usan las aprobaciones, debes saber que las otras comprobaciones como Azure Monitor, la API REST, etc. se pueden usar de forma similar.
+    > **Nota:** Aunque en este ejemplo solo se usan las aprobaciones, debes saber que las otras comprobaciones como Azure Monitor, la API REST, etc. se pueden usar de forma similar.
 
-### Ejercicio 3: eliminación de los recursos del laboratorio de Azure
+### Ejercicio 3: eliminación de los recursos del laboratorio de Azure
 
 En este ejercicio, quitarás los recursos de Azure aprovisionados en este laboratorio para eliminar cargos inesperados.
 
@@ -438,4 +438,4 @@ En esta tarea, usarás Azure Cloud Shell para quitar los recursos de Azure aprov
 
 ## Revisar
 
-En este laboratorio, configurarás canalizaciones de CI/CD como código con YAML en Azure DevOps.
+En esta pestaña, has configurado las canalizaciones de CI/CD como código con YAML en Azure DevOps.
