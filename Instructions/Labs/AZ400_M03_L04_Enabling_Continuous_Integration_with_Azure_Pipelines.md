@@ -47,7 +47,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -80,7 +80,7 @@ Empecemos importando la canalización de compilación denominada [eshoponweb-ci-
     - **DotNet Publish**: publica la aplicación y sus dependencias en una carpeta para la implementación en un sistema de hospedaje. En este caso, es **Build.ArtifactStagingDirectory**.
 
 7. Haz clic en el botón **Guardar** para guardar la definición de canalización
-8. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
+8. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
 
 #### Tarea 2: Directivas de rama
 
@@ -167,7 +167,7 @@ La definición de canalización de compilación predeterminada no habilita la in
 4. Selecciona **Crear una rama para esta confirmación**
 5. Mantén activado el nombre de rama predeterminado y la opción **Iniciar solicitud de incorporación de cambios**.
 6. Haga clic en **Guardar**.
-7. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
+7. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
 8. Ve a **Repos > Solicitudes de incorporación de cambios**
 9. Haz clic en la solicitud de incorporación de cambios **"Actualizar eshoponweb-ci.yml para Azure Pipelines"** 
 10. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora puedes hacer clic en **Completar**.

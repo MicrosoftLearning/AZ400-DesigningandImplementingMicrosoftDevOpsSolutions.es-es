@@ -1,16 +1,16 @@
 ---
 lab:
-  title: Supervisión del rendimiento de la aplicación con Azure Load Testing
+  title: Monitoreo del rendimiento de la aplicación con Azure Load Testing
   module: 'Module 09: Implement continuous feedback'
 ---
 
-# Supervisión del rendimiento de aplicaciones con Application Insights y Azure Load Testing
+# Monitoreo de aplicaciones y administración del rendimiento con Application Insights y Azure Load Testing
 
 ## Manual de laboratorio para alumnos
 
 ## Requisitos del laboratorio
 
-- Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps.](https://docs.microsoft.com/azure/devops/server/compatibility)
+- Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
 
 - **Configurar una organización de Azure DevOp:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization).
 
@@ -24,17 +24,17 @@ lab:
 Cree rápidamente una prueba de carga para la aplicación web mediante una dirección URL y sin conocimientos previos de las herramientas de prueba. Azure Load Testing abstrae la complejidad y la infraestructura para ejecutar una prueba de carga a gran escala.
 Para escenarios de prueba de carga más avanzados, puede crear una prueba de carga mediante la reutilización de un script de prueba existente de Apache JMeter, una popular herramienta de carga y rendimiento de código abierto. Por ejemplo, el plan de pruebas puede constar de varias solicitudes de aplicación, de llamadas a puntos de conexión no HTTP o del uso de parámetros y datos de entrada para que la prueba sea más dinámica.
 
-En este laboratorio, obtendrás información sobre cómo puedes usar Azure Load Testing para simular pruebas de rendimiento en una aplicación web de ejecución en directo con diferentes escenarios de carga. Por último, aprenderás a integrar Azure Load Testing en las canalizaciones de CI/CD. 
+En este laboratorio, obtendrás información sobre cómo usar Azure Load Testing para simular las pruebas de rendimiento en una aplicación web que se ejecuta en vivo con diferentes escenarios de carga. Por último, aprenderás a integrar Azure Load Testing en las canalizaciones de CI/CD. 
 
 ## Objetivos
 
 Después de completar este laboratorio, podrá:
 
 - Implemente aplicaciones web de Azure App Service.
-- Redactar y ejecutar una canalización de CI/CD basada en YAML.
-- Implementar Azure Load Testing.
-- Investigar el rendimiento de las aplicaciones web de Azure mediante Azure Load Testing.
-- Integrar Azure Load Testing en las canalizaciones de CI/CD.
+- Redacta y ejecuta una canalización de CI/CD basada en YAML.
+- Implementa Azure Load Testing.
+- Investiga el rendimiento de las aplicaciones web de Azure mediante Azure Load Testing.
+- Integra Azure Load Testing y Azure Chaos Studio en las canalizaciones de CI/CD.
 
 ## Tiempo estimado: 60 minutos
 
@@ -42,28 +42,28 @@ Después de completar este laboratorio, podrá:
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-En este ejercicio, configurarás los requisitos previos para el laboratorio, que consta de un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
 #### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
 
-En esta tarea, crearás un proyecto de Azure DevOps **eShopOnWeb** que usarán varios laboratorios.
+En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asigna al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso de elemento de trabajo**. Haga clic en **Crear**.
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
 
     ![Crear proyecto](images/create-project.png)
 
-#### Tarea 2: (omitir si ya la has completado) importar repositorio de Git eShopOnWeb
+#### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
-En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios laboratorios.
+En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git** pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
     ![Importar repositorio](images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
-    - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps
+    - La carpeta **.ado** tiene canalizaciones de YAML de Azure DevOps.
     - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
     - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
     - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
 
@@ -71,12 +71,12 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que usarán varios l
 
 En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azure Portal.
 
-1. En el equipo del laboratorio, inicia un explorador web, ve a [**Azure Portal**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción de Azure que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a esta suscripción.
-2. En Azure Portal, en la barra de herramientas, haz clic en el icono **Cloud Shell** situado directamente a la derecha del cuadro de texto de búsqueda.
+1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
+2. Haz clic en el icono de la barra de herramientas a la derecha del cuadro de texto de búsqueda en Azure Portal para abrir el panel de **Cloud Shell**.
 3. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
-    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tiene ningún almacenamiento montado**, selecciona la suscripción que usas en este laboratorio y haz clic en **Crear almacenamiento**.
+    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
-4. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el marcador de posición `<region>` por el nombre de la región de Azure más cercana, como "eastus").
+4. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el marcador de posición `<region>` con el nombre de la región de Azure más cercana, como "eastus").
 
     ```bash
     RESOURCEGROUPNAME='az400m09l16-RG'
@@ -84,7 +84,7 @@ En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azu
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
 
-5. Para crear un plan de App Service ejecuta el comando siguiente:
+5. Ejecuta el comando siguiente para crear un plan de Windows App Service:
 
     ```bash
     SERVICEPLANNAME='az400l16-sp'
@@ -95,7 +95,7 @@ En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azu
 6. Crea una nueva aplicación web con un nombre único.
 
     ```bash
-    WEBAPPNAME=partsunlimited$RANDOM$RANDOM
+    WEBAPPNAME=az400eshoponweb$RANDOM$RANDOM
     az webapp create --resource-group $RESOURCEGROUPNAME --plan $SERVICEPLANNAME --name $WEBAPPNAME 
     ```
 
@@ -103,22 +103,22 @@ En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azu
 
 ### Ejercicio 1: configuración de canalizaciones de CI/CD como código con YAML en Azure DevOps
 
-En este ejercicio, configurarás canalizaciones de CI/CD como código con YAML en Azure DevOps.
+En este ejercicio, configurarás las canalizaciones de CI/CD como código con YAML en Azure DevOps.
 
-#### Tarea 1: agregar una definición de compilación e implementación de YAML
+#### Tarea 1: aregar una definición de compilación e implementación de YAML
 
 En esta tarea, agregarás una definición de compilación de YAML al proyecto existente.
 
 1. Vuelve al panel **Canalizaciones** del centro de **Canalizaciones**.
-2. En la ventana **Crear la primera canalización**, haz clic en **Crear canalización**.
+2. Haga clic en **Nueva canalización** (o en Crear canalización si es la primera que crea).
 
     > **Nota**: usaremos el asistente para crear una nueva definición de canalización de YAML basada en nuestro proyecto.
 
 3. En el panel **¿Dónde está el código?**, haz clic en la opción **Azure Repos Git (YAML)**.
 4. En el panel **Seleccionar un repositorio**, haz clic en **eShopOnWeb**.
-5. En la pantalla **Configuración de la canalización**, desplázate hacia abajo y selecciona **Canalización inicial**.
-6. **Selecciona** todas las líneas de la canalización inicial y elimínalas.
-7. **Copia** la canalización de plantilla completa de la siguiente manera, sabiendo que deberás realizar modificaciones de parámetros **antes de guardar** los cambios:
+5. En el panel **Configurar tu canalización**, desplázate hacia abajo y selecciona **Canalización inicial**.
+6. **Selecciona** todas las líneas de la canalización de inicio y elimínalas.
+7. **Copia** la canalización de plantilla completa de la siguiente manera, sabiendo que deberás modificar los parámetros **antes de guardar** los cambios:
 
 ```
 #Template Pipeline for CI/CD 
@@ -179,23 +179,24 @@ stages:
         downloadPath: '$(Build.ArtifactStagingDirectory)'
 
 ```
-4. Establece el cursor en una nueva línea al final de la definición de YAML (línea 69).
+8. Establece el cursor en una nueva línea al final de la definición de YAML. **Asegúrese de colocar el cursor en la sangría del nivel**de la tarea anterior.
 
-    > **Nota**: esta será la ubicación donde se agregan nuevas tareas.
+    > **Nota**: aquí se agregarán nuevas tareas.
 
-5. En la lista de tareas del lado derecho del panel de código, busca y selecciona la tarea **Implementación de Azure App Service**.
-6. En el panel **Implementación de Azure App Service**, especifica la siguiente configuración y haz clic en **Agregar**:
+9. Haga clic en **Mostrar asistente** en el lado derecho del portal. En la lista de tareas, busque la tarea **Implementación de Azure App Service** y selecciónela.
+10. En el panel **Implementación de Azure App Service**, especifica la siguiente configuración y haz clic en **Agregar**:
 
-    - En la lista desplegable de **Suscripción de Azure**, selecciona la suscripción de Azure en la que has implementado los recursos de Azure anteriormente en el laboratorio, haz clic en **Autorizar** y, cuando se te solicite, autentícate mediante la misma cuenta de usuario que has usado durante la implementación de recursos de Azure.
-    - En la lista desplegable **Nombre de App Service** selecciona el nombre de la aplicación web que has implementado anteriormente en el laboratorio.
+    - En la lista desplegable **Suscripción de Azure**, seleccione la suscripción de Azure en la que implementó los recursos de Azure en este mismo laboratorio; si fuera necesario (y solo si es la primera canalización que crea), haga clic en **Autorizar**y, cuando se le solicite, autentíquese con la cuenta de usuario que usó durante la implementación de recursos de Azure.
+    - Valide que **Tipo de App Service** apunta a Web App en Windows.
+    - En la lista desplegable **Nombre de App Service**, seleccione el nombre de la aplicación web que ha implementado en este mismo laboratorio (**az400eshoponweb...).
     - En el cuadro de texto **Paquete o carpeta**, **actualiza** el valor predeterminado a `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
-7. Para confirmar la configuración del panel Asistente, haz clic en el botón **Agregar**.
+11. Para confirmar la configuración del panel Asistente, haz clic en el botón **Agregar**.
 
     > **Nota**: esto agregará automáticamente la tarea de implementación a la definición de canalización de YAML.
 
-8. El fragmento de código agregado al editor debe ser similar a lo siguiente, lo que refleja el nombre de los parámetros azureSubscription y WebappName:
+12. El fragmento de código agregado al editor debe ser similar al siguiente, lo que refleja el nombre de los parámetros azureSubscription y WebappName:
 
-> **Nota**: el parámetro **packageForLinux** es engañoso en el contexto de este laboratorio, pero es válido para Windows o Linux.
+> **Nota**: el parámetro **packageForLinux** es confuso en este laboratorio, pero es válido para Windows o Linux.
 
     ```yaml
         - task: AzureRmWebAppDeployment@4
@@ -203,33 +204,42 @@ stages:
             ConnectionType: 'AzureRM'
             azureSubscription: 'AZURE SUBSCRIPTION HERE (b999999abc-1234-987a-a1e0-27fb2ea7f9f4)'
             appType: 'webApp'
-            WebAppName: 'eshoponWebYAML369825031'
+            WebAppName: 'az400eshoponWeb369825031'
             packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
     ```
-9. Haz clic en **Guardar**, en el panel **Guardar**, y haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama maestra.
+13. Antes de guardar las actualizaciones en el archivo yml, asígnele un nombre más claro. En la parte superior de la ventana del editor de yaml, aparece el nombre **EShopOnweb/azure-pipelines-#.yml**. (donde # es un número, normalmente 1, pero podría ser diferente en su configuración). Seleccione **ese nombre de archivo y cámbielo **por **m09l16-pipeline.yml**
 
-    > **Nota**: dado que el CI-YAML original no se ha configurado para desencadenar automáticamente una nueva compilación, tenemos que iniciarla manualmente.
+14. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama maestra.
 
-10. En Azure DevOps del menú izquierdo, ve a la pestaña **Canalizaciones** y selecciona **Canalizaciones** de nuevo.
-11. Abre la canalización **EShopOnWeb_MultiStageYAML** y haz clic en **Ejecutar canalización**.
-12. Confirma **Ejecutar** desde el panel que aparece.
-13. Observa que aparecen las dos fases diferentes: **Compilar una solución .Net Core** e **Implementación de una aplicación web en Azure**.
-14. Espera a que se inicie la canalización y a que finalice correctamente la fase de compilación.
-15. Una vez que la fase de implementación quiere iniciarse, se te pedirán **los permisos necesarios**, así como una barra naranja que indica:
+    > **Nota**: dado que el sistema CI-YAML original no se ha configurado para desencadenar automáticamente una nueva compilación, tenemos que iniciarla manualmente.
+
+15. En el menú a la izquierda de Azure DevOps, ve a la pestaña **Canalizaciones** y selecciona **Canalizaciones**. Luego, seleccione **Todo** para abrir todas las definiciones de canalización, no solo las recientes.
+
+Nota: si ha guardado todas las canalizaciones de los ejercicios de laboratorio anteriores, es posible que esta nueva canalización haya reutilizado el nombre de secuencia predeterminado **EShopOnWeb (#)** para la canalización, como se muestra en la captura de pantalla siguiente. Seleccione una canalización (si es posible, la que tenga el número de secuencia más alto, seleccione Editar y valide que apunta al archivo de código m09l16-pipeline.yml). 
+
+![](images/m3/eshoponweb-m9l16-pipeline.png)
+
+11. Para confirmar que esta canalización se ejecuta, haga clic en **Ejecutar** en el panel que aparece y haga clic una vez más en **Ejecutar** para confirmar la operación.
+12. Verás que aparecen dos fases diferentes: **Compilar una solución .Net Core** e **Implementar en una aplicación web de Azure**.
+13. Espere a que se inicie la canalización. 
+
+16. **Ignore** las advertencias que se muestran en la fase de compilación. Espere hasta que complete correctamente la fase de compilación. (puede seleccionar la fase de compilación real para ver más detalles en los registros).
+
+17. Cuando la fase de implementación quiera iniciarse, deberás introducir **los permisos necesarios** y verás una barra naranja que dice:
 
     ```text
     This pipeline needs permission to access a resource before this run can continue to Deploy to an Azure Web App
     ```
 
-16. Haz clic en **Vista**.
-17. En el panel **Esperando revisión**, haz clic en **Permitir**.
-18. Valida el mensaje en la ventana emergente **Permitir** y confirma haciendo clic en **Permitir**.
-19. Esto activa la fase de implementación. Espera a que la implementación se complete correctamente.
+18. Haz clic en **Ver**.
+19. En el panel **Esperando revisión**, haz clic en **Permitir**.
+20. Valida el mensaje en la ventana **Permitir ventana emergente** y confirma haciendo clic en **Permitir**.
+21. Esto activa la fase de implementación. Espera a que la implementación se complete correctamente.
 
 #### Tarea 2: revisar el sitio implementado
 
-1. Vuelve a la ventana del explorador web que muestra Azure Portal y ve a la hoja que muestra las propiedades de la aplicación web de Azure
-2. En la hoja Aplicación web de Azure, haz clic en **Información general** y, en la hoja de información general, haz clic en **Examinar** para abrir el sitio en una nueva pestaña del explorador web.
+1. Vuelve a la ventana del explorador web que muestra el portal de Azure y ve a la hoja que muestra las propiedades de la aplicación web de Azure.
+2. En la hoja de aplicación web de Azure, haz clic en **Información general** y, en la hoja de información general, haz clic en **Examinar** para abrir el sitio en una nueva pestaña del explorador web.
 3. Comprueba que el sitio implementado se cargue según lo previsto en la nueva pestaña del explorador, que muestra el sitio web de comercio electrónico EShopOnWeb.
 
 ### Ejercicio 2: implementación y configuración de Azure Load Testing
@@ -240,72 +250,64 @@ En este ejercicio, implementarás un recurso de Azure Load Testing en Azure y co
 
 En esta tarea, implementarás un recurso de Azure Load Testing en la suscripción de Azure.
 
-1. Desde Azure Portal (https://portal.azure.com), ve a **Crear recurso de Azure**.
-2. En el campo de búsqueda "Buscar en servicios y marketplace", escribe **Azure Load Testing**.
-3. En los resultados de la búsqueda, selecciona **Azure Load Testing** (publicado por Microsoft).
-4. En la página de Azure Load Testing, haz clic en **Crear** para iniciar el proceso de implementación.
-5. En la página "Creación de un recurso de Load Testing", da los detalles necesarios para la implementación del recurso:
+1. Desde el portal de Azure (https://portal.azure.com), ve a **Crear un recurso de Azure**.
+2. En el campo de búsqueda "Buscar servicios y marketplace", escribe **Azure Load Testing**.
+3. En los resultados, selecciona **Azure Load Testing** (publicado por Microsoft).
+4. En la página Azure Load Testing, haz clic en **Crear** para iniciar el proceso de implementación.
+5. En la página "Crear un recurso de prueba de carga", proporciona los detalles necesarios para la implementación de recursos:
 - **Suscripción**: selecciona la suscripción de Azure
-- **Grupo de recursos**: selecciona el grupo de recursos que has usado para implementar Web App Service en el ejercicio anterior.
+- **Grupo de recursos**: selecciona el grupo de recursos que ha usado para implementar Web App Service en el ejercicio anterior.
 - **Nombre**: EShopOnWebLoadTesting
 - **Región**: selecciona una región cercana a tu área
 
     > **Nota**: el servicio Azure Load Testing no está disponible en todas las regiones de Azure.
 
-6. Para validar tu configuración, haz clic en **Revisar y crear**.
-7. Haz clic en **Crear** para confirmar y obtener el recurso de Azure Load Testing implementado.
-8. Has cambiado a la página "La implementación está en curso". La implementación tarda unos minutos en finalizar.
-9. Haz clic en **Ir al recurso** en la página de progreso de la implementación para ir al recurso de Azure Load Testing **EShopOnWebLoadTesting**. 
+6. Para validar la configuración, haz clic en **Revisar y crear**.
+7. Haz clic en **Crear** para confirmar y obtén el recurso Azure Load Testing implementado.
+8. Pasas a la página "La implementación está en curso". La implementación tarda unos minutos en finalizar.
+9. Haz clic en **Ir al recurso** desde la página de progreso de implementación para ir al recurso **EShopOnWebLoadTesting** de Azure Load Testing. 
 
-    > **Nota**: si has cerrado la hoja o has cerrado Azure Portal durante la implementación del recurso de Azure Load Testing, puedes encontrarlo de nuevo en el campo de búsqueda de Azure Portal o desde Recursos/Lista reciente de recursos. 
+    > **Nota**: si has cerrado la hoja o el portal de Azure durante la implementación del recurso  Azure Load Testing, puedes encontrarlo de nuevo desde el campo Búsqueda del portal de Azure o desde Recursos/Lista de recursos recientes. 
 
 #### Tarea 2: crear pruebas de Azure Load Testing
 
-En esta tarea, crearás distintas pruebas de Azure Load Testing con diferentes opciones de configuración de carga. 
+En esta tarea, crearás diferentes pruebas de Azure Load Testing con distintas opciones de configuración de carga. 
 
-10. Desde la hoja Recurso de Azure Load Testing de **EShopOnWebLoadTesting**, observa la **introducción a una prueba rápida** y haz clic en el botón **Prueba rápida**.
-11. Completa los parámetros y la configuración siguientes para crear una prueba de carga:
-- **Dirección URL de prueba**: escribe la dirección URL de Azure App Service que has implementado en el ejercicio anterior (EShopOnWeb... azurewebsites.net), **incluida la https://**
+1. En la hoja del recurso **EShopOnWebLoadTesting** de Azure Load Testing, vaya a **Pruebas**. Haga clic en la opción de menú **+Crear** y seleccione **Crear una prueba basada en URL**. 
+2. Completa los parámetros y la configuración siguientes para crear una prueba de carga:
+- **URL de prueba**: escriba la dirección URL del servicio Azure App Service que implementó en el ejercicio anterior (az400eshoponweb... azurewebsites.net), **incluido https://**
 - **Especificar carga**: usuarios virtuales
 - **Número de usuarios virtuales**: 50
-- **Duración de la prueba (segundos):** 120
-- **Tiempo de aumento (segundos)**: 0
-12. Para confirmar la configuración de la prueba, haz clic en **Ejecutar prueba**.
-13. La prueba durará unos 2 minutos. 
-14. Con la prueba en ejecución, vuelve a la página del recurso de Azure Load Testing **EShopOnWebLoadTesting** Azure Load Testing y ve a **Pruebas**, selecciona **Pruebas** y visualiza una prueba **Get_eshoponweb...**
-15. En el menú superior, haz clic en **Crear**, **Crear una prueba rápida** para crear una segunda prueba de carga.
-16. Completa los siguientes parámetros y ajustes para crear otra prueba de carga:
-- **Dirección URL de prueba**: escribe la dirección URL de Azure App Service que has implementado en el ejercicio anterior (EShopOnWeb... azurewebsites.net), **incluida la https://**
+- **Duración de la prueba (minutos)**: 5
+- **Tiempo de aumento (minutos):**  1
+3. Para confirmar la configuración de la prueba, haga clic en **Revisar y crear**(no realice ningún cambio en las demás pestañas). Haga clic en **Crear** una vez más.
+4. De esta forma se inician las pruebas de carga, que durarán 5 minutos. 
+5. Durante la ejecución de la prueba, vuelve a la página del recurso Azure Load Testing **EShopOnWebLoadTesting** y ve a **Pruebas**. Selecciona **Pruebas** y verás una prueba **Get_eshoponweb...**
+6. En el menú superior, haga clic en **Crear**, **Crear una prueba basada en URL** para crear una segunda prueba de carga.
+7. Completa los siguientes parámetros y ajustes para crear otra prueba de carga:
+- **URL de prueba**: escribe la dirección URL de Azure App Service que has implementado en el ejercicio anterior (EShopOnWeb... azurewebsites.net), **e incluye la https://**
 - **Especificar carga**: solicitudes por segundo (RPS)
 - **Solicitudes por segundo (RPS)**: 100
 - **Tiempo de respuesta (milisegundos)**: 500
-- **Duración de la prueba (segundos)**: 120
-- **Tiempo de aumento (segundos)**: 0
-17. Para confirmar la configuración de la prueba, haz clic en **Ejecutar prueba**.
-18. La prueba durará unos 2 minutos.
+- **Duración de la prueba (minutos)**: 5
+- **Tiempo de aumento (minutos):**  1
+8. Para confirmar la configuración de la prueba, haga clic en **Revisar y crear**y en **Crear** una vez más.
+9. La prueba durará unos 5 minutos.
 
 #### Tarea 3: validar los resultados de Azure Load Testing
 
 En esta tarea, validarás el resultado de una prueba de ejecución de Azure Load Testing. 
 
-Una vez completadas ambas pruebas rápidas, vamos a realizar algunos cambios en ellas y validar los resultados.
+Una vez completadas ambas pruebas rápidas, vamos a hacer algunos cambios en ellas y validar los resultados.
 
-19. En la hoja Recurso de **EShopOnWebLoadTesting**, ve a **Pruebas** y selecciona la primera prueba Get_eshoponwebyaml. Haga clic en **Editar** en el menú superior.
-20. Aquí, el portal te permite cambiar el **nombre de la prueba** del valor predeterminado generado a uno más descriptivo. También te permite hacer cambios en cualquiera de los parámetros definidos anteriormente.
-21. En la hoja **Editar prueba**, ve a la pestaña **Plan de prueba**. 
-22. Aquí es donde puedes administrar el archivo de script de prueba de carga de **Apache JMeter**, que es lo que Azure Load Testing usa como marco. Observa el archivo **quick_test.jmx**. Selecciona este archivo para **abrirlo** en la máquina virtual del laboratorio. En la ventana emergente, selecciona **Visual Studio Code** como editor para abrir el archivo.
-23. Observa la estructura del lenguaje XML del archivo.
-
-    > Nota: para obtener información adicional y entender la sintaxis más avanzada de Apache JMeter, consulta el siguiente vínculo de [Azure Load Testing - Jmeter](https://learn.microsoft.com/en-us/azure/load-testing/how-to-create-and-run-load-test-with-jmeter-script).
-
-24. De nuevo en la vista **Pruebas**, en la que se muestran ambas pruebas, selecciona cualquiera de ellas para abrir una vista más detallada, con solo un **clic**. Esto redirige a la página de prueba más detallada. Desde aquí, puedes validar los detalles de las ejecuciones reales seleccionando **TestRun_mm/dd/yy-hh:hh** de la lista que aparece.
-25. En la página **TestRun** detallada, identifica el resultado real de la simulación de Azure Load Testing. Algunos de los valores son:
+1. En **Azure Load Testing**, vaya a **Pruebas**. Seleccione cualquiera de las definiciones de la prueba para abrir una vista más detallada. Para ello, debe **hacer clic** en una de las pruebas. Esto redirige a la página de prueba más detallada. Desde aquí, puedes validar los detalles de las ejecuciones reales seleccionando **TestRun_mm/dd/yy-hh:hh** de la lista.
+2. En la página **TestRun** detallada, identifique el resultado real de la simulación de Azure Load Testing. Algunos de los valores son:
 - Carga / Total de solicitudes
 - Duration
 - Tiempo de respuesta (Muestra el resultado en segundos, lo que refleja el tiempo de respuesta del percentil 90. Esto significa que, para el 90% de las solicitudes, el tiempo de respuesta estará dentro de los resultados especificados).
 - Rendimiento en solicitudes por segundo
-26. A continuación, se representan muchos de estos valores en líneas gráficas del panel y gráficos.
-27. Dedica unos minutos a **comparar los resultados** de las pruebas simuladas entre sí e **identificar el impacto** de más usuarios sobre el rendimiento de App Service.
+3. A continuación, se representan muchos de estos valores en líneas gráficas del panel y tablas.
+4. Dedica unos minutos a **comparar los resultados** de las pruebas simuladas entre sí, y a **identificar el impacto** de más usuarios en el rendimiento de App Service.
 
 ### Ejercicio 2: automatización de una prueba de carga con CI/CD en canalizaciones de Azure DevOps
 
@@ -313,26 +315,26 @@ Empiece a automatizar las pruebas de carga en Azure Load Testing agregándolo a 
 
 Después de completar este ejercicio, tendrás un flujo de trabajo de CI/CD configurado para ejecutar una prueba de carga con Azure Load Testing.
 
-#### Tarea 1: identificar los detalles de la conexión al servicio de ADO
+#### Tarea 1: identificar los detalles del ADO Service Connection
 
 En esta tarea, concederás los permisos necesarios a la entidad de servicio de Azure DevOps Service Connection.
 
-1. En **Azure DevOps Portal** (https://dev.azure.com), ve al proyecto **EShopOnWeb**.
+1. Desde el portal de **Azure DevOps**(https://dev.azure.com), ve al proyecto **EShopOnWeb**.
 2. Selecciona **Configuración del proyecto** en la esquina inferior izquierda.
 3. En la sección **Canalizaciones**, selecciona **Conexiones de servicio**.
 4. Observa la conexión de servicio, que tiene el nombre de la suscripción de Azure que has usado para implementar recursos de Azure al principio del ejercicio del laboratorio.
-5. **Selecciona Service Connection**. En la pestaña **Información general**, ve a **Detalles** y selecciona **Administrar la entidad de servicio**.
-6. Esto te redirige a Azure Portal, desde donde abre los detalles de la **Entidad de servicio** correspondientes al objeto de identidad.
+5. **Selecciona la conexión de servicio**. En la pestaña **Información general**, ve a **Detalles** y selecciona **Administrar entidad de servicio**.
+6. Esto redirige a Azure Portal, donde figuran los detalles de la **entidad de servicio** del objeto de identidad.
 7. Copia el valor **Nombre para mostrar** (con el formato Nombre_de_Organización_ADO_EShopOnWeb_-b86d9ae1-7552-4b75-a1e0-27fb2ea7f9f4), porque lo necesitarás en los pasos siguientes.
 
 #### Tarea 2: conceder permisos a la entidad de servicio
 
-Azure Load Testing usa RBAC de Azure para conceder permisos para realizar actividades específicas en el recurso de prueba de carga. Para ejecutar una prueba de carga desde la canalización de CI/CD, concede el rol **Colaborador de la prueba de carga** a la entidad de servicio.
+Azure Load Testing usa RBAC de Azure para conceder permisos para realizar actividades específicas en el recurso de prueba de carga. Para ejecutar una prueba de carga desde la canalización de CI/CD, concede el rol **Colaborador de pruebas de carga** a la entidad de servicio.
 
-1. En **Azure Portal**, ve al recurso de **Azure Load Testing**.
+1. En el portal de **Azure**, ve al recurso de **Azure Load Testing**.
 2. Selecciona **Control de acceso (IAM)** > Agregar > Agregar asignación de roles.
 3. En la pestaña **Rol**, seleccione **Colaborador de pruebas de carga** en la lista de roles de funciones de trabajo.
-4. En la pestaña **Miembros**, selecciona **Seleccionar miembros** y luego usa el **nombre para mostrar** que has copiado anteriormente para buscar en la entidad de servicio.
+4. En la pestaña **Miembros**, selecciona **Seleccionar miembros** y luego usa el **nombre para mostrar** que has copiado para buscar en la entidad de servicio.
 5. Selecciona la **entidad de servicio** y luego, **Seleccionar**.
 6. En la **pestaña Revisar + asignar**, seleccione **Revisar + asignar** para agregar la asignación de roles.
 
@@ -344,8 +346,8 @@ Para ejecutar una prueba de carga con Azure Load Testing en un flujo de trabajo 
 
 Realice los pasos siguientes para descargar los archivos de entrada de una prueba de carga existente en Azure Portal:
 
-1. En **Azure Portal**, ve al recurso de **Azure Load Testing**.
-2. En el panel izquierdo, selecciona **Pruebas** para ver la lista de pruebas y selecciona **tu prueba**.
+1. En el portal de **Azure**, ve al recurso de **Azure Load Testing**.
+2. En el panel izquierdo, selecciona **pruebas** para ver la lista y selecciona **tu prueba**.
 3. Seleccione los puntos suspensivos (**...**) que hay junto a la serie de pruebas con la que trabaje y, después, seleccione **Descargar archivo de entrada**.
 4. El explorador descarga una carpeta comprimida que contiene los archivos de entrada de pruebas de carga.
 5. Use cualquier herramienta zip para extraer los archivos de entrada. La carpeta contiene los archivos siguientes:
@@ -353,11 +355,11 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
 - *config.yaml*: el archivo de configuración de YAML de prueba de carga. Haga referencia a este archivo en la definición de flujo de trabajo de CI/CD.
 - *quick_test.jmx*: el script de prueba de JMeter
 
-6. Confirme todos los archivos de entrada extraídos en el repositorio de control de código fuente. Para ello, ve al **Portal de Azure DevOps(https://dev.azure.com)) y ve al proyecto de DevOps **EShopOnWeb****. 
-7. Seleccione **Repositorios**. En la estructura de carpetas de código fuente, observa la subcarpeta **pruebas**. Observa los puntos suspensivos (...) y selecciona **Nuevo > Carpeta**.
-8. especifica **jmeter** como nombre de carpeta y **placeholder.txt** para el nombre de archivo (Nota: no se puede crear una carpeta como vacía)
+6. Confirme todos los archivos de entrada extraídos en el repositorio de control de código fuente. Para ello, ve al **portal de Azure DevOps**(https://dev.azure.com)) y luego al proyecto de **EShopOnWeb** DevOps. 
+7. Seleccione **Repositorios**. En la estructura de carpetas de código fuente, observa la subcarpeta **tests**. Observa los puntos suspensivos (...) y selecciona **Nuevo > Carpeta**.
+8. especifica **jmeter** como el nombre de carpeta y **placeholder.txt** como nombre de archivo (Nota: no se puede crear una carpeta vacía).
 9. Haz clic en **Confirmar** para confirmar la creación del archivo de marcador de posición y la carpeta jmeter.
-10. En la **Estructura de carpetas**, ve a la subcarpeta **jmeter** recién creada. Haz clic en los **puntos suspensivos (...)** y selecciona **Cargar archivos**.
+10. En **Estructura de carpeta**, ve a la nueva subcarpeta **jmeter** creada. Haz clic en los **puntos suspensivos (...)** y selecciona **Cargar archivos**.
 11. Con la opción **Examinar**, ve a la ubicación del archivo ZIP extraído y selecciona **config.yaml** y **quick_test.jmx**.
 12. Haz clic en **Confirmar** para confirmar la carga de archivos en el control de código fuente.
 
@@ -368,8 +370,8 @@ En esta tarea, importarás la extensión Azure Load Testing - Azure DevOps Marke
 1. Para crear y ejecutar una prueba de carga, la definición de flujo de trabajo de Azure Pipelines usa la extensión de **tarea de Azure Load Testing ** del marketplace de Azure DevOps. Abra la [extensión de tarea de Azure Load Testing](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) en el marketplace de Azure DevOps y seleccione **Get it free** (Obtener gratis).
 2. Seleccione la organización de Azure DevOps y, después, seleccione **Install** (Instalar) para instalar la extensión.
 3. Desde el Portal de Azure DevOps y Project, ve a **Canalizaciones** y selecciona la canalización creada al principio de este ejercicio. Haga clic en **Editar**.
-4. En el script YAML, ve a **la línea 56** y presiona ENTRAR/RETORNO para agregar una nueva línea vacía. (aparece justo antes de la fase de implementación del archivo YAML).
-5. En la línea 57, selecciona el Asistente para tareas en el lado derecho y busca **Azure Load Testing**.
+4. En el script YAML, ve a la **línea 56** y presiona ENTRAR/RETORNO para agregar una nueva línea vacía. (aparece justo antes de la fase de implementación del archivo YAML).
+5. En la línea 57, selecciona el Asistente para tareas a la derecha y busca **Azure Load Testing**.
 6. Completa el panel gráfico con la configuración correcta del escenario:
 - Suscripción de Azure: selecciona la suscripción que ejecuta los recursos de Azure
 - Archivo de prueba de carga: '$(Build.SourcesDirectory)/tests/jmeter/config.yaml' 
@@ -377,7 +379,7 @@ En esta tarea, importarás la extensión Azure Load Testing - Azure DevOps Marke
 - Nombre del recurso de prueba de carga: ESHopOnWebLoadTesting
 - Nombre de ejecución de pruebas de carga: ado_run
 - Descripción de la ejecución de pruebas de carga: pruebas de carga desde ADO
-7. Para confirmar la inserción de los parámetros como un fragmento de código de YAML, haz clic en **Agregar**
+7. Para confirmar la inserción de los parámetros como un fragmento de código de YAML, haz clic en **Agregar**.
 8. Si la sangría del fragmento de código YAML presenta errores (líneas onduladas rojas), corrígelas agregando 2 espacios o tabulaciones para colocar el fragmento correctamente.  
 9. En este fragmento de código de ejemplo, verás el aspecto que debería tener el código YAML
 ```
@@ -398,13 +400,13 @@ En esta tarea, importarás la extensión Azure Load Testing - Azure DevOps Marke
       artifact: loadTestResults
 ```
 12.  Si la sangría del fragmento de código YAML presenta errores (líneas onduladas rojas), corrígelas agregando 2 espacios o tabulaciones para colocar el fragmento correctamente.  
-13. Con ambos fragmentos de código agregados a la canalización de CI/CD, **guarda** los cambios. 
-14. Una vez guardada, haz clic en **Ejecutar** para desencadenar la canalización.
-15. Confirma la rama (main) y haz clic en el botón **Ejecutar** para iniciar la ejecución de la canalización.
+13. Con ambos fragmentos de código agregados a la canalización de CI/CD, haz clic en **Guardar**. 
+14. Una vez que hayas guardados, haz clic en **Ejecutar** para desencadenar la canalización.
+15. Confirma la rama (principal) y haz clic en el botón **Ejecutar** para iniciar la ejecución de la canalización.
 16. En la página de estado de la canalización, haz clic en la fase **Compilación** para abrir los detalles de registro detallados de las distintas tareas de la canalización.
-17. Espera a que la canalización inicie la fase de compilación y llegue a la tarea **AzureLoadTest** en el flujo de la canalización. 
-18. Mientras se ejecuta la tarea, ve a **Azure Load Testing** en Azure Portal y ve cómo la canalización crea un RunTest nuevo, denominado **adoloadtest1**. Puedes seleccionarlo para ver los valores de resultado del trabajo TestRun.
-19. Vuelve a la vista Ejecución de canalización de CI/CD de Azure DevOps, donde la **tarea AzureLoadTest** se ha completado correctamente. En los resultados del registro detallado, los valores resultantes de la prueba de carga también serán visibles:
+17. Espera a que la canalización inicie la fase de compilación hasta la tarea **AzureLoadTest** del flujo de canalización. 
+18. Mientras se ejecuta la tarea, ve a **Azure Load Testing** en Azure Portal y examina la forma en que la canalización crea un runTest nuevo, denominado **adoloadtest1**. Puedes seleccionarlo para ver los valores de resultado del trabajo TestRun.
+19. Vuelve a la vista Ejecución de canalización de CI/CD de Azure DevOps, donde la tarea **AzureLoadTest** se ha completado correctamente. En los resultados del registro detallado, los valores resultantes de la prueba de carga también serán visibles:
 
 ```
 Task         : Azure Load Testing
@@ -453,8 +455,8 @@ failureCriteria:
   - percentage(error) > 50
 ```
 5. Guarda los cambios en config.yaml haciendo clic en **Confirmar** y confirma una vez más.
-6. Vuelve a **Canalizaciones** y vuelve a ejecutar la canalización **EShopOnWeb**. Después de unos minutos, completará la ejecución con un estado **error** para la tarea **AzureLoadTest**. 
-7. Abre la vista de registro detallado de la canalización y valida los detalles de **AzureLoadtest**. Este es un ejemplo similar del resultado:
+6. Vuelve a **Canalizaciones** y vuelve a ejecutar la canalización **EShopOnWeb**. Después de unos minutos, completarás la ejecución con un estado de **error** para la tarea **AzureLoadTest**. 
+7. Abre la vista de registro detallado de la canalización y valida los detalles de **AzureLoadtest**. Este es un ejemplo del resultado:
 
 ```
 Creating and running a testRun for the test
@@ -491,9 +493,9 @@ Finishing: AzureLoadTest
 
     > Nota: imagina un escenario real en el que validarías el rendimiento de App Service. Si el rendimiento está por debajo de una retención determinada, significa que hay más carga en la aplicación web, lo que podría desencadenar una nueva implementación en un Azure App Service adicional. Como no podemos controlar el tiempo de respuesta de los entornos de laboratorio de Azure, decidimos revertir la lógica para garantizar el error.
 
-9.  El estado FAILED de la tarea de canalización refleja realmente una validación exitosa de los criterios de requisitos de Azure Load Testing.
+9.  El estado de ERROR de la tarea de canalización refleja realmente una validación exitosa de los criterios de requisitos de Azure Load Testing.
 
-### Ejercicio 3: eliminación de los recursos del laboratorio de Azure
+### Ejercicio 3: eliminación de los recursos del laboratorio de Azure
 
 En este ejercicio, quitarás los recursos de Azure aprovisionados en este laboratorio para eliminar cargos inesperados.
 

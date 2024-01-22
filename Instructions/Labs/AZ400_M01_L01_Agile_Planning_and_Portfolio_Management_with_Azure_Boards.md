@@ -98,7 +98,10 @@ Cada proyecto nuevo se configura con un equipo predeterminado, que coincide con 
 
     ![Haz lo mismo para los Sprints 2 y 3, y asegúrate de que se creen para el equipo "EShop-Web".](images/m1/EShop-WEB-3sprints_v1.png)
 
-11. Cuando vuelvas al panel **Paneles**, en la parte superior del panel, selecciona la pestaña **Áreas**. Encontrarás un área generada automáticamente cuyo nombre coincide con el nombre del equipo.
+11. Todavía en el panel **Configuración del proyecto / Boards / Configuración del equipo**, en la parte superior del panel, seleccione la pestaña **Áreas**. Encontrará un área generada automáticamente con el nombre que coincida con el nombre del equipo.
+
+![En Áreas, seleccione EShopOnWeb\EShop-Web](images/m1/EShop-WEB-areas_v1.png)
+
 12. Haz clic en los puntos suspensivos (...) junto a la entrada **área predeterminada** y, en la lista desplegable, selecciona **Incluir subáreas**.
 
     ![En la pestaña "Áreas", haz clic en el icono de puntos suspensivos (...) del área "EShop-WEB" y selecciona "Incluir subáreas".](images/m1/EShop-WEB-sub_areas_v1.png)
@@ -136,11 +139,13 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 8. En la sección **Trabajo relacionado** en la parte inferior derecha, selecciona la entrada **Agregar vínculo** y, en la lista desplegable, selecciona **Nuevo elemento**.
 9. En el panel **Agregar vínculo**, en la lista desplegable **Tipo de vínculo**, selecciona **Secundario**. A continuación, en la lista desplegable **Tipo de elemento de trabajo**, selecciona **Característica**; en el cuadro de texto **Título** , escribe **Panel de entrenamiento** y haz clic en **Aceptar**.
 
-    ![Introduce el título "Panel de entrenamiento" y haz clic en "Aceptar".](images/m1/EShop-WEB-child_feature_v1.png)
+    ![Introduce el título "Panel de entrenamiento" y haz clic en "Aceptar".](images/m1/EShop-WEB-create_child_feature.png)
 
     > **Nota**: en el **panel de entrenamiento**, ten en cuenta que la asignación, el **área** y la **iteración** ya están establecidos en los mismos valores de la epopeya en la que se basa la característica. Asimismo, la característica se vincula automáticamente con el elemento primario desde el cual se creó.
 
-10. En el panel **Panel de entrenamiento**, haz clic en **Guardar y cerrar**.
+10. Haga clic en **Agregar vínculo** para guardar el elemento secundario. En el **Panel de formación** (Nueva característica), haga clic en **Guardar y cerrar**.
+
+![Epopeya con elemento secundario vinculado](images/m1/EShop-WEB-epic_with_linked_item_v1.png)
 
 11. En el panel de navegación vertical del portal de Azure DevOps, en la lista de elementos **Paneles**, selecciona **Paneles**.
 12. En el panel **Paneles**, selecciona la entrada **paneles de EShop-WEB**. Se abrirá el panel para ese equipo determinado.
@@ -217,23 +222,27 @@ Las reuniones de planificación normalmente constan de dos partes. En la primera
 El trabajo pendiente de sprint debe contener toda la información que el equipo necesita para completar correctamente el trabajo dentro del tiempo asignado sin tener que apresurarse a último momento. Antes de planear el sprint, te recomendamos haber creado, priorizado y calculado el trabajo pendiente, y haber definido los sprints.
 
 1. En el panel de navegación vertical del portal de Azure DevOps, selecciona el icono **Paneles** y, en la lista de elementos **Paneles**, selecciona **Sprints**.
-2. En la pestaña **Panel de tareas** de la vista **Sprints**, en la barra de herramientas a la derecha, selecciona el símbolo ** Ver opciones** (directamente a la izquierda del icono de embudo) y, en la lista desplegable **Ver opciones**, selecciona la entrada **Detalles del trabajo**.
+2. En la pestaña **Panel de tareas** de la vista **Sprints**, en la barra de herramientas a la derecha, selecciona el símbolo ** Ver opciones** (directamente a la izquierda del icono de embudo) y, en la lista desplegable **Ver opciones**, selecciona la entrada **Detalles del trabajo**. Seleccione **Sprint 2** como filtro.
 
     ![En la ventana "Paneles">"Sprints", el equipo "EShop-WEB", selecciona el icono "Ver opciones" y haz clic en "Detalles del trabajo".](images/m1/EShop-WEB-work_details_v1.png)
 
     > **Nota**: el sprint actual tiene un ámbito bastante limitado. Hay dos tareas en la fase **Tareas pendientes**. En este momento, no se ha asignado ninguna tarea. Ambas muestran un valor numérico a la derecha de la entrada **Sin asignar** que representa el cálculo del trabajo restante.
 
-3. En el rectángulo que representa **Agregar página de los últimos tutoriales vistos**, haz clic en la entrada **Sin asignar** y, en la lista de cuentas de usuario, selecciona tu cuenta para asignarte la tarea a ti mismo.
+3. En la columna **ToDo**, fíjese en el elemento de tarea **Agregar página de tutoriales más recientes**, haga clic en la entrada **Sin asignar** y, en la lista de cuentas de usuario, seleccione su cuenta para asignarse la tarea.
 
 4. Selecciona la pestaña **Capacidad** de la vista **Sprints**.
 
-    > **Nota**: esta vista permite definir qué actividades puede realizar un usuario y en qué nivel de capacidad.
+![Vista de capacidad de sprint](images/m1/EShop-WEB-capacity_v1.png)
 
-5. En la pestaña **Capacidad** de la vista **Sprints**, justo debajo de la etiqueta **Actividad**, en la lista desplegable **Sin asignar**, selecciona **Desarrollo** y, en el cuadro de texto **Capacidad por día**, escribe **1**.
+    > **Note**: This view enables you to define what activities a user can take on and at what level of capacity.
+
+5. En la pestaña **Capacidad** de la vista **Sprints**, haga clic en **+Agregar usuario** y seleccione su cuenta de usuario. Para este usuario, establezca el campo **Actividad** en **Desarrollo** y, en el cuadro de texto **Capacidad por día**, escriba **1**.
 
     > **Nota**: esto representa 1 hora de trabajo de desarrollo al día. Ten en cuenta que puedes agregar actividades adicionales por usuario en caso de que hagan otras tareas además de desarrollo.
 
-    > **Nota**: supongamos que vas a tomarte vacaciones.
+![Establecer capacidad de desarrollo para un usuario](images/m1/EShop-WEB-capacity-setdevelopment_v1.png)
+
+    > **Note**: Let's assume you're also going to take some vacation. Which should be added to the capacity view too.
 
 6. En la pestaña ** Capacidad** de la vista **Sprints**, situada junto a la entrada que representa la cuenta de usuario, en la columna **Días libres**, haz clic en la entrada **0 días**. Aparecerá un panel en el que podrás establecer tus días libres.
 7. En el panel que se visualiza, usa la vista de calendario para establecer tus vacaciones de modo que abarquen cinco días laborables durante el sprint actual (dentro de las próximas tres semanas) y, cuando termines, haz clic en **Aceptar**.
@@ -257,7 +266,7 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
     > **Nota**: una manera de resolver este problema de capacidad sería mover la tarea a una iteración futura. Puedes hacerlo de distintas maneras. Por ejemplo, podrías abrir la tarea aquí y editarla en el panel que proporciona acceso a los detalles de la tarea. Otro enfoque sería usar la vista **Trabajo pendiente**, que proporciona una opción de menú en línea para moverla. De todos modos, aún no muevas la tarea.
 
-11. En la pestaña **Panel de tareas** de la vista **Sprints**, en la barra de herramientas a la derecha, selecciona el símbolo **Ver opciones** (directamente a la izquierda del icono de embudo) y, en la lista desplegable **Ver opciones**, selecciona la entrada **Personas**.
+11. En la pestaña **Panel de tareas** de la vista **Sprints**, en la barra de herramientas, a la derecha, seleccione el símbolo **Ver opciones** (directamente a la izquierda del icono de embudo) y, en la lista desplegable **Ver opciones**, seleccione la entrada **Asignado a=**.
 
     > **Nota**: esto ajusta la vista para que puedas revisar el progreso de las tareas por persona, en lugar de por elemento de trabajo pendiente.
 
@@ -273,6 +282,8 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
     ![En la ventana "Configuración", asegúrate de que todos los campos tengan información.](images/m1/EShop-WEB-styles_v1.png)
 
     > **Nota**: todas las tarjetas asignadas a actividades de **Desarrollo** aparecerán de color verde.
+
+    ![Estilos de tareas de sprint](images/m1/EShop-WEB-sprint-green_v1.png)
 
 15. En el panel **Configuración**, selecciona la pestaña **Backlogs** (Trabajos pendientes).
 
@@ -297,7 +308,7 @@ En esta tarea, aprenderás a personalizar paneles Kanban.
 Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de forma constante, Kanban destaca dos procedimientos principales. El primero consiste en visualizar el flujo de trabajo, y requiere asignar las fases de flujo de trabajo del equipo y configurar un panel Kanban que coincida. El segundo consiste en restringir la cantidad de trabajo en curso. Esto requiere establecer los límites de trabajo en curso (WIP, por su sigla en inglés). Después, estará listo para realizar un seguimiento del progreso en el panel Kanban y supervisar las métricas clave para reducir el plazo o el tiempo de ciclo. El panel Kanban convierte el trabajo pendiente en un panel interactivo, de modo que se proporciona un flujo de trabajo visual. A medida que avanza el trabajo desde su concepción hasta la finalización, puede actualizar los elementos en el panel. Cada columna representa una fase de trabajo y cada tarjeta representa un caso de usuario (tarjetas azules) o un error (tarjetas rojas) en esa fase de trabajo. Sin embargo, cada equipo desarrolla su propio proceso a lo largo del tiempo, por lo que la capacidad de personalizar el panel Kanban para que coincida con la forma en que el equipo funciona es fundamental para la entrega correcta.
 
 1. En el panel de navegación vertical del portal de Azure DevOps, en la lista de elementos **Paneles**, selecciona **Paneles**.
-2. En el panel **Paneles**, haz clic en el icono de engranaje **Configurar los ajustes del equipo** (situado a la derecha del icono de embudo).
+2. En el panel **Boards**, haga clic en el icono de engranaje **Configurar ajustes del panel** (directamente a la derecha del icono de embudo).
 
     > **Nota**: el equipo hace hincapié en el trabajo realizado con los datos, por lo que se presta especial atención a cualquier tarea asociada al acceso o el almacenamiento de datos.
 
@@ -307,7 +318,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
     > **Nota**: cada vez que se etiqueta un elemento de trabajo pendiente o un error con **datos**, esa etiqueta se resaltará.
 
-4. En el panel **Configuración**, selecciona la pestaña **Anotaciones**.
+4. En **Configurar ajustes del panel** (engranaje) en el panel **Configuración**, seleccione la pestaña **Anotaciones**.
 
     > **Nota**: puedes especificar qué **Anotaciones** quieres incluir en las tarjetas para que sean más fáciles de leer y navegar. Cuando se habilita una anotación, es fácil acceder a los elementos de trabajo secundarios de ese tipo haciendo clic en la visualización en cada tarjeta.
 
@@ -316,17 +327,17 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
     > **Nota**: la pestaña **Pruebas** te permite configurar cómo se ven y se comportan las pruebas en las tarjetas.
 
 6. En el panel **Configuración**, haz clic en **Guardar y cerrar** para guardar la regla de estilo.
-7. En la pestaña **Panel** del panel **EShop-WEB**, haz clic con el botón derecho en el elemento de trabajo pendiente que representa **Como cliente, me gustaría ver nuevos tutoriales** y selecciona **Abrir**.
-8. En el panel **Como cliente, quiero ver nuevos tutoriales**, en la parte superior del panel, a la derecha de la entrada **0 comentarios**, haz clic en **Agregar etiqueta**.
+7. Desde la pestaña **Panel** del panel **EShop-WEB**, abra el elemento de trabajo que representa el elemento de trabajo pendiente **Como cliente, quiero ver nuevos tutoriales**.
+8. En la vista detallada de elementos, en la parte superior del panel, a la derecha de la entrada **0 comentarios**, haga clic en **Añadir etiqueta**.
 9. En el cuadro de texto que aparece, escribe **datos** y presiona la tecla **Entrar**.
 10. Repite el paso anterior para agregar la etiqueta **ux**.
-11. En el panel **Como cliente, me gustaría ver nuevos tutoriales**, haz clic en **Guardar y cerrar**.
+11. Guarde estas modificaciones haciendo clic en **Guardar y cerrar**.
 
     ![En el panel "Como cliente, me gustaría ver nuevos tutoriales", haz clic en "Guardar y cerrar".](images/m1/EShop-WEB-tags_v1.png)
 
     > **Nota**: ahora las dos etiquetas están visibles en la tarjeta, con la etiqueta **datos** resaltada en amarillo.
 
-12. En el panel **Paneles**, haz clic en el icono de engranaje **Configurar los ajustes del equipo** (situado a la derecha del icono de embudo).
+12. En el panel **Boards**, haga clic en el icono de engranaje **Configurar ajustes del panel** (directamente a la derecha del icono de embudo).
 13. En el panel **Configuración**, selecciona la pestaña **Columnas**.
 
     > **Nota**: esta sección permite agregar nuevas fases al flujo de trabajo.
@@ -335,14 +346,12 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
     > **Nota**: el límite de trabajo en curso de 1 indica que solo puede haber un elemento de trabajo a la vez en esta fase. Normalmente, establecerías un valor más alto, pero solo hay dos elementos de trabajo para demostrar la característica.
 
-15. En el panel **Configuración**, en la pestaña **Columnas**, arrastra y coloca la pestaña recién creada entre **Confirmado** y **Listo**.
-16. En el panel **Configuración**, haz clic en **Guardar y cerrar**.
-
     ![En el panel "Configuración", haz clic en "Guardar y cerrar"](images/m1/EShop-WEB-qa_column_v1.png)
 
-    > **Nota**: comprueba si aparece la nueva fase en el flujo de trabajo.
+15. En el panel **Configuración**, seleccione de nuevo la pestaña **Columnas**. Fíjese en los puntos suspensivos junto a la columna **QA aprobado** que ha creado. Seleccione **Mover a la derecha** dos veces, para que la columna QA aprobado se sitúe entre **Confirmado** y **Hecho**.
+16. En el panel **Configuración**, haga clic en **Guardar**.
 
-17. **Actualiza** el **Portal de paneles**, de modo que la columna 4 **Control de calidad aprobado** aparezca en la vista del panel Kanban.
+17. **Actualice** el **portal de Boards**, para que la columna **QA aprobado** sea visible ahora en la vista del panel de Kanban.
 18. Arrastra el elemento de trabajo **Como cliente, me gustaría ver los últimos tutoriales que he visto** desde la fase **Confirmado** hasta **Control de calidad aprobado**.
 19. Arrastra el elemento de trabajo **Como cliente, me gustaría ver nuevos tutoriales** desde la fase **Aprobado** hasta **Control de calidad aprobado**.
 
@@ -351,7 +360,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
     > **Nota**: la fase ahora supera su límite **WIP** y aparece en rojo como advertencia.
 
 20. Mueve el elemento de trabajo pendiente **Como cliente, me gustaría ver los últimos tutoriales que he visto** al estado **Confirmado**.
-21. En el panel **Paneles**, haz clic en el icono de engranaje **Configurar los ajustes del equipo** (situado a la derecha del icono de embudo).
+21. En el panel **Boards**, haga clic en el icono de engranaje **Configurar ajustes del panel** (directamente a la derecha del icono de embudo).
 22. En el panel **Configuración**, vuelve a la pestaña **Columnas** y selecciona la pestaña **Control de calidad aprobado**.
 
     > **Nota**: suele haber una demora entre el momento en que el trabajo se mueve a una columna y el inicio real del trabajo. Para contrarrestar ese retraso y revelar el estado real del trabajo en curso, puede activar las columnas divididas. Cuando se dividen, cada columna tiene dos subcolumnas, **En curso** y **Listo**. Las columnas divididas permiten al equipo implementar un modelo de extracción. Sin la división de columnas, los equipos insertan el trabajo para indicar que han completado su fase de trabajo. Sin embargo, enviarlo a la siguiente fase no significa necesariamente que un miembro del equipo inicie inmediatamente el trabajo en ese elemento.
@@ -367,19 +376,19 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
     > **Nota**: la fase **Control de calidad aprobado** ahora tiene las columnas **En curso** y **Listo** . También puedes hacer clic en el símbolo informativo (con la letra **i** en un círculo) junto al encabezado de columna para leer la **Definición de Listo**.
 
-26. En el panel **Paneles**, haz clic en el icono de engranaje **Configurar los ajustes del equipo** (situado a la derecha del icono de embudo).
+![División de columnas para QA aprobado](images/m1/EShop-WEB-qa_2columns_v1.png)
+
+26. En el panel **Boards**, haga clic en el icono de engranaje **Configurar ajustes del panel** (directamente a la derecha del icono del embudo).
 
     > **Nota**: el panel Kanban admite la capacidad de visualizar el flujo de trabajo a medida que pasas de Nuevo a Listo. Cuando agregas **calles**, también puedes ver el estado del trabajo que admite diferentes clases de nivel de servicio. Puede crear un carril para representar cualquier otra dimensión que admita sus necesidades de seguimiento.
 
 27. En el panel **Configuración**, selecciona la pestaña **Calles**.
 28. En la pestaña **Calles**, haz clic en **+ Calle** debajo de la etiqueta **Nombre de la calle**, en el cuadro de texto **Nombre**, escribe **Acelerar**.
-29. En el panel **Configuración**, haz clic en **Guardar y cerrar**.
+29. En el panel **Configuración**, haga clic en **Guardar**.
 
-    ![En el panel "Configuración", revisa la información y haz clic en "Guardar y cerrar".](images/m1/EShop-WEB-swimlane_v1.png)
+    ![En el panel "Configuración", revise la información y haga clic en "Guardar".](images/m1/EShop-WEB-swimlane_v1.png)
 
 30. Cuando vuelvas a la pestaña **Panel** del tablero **Paneles**, arrastra y coloca el elemento de trabajo **Confirmado** en la fase **Control de calidad aprobado\|En curso** por la calle **Acelerar** para que se reconozca como prioritario cuando el ancho de banda de control de calidad esté disponible.
-
-    > **Nota**: si quieres revisar un panel más sofisticado con muchos más elementos de trabajo, en la pestaña **Panel** del tablero **Paneles**, en la esquina superior izquierda, selecciona **EShop-WEB** y, en la lista desplegable de equipos, selecciona el **Equipo eShopOnWeb**. Este panel proporciona un área de juegos para que experimentes con los resultados y los revises.
 
 #### Tarea 5: personalizar el proceso del equipo
 
@@ -484,12 +493,24 @@ Los paneles permiten a los equipos visualizar el estado y supervisar el progreso
     ![En la pestaña "Editor" del panel "Consultas > Mis consultas", en la segunda fila, en la columna "Campo", selecciona "Ruta de acceso del área" y, en la lista desplegable "Valor" correspondiente, selecciona "eShopOnWeb\\EShop-WEB"](images/m1/EShop-WEB-query_v1.png)
 
 16. En el panel **Nueva consulta**, en el cuadro de texto **Escribir nombre**, escribe **Tareas web**, en la lista desplegable **Carpeta**, selecciona **Consultas compartidas** y haz clic en **Aceptar**.
-17. Selecciona la pestaña **Gráficos** y haz clic en **+ Nuevo gráfico**.
-18. En el panel **Configurar gráfico**, en el cuadro de texto **Nombre**, escribe **Tareas web: por asignación**; y en la lista desplegable **Agrupar por**, selecciona **Asignada a** y haz clic en **Aceptar** para guardar los cambios.
+17. En la vista **Consultas>Consultas compartidas**, seleccione la pestaña **Gráficos** y haga clic en **+ Nuevo gráfico**.
+18. En el panel **Configurar gráfico**, en el cuadro de texto **Nombre**, escriba **Tareas web - Por asignación**, en la lista desplegable **Agrupar por**, seleccione **Asignado a** y haga clic en **Guardar gráfico** para guardar los cambios.
 
     ![En el panel "Configurar gráfico", en el cuadro de texto "Nombre", escribe "Tareas web: por asignación"; y en la lista desplegable "Agrupar por", selecciona "Asignada a" y haz clic en "Aceptar" para guardar los cambios.](images/m1/EShop-WEB-chart_v1.png)
 
     > **Nota**: ahora puedes agregar este gráfico a un panel.
+
+19. Vuelva a la sección **Paneles** en el menú de **Información general**. En la sección **Eshop-Web**, seleccione el panel **Formación sobre productos** que usó anteriormente, para abrirlo. 
+
+20. Haz clic en **Editar** en el menú superior. En la lista **Agregar widget**, busque **Gráfico** y seleccione **Gráfico para elementos de trabajo**. Haga clic en **Agregar** para agregar este widget al panel de EShop-Web. 
+
+21. Haga clic en el **configurar** (engranaje) dentro del **Gráfico para elementos de trabajo** para abrir la configuración del widget. 
+
+22. Acepte el título tal como está. En **Consulta**, seleccione **Consultas compartidas o tareas web**. Mantenga **Circular** para el tipo de gráfico. En **Agrupar por**, seleccione **Asignado a**. Mantenga los valores predeterminados de Agregación (recuento) y Ordenación (valor / ascendente). 
+
+23. Para confirmar la configuración, haga clic en **Guardar**. 
+
+24. Observe que el gráfico circular de resultados de la consulta se muestra en el panel. **Guarde** los cambios pulsando el botón **Edición finalizada** de la parte superior.
 
 ## Revisar
 
