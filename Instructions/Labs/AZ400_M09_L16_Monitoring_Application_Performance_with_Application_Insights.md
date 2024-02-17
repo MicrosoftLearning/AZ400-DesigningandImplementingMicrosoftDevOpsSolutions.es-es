@@ -4,7 +4,7 @@ lab:
   module: 'Module 09: Implement continuous feedback'
 ---
 
-# Monitoreo de aplicaciones y administración del rendimiento con Application Insights y Azure Load Testing
+# Monitoreo del rendimiento de la aplicación con Azure Load Testing
 
 ## Manual de laboratorio para alumnos
 
