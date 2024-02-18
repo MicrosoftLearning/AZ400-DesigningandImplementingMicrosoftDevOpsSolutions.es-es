@@ -45,7 +45,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y deja los demás campos con los valores predeterminados. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
@@ -53,7 +53,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -72,7 +72,7 @@ En esta tarea, usará Visual Studio Code para crear una plantilla de Azure Bicep
 
 1. En la pestaña del explorador que tiene abierto el proyecto de Azure DevOps, ve a **Repos** y **Archivos**. Abre la carpeta `.azure\bicep` y busca el archivo `simple-windows-vm.bicep`.
 
-   ![Archivo simple-windows-vm.bicep](./images/m06/browsebicepfile.png)
+   ![Archivo simple-windows-vm.bicep](./https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m06/browsebicepfile.png)
 
 1. Revisa la plantilla para comprender mejor su estructura. Hay algunos parámetros con tipos, valores predeterminados y validación, algunas variables y bastantes recursos con estos tipos:
 
@@ -90,7 +90,7 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
 
 1. En primer lugar, es necesario quitar el recurso de almacenamiento de nuestra plantilla principal. En la esquina superior derecha de la ventana del explorador, haz clic en el botón **Editar**:
 
-   ![Botón Editar](./images/m06/edit.png)
+   ![Botón Editar](./https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m06/edit.png)
 
 1. Ahora elimina el recurso de almacenamiento:
 
@@ -107,11 +107,11 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
 
 1. Sin embargo, confirma el archivo. Aún no hemos terminado con él.
 
-   ![Confirmación del archivo](./images/m06/commit.png)
+   ![Confirmación del archivo](./https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m06/commit.png)
 
 1. Luego, mantén el ratón sobre la carpeta bicep, haz clic en el icono de puntos suspensivos y luego selecciona **Nuevo** y **Archivo**. Escribe **storage.bicep** para el nombre y haz clic en **Crear**.
 
-   ![Menú Nuevo archivo](./images/m06/newfile.png)
+   ![Menú Nuevo archivo](./https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m06/newfile.png)
 
 1. Ahora copia el siguiente fragmento de código en el archivo y confirma los cambios:
 
@@ -217,7 +217,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 
 1. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
 
-    ![Nueva conexión de servicio](images/new-service-connection.png)
+    ![Nueva conexión de servicio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/new-service-connection.png)
 
 1. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
 
@@ -228,7 +228,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
     - Identificador de entidad de servicio (appId), clave de entidad de servicio (contraseña) e identificador de inquilino (inquilino).
     - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
 
-    ![Conexión del servicio de Azure](images/azure-service-connection.png)
+    ![Conexión del servicio de Azure](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/azure-service-connection.png)
 
 1. Haz clic en **Comprobar y guardar**.
 
@@ -248,10 +248,10 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 1. En la sección variables, elige un nombre para el grupo de recursos, establece la ubicación que quieres y reemplaza el valor de la conexión de servicio por una de las conexiones de servicio existentes que has creado anteriormente.
 1. Haz clic en el botón **Guardar y ejecutar** de la esquina superior derecha y, cuando aparezca el cuadro de diálogo de confirmación, haz clic en **Guardar y ejecutar** de nuevo.
 
-   ![Guardar y ejecutar la canalización de YAML después de realizar cambios](./images/m06/saveandrun.png)
+   ![Guardar y ejecutar la canalización de YAML después de realizar cambios](./https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m06/saveandrun.png)
 
 1. Espera a que la implementación finalice y revisa los resultados.
-   ![Implementación correcta de recursos en Azure mediante canalizaciones de YAML](./images/m06/deploy.png)
+   ![Implementación correcta de recursos en Azure mediante canalizaciones de YAML](./https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m06/deploy.png)
 
 #### Tarea 3: Eliminar los recursos del laboratorio de Azure
 

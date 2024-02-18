@@ -48,7 +48,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y deja los demás campos con los valores predeterminados. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
@@ -56,7 +56,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -112,7 +112,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 
 6. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
 
-    ![Nueva conexión de servicio](images/new-service-connection.png)
+    ![Nueva conexión de servicio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/new-service-connection.png)
 
     > **Nota**: Si no hay conexiones de servicio creadas anteriormente en la página, el botón de creación de la conexión de servicio se encuentra en el centro de la página y tiene la etiqueta **Crear conexión de servicio**
 
@@ -125,7 +125,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
     - Identificador de entidad de servicio (appId), clave de entidad de servicio (contraseña) e identificador de inquilino (inquilino).
     - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
 
-    ![Conexión del servicio de Azure](images/azure-service-connection.png)
+    ![Conexión del servicio de Azure](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/azure-service-connection.png)
 
 10. Haz clic en **Comprobar y guardar**.
 
@@ -139,7 +139,7 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
 
 3. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-ci-dockercompose.yml** y haz clic en **Continuar**.
 
-    ![Selecciona Canalización](images/select-ci-container-compose.png)
+    ![Selecciona Canalización](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/select-ci-container-compose.png)
 
 4. En la definición de canalización de YAML, personaliza el nombre del grupo de recursos reemplazando **NAME** en **AZ400-EWebShop-NAME** y **YOUR-SUBSCRIPTION-ID** por tu propio identificador de suscripción de Azure.
 
@@ -154,11 +154,11 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
 
 7. Una vez finalizada la ejecución, en Azure Portal, abre el grupo de recursos definido previamente y verás la instancia de Azure Container Registry (ACR) con las imágenes de contenedor creadas, **eshoppublicapi** y **eshopwebmvc**. Solo usarás **eshopwebmvc** en la fase de implementación.
 
-    ![Imágenes de contenedor en ACR](images/azure-container-registry.png)
+    ![Imágenes de contenedor en ACR](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/azure-container-registry.png)
 
 8. Haz clic en **Claves de acceso** y copia el valor de la **contraseña**. Se usará en la siguiente tarea, ya que lo mantendremos como secreto en el Almacén de claves de Azure.
 
-    ![Contraseña de ACR](images/acr-password.png)
+    ![Contraseña de ACR](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/acr-password.png)
 
 #### Tarea 2: crear una instancia del Almacén de claves de Azure
 
@@ -224,7 +224,7 @@ En esta tarea, creará un grupo de variables en Azure DevOps que recuperará el 
 4. En **Variables**, haz clic en **+ Agregar** y selecciona el secreto **acr-secret**. Haga clic en **Aceptar**.
 5. Haga clic en **Guardar**.
 
-    ![Creación de grupo de variables](images/vg-create.png)
+    ![Creación de grupo de variables](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/vg-create.png)
 
 #### Tarea 4: configurar la canalización de CD para implementar el contenedor en instancias de Azure Container (ACI)
 

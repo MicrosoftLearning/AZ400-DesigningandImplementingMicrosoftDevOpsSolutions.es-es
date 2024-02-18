@@ -125,13 +125,13 @@ Verás que la tarea Pruebas unitarias ya forma parte de la canalización.
 
 1. Una vez completada, la pestaña **Prueba** se mostrará como parte de la ejecución de la canalización. Hazle clic para ver el resumen. Deberías ver algo similar a esto:
 
-    ![Resumen de pruebas](images/AZ400_M05_L09_Tests_Summary.png)
+    ![Resumen de pruebas](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/AZ400_M05_L09_Tests_Summary.png)
 
 1. Para más información, en la parte inferior de la página, la tabla muestra una lista de las distintas pruebas de ejecución.
 
     >**Nota**: si la tabla está vacía, debes restablecer los filtros para que se ejecuten todos los detalles sobre las pruebas.
 
-    ![Tabla de pruebas](images/AZ400_M05_L09_Tests_Table.png)
+    ![Tabla de pruebas](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/AZ400_M05_L09_Tests_Table.png)
 
 ## Revisar
 

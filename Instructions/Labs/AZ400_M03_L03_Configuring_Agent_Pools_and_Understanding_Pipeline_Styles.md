@@ -174,7 +174,7 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 
     > **ADVERTENCIA**: ten cuidado con copiar y pegar, asegúrate de que tienes la misma sangría que se mostraba anteriormente.
 
-    ![Sintaxis del grupo de YAML](images/m3/eshoponweb-ci-pr-pool_v1.png)
+    ![Sintaxis del grupo de YAML](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m3/eshoponweb-ci-pr-pool_v1.png)
 
 23. En la esquina superior derecha del panel de **EShopOnWeb**, haga clic en **Guardar y ejecutar**. Esto desencadenará automáticamente la compilación basada en esta canalización.
 24. En el portal de Azure DevOps, en el panel de navegación vertical del lado izquierdo, en la sección **Canalizaciones**, haz clic en **Canalizaciones**. En función de la configuración del laboratorio, es posible que la canalización le solicite permisos. Haga clic en **Permitir** para permitir que se ejecute la canalización. 
@@ -187,7 +187,7 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 3. Revoca el token PAT.
 4. Revierta los cambios en el archivo **eshoponweb-ci-pr.yml**; para ello, vaya a él desde Repos/.ado/eshoponweb-ci-pr.yml, seleccione **Editar** y quite las líneas 13 a 15 (el fragmento de código del grupo de agentes) y cámbielo a `vmImage: windows-latest`, tal como estaba inicialmente. (Esto se debe a que usará el mismo archivo de canalización de ejemplo más adelante en un ejercicio de laboratorio). 
 
-![Revertir el grupo de canalizaciones a la configuración de vmImage](images/m3/eshoponweb-ci-pr-vmimage_v1.png)
+![Revertir el grupo de canalizaciones a la configuración de vmImage](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m3/eshoponweb-ci-pr-vmimage_v1.png)
 
 ## Revisar
 

@@ -52,7 +52,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
@@ -60,7 +60,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -77,7 +77,7 @@ En esta tarea, cambiarás la visibilidad del proyecto de Azure DevOps a público
 
 1. En el equipo de laboratorio, en la ventana del explorador web que muestra el portal de Azure DevOps, abre el proyecto **eShopOnWeb** y haz clic en **Configuración del proyecto** (esquina inferior izquierda). Cambia la **Visibilidad** a **Público**. Haga clic en **Guardar**
 
-![Proyecto de ADO con visualización pública](images/ado-public.png)
+![Proyecto de ADO con visualización pública](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/ado-public.png)
 
 #### Tarea 2: generar un token de acceso personal de Azure DevOps
 
@@ -85,7 +85,7 @@ En esta tarea, generarás un token de acceso personal de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en la ventana del explorador web que muestra el portal de Azure DevOps, en la esquina superior derecha de la página de Azure DevOps, haz clic en el icono **Configuración de usuario**; en el menú desplegable, haz clic en **Tokens de acceso personal** y en el panel **Tokens de acceso personal**, haz clic en **+ Nuevo token**.
 
-    ![Crear PAT](images/PAT.png)
+    ![Crear PAT](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/PAT.png)
 
 2. En el panel **Crear un nuevo token de acceso personal**, haz clic en el vínculo **Mostrar todos los ámbitos**, especifica la siguiente configuración y haz clic en **Crear** (deja las demás opciones con sus valores predeterminados):
 
@@ -122,7 +122,7 @@ En esta tarea, instalarás y configurarás la extensión SonarCloud Azure DevOps
 
 7. Haz clic en **Importar una organización desde Azure**.
 
-    ![Importar una organización de ADO a Sonarcloud](images/sonarcloud-import.png)
+    ![Importar una organización de ADO a Sonarcloud](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonarcloud-import.png)
 
 8. En la página **Crear una organización**, en el **nombre de la organización de Azure DevOps**, escribe el nombre de la organización de Azure DevOps. En el cuadro de texto **Token de acceso personal**, pega el valor del token de Azure DevOps que se ha registrado en la tarea anterior y haz clic en **Continuar**. **Sonarcloud usará este token para analizar el código hospedado en Azure DevOps**
 
@@ -139,13 +139,13 @@ En esta tarea, instalarás y configurarás la extensión SonarCloud Azure DevOps
 11. En la página **Analizar proyectos: seleccionar repositorios**, en la lista de proyectos de Azure DevOps, active la casilla situada junto a la entrada **eshoponweb / eshoponweb** y haga clic en **Configurar**.
 12. En la página **Elegir el método de análisis**, haz clic en el mosaico **Con canalizaciones de Azure DevOps**.
 
-    ![Con canalizaciones de Azure DevOps ](images/sonar-setup.png)
+    ![Con canalizaciones de Azure DevOps ](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-setup.png)
 
     > **Nota**: puedes omitir la creación de extensiones si ya la has instalado.
 
 13. En la página **Analizar un proyecto con Azure Pipelines**, en la página **Agregar un nuevo punto de conexión de servicio Sonarcloud**, sigue los pasos mencionados **en el proyecto de Azure DevOps**, asigna el nombre **SonarSC** a la conexión de servicio, **activa** la casilla para conceder acceso a todas las canalizaciones y haz clic en **Comprobar y guardar**.
 
-    ![Conexión de servicio Sonarcloud](images/sonar-sc.png)
+    ![Conexión de servicio Sonarcloud](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-sc.png)
 
     > **Nota**: en este paso se define cómo se comunicará la canalización de Azure con Sonarcloud. Sonarcloud proporciona un token que usan las canalizaciones para comunicarse con el servicio.
 
@@ -159,13 +159,13 @@ En esta tarea, instalarás y configurarás la extensión SonarCloud Azure DevOps
 
 18. Una vez modificada la canalización, haz clic en **Ejecutar**.
 
-    ![Canalización de Sonar CI](images/sonar-pipeline.png)
+    ![Canalización de Sonar CI](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-pipeline.png)
 
 19. Es posible que debas cambiar la **visibilidad** del proyecto de Azure DevOps a **Privado** para que los agentes ejecuten la canalización (Configuración del proyecto > Información general).
 
 20. En Azure DevOps, ve a  **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente, y cambia su nombre a **eshoponweb-sonar-ci**.
 
-    ![Cambiar el nombre de la canalización](images/sonar-rename.png)
+    ![Cambiar el nombre de la canalización](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-rename.png)
 
 #### Tarea 3: comprobar los resultados de la canalización
 
@@ -185,14 +185,14 @@ En esta tarea, comprobarás los resultados de la canalización.
 
 4. Haz clic en **Establecer nueva definición de código** y selecciona **Versión anterior**.
 
-    ![Informe de Sonarcloud](images/sonar-qg.png)
+    ![Informe de Sonarcloud](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-qg.png)
 
 5. Ve al explorador web en el **portal de Azure DevOps** con la ejecución de compilación más reciente. Haz clic en **Ejecutar nuevo** y, en el panel **Ejecutar canalización**, haz clic en **Ejecutar**.
 6. En el panel de ejecución de compilación, revisa el contenido de la pestaña **Resumen** y después haz clic en el encabezado de pestaña **Extensiones**.
 7. En la pestaña **Extensiones**, haz clic en el **informe SonarCloud detallado**. Se abrirá automáticamente una nueva pestaña del explorador que muestre el informe en la página del proyecto SonarCloud.
 8. Comprueba que el informe y la pestaña de **extensión** de Azure DevOps ahora **incluyan el resultado las validaciones de calidad**.
 
-    ![Validación de calidad aprobada](images/qg-passed.png)
+    ![Validación de calidad aprobada](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/qg-passed.png)
 
 ### Ejercicio 2: análisis de informes de SonarCloud
 
@@ -204,7 +204,7 @@ En esta tarea, analizarás los informes de SonarCloud.
 
 1. En la pestaña **Información general** del proyecto SonarCloud, vemos un resumen del informe sobre la ** evolución de la rama principal**. Si haces clic en el icono de **rama principal** (columna izquierda) y eliges **Código general**, verás un informe más detallado.
 
-    ![Informe de Sonarcloud](images/sonar-report.png)
+    ![Informe de Sonarcloud](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-report.png)
 
     > **Nota**: la página tiene métricas como **Código en mal estado**, **Cobertura**, **Duplicaciones** y **Tamaño** (líneas de código). En la tabla siguiente se explican estos términos.
 
@@ -243,7 +243,7 @@ En esta tarea, configurarás la integración de solicitudes de incorporación de
 4. En la sección **General** de la configuración de **solicitudes de incorporación de cambios**, en la lista desplegable **Proveedor**, selecciona **Azure DevOps Services** y haz clic en **Guardar**.
 5. En la sección **Integración con Azure DevOps Services** de la configuración de **solicitudes de incorporación de cambios**, en el cuadro de texto **Token de acceso personal**, pega el token de acceso personal de Azure DevOps generado anteriormente y haz clic en **Guardar**.
 
-    ![Configuración de la solicitud de incorporación de cambios de Sonarcloud](images/sonar-pr-setup.png)
+    ![Configuración de la solicitud de incorporación de cambios de Sonarcloud](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-pr-setup.png)
 
 #### Tarea 2: configurar una directiva de rama para la integración con SonarCloud
 
@@ -276,14 +276,14 @@ En esta tarea, validarás la integración de solicitudes de incorporación de ca
 4. En el panel **Program.cs**, haz clic en **Confirmar**.
 5. En el panel **Confirmar**, en el cuadro de texto **Nombre de rama**, escribe **branch1**, selecciona la casilla **Crear una solicitud de incorporación de cambios** y haz clic en **Confirmar**.
 
-    ![Confirmación de la solicitud de incorporación de cambios](images/sonar-pr-commit.png)
+    ![Confirmación de la solicitud de incorporación de cambios](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-pr-commit.png)
 
 6. En el panel **Nueva solicitud de incorporación de cambios**, selecciona **Crear**.
 7. En la pestaña **Información general** del panel **Program.cs** actualizado, supervisa el progreso de la compilación hasta su finalización.
 8. La canalización se realizará correctamente, pero se producirá un error en la comprobación opcional 1.
 9. Sonarcloud también agregará comentarios sobre las prácticas no recomendadas recientes a tu solicitud de incorporación de cambios. También puedes revisar el informe completo en Sonarcloud para obtener más información.
 
-    ![Error en la validación de calidad de la solicitud de incorporación de cambios](images/pr-qg-failed.png)![Sonarcloud Decorator](images/sonar-decorator.png)
+    ![Error en la validación de calidad de la solicitud de incorporación de cambios](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/pr-qg-failed.png)![Sonarcloud Decorator](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/sonar-decorator.png)
 
 #### Tarea 4: bloquear las solicitudes de incorporación de cambios en respuesta a errores en las comprobaciones de calidad del código
 

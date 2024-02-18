@@ -50,7 +50,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y deja los demás campos con los valores predeterminados. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
@@ -58,7 +58,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -77,7 +77,7 @@ En esta tarea, activarás WhiteSource Bolt en el proyecto de Azure Devops recié
 
 1. En el equipo de laboratorio, en la ventana del explorador web que muestra el portal de Azure DevOps con el proyecto **eShopOnWeb** abierto, haz clic en el icono de Marketplace > **Examinar Marketplace**.
 
-    ![Examinar Marketplace](images/browse-marketplace.png)
+    ![Examinar Marketplace](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/browse-marketplace.png)
 
 2. En Marketplace, busca **Mend Bolt (anteriormente WhiteSource)** y ábrelo. Mend Bolt es la versión gratuita de la herramienta WhiteSource conocida anteriormente, que examina todos los proyectos y detecta componentes de código abierto, su licencia y vulnerabilidades conocidas.
 
@@ -85,13 +85,13 @@ En esta tarea, activarás WhiteSource Bolt en el proyecto de Azure Devops recié
 
 3. En la página **Mend Bolt (anteriormente WhiteSource),** haz clic en **Obtenerlo de forma gratuita**.
 
-    ![Obtener Mend Bolt](images/mend-bolt.png)
+    ![Obtener Mend Bolt](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/mend-bolt.png)
 
 4. En la página siguiente, selecciona la organización de Azure DevOps correspondiente e **Instalar**. **Continúe con la organización** cuando haya finalizado la instalación.
 
 5. En Azure DevOps, ve a **Configuración de la organización** y selecciona **Mend** en **Extensiones**. Proporciona tu correo electrónico profesional (**tu cuenta personal del laboratorio**, por ejemplo, con AZ400learner@outlook.com en lugar de student@microsoft.com), el nombre de la empresa y otros detalles, y haz clic en el botón **Crear cuenta** para empezar a usar la versión gratuita.
 
-    ![Obtener cuenta Mend](images/mend-account.png)
+    ![Obtener cuenta Mend](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/mend-account.png)
 
 #### Tarea 2: crear y desencadenar una compilación
 
@@ -103,7 +103,7 @@ En esta tarea, crearás y desencadenarás una canalización de compilación de C
 
 3. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-ci-mend.yml** y haz clic en **Continuar**.
 
-    ![Selecciona Canalización](images/select-pipeline.png)
+    ![Selecciona Canalización](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/select-pipeline.png)
 
 4. Revisa la canalización y haz clic en **Ejecutar**. Tardará unos minutos en ejecutarse correctamente.
     > **Nota**: la compilación tardará algunos minutos en completarse. La canalización de compilación está formada por las siguientes tareas:
@@ -113,13 +113,13 @@ En esta tarea, crearás y desencadenarás una canalización de compilación de C
 
 5. Mientras se ejecuta la canalización, vamos a **cambiarle el nombre** para identificarlo más fácilmente (ya que el proyecto se puede usar para varios laboratorios). Ve a la sección **Canalizaciones/Canalizaciones** del proyecto de Azure DevOps, haz clic en el nombre de la canalización en ejecución (obtendrás un nombre predeterminado) y busca la opción **Cambiar nombre/mover** en el icono de puntos suspensivos. Cambia el nombre a **eshoponweb-ci-mend** y haz clic en **Guardar**.
 
-    ![Cambiar el nombre de la canalización](images/rename-pipeline.png)
+    ![Cambiar el nombre de la canalización](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/rename-pipeline.png)
 
 6. Una vez finalizada la ejecución de la canalización, puedes revisar los resultados. Abre la ejecución más reciente de la canalización **eshoponweb-ci-mend**. La pestaña de resumen mostrará los registros de la ejecución, junto con detalles relacionados, como la versión (confirmación) del repositorio usada, el tipo de desencadenador, los artefactos publicados, la cobertura de pruebas, etc.
 
 7. En la pestaña **Mend Bolt**, puedes revisar el análisis de seguridad de OSS. Verás detalles sobre el inventario usado, las vulnerabilidades encontradas (y cómo resolverlas) y un informe interesante sobre las licencias relacionadas con la biblioteca. Tómate un tiempo para revisar el informe.
 
-    ![Resultados de Mend](images/mend-results.png)
+    ![Resultados de Mend](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/mend-results.png)
 
 ## Revisar
 

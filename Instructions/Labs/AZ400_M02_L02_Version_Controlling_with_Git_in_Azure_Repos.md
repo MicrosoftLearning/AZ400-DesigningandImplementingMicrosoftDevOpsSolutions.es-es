@@ -53,7 +53,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
@@ -61,7 +61,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** tiene canalizaciones de YAML de Azure DevOps.
@@ -106,7 +106,7 @@ En esta tarea, aprenderás a clonar un repositorio de Git con Visual Studio Code
 
 3. En la esquina superior derecha del panel del repositorio **eShopOnWeb**, haz clic en **Clonar**.
 
-    ![Clonación del repositorio de Git](images/clone-repo.png)
+    ![Clonación del repositorio de Git](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/clone-repo.png)
 
     > **Nota**: la obtención de una copia local de un repo de Git se denomina *clonación*. Cada herramienta de desarrollo estándar admite esto y podrá conectarse a Azure Repos para extraer las fuentes más recientes para trabajar.
 
@@ -122,7 +122,7 @@ En esta tarea, aprenderás a clonar un repositorio de Git con Visual Studio Code
 
 8. En el símbolo de la paleta de comandos, ejecuta el comando **Git: Clone**.
 
-    ![Paleta de comandos de VS Code](images/vscode-command.png)
+    ![Paleta de comandos de VS Code](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/vscode-command.png)
 
     > **Nota**: para ver todos los comandos pertinentes, puedes empezar escribiendo **Git**.
 
@@ -162,7 +162,7 @@ En esta tarea, usarás Visual Studio Code para confirmar los cambios.
 4. En la ventana de Visual Studio Code, selecciona la pestaña **CONTROL DE CÓDIGO FUENTE** para comprobar que Git ha reconocido el cambio más reciente en el archivo que reside en el clon local del repositorio de Git.
 5. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la parte superior del panel, en el cuadro de texto, escribe **Mi confirmación** como mensaje de confirmación y presiona **Ctrl+Entrar** para confirmarlo en el equipo local.
 
-    ![Primera confirmación](images/first-commit.png)
+    ![Primera confirmación](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/first-commit.png)
 
 6. Si debes almacenar de manera automática y provisional los cambios, y confirmarlos directamente, haz clic en **Siempre**.
 
@@ -178,7 +178,7 @@ En esta tarea, usarás el portal de Azure DevOps para revisar las confirmaciones
 2. En el panel de navegación vertical del portal de Azure DevOps, en la sección **Repos**, selecciona **Confirmaciones**.
 3. Comprueba que la confirmación aparezca en la parte superior de la lista.
 
-    ![Confirmaciones del repo de ADO](images/ado-commit.png)
+    ![Confirmaciones del repo de ADO](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/ado-commit.png)
 
 #### Tarea 3: cambiar fases
 
@@ -204,7 +204,7 @@ En esta tarea, descubrirás el uso de cambios de almacenamiento provisional medi
 
 6. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la parte superior del panel, en el cuadro de texto, escribe **Comentarios agregados** como mensaje de confirmación.
 
-    ![Cambios almacenados provisionalmente](images/staged-changes.png)
+    ![Cambios almacenados provisionalmente](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/staged-changes.png)
 
 7. En la parte superior de la pestaña **CONTROL DE CÓDIGO FUENTE**, haz clic en los puntos suspensivos. En el menú desplegable, selecciona **Confirmar** y, en el menú en cascada, selecciona **Confirmar elementos almacenados provisionalmente**.
 8. En la esquina inferior izquierda de la ventana de Visual Studio Code, haz clic en el botón **Sincronizar cambios** para sincronizar los cambios confirmados con el servidor y, si el sistema te pregunta si quieres continuar, haz clic en **Aceptar** para insertar y extraer confirmaciones hacia los elementos **origin/main** y desde ellos.
@@ -225,7 +225,7 @@ En esta tarea, conocerás el historial de confirmaciones mediante el portal de A
 
 1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** de la ventana de Visual Studio Code abierta, selecciona **Constants.cs** que representa la versión no almacenada provisionalmente del archivo.
 
-    ![Comparación de archivos](images/file-comparison.png)
+    ![Comparación de archivos](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/file-comparison.png)
 
     > **Nota**: se abre una vista de comparación que te permite localizar fácilmente los cambios realizados. En este caso, es solo un comentario.
 
@@ -233,7 +233,7 @@ En esta tarea, conocerás el historial de confirmaciones mediante el portal de A
 3. Desplázate hacia abajo hasta la entrada **Mi confirmación** (insertada anteriormente) y mantén el puntero del mouse sobre esta hasta ver los puntos suspensivos a la derecha.
 4. Haz clic en los puntos suspensivos y, en el menú desplegable, selecciona **Examinar archivos** y revisa los resultados.
 
-    ![Exploración de la confirmación](images/commit-browse.png)
+    ![Exploración de la confirmación](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/commit-browse.png)
 
     > **Nota**: esta vista representa el estado del origen correspondiente a la confirmación, lo que te permite revisar y descargar los archivos de origen.
 
@@ -253,7 +253,7 @@ En esta tarea, crearás una rama mediante Visual Studio Code.
 2. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la esquina inferior izquierda de la ventana de Visual Studio Code, haz clic en **main**.
 3. En la ventana emergente, selecciona **+ Crear nueva rama desde...**.
 
-    ![Crear rama](images/create-branch.png)
+    ![Crear rama](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-branch.png)
 
 4. En el cuadro de texto **Nombre de rama**, escribe **dev** para especificar la nueva rama y presiona **Entrar**.
 5. En el cuadro de texto **Seleccionar una referencia para crear la rama "dev"**, selecciona **main** como la rama de referencia.
@@ -272,7 +272,7 @@ Git realiza un seguimiento de la rama en la que estás trabajando y se asegura d
 4. Mantén el puntero del mouse sobre la entrada de la rama **dev** para ver los puntos suspensivos a la derecha.
 5. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Eliminar rama** y, cuando el sistema te pida confirmación, haz clic en **Eliminar**.
 
-    ![Eliminar rama](images/delete-branch.png)
+    ![Eliminar rama](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/delete-branch.png)
 
 6. Vuelve a la ventana de **Visual Studio Code** y, con la pestaña ** CONTROL DE CÓDIGO FUENTE** seleccionada, en la esquina inferior izquierda de la ventana de Visual Studio Code, haz clic en la entrada **dev**. Verás las ramas existentes en la parte superior de la ventana de Visual Studio Code.
 7. Comprueba que haya dos ramas **dev** en la lista.
@@ -306,7 +306,7 @@ En esta tarea, usarás el portal de Azure DevOps para restaurar la rama que has 
 5. En la sección **Ramas eliminadas**, mantén el puntero del mouse sobre la entrada de rama **dev** para ver los puntos suspensivos a la derecha.
 6. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Restaurar rama**.
 
-    ![restaurar rama](images/restore-branch.png)
+    ![restaurar rama](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/restore-branch.png)
 
     > **Nota**: puedes usar esta funcionalidad para restaurar una rama eliminada si conoces su nombre exacto.
 
@@ -320,12 +320,12 @@ Para simplificar, trabajaremos directamente en el editor de repositorios del exp
 2. En la pestaña **Mías** del panel **Ramas**, mantén el puntero del mouse sobre la entrada de rama **main** para ver los puntos suspensivos a la derecha.
 3. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Directivas de ramas**.
 
-    ![Directivas de ramas](images/branch-policies.png)
+    ![Directivas de ramas](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/branch-policies.png)
 
 4. En la pestaña **main** de la configuración del repositorio, habilita la opción **Requerir un número mínimo de revisores**. Agrega **1** revisor y activa la casilla **Permitir que los solicitantes aprueben sus propios cambios** (ya que eres el único usuario del proyecto para el laboratorio)
 5. En la pestaña **main** de la configuración del repositorio, habilita la opción **Buscar elementos de trabajo vinculados** y déjala configurada como **Obligatorio**.
 
-    ![Configuración de directivas](images/policy-settings.png)
+    ![Configuración de directivas](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/policy-settings.png)
 
 #### Tarea 5: prueba de la directiva de ramas
 
@@ -341,7 +341,7 @@ En esta tarea, usarás el portal de Azure DevOps para probar la directiva y crea
 
 4. Haz clic en **Confirmar > Confirmar**. Verás una advertencia: los cambios realizados en la rama principal solo se pueden hacer mediante una solicitud de incorporación de cambios.
 
-    ![Confirmación denegada de la directiva](images/policy-denied.png)
+    ![Confirmación denegada de la directiva](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/policy-denied.png)
 
 5. Haz clic en **Cancelar** para omitir la confirmación.
 
@@ -361,7 +361,7 @@ En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de inc
 5. Haz clic en **Confirmar > Confirmar** (deja el mensaje de confirmación predeterminado). Esta vez la confirmación funciona, la rama **dev** no tiene directivas.
 6. Aparecerá un mensaje que propone crear una solicitud de incorporación de cambios (ya que la rama **dev** ahora tiene más cambios, en comparación con **main**). Haz clic en **Crear solicitud de incorporación de cambios**.
 
-    ![Crear una solicitud de cambios](images/create-pr.png)
+    ![Crear una solicitud de cambios](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-pr.png)
 
 7. En la pestaña **Nueva solicitud de incorporación de cambios**, deja los valores predeterminados y haz clic en **Crear**.
 8. La solicitud de incorporación de cambios mostrará algunos requisitos con errores o pendientes, en función de las directivas aplicadas a nuestra rama **main** de destino.
@@ -370,7 +370,7 @@ En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de inc
 
 9. En las opciones del lado derecho, haz clic en el botón **+** situado junto a **Elementos de trabajo**. Haz clic en el elemento de trabajo creado anteriormente para vincularlo a la solicitud de incorporación de cambios. Verás uno de los cambios de estado de los requisitos.
 
-    ![Vincular elemento de trabajo](images/link-wit.png)
+    ![Vincular elemento de trabajo](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/link-wit.png)
 
 10. A continuación, abre la pestaña **Archivos** para revisar los cambios propuestos. En una solicitud de incorporación de cambios más completa, podrías revisar los archivos uno por uno (marcado como revisado) y abrir comentarios en las líneas que se pueden prestar a confusión (pasa el mouse sobre el número de línea y verás la opción de publicar un comentario).
 11. Vuelve a la pestaña **Información general** y, en la parte superior derecha, haz clic en **Aprobar**. Todos los requisitos se verán en verde. Ahora puedes hacer clic en **Completar**.
@@ -399,12 +399,12 @@ Al pasar por los diferentes laboratorios del curso en el orden en que se present
 2. En la pestaña **Mina** del panel **Ramas**, pase el puntero del ratón por encima de la entrada de la rama **principal** para que aparezca el símbolo de puntos suspensivos (...) a la derecha.
 3. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Directivas de ramas**.
 
-    ![Configuración de directivas](images/policy-settings.png)
+    ![Configuración de directivas](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/policy-settings.png)
 
 4. En la pestaña **principal** de la configuración del repositorio, desactive la opción para **Requerir un número mínimo de revisores**.
 5. En la pestaña **principal** de la configuración del repositorio, desactive la opción de **Comprobar elementos de trabajo vinculados**.
 
-    ![Directivas de ramas](images/branch-policies.png)
+    ![Directivas de ramas](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/branch-policies.png)
 
 6. Ahora ha deshabilitado o quitado las directivas de rama de la rama principal.
     

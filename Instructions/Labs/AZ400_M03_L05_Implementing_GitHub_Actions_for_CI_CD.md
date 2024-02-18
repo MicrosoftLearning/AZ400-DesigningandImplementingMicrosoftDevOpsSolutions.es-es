@@ -50,7 +50,7 @@ En esta tarea, crearás un repositorio de GitHub público vacío e importarás e
 
 1. En el equipo del laboratorio, abre un explorador web, accede al [sitio web de GitHub](https://github.com/), inicia sesión con tu cuenta y haz clic en **Nuevo** para crear un repositorio nuevo.
 
-    ![Crear repositorio](images/github-new.png)
+    ![Crear repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/github-new.png)
 
 2. En la página **Crear un nuevo repositorio**, haz clic en el vínculo **Importar un repositorio** (debajo del título de página).
 
@@ -69,7 +69,7 @@ En esta tarea, crearás un repositorio de GitHub público vacío e importarás e
 
 5. En la página del repositorio, ve a **Configuración**, haz clic en **Acciones > General** y elige la opción **Permitir todas las acciones y los flujos de trabajo reutilizables**. Haga clic en **Guardar**.
 
-    ![Habilitación de Acciones de GitHub](images/enable-actions.png)
+    ![Habilitación de Acciones de GitHub](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/enable-actions.png)
 
 ### Ejercicio 1: configuración de tu repositorio de GitHub y el acceso a Azure
 
@@ -139,15 +139,15 @@ En esta tarea, revisarás la ejecución del flujo de trabajo de GitHub:
 1. En una ventana del explorador, vuelve al repositorio de GitHub **eShopOnWeb** .
 2. En la página del repositorio, ve a **Acciones** y verás la configuración del flujo de trabajo antes de ejecutarse. Haga clic en él.
 
-    ![Flujo de trabajo de GitHub en curso](images/gh-actions.png)
+    ![Flujo de trabajo de GitHub en curso](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/gh-actions.png)
 
 3. Espera a que finalice la ejecución del flujo de trabajo. En **Resumen**, puedes ver las dos tareas del flujo de trabajo, el estado y los artefactos retenidos de la ejecución. Puedes hacer clic en cada trabajo para revisar los registros.
 
-    ![Ejecución correcta del flujo de trabajo](images/gh-action-success.png)
+    ![Ejecución correcta del flujo de trabajo](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/gh-action-success.png)
 
 4. En otra ventana de navegador, vuelve al Portal de Azure https://portal.azure.com/). Abre el grupo de recursos creado antes. Verás que la Acción de GitHub, mediante una plantilla de bicep, ha creado un plan de App Service de Azure y App Service. Puedes ver el sitio web publicado abriendo App Service y haciendo clic en **Examinar**.
 
-    ![Examinar WebApp](images/browse-webapp.png)
+    ![Examinar WebApp](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/browse-webapp.png)
 
 #### (OPCIONAL) Tarea 4: agregar la aprobación manual previa a la implementación mediante entornos de GitHub
 
@@ -164,13 +164,13 @@ En esta tarea, usarás entornos de GitHub para solicitar la aprobación manual a
 5. En la pestaña **Configurar desarrollo**, activa la opción **Revisores necesarios** y tu cuenta de GitHub como revisor. Haz clic en **Guardar reglas de protección**.
 6. Ahora vamos a probar la regla de protección. En la página del repositorio, ve a **Acciones**, haz clic en el flujo de trabajo **Compilación y prueba de eShopOnWeb** y haz clic en **Ejecutar flujo de trabajo > Ejecutar flujo de trabajo** para la ejecución manual.
 
-    ![flujo de trabajo de desencadenador manual](images/gh-manual-run.png)
+    ![flujo de trabajo de desencadenador manual](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/gh-manual-run.png)
 
 7. Haz clic en la ejecución iniciada del flujo de trabajo y espera a que finalice el trabajo **compilación y prueba**. Verás una solicitud de revisión cuando llegues al trabajo **implementación**.
 
 8. Haz clic en **Revisar implementaciones**, marca **Desarrollo** y haz clic en **Aprobar e implementar**.
 
-    ![aprobación](images/gh-approve.png)
+    ![aprobación](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/gh-approve.png)
 
 9. El flujo de trabajo seguirá ejecutando el trabajo de **implementación** y finalizará.
 

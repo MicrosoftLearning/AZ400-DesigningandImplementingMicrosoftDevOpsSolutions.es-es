@@ -50,7 +50,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
@@ -58,7 +58,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** tiene canalizaciones de YAML de Azure DevOps.
@@ -217,7 +217,7 @@ stages:
 
 Nota: si ha guardado todas las canalizaciones de los ejercicios de laboratorio anteriores, es posible que esta nueva canalización haya reutilizado el nombre de secuencia predeterminado **EShopOnWeb (#)** para la canalización, como se muestra en la captura de pantalla siguiente. Seleccione una canalización (si es posible, la que tenga el número de secuencia más alto, seleccione Editar y valide que apunta al archivo de código m09l16-pipeline.yml). 
 
-![](images/m3/eshoponweb-m9l16-pipeline.png)
+![](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m3/eshoponweb-m9l16-pipeline.png)
 
 11. Para confirmar que esta canalización se ejecuta, haga clic en **Ejecutar** en el panel que aparece y haga clic una vez más en **Ejecutar** para confirmar la operación.
 12. Verás que aparecen dos fases diferentes: **Compilar una solución .Net Core** e **Implementar en una aplicación web de Azure**.

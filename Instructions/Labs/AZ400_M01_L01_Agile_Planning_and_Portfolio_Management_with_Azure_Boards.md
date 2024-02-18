@@ -47,7 +47,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 2. Haz clic en **Avanzado** y especifica **Scrum** como el **Proceso de elemento de trabajo**.
  Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 ### Ejercicio 1: administración de un proyecto con la metodología ágil
 
@@ -65,15 +65,15 @@ Cada proyecto nuevo se configura con un equipo predeterminado, que coincide con 
 
 2. Haz clic en el icono de engranaje con la etiqueta **Configuración del proyecto** situada en la esquina inferior izquierda de la página para abrir la página **Configuración del proyecto**.
 
-    ![Ventana de proyecto de Azure DevOps. Haz clic en la opción "Configuración del proyecto".](images/m1/project_settings_v1.png)
+    ![Ventana de proyecto de Azure DevOps. Haz clic en la opción "Configuración del proyecto".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/project_settings_v1.png)
 
 3. En la sección **General**, selecciona la pestaña **Teams**. Ya hay un equipo predeterminado en este proyecto, **EShopOnWeb Team**, pero crearás uno nuevo para este laboratorio. Haz clic en **Nuevo equipo**.
 
-    ![En la ventana de configuración del proyecto, pestaña "Equipos", haz clic en "Nuevo equipo".](images/m1/new_team_v1.png)
+    ![En la ventana de configuración del proyecto, pestaña "Equipos", haz clic en "Nuevo equipo".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/new_team_v1.png)
 
 4. En el panel **Crear un nuevo equipo**, en el cuadro de texto **Nombre del equipo**, escribe **EShop-Web**, deja otras opciones con sus valores predeterminados y haz clic en **Crear**.
 
-    ![En la ventana "Crear un nuevo equipo", asigna el nombre de equipo "EShop-Web" y haz clic en "Crear".](images/m1/eshopweb-team_v1.png)
+    ![En la ventana "Crear un nuevo equipo", asigna el nombre de equipo "EShop-Web" y haz clic en "Crear".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/eshopweb-team_v1.png)
 
 5. En la lista de **Equipos**, selecciona el equipo recién creado para ver sus detalles.
 
@@ -81,30 +81,30 @@ Cada proyecto nuevo se configura con un equipo predeterminado, que coincide con 
 
 6. Haz clic en el vínculo **Iteraciones y rutas de área** en la parte superior de la página **EShop-Web** para empezar a definir la programación y el ámbito del equipo.
 
-    ![En la ventana de configuración del proyecto, pestaña "Equipos", equipo "EShop-WEB", haz clic en "Iteraciones y rutas de área".](images/m1/EShop-WEB-iterationsareas_v1.png)
+    ![En la ventana de configuración del proyecto, pestaña "Equipos", equipo "EShop-WEB", haz clic en "Iteraciones y rutas de área".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-iterationsareas_v1.png)
 
 7. En la parte superior del panel **Paneles**, selecciona la pestaña **Iteraciones** y haz clic en **+ Seleccionar iteraciones.**
 
-    ![En la pestaña "iteraciones", haz clic en "Seleccionar iteración".](images/m1/EShop-WEB-select_iteration_v1.png)
+    ![En la pestaña "iteraciones", haz clic en "Seleccionar iteración".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-select_iteration_v1.png)
 
 8. Selecciona **EShopOnWeb\Sprint 1** y haz clic en **Guardar y cerrar**. Ten en cuenta que este primer sprint aparecerá en la lista de iteraciones, pero las fechas aún no están establecidas.
 9. Selecciona **Sprint 1** y haz clic en los **puntos suspensivos (...)**. En el menú contextual, selecciona **Editar**.
 
-     ![En la pestaña "iteraciones", haz clic en "Editar".](images/m1/EShop-WEB-edit_iteration_v1.png)
+     ![En la pestaña "iteraciones", haz clic en "Editar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-edit_iteration_v1.png)
 
     > **Nota**: especifica la fecha de inicio como el primer día laborable de la semana pasada y cuenta 3 semanas de trabajo completas para cada sprint. Por ejemplo, si el 6 de marzo es el primer día laborable del sprint, el periodo dura hasta el 24 de marzo. El sprint 2 comienza el 27 de marzo, que es tres semanas después del 6 de marzo.
 
 10. Repite el paso anterior para agregar el **Sprint 2** y el **Sprint 3**. Podrías decir que estamos en la segunda semana del primer sprint.
 
-    ![Haz lo mismo para los Sprints 2 y 3, y asegúrate de que se creen para el equipo "EShop-Web".](images/m1/EShop-WEB-3sprints_v1.png)
+    ![Haz lo mismo para los Sprints 2 y 3, y asegúrate de que se creen para el equipo "EShop-Web".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-3sprints_v1.png)
 
 11. Todavía en el panel **Configuración del proyecto / Boards / Configuración del equipo**, en la parte superior del panel, seleccione la pestaña **Áreas**. Encontrará un área generada automáticamente con el nombre que coincida con el nombre del equipo.
 
-![En Áreas, seleccione EShopOnWeb\EShop-Web](images/m1/EShop-WEB-areas_v1.png)
+![En Áreas, seleccione EShopOnWeb\EShop-Web](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-areas_v1.png)
 
 12. Haz clic en los puntos suspensivos (...) junto a la entrada **área predeterminada** y, en la lista desplegable, selecciona **Incluir subáreas**.
 
-    ![En la pestaña "Áreas", haz clic en el icono de puntos suspensivos (...) del área "EShop-WEB" y selecciona "Incluir subáreas".](images/m1/EShop-WEB-sub_areas_v1.png)
+    ![En la pestaña "Áreas", haz clic en el icono de puntos suspensivos (...) del área "EShop-WEB" y selecciona "Incluir subáreas".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-sub_areas_v1.png)
 
     > **Nota**: la configuración predeterminada para todos los equipos excluye las rutas de subárea. Lo cambiaremos para incluir subáreas para que el equipo pueda ver todos los elementos de trabajo de todos los equipos. O bien, el equipo de administración también puede optar por no incluir subáreas, lo que oculta automáticamente los elementos de trabajo en cuanto se les asigna a uno de los equipos.
 
@@ -122,7 +122,7 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 
 2. En la ventana **Elementos de trabajo**, haz clic en **+ Nuevo elemento de trabajo > Epopeya**.
 
-    ![En la ventana "Paneles">"Elementos de trabajo", haz clic en "Nuevo elemento de trabajo" >Epopeya.](images/m1/EShop-WEB-create_epic_v1.png)
+    ![En la ventana "Paneles">"Elementos de trabajo", haz clic en "Nuevo elemento de trabajo" >Epopeya.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-create_epic_v1.png)
 
 3. En el cuadro de texto **Escribir título**, escribe **Entrenamiento sobre el producto**.
 4. En la esquina superior izquierda, selecciona la entrada **Sin asignar** y, en la lista desplegable, selecciona tu cuenta de usuario para asignar el nuevo elemento de trabajo.
@@ -130,7 +130,7 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 6. Junto a la entrada **Iteración**, selecciona la entrada **eShopOnWeb** y, en la lista desplegable, selecciona **Sprint 2**. Esto establecerá la **iteración** como **eShopOnWeb\Sprint 2**.
 7. Para terminar de hacer cambios, haz clic en **Guardar**. **No cierres**.
 
-    ![Escribe la información mostrada anteriormente y haz clic en "Guardar" en la ventana Epopeya.](images/m1/EShop-WEB-epic_details_v1.png)
+    ![Escribe la información mostrada anteriormente y haz clic en "Guardar" en la ventana Epopeya.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-epic_details_v1.png)
 
     > **Nota**: normalmente, uno completa con la mayor cantidad de información posible, pero esto es suficiente para este laboratorio.
 
@@ -139,18 +139,18 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 8. En la sección **Trabajo relacionado** en la parte inferior derecha, selecciona la entrada **Agregar vínculo** y, en la lista desplegable, selecciona **Nuevo elemento**.
 9. En el panel **Agregar vínculo**, en la lista desplegable **Tipo de vínculo**, selecciona **Secundario**. A continuación, en la lista desplegable **Tipo de elemento de trabajo**, selecciona **Característica**; en el cuadro de texto **Título** , escribe **Panel de entrenamiento** y haz clic en **Aceptar**.
 
-    ![Introduce el título "Panel de entrenamiento" y haz clic en "Aceptar".](images/m1/EShop-WEB-create_child_feature.png)
+    ![Introduce el título "Panel de entrenamiento" y haz clic en "Aceptar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-create_child_feature.png)
 
     > **Nota**: en el **panel de entrenamiento**, ten en cuenta que la asignación, el **área** y la **iteración** ya están establecidos en los mismos valores de la epopeya en la que se basa la característica. Asimismo, la característica se vincula automáticamente con el elemento primario desde el cual se creó.
 
 10. Haga clic en **Agregar vínculo** para guardar el elemento secundario. En el **Panel de formación** (Nueva característica), haga clic en **Guardar y cerrar**.
 
-![Epopeya con elemento secundario vinculado](images/m1/EShop-WEB-epic_with_linked_item_v1.png)
+![Epopeya con elemento secundario vinculado](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-epic_with_linked_item_v1.png)
 
 11. En el panel de navegación vertical del portal de Azure DevOps, en la lista de elementos **Paneles**, selecciona **Paneles**.
 12. En el panel **Paneles**, selecciona la entrada **paneles de EShop-WEB**. Se abrirá el panel para ese equipo determinado.
 
-    ![ En la ventana "Paneles>Paneles", selecciona "Paneles de EShop-WEB"](images/m1/EShop-WEB-_boards_v1.png)
+    ![ En la ventana "Paneles>Paneles", selecciona "Paneles de EShop-WEB"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-_boards_v1.png)
 
 13. En el panel **Paneles**, en la esquina superior derecha, selecciona la entrada **Elementos de trabajos pendientes** y, en la lista desplegable, selecciona **Características**.
 
@@ -159,7 +159,7 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 14. Mantén el puntero del mouse sobre el rectángulo que representa la característica **Panel de entrenamiento**. Aparecerán los puntos suspensivos (...) en la esquina superior derecha.
 15. Haz clic en el icono de puntos suspensivos (...) y, en la lista desplegable, selecciona **Agregar elemento de trabajo pendiente**.
 
-    ![Haz clic en los puntos suspensivos de la característica "Panel de entrenamiento" y haz clic en "Agregar elemento de trabajo pendiente".](images/m1/EShop-WEB-add_pb_v1.png)
+    ![Haz clic en los puntos suspensivos de la característica "Panel de entrenamiento" y haz clic en "Agregar elemento de trabajo pendiente".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-add_pb_v1.png)
 
 16. En el cuadro de texto del nuevo elemento de trabajo pendiente, escribe **Como cliente, me gustaría ver nuevos tutoriales** y presiona la tecla **Entrar** para guardar la entrada.
 
@@ -167,17 +167,17 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 
 17. Repite el paso anterior para agregar dos PBI más, diseñados para que el cliente vea los últimos tutoriales vistos y solicite nuevos tutoriales denominados, respectivamente, **Como cliente, me gustaría ver los últimos tutoriales que he visto** y **Como cliente, me gustaría solicitar nuevos tutoriales**.
 
-    ![Repite haciendo clic en "Agregar trabajo pendiente del producto" ](images/m1/EShop-WEB-pbis_v1.png)
+    ![Repite haciendo clic en "Agregar trabajo pendiente del producto" ](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-pbis_v1.png)
 
 18. En el panel **Paneles**, en la esquina superior derecha, selecciona la entrada **Características** y, en la lista desplegable, selecciona **Elementos de trabajo pendiente**.
 
-     !["Ver elementos de trabajo pendiente" ](images/m1/EShop-WEB-backlog_v1.png)
+     !["Ver elementos de trabajo pendiente" ](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-backlog_v1.png)
 
     > **Nota**: los elementos de trabajo pendiente tienen un estado que define en qué etapa del proceso se encuentran. Aunque puedes abrir y editar el elemento de trabajo con el formulario, es más fácil arrastrar las tarjetas hacia el panel.
 
 19. En la pestaña **Panel** del panel **EShop-WEB**, arrastra el primer elemento de trabajo denominado **Como cliente, me gustaría ver nuevos tutoriales** de las fases **Nuevo** a **Aprobado**.
 
-    ![Mueve el WIT del estado "Nuevo" a "Aprobado"](images/m1/EShop-WEB-new2ap_v1.png)
+    ![Mueve el WIT del estado "Nuevo" a "Aprobado"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-new2ap_v1.png)
 
     > **Nota**: también puedes expandir tarjetas de elementos de trabajo para obtener detalles editables de manera práctica.
 
@@ -186,13 +186,13 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 22. En la pestaña **Panel** del panel **EShop-WEB**, arrastra el segundo elemento de trabajo denominado **Como cliente, me gustaría ver los últimos tutoriales que he visto** desde la fase **Nuevo** hasta **Confirmado**.
 23. En la pestaña **Panel** del panel **EShop-WEB**, arrastra el tercer elemento de trabajo denominado **Como cliente, me gustaría solicitar nuevos tutoriales** de la fase **Nuevo** hasta **Listo**.
 
-    ![WIT movidos a columnas determinadas en los pasos anteriores](images/m1/EShop-WEB-board_pbis_v1.png)
+    ![WIT movidos a columnas determinadas en los pasos anteriores](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-board_pbis_v1.png)
 
     > **Nota**: el panel de tareas es una vista en los trabajos pendientes. También puedes usar la vista tabular.
 
 24. En la pestaña **Panel** del panel **EShop-WEB**, en la parte superior del panel, haz clic en **Ver como trabajo pendiente** para mostrar el formulario tabular.
 
-    ![En el panel "EShop-WEB", haz clic en "Ver como trabajo pendiente"](images/m1/EShop-WEB-view_backlog_v1.png)
+    ![En el panel "EShop-WEB", haz clic en "Ver como trabajo pendiente"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-view_backlog_v1.png)
 
     > **Nota**: puedes usar el signo más situado justo debajo de la etiqueta de pestaña **Trabajo pendiente** del panel **EShop-WEB** para ver las tareas anidadas en estos elementos de trabajo.
 
@@ -200,14 +200,14 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 
 25. En la pestaña **Trabajo pendiente** del panel **EShop-WEB**, en la esquina superior izquierda del panel, haz clic en el segundo signo más de la parte superior, situado junto al primer elemento de trabajo. Aparecerá el panel **NUEVA TAREA**.
 
-    ![Haz clic en "+" para crear la tarea.](images/m1/new_task_v1.png)
+    ![Haz clic en "+" para crear la tarea.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/new_task_v1.png)
 
 26. En la parte superior del panel **NUEVA TAREA**, en el cuadro de texto **Escribir título**, escribe **Agregar página para los tutoriales más recientes**.
 27. En el panel **NUEVA TAREA**, en el cuadro de texto **Trabajo restante**, escribe **5**.
 28. En el panel **NUEVA TAREA**, en la lista desplegable **Actividad**, selecciona **Desarrollo**.
 29. En el panel **NUEVA TAREA**, haz clic en **Guardar y cerrar**.
 
-    ![Rellena los campos "Nueva tarea" y haz clic en "Guardar y cerrar".](images/m1/EShop-WEB-save_task_v1.png)
+    ![Rellena los campos "Nueva tarea" y haz clic en "Guardar y cerrar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-save_task_v1.png)
 
 30. Repite los cinco últimos pasos para agregar otra tarea denominada **Optimizar consulta de datos para los tutoriales más recientes **. Configura tu **Trabajo restante** con el valor **3** y elige la **Actividad**: **Diseño**. Haz clic en **Guardar y cerrar** cuando termines.
 
@@ -224,7 +224,7 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 1. En el panel de navegación vertical del portal de Azure DevOps, selecciona el icono **Paneles** y, en la lista de elementos **Paneles**, selecciona **Sprints**.
 2. En la pestaña **Panel de tareas** de la vista **Sprints**, en la barra de herramientas a la derecha, selecciona el símbolo ** Ver opciones** (directamente a la izquierda del icono de embudo) y, en la lista desplegable **Ver opciones**, selecciona la entrada **Detalles del trabajo**. Seleccione **Sprint 2** como filtro.
 
-    ![En la ventana "Paneles">"Sprints", el equipo "EShop-WEB", selecciona el icono "Ver opciones" y haz clic en "Detalles del trabajo".](images/m1/EShop-WEB-work_details_v1.png)
+    ![En la ventana "Paneles">"Sprints", el equipo "EShop-WEB", selecciona el icono "Ver opciones" y haz clic en "Detalles del trabajo".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-work_details_v1.png)
 
     > **Nota**: el sprint actual tiene un ámbito bastante limitado. Hay dos tareas en la fase **Tareas pendientes**. En este momento, no se ha asignado ninguna tarea. Ambas muestran un valor numérico a la derecha de la entrada **Sin asignar** que representa el cálculo del trabajo restante.
 
@@ -232,7 +232,7 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
 4. Selecciona la pestaña **Capacidad** de la vista **Sprints**.
 
-![Vista de capacidad de sprint](images/m1/EShop-WEB-capacity_v1.png)
+![Vista de capacidad de sprint](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-capacity_v1.png)
 
     > **Note**: This view enables you to define what activities a user can take on and at what level of capacity.
 
@@ -240,19 +240,19 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
     > **Nota**: esto representa 1 hora de trabajo de desarrollo al día. Ten en cuenta que puedes agregar actividades adicionales por usuario en caso de que hagan otras tareas además de desarrollo.
 
-![Establecer capacidad de desarrollo para un usuario](images/m1/EShop-WEB-capacity-setdevelopment_v1.png)
+![Establecer capacidad de desarrollo para un usuario](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-capacity-setdevelopment_v1.png)
 
     > **Note**: Let's assume you're also going to take some vacation. Which should be added to the capacity view too.
 
 6. En la pestaña ** Capacidad** de la vista **Sprints**, situada junto a la entrada que representa la cuenta de usuario, en la columna **Días libres**, haz clic en la entrada **0 días**. Aparecerá un panel en el que podrás establecer tus días libres.
 7. En el panel que se visualiza, usa la vista de calendario para establecer tus vacaciones de modo que abarquen cinco días laborables durante el sprint actual (dentro de las próximas tres semanas) y, cuando termines, haz clic en **Aceptar**.
 
-    ![Introduce "Inicio", "Finalización" y "Días libres" tal como se ha descrito.](images/m1/EShop-WEB-days_off_v1.png)
+    ![Introduce "Inicio", "Finalización" y "Días libres" tal como se ha descrito.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-days_off_v1.png)
 
 8. Cuando vuelvas a la pestaña **Capacidad** de la vista **Sprints**, haz clic en **Guardar**.
 9. Selecciona la pestaña **Panel de tareas** de la vista **Sprints**.
 
-    ![Revisa la información de la sección "Detalles del trabajo" y corrobora que todas las barras de control de tiempo sean verdes. ](images/m1/EShop-WEB-work_details_window_v1.png)
+    ![Revisa la información de la sección "Detalles del trabajo" y corrobora que todas las barras de control de tiempo sean verdes. ](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-work_details_window_v1.png)
 
     > **Nota:** ten en cuenta que el panel **Detalles del trabajo** se ha actualizado para reflejar el ancho de banda disponible. El número real que se muestra en el panel **Detalles del trabajo** puede variar, pero la capacidad total del sprint será igual que la cantidad de días laborables restantes hasta el final del sprint, ya que asignó 1 hora al día. Toma nota de este valor, ya que lo usarás en los próximos pasos.
 
@@ -260,7 +260,7 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
 10. En la pestaña **Panel de tareas** de la vista **Sprints**, en el cuadro que representa **Agregar página para los tutoriales más recientes**, establece la cantidad prevista de horas en **14**, para que coincida con la capacidad total de este sprint, que has identificado en el paso anterior.
 
-    ![Revisa la información de la sección "Detalles del trabajo", que el tiempo asignado del equipo sea mayor que la capacidad.](images/m1/EShop-WEB-over_capacity_v1.png)
+    ![Revisa la información de la sección "Detalles del trabajo", que el tiempo asignado del equipo sea mayor que la capacidad.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-over_capacity_v1.png)
 
     > **Nota**: esto amplía automáticamente el **Desarrollo** y tus capacidades personales al máximo. Puesto que son lo suficientemente grandes como para cubrir las tareas asignadas, permanecen en verde. Sin embargo, la capacidad global del **Equipo** se supera debido a las 3 horas adicionales que requiere la tarea **Optimizar datos de consulta para los últimos tutoriales vistos**.
 
@@ -279,11 +279,11 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
 14. En la sección **Criterios de regla**, en la lista desplegable **Campo**, selecciona **Actividad**, en la lista desplegable **Operador**, selecciona **=** y, en la lista desplegable **Valor**, selecciona **Desarrollo.**
 
-    ![En la ventana "Configuración", asegúrate de que todos los campos tengan información.](images/m1/EShop-WEB-styles_v1.png)
+    ![En la ventana "Configuración", asegúrate de que todos los campos tengan información.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-styles_v1.png)
 
     > **Nota**: todas las tarjetas asignadas a actividades de **Desarrollo** aparecerán de color verde.
 
-    ![Estilos de tareas de sprint](images/m1/EShop-WEB-sprint-green_v1.png)
+    ![Estilos de tareas de sprint](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-sprint-green_v1.png)
 
 15. En el panel **Configuración**, selecciona la pestaña **Backlogs** (Trabajos pendientes).
 
@@ -314,7 +314,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
 3. En el panel **Configuración**, selecciona la pestaña **Colores de etiqueta** y haz clic en **+ Color de etiqueta**. En el cuadro de texto ** Etiqueta**, escribe **datos** y deja el color predeterminado.
 
-    ![En la ventana "Configuración", "Colores de etiqueta", incluir la etiqueta "datos"](images/m1/EShop-WEB-tag_color_v1.png)
+    ![En la ventana "Configuración", "Colores de etiqueta", incluir la etiqueta "datos"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-tag_color_v1.png)
 
     > **Nota**: cada vez que se etiqueta un elemento de trabajo pendiente o un error con **datos**, esa etiqueta se resaltará.
 
@@ -333,7 +333,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 10. Repite el paso anterior para agregar la etiqueta **ux**.
 11. Guarde estas modificaciones haciendo clic en **Guardar y cerrar**.
 
-    ![En el panel "Como cliente, me gustaría ver nuevos tutoriales", haz clic en "Guardar y cerrar".](images/m1/EShop-WEB-tags_v1.png)
+    ![En el panel "Como cliente, me gustaría ver nuevos tutoriales", haz clic en "Guardar y cerrar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-tags_v1.png)
 
     > **Nota**: ahora las dos etiquetas están visibles en la tarjeta, con la etiqueta **datos** resaltada en amarillo.
 
@@ -346,7 +346,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
     > **Nota**: el límite de trabajo en curso de 1 indica que solo puede haber un elemento de trabajo a la vez en esta fase. Normalmente, establecerías un valor más alto, pero solo hay dos elementos de trabajo para demostrar la característica.
 
-    ![En el panel "Configuración", haz clic en "Guardar y cerrar"](images/m1/EShop-WEB-qa_column_v1.png)
+    ![En el panel "Configuración", haz clic en "Guardar y cerrar"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-qa_column_v1.png)
 
 15. En el panel **Configuración**, seleccione de nuevo la pestaña **Columnas**. Fíjese en los puntos suspensivos junto a la columna **QA aprobado** que ha creado. Seleccione **Mover a la derecha** dos veces, para que la columna QA aprobado se sitúe entre **Confirmado** y **Hecho**.
 16. En el panel **Configuración**, haga clic en **Guardar**.
@@ -355,7 +355,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 18. Arrastra el elemento de trabajo **Como cliente, me gustaría ver los últimos tutoriales que he visto** desde la fase **Confirmado** hasta **Control de calidad aprobado**.
 19. Arrastra el elemento de trabajo **Como cliente, me gustaría ver nuevos tutoriales** desde la fase **Aprobado** hasta **Control de calidad aprobado**.
 
-    ![La fase supera ahora su límite **WIP** y aparece en rojo como una advertencia junto a la columna "Control de calidad aprobado"](images/m1/EShop-WEB-wip_limit_v1.png)
+    ![La fase supera ahora su límite **WIP** y aparece en rojo como una advertencia junto a la columna "Control de calidad aprobado"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-wip_limit_v1.png)
 
     > **Nota**: la fase ahora supera su límite **WIP** y aparece en rojo como advertencia.
 
@@ -372,11 +372,11 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 24. En la pestaña **Control de calidad aprobado**, en la parte inferior del panel, en el cuadro de texto **Definición de Listo**, escribe **Passa \*\*todas\*\* las pruebas**.
 25. En el panel **Configuración**, haz clic en **Guardar y cerrar**.
 
-    ![En el panel "Configuración", revisa la información y haz clic en "Guardar y cerrar".](images/m1/dd_v1.png)
+    ![En el panel "Configuración", revisa la información y haz clic en "Guardar y cerrar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/dd_v1.png)
 
     > **Nota**: la fase **Control de calidad aprobado** ahora tiene las columnas **En curso** y **Listo** . También puedes hacer clic en el símbolo informativo (con la letra **i** en un círculo) junto al encabezado de columna para leer la **Definición de Listo**.
 
-![División de columnas para QA aprobado](images/m1/EShop-WEB-qa_2columns_v1.png)
+![División de columnas para QA aprobado](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-qa_2columns_v1.png)
 
 26. En el panel **Boards**, haga clic en el icono de engranaje **Configurar ajustes del panel** (directamente a la derecha del icono del embudo).
 
@@ -386,7 +386,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 28. En la pestaña **Calles**, haz clic en **+ Calle** debajo de la etiqueta **Nombre de la calle**, en el cuadro de texto **Nombre**, escribe **Acelerar**.
 29. En el panel **Configuración**, haga clic en **Guardar**.
 
-    ![En el panel "Configuración", revise la información y haga clic en "Guardar".](images/m1/EShop-WEB-swimlane_v1.png)
+    ![En el panel "Configuración", revise la información y haga clic en "Guardar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-swimlane_v1.png)
 
 30. Cuando vuelvas a la pestaña **Panel** del tablero **Paneles**, arrastra y coloca el elemento de trabajo **Confirmado** en la fase **Control de calidad aprobado\|En curso** por la calle **Acelerar** para que se reconozca como prioritario cuando el ancho de banda de control de calidad esté disponible.
 
@@ -403,7 +403,7 @@ Todos los procesos se comparten dentro de la misma organización. Es decir, uno 
 3. En el menú vertical **Configuración de la organización**, en la sección **Paneles**, selecciona **Proceso**.
 4. En el panel **Todos los procesos**, a la derecha de la entrada **Scrum**, selecciona los puntos suspensivos (...) y, en el menú desplegable, selecciona **Crear proceso heredado**.
 
-    ![En la ventana "Configuración de la organización", en la opción "Proceso", busca el proceso "Scrum" y haz clic en los puntos suspensivos (...) y "Crear proceso heredado"](images/m1/EShop-WEB-inherited_v1.png)
+    ![En la ventana "Configuración de la organización", en la opción "Proceso", busca el proceso "Scrum" y haz clic en los puntos suspensivos (...) y "Crear proceso heredado"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-inherited_v1.png)
 
 5. En el panel **Crear proceso heredado de Scrum**, en el cuadro de texto **Nombre del proceso (obligatorio)**, escribe **Scrum personalizado** y haz clic en **Crear proceso**.
 6. Cuando vuelvas al panel **Todos los procesos**, haz clic en la entrada **Scrum personalizado**.
@@ -412,24 +412,24 @@ Todos los procesos se comparten dentro de la misma organización. Es decir, uno 
 
 7. En el panel **Todos los procesos > Scrum personalizado**, selecciona **Elemento de trabajo pendiente**.
 
-    ![En el panel "Todos los procesos > Scrum personalizado", selecciona "Elemento de trabajo pendiente"](images/m1/EShop-WEB-pbi_field_name_v1.png)
+    ![En el panel "Todos los procesos > Scrum personalizado", selecciona "Elemento de trabajo pendiente"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-pbi_field_name_v1.png)
 
 8. En el panel **Todos los procesos > Scrum personalizado > Elemento de trabajo pendiente**, haz clic en **Campo nuevo**.
 9. En el panel **Agregar un campo al elemento de trabajo pendiente**, en la pestaña **Definición**, en la sección **Crear un campo**, en el cuadro de texto **Nombre**, escribe **Identificador de vale de EShop**.
 
-    ![En el panel "Agregar un campo al elemento de trabajo pendiente", en la pestaña "Definición", en la sección "Crear un campo", en el cuadro de texto "Nombre", escribe "Identificador de vale de EShop".](images/m1/EShop-WEB-pbi_v1.png)
+    ![En el panel "Agregar un campo al elemento de trabajo pendiente", en la pestaña "Definición", en la sección "Crear un campo", en el cuadro de texto "Nombre", escribe "Identificador de vale de EShop".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-pbi_v1.png)
 
 10. En el panel **Agregar un campo al elemento de trabajo pendiente**, haz clic en **Diseño**.
 11. En el panel **Agregar un campo al elemento de trabajo pendiente**, en la pestaña **Diseño**, en el cuadro de texto **Etiqueta**, escribe **Identificador de vale**, selecciona la opción **Crear un nuevo grupo**, en el cuadro de texto **Grupo**, escribe **EShopOnWeb** y haz clic en **Agregar campo**.
 
-    ![En el panel "Agregar un campo al elemento de trabajo pendiente", en la pestaña "Diseño", asegúrate de que se ha incluido la información y haz clic en "Agregar campo".](images/m1/EShop-WEB-pbi_field_layout_v1.png)
+    ![En el panel "Agregar un campo al elemento de trabajo pendiente", en la pestaña "Diseño", asegúrate de que se ha incluido la información y haz clic en "Agregar campo".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-pbi_field_layout_v1.png)
 
     > **Nota**: ahora que se ha configurado el proceso personalizado, vamos a cambiar al proyecto eShopOnWeb para usarlo.
 
 12. Vuelve a la raíz de **Todos los procesos** mediante la ruta de navegación en la sección superior de **Todos los procesos > Scrum personalizado > Elemento de trabajo pendiente**.
 13. En el panel **Todos los procesos**, selecciona la entrada **Scrum**.
 
-    ![En el panel "Todos los procesos", selecciona la entrada "Scrum".](images/m1/scrum_v1.png)
+    ![En el panel "Todos los procesos", selecciona la entrada "Scrum".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/scrum_v1.png)
 
     > **Nota**: nuestro proyecto actual usa **Scrum**.
 
@@ -437,7 +437,7 @@ Todos los procesos se comparten dentro de la misma organización. Es decir, uno 
 15. En la lista de proyectos, en la fila que contiene la entrada **eShopOnWeb**, selecciona el símbolo de puntos suspensivos (...) y, a continuación, selecciona **Cambiar proceso**.
 16. En el panel **Cambiar el proceso del proyecto**, en la lista desplegable **Seleccionar un proceso de destino**, selecciona el proceso **Personalización de Scrum**, haz clic en **Guardar** y después en **Cerrar**.
 
-    ![En el panel "Cambiar el proceso del proyecto", en la lista desplegable "Seleccionar un proceso de destino", selecciona el proceso "Scrum personalizado", haz clic en "Guardar" y después en "Cerrar".](images/m1/EShop-WEB-custom_scrum_v1.png)
+    ![En el panel "Cambiar el proceso del proyecto", en la lista desplegable "Seleccionar un proceso de destino", selecciona el proceso "Scrum personalizado", haz clic en "Guardar" y después en "Cerrar".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-custom_scrum_v1.png)
 
 17. Haz clic en el logotipo de **Azure DevOps** en la esquina superior izquierda para volver a la página raíz de la cuenta.
 18. En la pestaña **Proyectos**, selecciona la entrada que representa el proyecto **eShopOnWeb**.
@@ -445,7 +445,7 @@ Todos los procesos se comparten dentro de la misma organización. Es decir, uno 
 20. En la lista de elementos de trabajo, haz clic en el primer elemento de trabajo pendiente.
 21. Comprueba si ahora tienes el campo **Identificador de vale** en el grupo **eShopOnWeb**, que se definió durante la personalización del proceso. Puedes tratar esto como cualquier otro campo de texto.
 
-    ![Comprueba si ahora tienes el campo "Identificador de vale" en el grupo "eShopOnWeb", que se definió durante la personalización del proceso. Puedes tratar esto como cualquier otro campo de texto.](images/m1/EShop-WEB-verify_v1.png)
+    ![Comprueba si ahora tienes el campo "Identificador de vale" en el grupo "eShopOnWeb", que se definió durante la personalización del proceso. Puedes tratar esto como cualquier otro campo de texto.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-verify_v1.png)
 
     > **Nota**: una vez guardado el elemento de trabajo, Azure DevOps también guardará la nueva información personalizada para que esté disponible para las consultas y el resto de Azure DevOps.
 
@@ -458,15 +458,15 @@ Los paneles permiten a los equipos visualizar el estado y supervisar el progreso
 1. En el panel de navegación vertical del portal de Azure DevOps, selecciona el icono **Información general** y, en la lista de elementos **Información general**, selecciona **Paneles**.
 2. Si es necesario, en el panel **Paneles**, en la esquina superior izquierda, en la sección **Equipo de eShopOnWeb**, selecciona **Equipo de eShopOnWeb - Información general** y revisa el panel existente.
 
-    ![Si es necesario, en "Paneles", en la esquina superior izquierda, en la sección "Equipo de eShopOnWeb", selecciona "Equipo de eShopOnWeb Team - Información general"](images/m1/EShop-WEB-dashboard_v1.png)
+    ![Si es necesario, en "Paneles", en la esquina superior izquierda, en la sección "Equipo de eShopOnWeb", selecciona "Equipo de eShopOnWeb Team - Información general"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-dashboard_v1.png)
 
 3. En **Paneles**, selecciona el menú desplegable situado junto al título **Equipo de eShopOnWeb - Información general** y selecciona **+ Nuevo panel**.
 
-    ![En "Paneles", en la esquina superior izquierda, en la sección "Equipo de eShopOnWeb", selecciona "+ Nuevo panel".](images/m1/new_dashboard_v1.png)
+    ![En "Paneles", en la esquina superior izquierda, en la sección "Equipo de eShopOnWeb", selecciona "+ Nuevo panel".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/new_dashboard_v1.png)
 
 4. En el panel **Crear un panel**, en el cuadro de texto **Nombre**, escribe **Entrenamiento del producto**, en la lista desplegable **Equipo**, selecciona el equipo **EShop-WEB** y haz clic en **Crear**.
 
-    ![En "Crear un panel", en el cuadro de texto "Nombre", escribe "Entrenamiento del producto", en la lista desplegable "Equipo", selecciona el equipo "EShop-WEB" y haz clic en "Crear".](images/m1/EShop-WEB-create_dash_v1.png)
+    ![En "Crear un panel", en el cuadro de texto "Nombre", escribe "Entrenamiento del producto", en la lista desplegable "Equipo", selecciona el equipo "EShop-WEB" y haz clic en "Crear".](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-create_dash_v1.png)
 
 5. En el panel de nuevo panel, haz clic en **Agregar un widget**.
 6. En el panel **Agregar widget**, en el cuadro de texto **Buscar**, escribe **sprint** para buscar widgets existentes que se centran en los sprints. En la lista de resultados, selecciona **Información general de sprint** y haz clic en **Agregar**.
@@ -478,7 +478,7 @@ Los paneles permiten a los equipos visualizar el estado y supervisar el progreso
 9. Cuando vuelvas al panel **Agregar widget**, en el cuadro de texto **Buscar**, escribe **sprint** nuevamente para buscar widgets existentes que se centren en sprints. En la lista de resultados, selecciona **Capacidad de sprint** y haz clic en **Agregar**.
 10. En la vista **Panel**, en la parte superior del panel, haz clic en **Edición finalizada**.
 
-    ![La revisión del panel finalizado debe tener ambos widgets](images/m1/EShop-WEB-finished_dashboard_v1.png)
+    ![La revisión del panel finalizado debe tener ambos widgets](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-finished_dashboard_v1.png)
 
     > **Nota**: ahora puedes revisar dos aspectos importantes del sprint actual en el panel personalizado.
 
@@ -490,13 +490,13 @@ Los paneles permiten a los equipos visualizar el estado y supervisar el progreso
 14. En la pestaña **Editor** del panel **Consultas > Mis consultas**, en la segunda fila, en la columna **Campo**, selecciona **Ruta de acceso del área** y, en la lista desplegable ** Valor** correspondiente, selecciona **eShopOnWeb\\EShop-WEB**.
 15. Haz clic en **Guardar consulta**.
 
-    ![En la pestaña "Editor" del panel "Consultas > Mis consultas", en la segunda fila, en la columna "Campo", selecciona "Ruta de acceso del área" y, en la lista desplegable "Valor" correspondiente, selecciona "eShopOnWeb\\EShop-WEB"](images/m1/EShop-WEB-query_v1.png)
+    ![En la pestaña "Editor" del panel "Consultas > Mis consultas", en la segunda fila, en la columna "Campo", selecciona "Ruta de acceso del área" y, en la lista desplegable "Valor" correspondiente, selecciona "eShopOnWeb\\EShop-WEB"](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-query_v1.png)
 
 16. En el panel **Nueva consulta**, en el cuadro de texto **Escribir nombre**, escribe **Tareas web**, en la lista desplegable **Carpeta**, selecciona **Consultas compartidas** y haz clic en **Aceptar**.
 17. En la vista **Consultas>Consultas compartidas**, seleccione la pestaña **Gráficos** y haga clic en **+ Nuevo gráfico**.
 18. En el panel **Configurar gráfico**, en el cuadro de texto **Nombre**, escriba **Tareas web - Por asignación**, en la lista desplegable **Agrupar por**, seleccione **Asignado a** y haga clic en **Guardar gráfico** para guardar los cambios.
 
-    ![En el panel "Configurar gráfico", en el cuadro de texto "Nombre", escribe "Tareas web: por asignación"; y en la lista desplegable "Agrupar por", selecciona "Asignada a" y haz clic en "Aceptar" para guardar los cambios.](images/m1/EShop-WEB-chart_v1.png)
+    ![En el panel "Configurar gráfico", en el cuadro de texto "Nombre", escribe "Tareas web: por asignación"; y en la lista desplegable "Agrupar por", selecciona "Asignada a" y haz clic en "Aceptar" para guardar los cambios.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/m1/EShop-WEB-chart_v1.png)
 
     > **Nota**: ahora puedes agregar este gráfico a un panel.
 
