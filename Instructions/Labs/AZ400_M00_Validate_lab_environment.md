@@ -59,7 +59,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 2. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Crear proyecto](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-project.png)
 
 #### Tarea 2: importar el repositorio de Git de eShopOnWeb
 
@@ -67,7 +67,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Importar repositorio](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/import-repo.png)
 
 2. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
