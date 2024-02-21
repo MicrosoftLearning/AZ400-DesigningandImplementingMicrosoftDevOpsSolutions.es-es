@@ -51,16 +51,16 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
     ![Importar repositorio](images/import-repo.png)
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-    - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
-    - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
 ### Ejercicio 1: entender una plantilla de Azure Bicep y simplificarla mediante un módulo reutilizable
 
@@ -233,13 +233,14 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 1. Haz clic en **Comprobar y guardar**.
 
 #### Tarea 2: Implementar los recursos en Azure mediante canalizaciones de YAML
+
 1. Vuelve al panel **Canalizaciones** del centro de **Canalizaciones**.
 1. En la ventana **Crear la primera canalización**, haz clic en **Crear canalización**.
 
     > **Nota**: usaremos el asistente para crear una nueva definición de canalización de YAML basada en nuestro proyecto.
 
 1. En el panel **¿Dónde está el código?**, haz clic en la opción **Azure Repos Git (YAML)**.
-1. En el panel **Seleccionar un repositorio**, haz clic en **EShopOnWeb**.
+1. En el panel **Seleccionar un repositorio**, haz clic en **eShopOnWeb**.
 1. En el panel **Configurar tu canalización**, desplázate hacia abajo y selecciona **Archivo YAML de Azure Pipelines existente**.
 1. En la hoja **Seleccionar un archivo YAML existente**, especifica los parámetros siguientes:
    - Rama: **principal**.
@@ -250,7 +251,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 
    ![Guardar y ejecutar la canalización de YAML después de realizar cambios](./images/m06/saveandrun.png)
 
-1. Espera a que la implementación finalice y revisa los resultados.
+1. Espere a que finalice la implementación y revise los resultados.
    ![Implementación correcta de recursos en Azure mediante canalizaciones de YAML](./images/m06/deploy.png)
 
 #### Tarea 3: Eliminar los recursos del laboratorio de Azure
