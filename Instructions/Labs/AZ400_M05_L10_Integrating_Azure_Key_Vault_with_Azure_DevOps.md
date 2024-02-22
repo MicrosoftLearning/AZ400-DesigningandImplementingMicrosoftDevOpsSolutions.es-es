@@ -58,12 +58,12 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
     ![Importar repositorio](images/import-repo.png)
 
-2. El repositorio se organiza de la siguiente manera:
+1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-    - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
-    - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
 ### Ejercicio 1: Configurar la canalización de CI para crear el contenedor eShopOnWeb.
 
@@ -86,12 +86,12 @@ Necesitarás una entidad de servicio para implementar recursos de Azure desde Az
 Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas a una suscripción de Azure desde dentro de una definición de canalización o al crear una nueva conexión de servicio desde la página de configuración del proyecto (opción automática). También puedes crear manualmente la entidad de servicio desde el portal o mediante la CLI de Azure y volver a usarla en proyectos.
 
 1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
-2. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
-3. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
+1. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
+1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
 
    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
-4. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores de la id. de suscripción de Azure y los atributos de la id. de suscripción:
+1. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores de la id. de suscripción de Azure y los atributos de la id. de suscripción:
 
     ```bash
     az account show --query id --output tsv
@@ -100,7 +100,7 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 
     > **Nota**: copia ambos valores en un archivo de texto. Los necesitará más adelante en este laboratorio.
 
-5. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio (reemplaza **myServicePrincipalName** por cualquier cadena única de caracteres que consta de letras y dígitos) y **mySubscriptionID** por su subscriptionId de Azure:
+1. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio (reemplaza **myServicePrincipalName** por cualquier cadena única de caracteres que consta de letras y dígitos) y **mySubscriptionID** por su subscriptionId de Azure:
 
     ```bash
     az ad sp create-for-rbac --name myServicePrincipalName \
@@ -110,24 +110,24 @@ Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas
 
     > **Nota**: el comando generará una salida JSON. Copie los resultados en un archivo de texto. Lo necesitará más adelante en este laboratorio.
 
-6. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
+1. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
 
     ![Nueva conexión de servicio](images/new-service-connection.png)
 
     > **Nota**: Si no hay conexiones de servicio creadas anteriormente en la página, el botón de creación de la conexión de servicio se encuentra en el centro de la página y tiene la etiqueta **Crear conexión de servicio**
 
-7. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
+1. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
 
-8. A continuación, elija **Entidad de servicio (manual)** y haga clic en **Siguiente**.
+1. A continuación, elija **Entidad de servicio (manual)** y haga clic en **Siguiente**.
 
-9. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
+1. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
     - Identificador y nombre de la suscripción.
     - Identificador de entidad de servicio (appId), clave de entidad de servicio (contraseña) e identificador de inquilino (inquilino).
     - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
 
     ![Conexión del servicio de Azure](images/azure-service-connection.png)
 
-10. Haz clic en **Comprobar y guardar**.
+1. Haz clic en **Comprobar y guardar**.
 
 #### Tarea 2: instalar y ejecutar la canalización de CI
 
@@ -135,28 +135,30 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
 
 1. En el equipo de laboratorio, abre un explorador web y ve al proyecto de Azure DevOps **eShopOnWeb**. Ve a **Canalizaciones>Canalizaciones** y haz clic en **Crear canalización** (o **Nueva canalización**).
 
-2. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
+1. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
 
-3. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-ci-dockercompose.yml** y haz clic en **Continuar**.
+1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-ci-dockercompose.yml** y haz clic en **Continuar**.
 
     ![Selecciona Canalización](images/select-ci-container-compose.png)
 
-4. En la definición de canalización de YAML, personaliza el nombre del grupo de recursos reemplazando **NAME** en **AZ400-EWebShop-NAME** y **YOUR-SUBSCRIPTION-ID** por tu propio identificador de suscripción de Azure.
+1. En la definición de canalización de YAML, personalice el nombre del grupo de recursos reemplazando **NAME** en **AZ400-EWebShop-NAME** por un valor único y reemplace **YOUR-SUBSCRIPTION-ID** por su propio subscriptionId de Azure.
 
-5. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente.
+1. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente.
+
+    > **Importante**: si ves el mensaje “Esta canalización necesita permisos para acceder a los recursos antes de que la ejecución pueda pasar de Docker Compose a ACI”, haz clic en Ver, Permitir y Permitir nuevamente. Esto es necesario para permitir que la canalización cree el recurso.
 
     > **Nota**: la compilación tardará algunos minutos en completarse. La canalización de compilación está formada por las siguientes tareas:
     - **AzureResourceManagerTemplateDeployment** usa **Bicep** para implementar una instancia de Azure Container Registry.
     - La tarea de **PowerShell** toma la salida de Bicep (servidor de inicio de sesión acr) y crea una variable de canalización.
     - La tarea **DockerCompose** compila e inserta las imágenes de contenedor para eShopOnWeb en Azure Container Registry.
 
-6. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci-dockercompose** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci-dockercompose** y haz clic en **Guardar**.
 
-7. Una vez finalizada la ejecución, en Azure Portal, abre el grupo de recursos definido previamente y verás la instancia de Azure Container Registry (ACR) con las imágenes de contenedor creadas, **eshoppublicapi** y **eshopwebmvc**. Solo usarás **eshopwebmvc** en la fase de implementación.
+1. Una vez finalizada la ejecución, en Azure Portal, abre el grupo de recursos definido previamente y verás la instancia de Azure Container Registry (ACR) con las imágenes de contenedor creadas, **eshoppublicapi** y **eshopwebmvc**. Solo usarás **eshopwebmvc** en la fase de implementación.
 
     ![Imágenes de contenedor en ACR](images/azure-container-registry.png)
 
-8. Haz clic en **Claves de acceso** y copia el valor de la **contraseña**. Se usará en la siguiente tarea, ya que lo mantendremos como secreto en el Almacén de claves de Azure.
+1. Haga clic en **Claves de acceso**, habilite el **Usuario administrador** si aún no lo ha hecho y copie el valor de **contraseña**. Se usará en la siguiente tarea, ya que lo mantendremos como secreto en Azure Key Vault.
 
     ![Contraseña de ACR](images/acr-password.png)
 
@@ -167,8 +169,8 @@ En esta tarea, crearás una instancia del Almacén de claves de Azure mediante e
 En este escenario de laboratorio, tendremos una instancia de Azure Container (ACI) que extrae y ejecuta una imagen de contenedor almacenada en Azure Container Registry (ACR). Tenemos previsto almacenar la contraseña de ACR como un secreto en el almacén de claves.
 
 1. En el portal de Azure, usa el cuadro de texto **Buscar recursos, servicios y documentos**, en la parte superior de la página de Azure Portal, escriba **Directiva** y presiona la tecla **Entrar**.
-2. Selecciona la hoja **Almacenes de claves**, haz clic en  **Crear>Almacén de claves**.
-3. En la pestaña **Aspectos básicos** de la hoja **Crear un Almacén de claves**, especifica la siguiente configuración y haz clic en **Siguiente**:
+1. Selecciona la hoja **Almacenes de claves**, haz clic en  **Crear>Almacén de claves**.
+1. En la pestaña **Aspectos básicos** de la hoja **Crear un Almacén de claves**, especifica la siguiente configuración y haz clic en **Siguiente**:
 
     | Configuración | Valor |
     | --- | --- |
@@ -181,22 +183,22 @@ En este escenario de laboratorio, tendremos una instancia de Azure Container (AC
            |
     | Protección de purgas | **Deshabilitación de la protección de purga** |
 
-4. En la pestaña **Configuración de acceso** de la hoja **Crear un almacén de claves**, selecciona **Directiva de acceso del almacén** y, luego, en la sección **Directivas de acceso**, haz clic en **+ Crear** para configurar una nueva directiva.
+1. En la pestaña **Configuración de acceso** de la hoja **Crear un almacén de claves**, selecciona **Directiva de acceso del almacén** y, luego, en la sección **Directivas de acceso**, haz clic en **+ Crear** para configurar una nueva directiva.
 
-    > **Nota**: Debes proteger el acceso a los almacenes de claves permitiendo el acceso únicamente a aplicaciones y usuarios autorizados. Para acceder a los datos del almacén, deberás facilitar permisos de lectura (Obtiene o enumera) a la entidad de servicio creada anteriormente que usarás para la autenticación en la canalización. 
+    > **Nota**: Debes proteger el acceso a los almacenes de claves permitiendo el acceso únicamente a aplicaciones y usuarios autorizados. Para acceder a los datos del almacén, deberás facilitar permisos de lectura (Obtiene o enumera) a la entidad de servicio creada anteriormente que usarás para la autenticación en la canalización.
 
     1. En la hoja **Permisos**, debajo de **Permisos de secretos**, marca  los permisos **Obtener** y **enumerar**. Haga clic en **Siguiente**.
     2. En la hoja **Entidad principal**, busca la **entidad de servicio creada anteriormente**, ya sea mediante el identificador o el nombre especificados y selecciónala en la lista. Haz clic en **Siguiente**, **Siguiente**, **Crear** (directiva de acceso).
     3. En la hoja **Revisar y crear**, haz clic en **Crear**.
 
-5. De nuevo en la hoja **Crear un almacén de claves**, haz clic en **Revisar y crear > Crear.**
+1. De nuevo en la hoja **Crear un almacén de claves**, haz clic en **Revisar y crear > Crear.**
 
     > **Nota**: Espera a que se aprovisione Azure Key Vault. Debería tardar menos de un minuto.
 
-6. En la página **Se completó la implementación**, haz clic en **Ir al recurso**.
-7. En la hoja Azure Key Vault (ewebshop-kv-NAME), en el menú vertical del lado izquierdo de la hoja, en la sección **Objetos**, haz clic en **Secretos**.
-8. En la hoja **Secretos**, haz clic en **Generar e importar**.
-9. En la hoja **Crear un secreto**, especifica las siguientes opciones de configuración (deja las demás con los valores predeterminados) y haz clic en **Crear**:
+1. En la página **Se completó la implementación**, haz clic en **Ir al recurso**.
+1. En la hoja Azure Key Vault (ewebshop-kv-NAME), en el menú vertical del lado izquierdo de la hoja, en la sección **Objetos**, haz clic en **Secretos**.
+1. En la hoja **Secretos**, haz clic en **Generar e importar**.
+1. En la hoja **Crear un secreto**, especifica las siguientes opciones de configuración (deja las demás con los valores predeterminados) y haz clic en **Crear**:
 
     | Configuración | Valor |
     | --- | --- |
@@ -210,9 +212,9 @@ En esta tarea, creará un grupo de variables en Azure DevOps que recuperará el 
 
 1. En el equipo de laboratorio, inicia un explorador web y navega hasta el proyecto de Azure DevOps **eShopOnWeb**.
 
-2. En el panel de navegación vertical del portal de Azure DevOps, selecciona **Canalizaciones>Biblioteca**. Haz clic en **+ Grupo de variables**.
+1. En el panel de navegación vertical del portal de Azure DevOps, selecciona **Canalizaciones>Biblioteca**. Haz clic en **+ Grupo de variables**.
 
-3. En el panel **Nuevo grupo de variables**, configura las opciones siguientes:
+1. En el panel **Nuevo grupo de variables**, configura las opciones siguientes:
 
     | Configuración | Valor |
     | --- | --- |
@@ -221,8 +223,8 @@ En esta tarea, creará un grupo de variables en Azure DevOps que recuperará el 
     | Suscripción de Azure | **Conexiones disponibles del servicio de Azure > Suscripciones de Azure** |
     | Nombre del almacén de claves | Nombre del almacén de claves|
 
-4. En **Variables**, haz clic en **+ Agregar** y selecciona el secreto **acr-secret**. Haga clic en **Aceptar**.
-5. Haga clic en **Guardar**.
+1. En **Variables**, haz clic en **+ Agregar** y selecciona el secreto **acr-secret**. Haga clic en **Aceptar**.
+1. Haga clic en **Guardar**.
 
     ![Creación de grupo de variables](images/vg-create.png)
 
@@ -232,19 +234,19 @@ En esta tarea, importarás una canalización de CD, la personalizarás y ejecuta
 
 1. En el equipo de laboratorio, abre un explorador web y ve al proyecto de Azure DevOps **eShopOnWeb**. Ve a **Canalizaciones>Canalizaciones** y haz clic en **Nueva canalización**.
 
-2. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
+1. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
 
-3. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-cd-aci.yml** y haz clic en **Continuar**.
+1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-cd-aci.yml** y haz clic en **Continuar**.
 
-4. En la definición de canalización de YAML, personaliza los siguientes elementos:
+1. En la definición de canalización de YAML, personaliza los siguientes elementos:
 
     - Reemplaza **YOUR-SUBSCRIPTION-ID** con el identificador de la suscripción a Azure.
     - En **az400eshop-NAME**, reemplaza NAME para que sea único globalmente.
     - ** YOUR-ACR.azurecr.io** y **ACR-USERNAME** con el servidor de inicio de sesión de ACR (ambos necesitan el nombre de ACR y se pueden revisar en ACR>Claves de acceso).
     - Reemplaza **AZ400-EWebShop-NAME** con el nombre del grupo de recursos definido antes en el laboratorio.
 
-5. Haz clic en **Guardar y ejecutar**.
-6. Abre la canalización y espera a que se ejecute correctamente.
+1. Haz clic en **Guardar y ejecutar**.
+1. Abre la canalización y espera a que se ejecute correctamente.
 
     > **Importante**: si ves el mensaje “Esta canalización necesita permisos para acceder a los recursos antes de que la ejecución pueda pasar de Docker Compose a ACI”, haz clic en Ver, Permitir y Permitir nuevamente. Esto es necesario para permitir que la canalización cree el recurso.
 
@@ -253,7 +255,7 @@ En esta tarea, importarás una canalización de CD, la personalizarás y ejecuta
     - **Variables (para la fase de implementación)** se conecta con el grupo de variables para utilizar el secreto del Almacén de claves de Azure, **acr-secret**
     - **AzureResourceManagerTemplateDeployment** implementa la instancia de Azure Container (ACI) mediante la plantilla de bicep y proporciona los parámetros de inicio de sesión de ACR para permitir que ACI descargue la imagen de contenedor creada anteriormente desde Azure Container Registry (ACR).
 
-7. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-cd-aci** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-cd-aci** y haz clic en **Guardar**.
 
 ### Ejercicio 2: eliminación de los recursos del laboratorio de Azure
 

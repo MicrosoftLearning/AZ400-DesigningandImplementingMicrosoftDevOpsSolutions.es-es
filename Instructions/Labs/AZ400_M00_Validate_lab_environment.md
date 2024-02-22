@@ -10,15 +10,16 @@ lab:
 
 ## Instrucciones para crear una organización de Azure DevOps (solo tienes que hacerlo una vez)
 
-### Si no tienes una suscripción a Azure, empieza aquí:
+### Comience aquí si no tiene una suscripción de Azure.
+
 1. Obtén un nuevo **código de promoción de Azure Pass** del instructor u otro origen.
 1. Usa una sesión privada del explorador para obtener una nueva **cuenta Microsoft (MSA) personal** en [https://account.microsoft.com](https://account.microsoft.com).
 1. Con la misma sesión del explorador, ve a [https://www.microsoftazurepass.com](https://www.microsoftazurepass.com) para canjear tu pase de Azure mediante tu cuenta Microsoft (MSA). Para más información, consulta [Canje de un pase de Microsoft Azure](https://www.microsoftazurepass.com/Home/HowTo?Length=5). Sigue las instrucciones de canje
 
-### Empieza aquí si dispones de una suscripción a Azure:
+### Comience aquí si tiene una suscripción de Azure.
 
 1. Abre un explorador y ve a [https://portal.azure.com](https://portal.azure.com), y luego busca en la parte superior de la pantalla de Azure Portal para **Azure DevOps**. En la página resultante, haz clic en **Organizaciones de Azure DevOps**.
-1. Después haz clic en el enlace con la etiqueta **My Azure DevOps Organizations ** o ve directamente a https://aex.dev.azure.com[](https://aex.dev.azure.com).
+1. Después haz clic en el enlace con la etiqueta **My Azure DevOps Organizations ** o ve directamente a [https://aex.dev.azure.com](https://aex.dev.azure.com).
 1. En la página **Necesitamos más detalles**, selecciona **Continuar**.
 1. En el cuadro desplegable de la izquierda, elige **Directorio predeterminado**, en lugar de “Cuenta Microsoft”.
 1. Si se te solicita (*“Necesitamos algunos detalles más”),* proporciona tu nombre, dirección de correo electrónico y ubicación y haz clic en **Continuar**.
@@ -57,7 +58,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
     - Avanzado: Control de versiones: **Git**
     - Avanzado: Proceso de elemento de trabajo: **Scrum**
 
-2. Haga clic en **Crear**.
+1. Haga clic en **Crear**.
 
     ![Crear proyecto](images/create-project.png)
 
@@ -65,15 +66,15 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
     ![Importar repositorio](images/import-repo.png)
 
-2. El repositorio se organiza de la siguiente manera:
+1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-    - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
-    - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
 Ahora has completado los pasos previos necesarios para continuar con los diferentes laboratorios individuales para este curso AZ-400.
