@@ -49,10 +49,10 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-2. El repositorio se organiza de la siguiente manera:
+1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene las infraestructuras de Bicep y de ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
     - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub de YAML.
     - La carpeta **src** contiene el sitio web de .NET que se usa en los escenarios de laboratorio.
 
@@ -67,11 +67,11 @@ En esta tarea, importarás la definición de compilación de YAML que se usará 
 Empecemos importando la canalización de compilación denominada [eshoponweb-ci-pr.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci-pr.yml).
 
 1. Ve a **Canalizaciones>Canalizaciones**
-2. Haz clic en el botón **Crear canalización** o **Nueva canalización.**
-3. Selecciona **Git de Azure Repos (YAML)**
-4. Selecciona el repositorio **eShopOnWeb**
-5. Selecciona **Archivo YAML de Azure Pipelines existente**
-6. Selecciona el archivo **/.ado/eshoponweb-ci-pr.yml** y haz clic en **Continuar**
+1. Haz clic en el botón **Crear canalización** o **Nueva canalización.**
+1. Selecciona **Git de Azure Repos (YAML)**
+1. Selecciona el repositorio **eShopOnWeb**
+1. Selecciona **Archivo YAML de Azure Pipelines existente**
+1. Selecciona el archivo **/.ado/eshoponweb-ci-pr.yml** y haz clic en **Continuar**
 
     La canalización de compilación está formada por las siguientes tareas:
     - **DotNet Restore**: con la restauración de paquetes NuGet, puedes instalar todas las dependencias del proyecto sin tener que almacenarlas en el control de código fuente.
@@ -79,42 +79,42 @@ Empecemos importando la canalización de compilación denominada [eshoponweb-ci-
     - **DotNet Test**: controlador de prueba de .Net para ejecutar pruebas unitarias.
     - **DotNet Publish**: publica la aplicación y sus dependencias en una carpeta para la implementación en un sistema de hospedaje. En este caso, es **Build.ArtifactStagingDirectory**.
 
-7. Haz clic en el botón **Guardar** para guardar la definición de canalización
-8. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
+1. Haz clic en el botón **Guardar** para guardar la definición de canalización
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
 
 #### Tarea 2: Directivas de rama
 
 En esta tarea, agregarás directivas a la rama main y solo permitirás cambios mediante solicitudes de incorporación de cambios que cumplan las directivas definidas. Deberías asegurarte de que los cambios de una rama se revisen antes de combinarlos.
 
 1. Ve a la sección **Repos>Ramas**.
-2. En la pestaña **Mías** del panel **Ramas**, mantén el puntero del mouse sobre la entrada de rama **main** para ver los puntos suspensivos a la derecha.
-3. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Directivas de ramas**.
-4. En la pestaña **main** de la configuración del repositorio, habilita la opción **Requerir un número mínimo de revisores**. Agrega **1** revisor y activa la casilla **Permitir que los solicitantes aprueben sus propios cambios** (ya que eres el único usuario del proyecto para el laboratorio)
-5. En la pestaña **main** de la configuración del repositorio, en la sección **Validación de compilación**, haz clic en**+**(Agregar nueva directiva de compilación) y, en la lista **Canalización de compilación**, selecciona **eshoponweb-ci-pr** y haz clic en **Guardar**.
+1. En la pestaña **Mías** del panel **Ramas**, mantén el puntero del mouse sobre la entrada de rama **main** para ver los puntos suspensivos a la derecha.
+1. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Directivas de ramas**.
+1. En la pestaña **main** de la configuración del repositorio, habilita la opción **Requerir un número mínimo de revisores**. Agrega **1** revisor y activa la casilla **Permitir que los solicitantes aprueben sus propios cambios** (ya que eres el único usuario del proyecto para el laboratorio)
+1. En la pestaña **main** de la configuración del repositorio, en la sección **Validación de compilación**, haz clic en**+**(Agregar nueva directiva de compilación) y, en la lista **Canalización de compilación**, selecciona **eshoponweb-ci-pr** y haz clic en **Guardar**.
 
 #### Tarea 3: Trabajar con solicitudes de incorporación de cambios
 
 En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de incorporación de cambios, empleando una nueva rama para combinar un cambio en la rama **main** protegida.
 
 1. Ve a la sección **Repos** en la navegación eShopOnWeb y haz clic en **Ramas**.
-2. Crear una nueva rama llamada **Feature01** basada en la rama **main**.
-3. Haz clic en **Feature01** y ve al archivo **/eShopOnWeb/src/Web/Program.cs** como parte de la rama **Feature01**
-4. Haz clic en el botón **Editar** en la esquina superior derecha.
-5. Realiza el siguiente cambio en la primera línea:
+1. Crear una nueva rama llamada **Feature01** basada en la rama **main**.
+1. Haz clic en **Feature01** y ve al archivo **/eShopOnWeb/src/Web/Program.cs** como parte de la rama **Feature01**
+1. Haz clic en el botón **Editar** en la esquina superior derecha.
+1. Realiza el siguiente cambio en la primera línea:
 
     ```csharp
     // Testing my PR
     ```
 
-6. Haz clic en **Confirmar > Confirmar** (deja el mensaje de confirmación predeterminado).
-7. Aparecerá un mensaje proponiendo crear una solicitud de incorporación de cambios (ya que la rama **Feature01** ahora está por delante en los cambios, en comparación con la rama **main**). Haz clic en **Crear solicitud de incorporación de cambios**.
-8. En la pestaña **Nueva solicitud de incorporación de cambios**, deja los valores predeterminados y haz clic en **Crear**.
-9. La solicitud de incorporación de cambios mostrará algunos requisitos pendientes en función de las directivas aplicadas a la rama **main** de destino.
+1. Haz clic en **Confirmar > Confirmar** (deja el mensaje de confirmación predeterminado).
+1. Aparecerá un mensaje proponiendo crear una solicitud de incorporación de cambios (ya que la rama **Feature01** ahora está por delante en los cambios, en comparación con la rama **main**). Haz clic en **Crear solicitud de incorporación de cambios**.
+1. En la pestaña **Nueva solicitud de incorporación de cambios**, deja los valores predeterminados y haz clic en **Crear**.
+1. La solicitud de incorporación de cambios mostrará algunos requisitos pendientes en función de las directivas aplicadas a la rama **main** de destino.
     - Al menos 1 usuario debe revisar y aprobar los cambios.
     - Validación de compilación, verás que la compilación **eshoponweb-ci-pr** se desencadenó automáticamente.
 
-10. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora, en la lista desplegable **Establecer autocompletar**, puedes hacer clic en **Completar**.
-11. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
+1. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora, en la lista desplegable **Establecer autocompletar**, puedes hacer clic en **Completar**.
+1. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
 
 ### Ejercicio 2: Configurar la canalización de CI como código con YAML
 
@@ -127,11 +127,11 @@ En esta tarea, agregarás la definición de compilación de YAML que se usará p
 Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
 1. Ve a **Canalizaciones>Canalizaciones**.
-2. Haz clic en el botón **Nueva canalización**.
-3. Seleccione **GIT de Azure Repos** (YAML).
-4. Selecciona el repositorio **eShopOnWeb**.
-5. Selecciona el **archivo YAML de Azure Pipelines existente**.
-6. Selecciona el archivo **/.ado/eshoponweb-ci.yml** y haz clic en **Continuar**.
+1. Haz clic en el botón **Nueva canalización**.
+1. Seleccione **GIT de Azure Repos** (YAML).
+1. Selecciona el repositorio **eShopOnWeb**.
+1. Selecciona el **archivo YAML de Azure Pipelines existente**.
+1. Selecciona el archivo **/.ado/eshoponweb-ci.yml** y haz clic en **Continuar**.
 
     La definición de CI comprende las tareas siguientes:
     - **DotNet Restore**: con la restauración de paquetes NuGet, puedes instalar todas las dependencias del proyecto sin tener que almacenarlas en el control de código fuente.
@@ -146,8 +146,7 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
 La definición de canalización de compilación predeterminada no habilita la integración continua.
 
 1. Haz clic en el botón **Editar** en la esquina superior derecha.
-
-2. Ahora debes reemplazar el **desencadenador #:** y **# - líneas principales** por el código siguiente:
+1. Ahora debes reemplazar el **desencadenador #:** y **# - líneas principales** por el código siguiente:
 
     ```YAML
     trigger:
@@ -163,40 +162,40 @@ La definición de canalización de compilación predeterminada no habilita la in
 
     Dado que has habilitado las directivas de rama, debes pasar por una solicitud de incorporación de cambios para actualizar el código.
 
-3. Haz clic en el botón **Guardar** (no en **Guardar y ejecutar**) para guardar la definición de la canalización.
-4. Selecciona **Crear una rama para esta confirmación**
-5. Mantén activado el nombre de rama predeterminado y la opción **Iniciar solicitud de incorporación de cambios**.
-6. Haga clic en **Guardar**.
-7. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
-8. Ve a **Repos > Solicitudes de incorporación de cambios**
-9. Haz clic en la solicitud de incorporación de cambios **"Actualizar eshoponweb-ci.yml para Azure Pipelines"** 
-10. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora puedes hacer clic en **Completar**.
-11. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
+1. Haz clic en el botón **Guardar** (no en **Guardar y ejecutar**) para guardar la definición de la canalización.
+1. Seleccione **Crear una rama nueva para este commit**.
+1. Mantén activado el nombre de rama predeterminado y la opción **Iniciar solicitud de incorporación de cambios**.
+1. Haga clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
+1. Vaya a **Repositorios > Solicitudes de incorporación de cambios**.
+1. Haga clic en la solicitud de incorporación de cambios **"Actualizar eshoponweb-ci.yml para Azure Pipelines"**.
+1. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora puedes hacer clic en **Completar**.
+1. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
 
 #### Tarea 3: probar la canalización de CI/CD
 
 En esta tarea, crearás una solicitud de incorporación de cambios mediante una nueva rama para combinar un cambio en la rama **principal** protegida, y desencadenarás la canalización de CI automáticamente.
 
-1. Ve a la sección **Repos**
-2. Crea una rama nueva con el nombre **Feature02**, basada en la rama **main**
-3. Haz clic en la nueva rama **Feature02**.
-4. Ve al archivo **/eShopOnWeb/src/Web/Program.cs** y haz clic en **Editar** en la parte superior derecha.
-5. Quita la primera línea:
+1. Vaya a la sección **Repos**.
+1. Cree una rama denominada **Feature02** basada en la rama **principal**.
+1. Haga clic en la nueva rama **Feature02**.
+1. Vaya al archivo **/eShopOnWeb/src/Web/Program.cs** y haga clic en **Editar** en la parte superior derecha.
+1. Quita la primera línea:
 
     ```csharp
     // Testing my PR
     ```
 
-6. Haz clic en **Confirmar > Confirmar** (deja el mensaje de confirmación predeterminado).
-7. Aparecerá un mensaje que propone crear una solicitud de incorporación de cambios (ya que la rama **Feature02** ahora figura antes que **main** en los cambios).
-8. Haz clic en **Crear solicitud de incorporación de cambios**.
-9. En la pestaña **Nueva solicitud de incorporación de cambios**, deja los valores predeterminados y haz clic en **Crear**.
-10. La solicitud de incorporación de cambios mostrará algunos requisitos pendientes en función de las directivas aplicadas a la rama **main** de destino.
-11. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora, en la lista desplegable **Establecer autocompletar**, puedes hacer clic en **Completar**.
-12. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
-13. Vuelve a **Canalizaciones>Canalizaciones**, y verás que la compilación **eshoponweb-ci** se desencadenó automáticamente después de combinar el código.
-14. Haz clic en la compilación **eshoponweb-ci** y selecciona la última ejecución.
-15. Después de su correcta ejecución, haz clic en **Relacionado > Publicado** para controlar los artefactos publicados:
+1. Haz clic en **Confirmar > Confirmar** (deja el mensaje de confirmación predeterminado).
+1. Aparecerá un mensaje que propone crear una solicitud de incorporación de cambios (ya que la rama **Feature02** ahora figura antes que **main** en los cambios).
+1. Haz clic en **Crear solicitud de incorporación de cambios**.
+1. En la pestaña **Nueva solicitud de incorporación de cambios**, deja los valores predeterminados y haz clic en **Crear**.
+1. La solicitud de incorporación de cambios mostrará algunos requisitos pendientes en función de las directivas aplicadas a la rama **main** de destino.
+1. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora, en la lista desplegable **Establecer autocompletar**, puedes hacer clic en **Completar**.
+1. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
+1. Vuelve a **Canalizaciones>Canalizaciones**, y verás que la compilación **eshoponweb-ci** se desencadenó automáticamente después de combinar el código.
+1. Haz clic en la compilación **eshoponweb-ci** y selecciona la última ejecución.
+1. Después de su correcta ejecución, haz clic en **Relacionado > Publicado** para controlar los artefactos publicados:
     - Bicep: el artefacto de la infraestructura.
     - Sitio web: el artefacto de la aplicación.
 
