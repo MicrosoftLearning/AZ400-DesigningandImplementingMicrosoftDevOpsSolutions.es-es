@@ -47,20 +47,20 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
-2. El repositorio se organiza de la siguiente manera:
+1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para desarrollar con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **.azure** contiene la infraestructura de Bicep&ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-    - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
-    - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
 #### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
 
 1. Ve a **Repos>Ramas**.
-2. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
-3. Haz clic en **Establecer como rama predeterminada**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
 
 ### Ejercicio 1: (omitir si ya lo has completado) importación y ejecución de canalizaciones de CI/CD
 
@@ -71,13 +71,13 @@ En este ejercicio, importarás y ejecutarás la canalización de CI, configurar�
 Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
 1. Ve a **Canalizaciones>Canalizaciones**.
-2. Haz clic en el botón **Crear canalización** (si no hay canalizaciones) o en **Nueva canalización** (si ya hay canalizaciones creadas).
-3. Selecciona **GIT de Azure Repos (YAML)**.
-4. Selecciona el repositorio **eShopOnWeb**.
-5. Selecciona el **archivo YAML de Azure Pipelines existente**.
-6. Selecciona el archivo **/.ado/eshoponweb-ci.yml** y haz clic en **Continuar**.
-7. Haga clic en el botón **Run** (Ejecutar) para ejecutar la canalización.
-8. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
+1. Haz clic en el botón **Crear canalización** (si no hay canalizaciones) o en **Nueva canalización** (si ya hay canalizaciones creadas).
+1. Selecciona **GIT de Azure Repos (YAML)**.
+1. Selecciona el repositorio **eShopOnWeb**.
+1. Selecciona el **archivo YAML de Azure Pipelines existente**.
+1. Selecciona el archivo **/.ado/eshoponweb-ci.yml** y haz clic en **Continuar**.
+1. Haga clic en el botón **Run** (Ejecutar) para ejecutar la canalización.
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
 
 #### Tarea 2: administrar la conexión de servicio
 
@@ -95,12 +95,12 @@ Necesitarás una entidad de servicio para implementar recursos de Azure desde Az
 Azure Pipeline crea automáticamente una entidad de servicio cuando se conecta a una suscripción de Azure desde dentro de una definición de canalización o al crear una nueva conexión de servicio desde la página de configuración del proyecto (opción automática). También puedes crear manualmente la entidad de servicio desde el portal o mediante la CLI de Azure, y volver a usarla en otros proyectos.
 
 1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
-2. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
-3. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
+1. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
+1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
 
    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
-4. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores del atributo de identificador de suscripción de Azure:
+1. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores del atributo de identificador de suscripción de Azure:
 
     ```sh
     subscriptionName=$(az account show --query name --output tsv)
@@ -111,7 +111,7 @@ Azure Pipeline crea automáticamente una entidad de servicio cuando se conecta a
 
     > **Nota**: copia ambos valores en un archivo de texto. Los necesitará más adelante en este laboratorio.
 
-5. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio:
+1. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio:
 
     ```sh
     az ad sp create-for-rbac --name sp-az400-azdo --role contributor --scopes /subscriptions/$subscriptionId
@@ -119,35 +119,35 @@ Azure Pipeline crea automáticamente una entidad de servicio cuando se conecta a
 
     > **Nota**: el comando generará una salida JSON. Copie los resultados en un archivo de texto. Lo necesitará más adelante en este laboratorio.
 
-6. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
+1. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
 
-7. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
+1. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
 
-8. Elige **Entidad de servicio (manual)** y haz clic en **Siguiente**.
+1. Elige **Entidad de servicio (manual)** y haz clic en **Siguiente**.
 
-9. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
+1. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
     - Identificador y nombre de la suscripción
     - Identificador de entidad de servicio (o clientId), clave (o contraseña) y TenantId.
     - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
 
-10. Haz clic en **Comprobar y guardar**.
+1. Haz clic en **Comprobar y guardar**.
 
 #### Tarea 3: importar y ejecutar la canalización de CD
 
 Vamos a importar la canalización de CD denominada [eshoponweb-cd-webapp-code.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-cd-webapp-code.yml).
 
 1. Ve a **Canalizaciones>Canalizaciones**.
-2. Haz clic en el botón **Nueva canalización**.
-3. Selecciona **GIT de Azure Repos (YAML)**.
-4. Selecciona el repositorio **eShopOnWeb**.
-5. Selecciona el **archivo YAML de Azure Pipelines existente**.
-6. Selecciona el archivo **/.ado/eshoponweb-cd-webapp-code.yml** y haz clic en **Continuar**.
-7. En la definición de canalización de YAML, personaliza los siguientes elementos:
+1. Haz clic en el botón **Nueva canalización**.
+1. Selecciona **GIT de Azure Repos (YAML)**.
+1. Selecciona el repositorio **eShopOnWeb**.
+1. Selecciona el **archivo YAML de Azure Pipelines existente**.
+1. Selecciona el archivo **/.ado/eshoponweb-cd-webapp-code.yml** y haz clic en **Continuar**.
+1. En la definición de canalización de YAML, personaliza los siguientes elementos:
    - Reemplaza **YOUR-SUBSCRIPTION-ID** con el identificador de la suscripción a Azure.
    - En **az400eshop-NAME**, reemplaza NAME para que sea único globalmente.
    - Reemplaza **AZ400-EWebShop-NAME** con el nombre del grupo de recursos definido antes en el laboratorio.
 
-8. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente.
+1. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente.
 
     > **Nota**: la implementación puede tardar unos minutos en completarse.
 
@@ -155,7 +155,7 @@ Vamos a importar la canalización de CD denominada [eshoponweb-cd-webapp-code.ym
     - **Recursos**: está preparado para desencadenarse automáticamente cuando finalice la canalización de CI. También descarga el repositorio para el archivo bicep.
     - **AzureResourceManagerTemplateDeployment**: implementa la aplicación web de Azure mediante la plantilla de bicep.
 
-9. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-cd-webapp-code** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-cd-webapp-code** y haz clic en **Guardar**.
 
 ### Ejercicio 2: administración de Azure App Configuration
 
@@ -168,53 +168,53 @@ Si quieres saber cómo implementar esto en la aplicación, echa un vistazo a est
 #### Tarea 1: crear el grupo de recursos de App Configuration
 
 1. En el Portal de Azure, busca el servicio **App Configuration**.
-2. Haz clic en **Crear configuración de la aplicación** y selecciona:
+1. Haz clic en **Crear configuración de la aplicación** y selecciona:
     - Su suscripción de Azure.
     - El grupo de recursos creado anteriormente (debe denominarse **AZ400-EWebShop-NAME**).
     - Ubicación.
     - Un nombre único, como **appcs-NAME-REGION**.
     - Selecciona el nivel de precios **Gratuito**.
-3. Selecciona **Revisar y crear** y, luego, **Crear**.
-4. Después de crear el servicio App Configuration, ve a **Información general** y copia o guarda el valor del **punto de conexión**.
+1. Selecciona **Revisar y crear** y, luego, **Crear**.
+1. Después de crear el servicio App Configuration, ve a **Información general** y copia o guarda el valor del **punto de conexión**.
 
 #### Tarea 2: habilitar la identidad administrada
 
 1. Ve a la aplicación web implementada mediante la canalización (debe denominarse **az400-webapp-NAME**).
-2. En la sección **Configuración**, haz clic en **Identidad** y luego cambia el estado a **Activado**; en la sección **Asignado por el sistema**, haz clic en **guardar > sí** y espera unos segundos a que finalice la operación.
-3. Vuelve al servicio App Configuration y haz clic en **Control de acceso** y, después, en **Agregar asignación de roles**.
-4. En la sección **Rol**, selecciona **Lector de datos de App Configuration**.
-5. En la sección **Miembros**, marca la opción **Administrar identidad** y luego selecciona la identidad administrada de la aplicación web (deben tener el mismo nombre).
-6. Haz clic en **Revisar y asignar**.
+1. En la sección **Configuración**, haz clic en **Identidad** y luego cambia el estado a **Activado**; en la sección **Asignado por el sistema**, haz clic en **guardar > sí** y espera unos segundos a que finalice la operación.
+1. Vuelve al servicio App Configuration y haz clic en **Control de acceso** y, después, en **Agregar asignación de roles**.
+1. En la sección **Rol**, selecciona **Lector de datos de App Configuration**.
+1. En la sección **Miembros**, marca la opción **Administrar identidad** y luego selecciona la identidad administrada de la aplicación web (deben tener el mismo nombre).
+1. Haz clic en **Revisar y asignar**.
 
 #### Tarea 3: configurar la aplicación web
 
 Para asegurarte de que el sitio web tenga acceso a App Configuration, debes actualizar la configuración.
 
 1. Accede a la aplicación web.
-2. En la sección **Ajustes** haz clic en **Configuración**.
-3. Agrega dos nuevos ajustes de la aplicación:
+1. En la sección **Ajustes** haz clic en **Configuración**.
+1. Agrega dos nuevos ajustes de la aplicación:
     - Primer ajuste de la aplicación
         - **Nombre:** UseAppConfig
         - **Valor: true**
     - Segundo ajuste de la aplicación
         - **Nombre:** AppConfigEndpoint
-        - **Valor:***el valor que has guardado o copiado desde el punto de conexión de App Configuration. Debería ser similar a https://appcs-NAME-REGION.azconfig.io*
+        - **Valor:***el valor que has guardado o copiado desde el punto de conexión de App Configuration. Debería ser similar a <https://appcs-NAME-REGION.azconfig.io>*
 
-4. Haz clic en **Aceptar** y después en **Guardar**. Espera a que se actualice la configuración.
-5. Ve a **Información general** y haz clic en **Examinar**.
-6. En este paso, no verás ningún cambio en el sitio web, ya que App Configuration no tiene ningún dato. Esto es lo que harás en las tareas siguientes.
+1. Haz clic en **Aceptar** y después en **Guardar**. Espera a que se actualice la configuración.
+1. Ve a **Información general** y haz clic en **Examinar**.
+1. En este paso, no verás ningún cambio en el sitio web, ya que App Configuration no tiene ningún dato. Esto es lo que harás en las tareas siguientes.
 
 #### Tarea 4: probar la administración de configuración
 
 1. En el sitio web, selecciona **Visual Studio** en la lista desplegable **Marca** y haz clic en el botón de flecha (**>**).
-2. Verás el mensaje *"NO HAY RESULTADOS QUE COINCIDAN CON LA BÚSQUEDA".* El objetivo de este laboratorio es poder actualizar ese valor sin actualizar el código del sitio web ni volver a implementarlo.
-3. Para probar esto, vuelve a App Configuration.
-4. En la sección **Operaciones**, selecciona **Explorador de configuración**.
-5. Haz clic en **Crear > Clave-valor** y agrega:
+1. Verás el mensaje *"NO HAY RESULTADOS QUE COINCIDAN CON LA BÚSQUEDA".* El objetivo de este laboratorio es poder actualizar ese valor sin actualizar el código del sitio web ni volver a implementarlo.
+1. Para probar esto, vuelve a App Configuration.
+1. En la sección **Operaciones**, selecciona **Explorador de configuración**.
+1. Haz clic en **Crear > Clave-valor** y agrega:
     - **Clave:** eShopWeb:Settings:NoResultsMessage
     - **Valor:***escribe un mensaje personalizado*
-6. Haz clic en **Aplicar**, vuelve a tu sitio web y actualiza la página.
-7. Deberías ver el mensaje nuevo en lugar del valor predeterminado anterior.
+1. Haz clic en **Aplicar**, vuelve a tu sitio web y actualiza la página.
+1. Deberías ver el mensaje nuevo en lugar del valor predeterminado anterior.
 
 Felicidades. En esta tarea, has probado el **Explorador de configuración** en Azure App Configuration.
 
@@ -223,13 +223,13 @@ Felicidades. En esta tarea, has probado el **Explorador de configuración** en A
 Vamos a seguir probando el administrador de características.
 
 1. Para probar esto, vuelve a App Configuration.
-2. En la sección **Operaciones**, seleccione **Administrador de características**.
-3. Haz clic en **Crear** y agrega:
+1. En la sección **Operaciones**, seleccione **Administrador de características**.
+1. Haz clic en **Crear** y agrega:
     - **Habilitación de la marca de características:** activada
     - **Nombre de marca de características:** SalesWeekend
-4. Haz clic en **Aplicar**, vuelve a tu sitio web y actualiza la página.
-5. Deberías ver una imagen con el texto "TODAS LAS CAMISETAS CON DESCUENTO ESTE FIN DE SEMANA".
-6. Puedes deshabilitar esta característica en App Configuration y, luego, verías que la imagen desaparece.
+1. Haz clic en **Aplicar**, vuelve a tu sitio web y actualiza la página.
+1. Deberías ver una imagen con el texto "TODAS LAS CAMISETAS CON DESCUENTO ESTE FIN DE SEMANA".
+1. Puedes deshabilitar esta característica en App Configuration y, luego, verías que la imagen desaparece.
 
 Felicidades. En esta tarea, has probado el **Administrador de características** en Azure App Configuration.
 
@@ -244,13 +244,13 @@ En este ejercicio, quitarás los recursos de Azure aprovisionados en este labora
 En esta tarea, usarás Azure Cloud Shell para quitar los recursos de Azure aprovisionados en este laboratorio con el propósito de eliminar cargos innecesarios.
 
 1. En Azure Portal, abra la sesión de shell de **Bash** en el panel **Cloud Shell**.
-2. Ejecute el comando siguiente para enumerar todos los grupos de recursos que se han creado en los laboratorios de este módulo:
+1. Ejecute el comando siguiente para enumerar todos los grupos de recursos que se han creado en los laboratorios de este módulo:
 
     ```sh
     az group list --query "[?starts_with(name,'AZ400-EWebShop-')].name" --output tsv
     ```
 
-3. Ejecute el comando siguiente para eliminar todos los grupos de recursos que ha creado en los laboratorios de este módulo:
+1. Ejecute el comando siguiente para eliminar todos los grupos de recursos que ha creado en los laboratorios de este módulo:
 
     ```sh
     az group list --query "[?starts_with(name,'AZ400-EWebShop-')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
