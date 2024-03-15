@@ -125,7 +125,7 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
     ![En la ventana "Paneles">"Elementos de trabajo", haz clic en "Nuevo elemento de trabajo" >Epopeya.](images/m1/EShop-WEB-create_epic_v1.png)
 
 1. En el cuadro de texto **Escribir título**, escribe **Entrenamiento sobre el producto**.
-1. En la esquina superior izquierda, selecciona la entrada **Sin asignar** y, en la lista desplegable, selecciona tu cuenta de usuario para asignar el nuevo elemento de trabajo.
+1. En la esquina superior izquierda, selecciona la entrada **Sin asignar** y, en la lista desplegable, selecciona tu cuenta de usuario para asignar el nuevo elemento de trabajo. Si su nombre no aparece, comience a escribirlo y haga clic en **Buscar**.
 1. Junto a la entrada **Área**, selecciona la entrada **eShopOnWeb** y, en la lista desplegable, selecciona **EShop-WEB**. Esto establecerá el **Área** como **eShopOnWeb\EShop-WEB**.
 1. Junto a la entrada **Iteración**, selecciona la entrada **eShopOnWeb** y, en la lista desplegable, selecciona **Sprint 2**. Esto establecerá la **iteración** como **eShopOnWeb\Sprint 2**.
 1. Para terminar de hacer cambios, haz clic en **Guardar**. **No cierres**.
