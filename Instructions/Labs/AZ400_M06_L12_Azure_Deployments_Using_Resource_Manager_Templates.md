@@ -70,7 +70,7 @@ En este laboratorio, revisarás una plantilla de Azure Bicep y la simplificarás
 
 En esta tarea, usará Visual Studio Code para crear una plantilla de Azure Bicep.
 
-1. En la pestaña del explorador que tiene abierto el proyecto de Azure DevOps, ve a **Repos** y **Archivos**. Abre la carpeta `.azure\bicep` y busca el archivo `simple-windows-vm.bicep`.
+1. En la pestaña del explorador que tiene abierto el proyecto de Azure DevOps, ve a **Repos** y **Archivos**. Abre la carpeta `infra` y busca el archivo `simple-windows-vm.bicep`.
 
    ![Archivo simple-windows-vm.bicep](./images/m06/browsebicepfile.png)
 
