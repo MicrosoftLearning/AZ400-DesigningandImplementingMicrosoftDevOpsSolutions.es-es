@@ -125,7 +125,7 @@ En este ejercicio, importarás y ejecutarás la canalización de CI.
 #### Tarea 1: importar y ejecutar la canalización de CI
 
 1. Ve a **Canalizaciones>Canalizaciones**
-1. Haz clic en el botón **Nueva canalización**.
+1. Haga clic en el botón **Nueva canalización** (o **Crear canalización** si no tiene otras canalizaciones creadas previamente)
 1. Selecciona **Git de Azure Repos (YAML)**
 1. Selecciona el repositorio **eShopOnWeb**
 1. Seleccione **Archivo YAML de Azure Pipelines existente**
@@ -171,10 +171,10 @@ En esta tarea, agregarás una nueva asignación de roles para permitir que App d
     echo $roleName
     ```
 
-1. Después de obtener el identificador de la entidad de servicio y el nombre del rol, vamos a crear la asignación de roles ejecutando este comando (reemplaza **rg-az400-container-NAME** por el nombre del grupo de recursos).
+1. Después de obtener el identificador de la entidad de servicio y el nombre del rol, vamos a crear la asignación de roles ejecutando este comando (reemplaza **&lt;rg-az400-container-NAME&gt;** por el nombre del grupo de recursos).
 
     ```sh
-    az role assignment create --assignee $spId --role $roleName --scope /subscriptions/$subscriptionId/resourceGroups/**rg-az400-container-NAME**
+    az role assignment create --assignee $spId --role $roleName --scope /subscriptions/$subscriptionId/resourceGroups/<rg-az400-container-NAME>
     ```
 
 Ahora deberías ver la salida JSON que confirma el éxito de la ejecución del comando.
