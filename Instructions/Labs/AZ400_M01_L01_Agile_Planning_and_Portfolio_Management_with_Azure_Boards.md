@@ -100,7 +100,7 @@ Cada proyecto nuevo se configura con un equipo predeterminado, que coincide con 
 
 1. Todavía en el panel **Configuración del proyecto / Boards / Configuración del equipo**, en la parte superior del panel, seleccione la pestaña **Áreas**. Encontrará un área generada automáticamente con el nombre que coincida con el nombre del equipo.
 
-![En Áreas, seleccione EShopOnWeb\EShop-Web](images/m1/EShop-WEB-areas_v1.png)
+    ![En Áreas, seleccione EShopOnWeb\EShop-Web](images/m1/EShop-WEB-areas_v1.png)
 
 1. Haz clic en los puntos suspensivos (...) junto a la entrada **área predeterminada** y, en la lista desplegable, selecciona **Incluir subáreas**.
 
@@ -137,7 +137,7 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
     > **Nota**: el formulario de elementos de trabajo tiene todos los ajustes de elementos de trabajo pertinentes. Esto incluye detalles sobre a quién está asignado, su estado en distintos parámetros y toda la información asociada, así como el historial que describe cómo se ha controlado desde la creación. Una de las áreas claves en las que debes centrarte es el **trabajo relacionado**. Descubriremos una de las formas de agregar una característica a esta epopeya.
 
 1. En la sección **Trabajo relacionado** en la parte inferior derecha, selecciona la entrada **Agregar vínculo** y, en la lista desplegable, selecciona **Nuevo elemento**.
-1. En el panel **Agregar vínculo**, en la lista desplegable **Tipo de vínculo**, selecciona **Secundario**. A continuación, en la lista desplegable **Tipo de elemento de trabajo**, selecciona **Característica**; en el cuadro de texto **Título** , escribe **Panel de entrenamiento** y haz clic en **Aceptar**.
+1. En el panel **Agregar vínculo**, en la lista desplegable **Tipo de vínculo**, selecciona **Secundario**. A continuación, en la lista desplegable **Tipo de elemento de trabajo**, seleccione **Característica**, en el cuadro de texto **Título **, escriba **Panel de entrenamiento**.
 
     ![Introduce el título "Panel de entrenamiento" y haz clic en "Aceptar".](images/m1/EShop-WEB-create_child_feature.png)
 
@@ -145,7 +145,7 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 
 1. Haga clic en **Agregar vínculo** para guardar el elemento secundario. En el **Panel de formación** (Nueva característica), haga clic en **Guardar y cerrar**.
 
-![Epopeya con elemento secundario vinculado](images/m1/EShop-WEB-epic_with_linked_item_v1.png)
+    ![Epopeya con elemento secundario vinculado](images/m1/EShop-WEB-epic_with_linked_item_v1.png)
 
 1. En el panel de navegación vertical del portal de Azure DevOps, en la lista de elementos **Paneles**, selecciona **Paneles**.
 1. En el panel **Paneles**, selecciona la entrada **paneles de EShop-WEB**. Se abrirá el panel para ese equipo determinado.
@@ -232,17 +232,17 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
 1. Selecciona la pestaña **Capacidad** de la vista **Sprints**.
 
-![Vista de capacidad de sprint](images/m1/EShop-WEB-capacity_v1.png)
+    ![Vista de capacidad de sprint](images/m1/EShop-WEB-capacity_v1.png)
 
-    > **Note**: This view enables you to define what activities a user can take on and at what level of capacity.
+    > **Nota**: esta vista permite definir qué actividades puede realizar un usuario y en qué nivel de capacidad.
 
 1. En la pestaña **Capacidad** de la vista **Sprints**, haga clic en **+Agregar usuario** y seleccione su cuenta de usuario. Para este usuario, establezca el campo **Actividad** en **Desarrollo** y, en el cuadro de texto **Capacidad por día**, escriba **1**.
 
     > **Nota**: esto representa 1 hora de trabajo de desarrollo al día. Ten en cuenta que puedes agregar actividades adicionales por usuario en caso de que hagan otras tareas además de desarrollo.
 
-![Establecer capacidad de desarrollo para un usuario](images/m1/EShop-WEB-capacity-setdevelopment_v1.png)
+    ![Establecer capacidad de desarrollo para un usuario](images/m1/EShop-WEB-capacity-setdevelopment_v1.png)
 
-    > **Note**: Let's assume you're also going to take some vacation. Which should be added to the capacity view too.
+    > **Nota**: Supongamos que también va a tomar algunas vacaciones. También se debe agregar a la vista de capacidad.
 
 1. En la pestaña ** Capacidad** de la vista **Sprints**, situada junto a la entrada que representa la cuenta de usuario, en la columna **Días libres**, haz clic en la entrada **0 días**. Aparecerá un panel en el que podrás establecer tus días libres.
 1. En el panel que se visualiza, usa la vista de calendario para establecer tus vacaciones de modo que abarquen cinco días laborables durante el sprint actual (dentro de las próximas tres semanas) y, cuando termines, haz clic en **Aceptar**.
@@ -376,7 +376,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
     > **Nota**: la fase **Control de calidad aprobado** ahora tiene las columnas **En curso** y **Listo** . También puedes hacer clic en el símbolo informativo (con la letra **i** en un círculo) junto al encabezado de columna para leer la **Definición de Listo**.
 
-![División de columnas para QA aprobado](images/m1/EShop-WEB-qa_2columns_v1.png)
+    ![División de columnas para QA aprobado](images/m1/EShop-WEB-qa_2columns_v1.png)
 
 1. En el panel **Boards**, haga clic en el icono de engranaje **Configurar ajustes del panel** (directamente a la derecha del icono del embudo).
 
