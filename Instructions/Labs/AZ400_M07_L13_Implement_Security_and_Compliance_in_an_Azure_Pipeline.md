@@ -101,7 +101,7 @@ En esta tarea, crearás y desencadenarás una canalización de compilación de C
 
 1. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
 
-1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-ci-mend.yml** y haz clic en **Continuar**.
+1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Seleccione rama: **main**, proporcione la siguiente ruta de acceso **/.ado/eshoponweb-ci-mend.yml** y haga clic en **Continuar**.
 
     ![Selecciona Canalización](images/select-pipeline.png)
 
