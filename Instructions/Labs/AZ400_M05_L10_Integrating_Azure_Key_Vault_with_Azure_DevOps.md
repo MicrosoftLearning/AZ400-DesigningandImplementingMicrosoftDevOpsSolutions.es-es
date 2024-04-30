@@ -13,7 +13,6 @@ lab:
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://learn.microsoft.com/azure/devops/server/compatibility).
 
 - **Configurar una organización de Azure DevOp:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization).
-
 - Identifique una suscripción de Azure existente o cree una.
 
 ## Introducción al laboratorio
@@ -137,7 +136,7 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
 
 1. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
 
-1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-ci-dockercompose.yml** y haz clic en **Continuar**.
+1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Seleccionar rama: **principal**, proporcione la siguiente ruta de acceso **/.ado/eshoponweb-ci-dockercompose.yml** y haga clic en **Continuar**.
 
     ![Selecciona Canalización](images/select-ci-container-compose.png)
 
@@ -236,7 +235,7 @@ En esta tarea, importarás una canalización de CD, la personalizarás y ejecuta
 
 1. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
 
-1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-cd-aci.yml** y haz clic en **Continuar**.
+1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Seleccionar rama: **principal**, proporcione la siguiente ruta de acceso **/.ado/eshoponweb-cd-aci.yml** y haga clic en **Continuar**.
 
 1. En la definición de canalización de YAML, personaliza los siguientes elementos:
 
