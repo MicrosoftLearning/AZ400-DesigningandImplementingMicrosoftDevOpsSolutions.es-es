@@ -99,7 +99,7 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 
 1. Dentro de la máquina virtual de laboratorio (VM de laboratorio) o tu propio equipo, inicia un explorador web, navega hasta el [portal de Azure DevOps](https://dev.azure.com) e inicia sesión con la cuenta Microsoft asociada a tu organización de Azure DevOps.
 
-  > **Nota**: la máquina virtual del laboratorio debe tener instalado todo el software de requisitos previos necesario. Si lo va a instalar en su propio equipo, deberá instalar los SDK de .NET 8.0.x o una versión superior necesarios para compilar el proyecto de demostración. Consulta [Descarga de .NET](https://dotnet.microsoft.com/download/dotnet).
+  > **Nota**: la máquina virtual del laboratorio debe tener instalado todo el software de requisitos previos necesario. Si lo va a instalar en su propio equipo, deberá instalar los SDK de .NET 8 o una versión superior necesarios para compilar el proyecto de demostración. Consulta [Descarga de .NET](https://dotnet.microsoft.com/download/dotnet).
 
 1. En el portal de Azure DevOps, en la esquina superior derecha de la página de Azure DevOps, haz clic en el icono de **Configuración de usuario**. En función de si tienes activadas o no las características de vista previa, deberías ver un elemento **Seguridad** o **Tokens de acceso personal** en el menú. Si ves **Seguridad**, haz clic en esta opción y luego, selecciona **Tokens de acceso personal**. En el panel **Tokens de acceso personal**, haz clic en **+ Nuevo token**.
 1. En el panel **Crear un nuevo token de acceso personal**, haz clic en el vínculo **Mostrar todos los ámbitos**, especifica la siguiente configuración y haz clic en **Crear** (deja las demás opciones con sus valores predeterminados):
