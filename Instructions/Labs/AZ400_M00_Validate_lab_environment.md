@@ -34,8 +34,6 @@ lab:
 1. Pulsa el botón a**Desactivar** para **Deshabilitar la creación de canalizaciones de compilación clásicas** y **Deshabilitar la creación de canalizaciones de versión clásicas**.
     > Nota: El interruptor **Deshabilitar la creación de canalizaciones de versión clásicas** establece en **Activado** oculta las opciones de creación de canalizaciones de versión clásicas, como el menú **Versión** de la sección **Canalización** de proyectos de DevOps.
 1. En **Organización Configuración**, ve a la sección **Seguridad** y haz clic en **Directivas**.
-1. Cambia el interruptor a ** Activado ** para ** el acceso a aplicaciones de terceros a través de OAuth.**
-    > Nota: La configuración de OAuth ayuda a habilitar herramientas como DemoDevOpsGenerator para registrar extensiones. Sin esto, puede producirse un error en varios laboratorios, debido a la falta de las extensiones necesarias.
 1. Cambie el interruptor a **Activado** para **permitir proyectos públicos.**
     > Nota: Las extensiones usadas en algunos laboratorios pueden requerir un proyecto público para permitir el uso de la versión gratuita.
 1. **Espera al menos 3 horas antes de usar las funcionalidades de CI/CD** para que la nueva configuración se refleje en el backend. De lo contrario, verás el mensaje *“No se ha comprado o concedido ningún paralelismo hospedado”.*
