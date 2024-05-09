@@ -105,7 +105,62 @@ En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azu
 
 En este ejercicio, configurarás las canalizaciones de CI/CD como código con YAML en Azure DevOps.
 
-#### Tarea 1: aregar una definición de compilación e implementación de YAML
+#### Tarea 1: (omitir si se ha realizado) Crear una conexión de servicio para la implementación
+
+En esta tarea, crearás una entidad de servicio mediante la CLI de Azure, que permitirá que Azure DevOps haga lo siguiente:
+
+- Implementar recursos en tu suscripción de Azure.
+- Tener acceso de lectura en los secretos de Key Vault creados posteriormente.
+
+> **Nota**: Si ya tienes una entidad de servicio, puedes continuar directamente con la siguiente tarea.
+
+Necesitarás una entidad de servicio para implementar recursos de Azure desde Azure Pipelines. Dado que vamos a recuperar secretos en una canalización, es necesario conceder permiso al servicio al crear Azure Key Vault.
+
+Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas a una suscripción de Azure desde dentro de una definición de canalización o al crear una nueva conexión de servicio desde la página de configuración del proyecto (opción automática). También puedes crear manualmente la entidad de servicio desde el portal o mediante la CLI de Azure y volver a usarla en proyectos.
+
+1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
+1. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
+1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
+
+   >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
+
+1. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores de la id. de suscripción de Azure y los atributos de la id. de suscripción:
+
+    ```bash
+    az account show --query id --output tsv
+    az account show --query name --output tsv
+    ```
+
+    > **Nota**: copia ambos valores en un archivo de texto. Los necesitará más adelante en este laboratorio.
+
+1. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio (reemplaza **myServicePrincipalName** por cualquier cadena única de caracteres que consta de letras y dígitos) y **mySubscriptionID** por su subscriptionId de Azure:
+
+    ```bash
+    az ad sp create-for-rbac --name myServicePrincipalName \
+                         --role contributor \
+                         --scopes /subscriptions/mySubscriptionID
+    ```
+
+    > **Nota**: el comando generará una salida JSON. Copie los resultados en un archivo de texto. Lo necesitará más adelante en este laboratorio.
+
+1. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
+
+    ![Nueva conexión de servicio](images/new-service-connection.png)
+
+1. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
+
+1. Elige **Entidad de servicio (manual)** y haz clic en **Siguiente**.
+
+1. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
+    - Identificador y nombre de la suscripción.
+    - Identificador de entidad de servicio (appId), clave de entidad de servicio (contraseña) e identificador de inquilino (inquilino).
+    - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
+
+    ![Conexión del servicio de Azure](images/azure-service-connection.png)
+
+1. Haz clic en **Comprobar y guardar**.
+
+#### Tarea 2: Adición de una definición de compilación e implementación de YAML
 
 En esta tarea, agregarás una definición de compilación de YAML al proyecto existente.
 
@@ -188,7 +243,7 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
 1. Haga clic en **Mostrar asistente** en el lado derecho del portal. En la lista de tareas, busque la tarea **Implementación de Azure App Service** y selecciónela.
 1. En el panel **Implementación de Azure App Service**, especifica la siguiente configuración y haz clic en **Agregar**:
 
-    - En la lista desplegable **Suscripción de Azure**, seleccione la suscripción de Azure en la que implementó los recursos de Azure en este mismo laboratorio; si fuera necesario (y solo si es la primera canalización que crea), haga clic en **Autorizar**y, cuando se le solicite, autentíquese con la cuenta de usuario que usó durante la implementación de recursos de Azure.
+    - en la lista desplegable **suscripción de Azure**, seleccione la conexión de servicio que acaba de crear.
     - Valide que **Tipo de App Service** apunta a Web App en Windows.
     - En la lista desplegable **Nombre de App Service**, seleccione el nombre de la aplicación web que ha implementado en este mismo laboratorio (**az400eshoponweb...).
     - En el cuadro de texto **Paquete o carpeta**, **actualiza** el valor predeterminado a `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
@@ -203,7 +258,7 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
         - task: AzureRmWebAppDeployment@4
           inputs:
             ConnectionType: 'AzureRM'
-            azureSubscription: 'AZURE SUBSCRIPTION HERE (b999999abc-1234-987a-a1e0-27fb2ea7f9f4)'
+            azureSubscription: 'SERVICE CONNECTION NAME'
             appType: 'webApp'
             WebAppName: 'az400eshoponWeb369825031'
             packageForLinux: '$(Build.ArtifactStagingDirectory)/**/Web.zip'
