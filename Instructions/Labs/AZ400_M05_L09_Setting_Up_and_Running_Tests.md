@@ -72,7 +72,7 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
 1. Seleccione **GIT de Azure Repos** (YAML).
 1. Selecciona el repositorio **eShopOnWeb**.
 1. Selecciona el **archivo YAML de Azure Pipelines existente**.
-1. Selecciona el archivo **/.ado/eshoponweb-ci.yml** y haz clic en **Continuar**.
+1. Seleccione la rama **principal** y el archivo **/.ado/eshoponweb-ci.yml**, y haga clic en **Continuar**.
 
     La definición de CI comprende las tareas siguientes:
     - **DotNet Restore**: con la restauración de paquetes NuGet, puedes instalar todas las dependencias del proyecto sin tener que almacenarlas en el control de código fuente.

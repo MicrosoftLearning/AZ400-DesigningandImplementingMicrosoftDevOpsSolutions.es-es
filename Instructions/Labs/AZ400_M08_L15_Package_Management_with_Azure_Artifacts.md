@@ -110,7 +110,7 @@ En esta tarea, crearás y publicarás un paquete NuGet personalizado desarrollad
 
     Active la casilla **Colocar solución y proyecto en el mismo directorio**.
 
-1. Haga clic en Next. Acepte **.NET 8.0** como opción de marco.
+1. Haga clic en Next. Acepte **.NET 8** como opción de marco.
 1. Confirma la creación del proyecto presionando el botón **Crear**.
 1. En la interfaz de Visual Studio, en el panel **Explorador de soluciones**, haz clic con el botón derecho en **Class1.cs**, en el menú contextual, selecciona **Eliminar** y, cuando se te pida confirmación, haz clic en **Aceptar**.
 1. Pulsa **Ctrl+Shift+B** o **haz clic con el botón derecho en el proyecto** EShopOnWeb.Shared y selecciona **Compilar** para compilar el proyecto.

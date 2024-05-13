@@ -129,7 +129,7 @@ En este ejercicio, importarás y ejecutarás la canalización de CI.
 1. Selecciona **Git de Azure Repos (YAML)**
 1. Selecciona el repositorio **eShopOnWeb**
 1. Seleccione **Archivo YAML de Azure Pipelines existente**
-1. Selecciona el archivo **/.ado/eshoponweb-ci-docker.yml** y después haz clic en **Continuar**.
+1. Seleccione la rama **principal** y el archivo **/.ado/eshoponweb-ci-docker.yml**, y haga clic en **Continuar**
 1. En la definición de canalización de YAML, personaliza los siguientes elementos:
    - **YOUR-SUBSCRIPTION-ID** por el identificador de la suscripción de Azure.
    - **rg-az400-container-NAME** con el nombre del grupo de recursos que creará la canalización (también puede ser un grupo de recursos existente).
@@ -188,7 +188,7 @@ En esta tarea, importarás y ejecutarás la canalización de CD.
 1. Selecciona **Git de Azure Repos (YAML)**
 1. Selecciona el repositorio **eShopOnWeb**
 1. Selecciona **Archivo YAML de Azure Pipelines existente**
-1. Selecciona el archivo **/.ado/eshoponweb-cd-webapp-docker.yml** y haz clic en **Continuar**
+1. Seleccione la rama **principal** y el archivo **/.ado/eshoponweb-cd-webapp-docker.yml**, y haga clic en **Continuar**
 1. En la definición de canalización de YAML, personaliza los siguientes elementos:
    - **YOUR-SUBSCRIPTION-ID** por el identificador de la suscripción de Azure.
    - **rg-az400-container-NAME** con el nombre del grupo de recursos definido antes en el laboratorio.

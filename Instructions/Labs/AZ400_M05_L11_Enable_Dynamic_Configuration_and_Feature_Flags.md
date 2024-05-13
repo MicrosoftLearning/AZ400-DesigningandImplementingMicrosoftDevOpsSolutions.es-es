@@ -75,7 +75,7 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
 1. Selecciona **GIT de Azure Repos (YAML)**.
 1. Selecciona el repositorio **eShopOnWeb**.
 1. Selecciona el **archivo YAML de Azure Pipelines existente**.
-1. Selecciona el archivo **/.ado/eshoponweb-ci.yml** y haz clic en **Continuar**.
+1. Seleccione la rama **principal** y el archivo **/.ado/eshoponweb-ci.yml**, y haga clic en **Continuar**.
 1. Haga clic en el botón **Run** (Ejecutar) para ejecutar la canalización.
 1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
 
@@ -141,7 +141,7 @@ Vamos a importar la canalización de CD denominada [eshoponweb-cd-webapp-code.ym
 1. Selecciona **GIT de Azure Repos (YAML)**.
 1. Selecciona el repositorio **eShopOnWeb**.
 1. Selecciona el **archivo YAML de Azure Pipelines existente**.
-1. Selecciona el archivo **/.ado/eshoponweb-cd-webapp-code.yml** y haz clic en **Continuar**.
+1. Seleccione la rama **principal** y el archivo **/.ado/eshoponweb-cd-webapp-code.yml** y haga clic en **Continuar**.
 1. En la definición de canalización de YAML, personaliza los siguientes elementos:
    - Reemplaza **YOUR-SUBSCRIPTION-ID** con el identificador de la suscripción a Azure.
    - En **az400eshop-NAME**, reemplaza NAME para que sea único globalmente.

@@ -153,7 +153,7 @@ En esta tarea, instalarás y configurarás la extensión SonarCloud Azure DevOps
 
 1. En la ventana **¿Dónde está el código?**, selecciona **Azure Repos Git (YAML)** y selecciona el repositorio **eShopOnWeb**.
 
-1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Proporciona la siguiente ruta de acceso **/.ado/eshoponweb-sonar-ci.yml** y haz clic en **Continuar**. Revisa la canalización con los detalles mencionados en el paso siguiente **(se deben reemplazar algunos ajustes)**
+1. En la sección **Configurar**, selecciona **Archivo YAML de Azure Pipelines existente**. Seleccione rama: **main**, proporcione la siguiente ruta de acceso **/.ado/eshoponweb-sonar-ci.yml** y haga clic en **Continuar**. Revisa la canalización con los detalles mencionados en el paso siguiente **(se deben reemplazar algunos ajustes)**
 
 1. Cuando vuelvas al sitio web de Sonarcloud, en la página **Analizar un proyecto con Azure Pipelines**, en la sección **Configurar Azure Pipelines**, haz clic en **.NET**. Verás una secuencia de pasos necesarios para **preparar la configuración de análisis**, **ejecutar el análisis de código** y **publicar los resultados de las validaciones de calidad**. Necesitarás estas instrucciones para **modificar la tarea "Preparar configuración de análisis" en la canalización de YAML proporcionada en el paso anterior**.
 

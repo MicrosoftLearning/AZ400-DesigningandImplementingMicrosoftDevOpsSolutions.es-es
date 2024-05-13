@@ -56,8 +56,8 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
    - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-   - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub YAML.
-   - La carpeta **src** contiene el sitio web .NET 7 que se usa en los escenarios de laboratorio.
+   - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+   - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
 #### Tarea 2: Crear recursos de Azure
 
