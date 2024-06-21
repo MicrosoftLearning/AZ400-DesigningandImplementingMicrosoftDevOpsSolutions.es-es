@@ -109,7 +109,7 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
 
    ![Confirmación del archivo](./images/m06/commit.png)
 
-1. Luego, mantén el ratón sobre la carpeta bicep, haz clic en el icono de puntos suspensivos y luego selecciona **Nuevo** y **Archivo**. Escribe **storage.bicep** para el nombre y haz clic en **Crear**.
+1. A continuación, mantenga el mouse sobre la `Infra` carpeta y haga clic en el icono de puntos suspensivos, seleccione **Nuevo**y **Archivo**. Escribe **storage.bicep** para el nombre y haz clic en **Crear**.
 
    ![Menú Nuevo archivo](./images/m06/newfile.png)
 
