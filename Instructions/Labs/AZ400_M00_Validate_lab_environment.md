@@ -32,10 +32,14 @@ lab:
 1. Una vez que la pantalla muestre el identificador de suscripción de Azure vinculado en la parte superior, cambia el número de **trabajos paralelos de pago** por **CI/CD** hospedados de MS de 0 a **1**. A continuación, haz clic en el botón **GUARDAR** en la parte inferior.
 1. En **Organización Configuración**, ve a la sección **Canalizaciones** y haz clic en **Configuración**.
 1. Pulsa el botón a**Desactivar** para **Deshabilitar la creación de canalizaciones de compilación clásicas** y **Deshabilitar la creación de canalizaciones de versión clásicas**.
+
     > Nota: El interruptor **Deshabilitar la creación de canalizaciones de versión clásicas** establece en **Activado** oculta las opciones de creación de canalizaciones de versión clásicas, como el menú **Versión** de la sección **Canalización** de proyectos de DevOps.
+
 1. En **Organización Configuración**, ve a la sección **Seguridad** y haz clic en **Directivas**.
 1. Cambie el interruptor a **Activado** para **permitir proyectos públicos.**
+
     > Nota: Las extensiones usadas en algunos laboratorios pueden requerir un proyecto público para permitir el uso de la versión gratuita.
+
 1. **Espera al menos 3 horas antes de usar las funcionalidades de CI/CD** para que la nueva configuración se refleje en el backend. De lo contrario, verás el mensaje *“No se ha comprado o concedido ningún paralelismo hospedado”.*
 
 ## Instrucciones para crear el proyecto de Azure DevOps de ejemplo (solo tienes que hacerlo una vez)

@@ -165,7 +165,7 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 1. En la lista de proyectos, haga clic en el icono que representa el proyecto **eShopOnWeb**.
 1. En el panel **eShopOnWeb**, en el panel de navegación vertical del lado izquierdo, en la sección **Canalizaciones**, haga clic en **Canalizaciones**.
 1. En la pestaña **Recientes** del panel **Canalizaciones**, seleccione **eShopOnWeb** y, en el panel **eShopOnWeb**, seleccione **Editar**.
-1. En el panel de edición de **eShopOnWeb**, en la canalización basada en YAML existente, reemplace la línea 13, que indica que `vmImage: windows-latest` designa el grupo de agentes de destino al siguiente contenido, designando el grupo de agentes autohospedado recientemente creado:
+1. En el panel de edición de **eShopOnWeb**, en la canalización basada en YAML existente, reemplace la línea 13, que indica que `vmImage: ubuntu-latest` designa el grupo de agentes de destino al siguiente contenido, designando el grupo de agentes autohospedado recientemente creado:
 
     ```yaml
     name: az400m03l03a-pool
@@ -173,11 +173,11 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
     - Agent.Name -equals az400m03-vm0
     ```
 
-    > **ADVERTENCIA**: ten cuidado con copiar y pegar, asegúrate de que tienes la misma sangría que se mostraba anteriormente.
+    > **ADVERTENCIA**: Tenga cuidado con copiar y pegar, asegúrese de que tiene la misma sangría mostrada anteriormente.
 
     ![Sintaxis del grupo de YAML](images/m3/eshoponweb-ci-pr-pool_v1.png)
 
-1. En la esquina superior derecha del panel de **eShopOnWeb**, haga clic en **Guardar y ejecutar**. Esto desencadenará automáticamente la compilación basada en esta canalización.
+1. En la esquina superior derecha del panel de **eShopOnWeb**, haga clic en **Validar y guardar**. Esto desencadenará automáticamente la compilación basada en esta canalización.
 1. En el portal de Azure DevOps, en el panel de navegación vertical del lado izquierdo, en la sección **Canalizaciones**, haz clic en **Canalizaciones**. En función de la configuración del laboratorio, es posible que la canalización le solicite permisos. Haga clic en **Permitir** para permitir que se ejecute la canalización. 
 1. En la pestaña **Recientes** del panel **Canalizaciones**, haga clic en la entrada **eShopOnWeb**, en la pestaña **Ejecuciones** del panel **eShopOnWeb**, seleccione la ejecución más reciente, en el panel **Resumen** de la ejecución, desplácese hacia abajo hasta la parte inferior, en la sección **Trabajos**, haga clic en **Fase 1** y supervise el trabajo hasta su finalización correcta.
 
@@ -186,7 +186,7 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 1. Detén y quita el servicio del agente ejecutando `.\config.cmd remove` en el símbolo del sistema.
 1. Elimina el grupo de agentes.
 1. Revoca el token PAT.
-1. Revierta los cambios en el archivo **eshoponweb-ci-pr.yml**; para ello, vaya a él desde Repos/.ado/eshoponweb-ci-pr.yml, seleccione **Editar** y quite las líneas 13 a 15 (el fragmento de código del grupo de agentes) y cámbielo a `vmImage: windows-latest`, tal como estaba inicialmente. (Esto se debe a que usará el mismo archivo de canalización de ejemplo más adelante en un ejercicio de laboratorio).
+1. Revierta los cambios en el archivo **eshoponweb-ci-pr.yml**; para ello, vaya a él desde Repos/.ado/eshoponweb-ci-pr.yml, seleccione **Editar** y quite las líneas 13 a 15 (el fragmento de código del grupo de agentes) y cámbielo a `vmImage: ubuntu-latest`, tal como estaba inicialmente. (Esto se debe a que usará el mismo archivo de canalización de ejemplo más adelante en un ejercicio de laboratorio).
 
 ![Revertir el grupo de canalizaciones a la configuración de vmImage](images/m3/eshoponweb-ci-pr-vmimage_v1.png)
 

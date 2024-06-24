@@ -127,7 +127,7 @@ En esta tarea, aprenderás a clonar un repositorio de Git con Visual Studio Code
     > **Nota**: para ver todos los comandos pertinentes, puedes empezar escribiendo **Git**.
 
 1. En el cuadro de texto **Proporcionar dirección URL del repositorio o elegir un origen de repositorio**, pega la URL de clonación del repo que has copiado en esta tarea y presiona **Entrar**.
-1. En el cuadro de diálogo **Seleccionar carpeta**, ve a la unidad C:, crea una carpeta denominada **Git**, selecciónala y haz clic en **Seleccionar ubicación del repositorio**.
+1. En el cuadro de diálogo **Seleccionar carpeta**, vaya a la unidad C:, cree una carpeta denominada **Git**, selecciónela y, a continuación, haga clic en **Seleccionar como destino del repositorio**.
 1. Cuando se solicite, inicia sesión en tu cuenta de Azure DevOps.
 1. Una vez completado el proceso de clonación, cuando se solicite, en Visual Studio Code, haz clic en **Abrir** para abrir el repositorio clonado.
 
@@ -255,8 +255,8 @@ En esta tarea, crearás una rama mediante Visual Studio Code.
 
     ![Crear rama](images/create-branch.png)
 
+1. En el **Seleccione una referencia para crear la rama desde** cuadro de texto, seleccione **principal** como rama de referencia.
 1. En el cuadro de texto **Nombre de rama**, escribe **dev** para especificar la nueva rama y presiona **Entrar**.
-1. En el cuadro de texto **Seleccionar una referencia para crear la rama "dev"**, selecciona **main** como la rama de referencia.
 
     > **Nota**: aquí cambias automáticamente a la rama **dev**.
 
