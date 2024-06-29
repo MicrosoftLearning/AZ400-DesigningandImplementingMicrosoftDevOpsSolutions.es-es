@@ -81,6 +81,10 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
+1. Ve a **Repos>Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
 #### Tarea 3: (omitir si ya las has completado) configurar la canalización de CI como código con YAML en Azure DevOps
 
 En esta tarea, agregarás una definición de compilación de YAML al proyecto existente.

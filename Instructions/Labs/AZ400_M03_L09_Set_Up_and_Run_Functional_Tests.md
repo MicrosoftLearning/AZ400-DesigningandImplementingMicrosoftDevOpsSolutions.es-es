@@ -57,6 +57,12 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
     - La carpeta **.github** contiene definiciones de flujo de trabajo de GitHub de YAML.
     - La carpeta **src** contiene el sitio web de .NET que se usa en los escenarios de laboratorio.
 
+#### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
+
+1. Ve a **Repos>Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
 ### Ejercicio 1: configuración de pruebas en la canalización de CI
 
 En este ejercicio, configurarás las pruebas en la canalización de CI.
