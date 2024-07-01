@@ -70,6 +70,12 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
     - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
     - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
+#### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
+
+1. Ve a **Repos>Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
 #### Tarea 3: configurar Git y Visual Studio Code
 
 En esta tarea, instalarás y configurarás Git y Visual Studio Code, incluida la configuración del asistente de credenciales de Git para almacenar de forma segura las credenciales de Git que usas para comunicarte con Azure DevOps. Si ya has implementado estos requisitos previos, puedes ir directamente a la siguiente tarea.

@@ -59,6 +59,10 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
+1. Ve a **Repos>Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
 #### Tarea 2: Crear recursos de Azure
 
 En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
@@ -197,7 +201,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
 1. El fragmento de código agregado debe tener un aspecto similar al siguiente:
 
    ```yaml
-   - task: DownloadBuildArtifacts@0
+   - task: DownloadBuildArtifacts@1
      inputs:
        buildType: "current"
        downloadType: "single"
@@ -386,7 +390,7 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
            runOnce:
              deploy:
                steps:
-                 - task: DownloadBuildArtifacts@0
+                 - task: DownloadBuildArtifacts@1
                    inputs:
                      buildType: "current"
                      downloadType: "single"

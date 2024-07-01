@@ -62,6 +62,12 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
     - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
     - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
+#### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
+
+1. Ve a **Repos>Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
 ### Ejercicio 1: entender una plantilla de Azure Bicep y simplificarla mediante un módulo reutilizable
 
 En este laboratorio, revisarás una plantilla de Azure Bicep y la simplificarás mediante un módulo reutilizable.
