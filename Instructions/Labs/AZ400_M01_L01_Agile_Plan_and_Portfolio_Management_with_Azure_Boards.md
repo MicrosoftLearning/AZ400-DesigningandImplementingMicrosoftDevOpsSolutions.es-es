@@ -279,25 +279,25 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
 1. En la sección **Criterios de regla**, seleccione **+Agregar nueva cláusula** y, a continuación, en la lista desplegable **Campo**, seleccione **Actividad**, en la lista desplegable **Operador**, seleccione **=**, y, en la lista desplegable **Valor**, seleccione **Desarrollo**.
 
-    ![En la ventana "Configuración", asegúrate de que todos los campos tengan información.](images/m1/EShop-WEB-styles_v1.png)
+    ![En la ventana "Configuración", asegúrate de que todos los campos tengan información.](images/m1/EShop-WEB-styles_v2.png)
 
     > **Nota**: todas las tarjetas asignadas a actividades de **Desarrollo** aparecerán de color verde.
 
     ![Estilos de tareas de sprint](images/m1/EShop-WEB-sprint-green_v1.png)
 
-1. En el panel **Configuración**, selecciona la pestaña **Backlogs** (Trabajos pendientes).
+1. En el panel **Configuración**, selecciona la pestaña **General** y, en la **sección Trabajo pendiente**, ve y configura los niveles de navegación.
 
-    > **Nota**: las entradas de esta pestaña te permiten establecer los niveles disponibles para la navegación. Las epopeyas no se incluyen de forma predeterminada, pero puedes cambiar esto.
+    > **Nota**: las epopeyas no se incluyen de forma predeterminada, pero puedes cambiar esto.
 
-1. En el panel **Configuración**, selecciona la pestaña **Días laborables**.
+1. En el panel **Configuración**, selecciona la pestaña **General** y, en la sección **Días laborables**, especifica los días laborables que sigue el equipo.
 
-    > **Nota**: las entradas de esta pestaña permiten especificar los **Días laborables** del equipo. Esto se aplica a los cálculos de capacidad y de evolución.
+    > **Nota**: esto se aplica a los cálculos de capacidad y de evolución.
 
-1. En el panel **Configuración**, selecciona la pestaña **Trabajar con errores**.
+1. En el panel **Configuración**, selecciona la pestaña **General** y, en la sección **Trabajar con errores**, puedes especificar cómo administrar errores en trabajos pendientes y paneles.
 
     > **Nota**: las entradas de esta pestaña permiten especificar cómo se presentan los errores en el panel.
 
-1. En el panel **Configuración**, haz clic en **Guardar y cerrar** para guardar la regla de estilo.
+1. En el panel **Configuración**, haz clic en **Guardar** para guardar y cerrar la regla de estilo.
 
     > **Nota**: la tarea asociada al **Desarrollo** ahora aparece en verde y es muy fácil de identificar.
 
