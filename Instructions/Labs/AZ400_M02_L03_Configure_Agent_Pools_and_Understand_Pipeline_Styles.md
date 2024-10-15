@@ -190,6 +190,8 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 ### Ejercicio 3: Eliminar los recursos usados en el laboratorio
 
 1. Detén y quita el servicio del agente ejecutando `.\config.cmd remove` en el símbolo del sistema.
+   - Se te pedirá que introduzcas de nuevo el token de acceso personal para quitar el agente de tu organización.
+   - Si ya no tienes el token de acceso personal, puedes volver a generar el que creaste inicialmente en el ejercicio 2, tarea 1, paso 2.
 1. Elimina el grupo de agentes.
 1. Revoca el token PAT.
 1. Revierta los cambios en el archivo **eshoponweb-ci-pr.yml**; para ello, vaya a él desde Repos/.ado/eshoponweb-ci-pr.yml, seleccione **Editar** y quite las líneas 13 a 15 (el fragmento de código del grupo de agentes) y cámbielo a `vmImage: ubuntu-latest`, tal como estaba inicialmente. (Esto se debe a que usará el mismo archivo de canalización de ejemplo más adelante en un ejercicio de laboratorio).
