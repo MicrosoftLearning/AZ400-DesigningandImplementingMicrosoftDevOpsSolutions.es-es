@@ -86,9 +86,10 @@ En esta tarea, crearás una canalización YAML de Azure DevOps basada en plantil
 
    - Una sola fase: Compilar
    - Un único trabajo: Compilar
-   - 3 tareas dentro del trabajo de compilación:
+   - 4 tareas dentro del trabajo de compilación:
    - Dotnet restore
    - Dotnet build
+   - Dotnet Test
    - Dotnet publish
 
 1. En el panel **Revisar YAML de la canalización**, haz clic en el símbolo de intercalación orientado hacia abajo situado junto al botón **Ejecutar** y haz clic en **Guardar**.
@@ -196,7 +197,7 @@ En esta tarea, configurarás la máquina virtual de laboratorio como agente de a
 1. Revoca el token PAT.
 1. Revierta los cambios en el archivo **eshoponweb-ci-pr.yml**; para ello, vaya a él desde Repos/.ado/eshoponweb-ci-pr.yml, seleccione **Editar** y quite las líneas 13 a 15 (el fragmento de código del grupo de agentes) y cámbielo a `vmImage: ubuntu-latest`, tal como estaba inicialmente. (Esto se debe a que usará el mismo archivo de canalización de ejemplo más adelante en un ejercicio de laboratorio).
 
-![Revertir el grupo de canalizaciones a la configuración de vmImage](images/m3/eshoponweb-ci-pr-vmimage_v1.png)
+![Revertir el grupo de canalizaciones a la configuración de vmImage](images/m3/eshoponweb-ci-pr-vmimage_v2.png)
 
 ## Revisar
 
