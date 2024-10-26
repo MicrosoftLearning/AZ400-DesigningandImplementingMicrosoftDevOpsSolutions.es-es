@@ -38,11 +38,11 @@ Después de completar este laboratorio, podrá:
 En este ejercicio, importarás el código del repositorio [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb) existente en tu repositorio privado de GitHub.
 
 El repositorio se organiza de la siguiente manera:
-    - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
-    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
+- La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
+- El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+- La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+- Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+- La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
 #### Tarea 1: Crear un repositorio público en GitHub e importar eShopOnWeb
 

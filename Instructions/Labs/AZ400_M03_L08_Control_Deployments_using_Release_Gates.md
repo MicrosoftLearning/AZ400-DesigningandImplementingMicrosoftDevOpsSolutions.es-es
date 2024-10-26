@@ -160,15 +160,12 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
    | Resource group | **az400m04l09-RG**                                                                    |
    | Nombre           | el nombre de la aplicación web DevTest que has registrado en la tarea anterior                     |
    | Region         | la misma región de Azure donde implementamos las aplicaciones web en la tarea anterior |
-   | Modo de recursos  | **Clásico**                                                                           |
-
-   > **Nota**: ignora el mensaje de desuso. Esto es necesario para evitar errores de la tarea de DevOps Habilitar la integración continua que usarás más adelante en este laboratorio.
 
 1. Haga clic en **Revisar y crear** y, a continuación, en **Crear**.
 1. Espere a que se complete el proceso de aprovisionamiento.
 1. En Azure Portal, ve al grupo de recursos **az400m04l09-RG** que has creado en la tarea anterior.
 1. En la lista de recursos, haz clic en la aplicación web **DevTest** que acabas de crear.
-1. En la página de la aplicación web **DevTest**, en el menú vertical de la izquierda, en la sección **Configuración**, haz clic en **Application Insights**.
+1. En la página de la aplicación web **DevTest**, en el menú vertical de la izquierda, en la sección **Supervisión**, haz clic en **Application Insights**.
 1. En la hoja **Application Insights**, selecciona **Activar Application Insights**.
 1. En la sección **Cambiar su recurso**, haz clic en la opción **Seleccionar recurso existente**, en la lista de recursos existentes, selecciona el recurso de Application Insight recién creado, haz clic en **Aplicar** y cuando se te pida confirmación, haz clic en **Sí**.
 1. Espera hasta que el cambio surta efecto.
@@ -177,7 +174,7 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
 
 1. En la misma opción de menú **Configuración** / **Application Insights** dentro de la aplicación web, selecciona **Ver datos de Application Insights**. Esto te redirige a la hoja de Application Insights en Azure Portal.
 1. En la hoja de recursos de Application Insights, en la sección **Supervisión**, haz clic en **Alertas** y luego haz clic en **Crear > Regla de alerta**.
-1. En la hoja **Seleccionar una señal**, en el cuadro de texto **Buscar por nombre de señal**, escribe **Solicitudes**. En la lista de resultados, selecciona **Solicitudes con error**.
+1. En la hoja **Crear una regla de alertas**, en la sección **Condición**, haz clic en el vínculo **Ver todas las señales** y escribe **Solicitudes**. En la lista de resultados, selecciona **Solicitudes con error**.
 1. En la hoja **Crear una regla de alertas**, en la sección **Condición**, deja el **Umbral** establecido en ** Estático** y valida la otra configuración predeterminada de la siguiente manera:
 
    - Tipo de agregación: Count
