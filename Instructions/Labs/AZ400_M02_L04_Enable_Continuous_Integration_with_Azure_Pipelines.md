@@ -6,8 +6,6 @@ lab:
 
 # Habilitación de la integración continua con Azure Pipelines
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -29,11 +27,11 @@ Después de completar este laboratorio, podrá:
 - Incluya la validación de compilación como parte de una solicitud de incorporación de cambios.
 - Configure la canalización de CI como código con YAML.
 
-## Tiempo estimado: 45 minutos
+## Tiempo estimado: 30 minutos
 
 ## Instrucciones
 
-### Ejercicio 0: configuración de los requisitos previos del laboratorio
+### Ejercicio 0: (omitir si se ha realizado) Configurar los requisitos previos del laboratorio
 
 En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
@@ -47,7 +45,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -58,7 +56,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 #### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
 
-1. Ve a **Repos>Ramas**.
+1. Ve a **Repos > Ramas**.
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
@@ -72,7 +70,7 @@ En esta tarea, importarás la definición de compilación de YAML que se usará 
 
 Empecemos importando la canalización de compilación denominada [eshoponweb-ci-pr.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci-pr.yml).
 
-1. Ve a **Canalizaciones>Canalizaciones**
+1. Ve a **Canalizaciones > Canalizaciones**
 1. Haz clic en el botón **Crear canalización** o **Nueva canalización.**
 1. Selecciona **Git de Azure Repos (YAML)**
 1. Selecciona el repositorio **eShopOnWeb**
@@ -86,7 +84,7 @@ Empecemos importando la canalización de compilación denominada [eshoponweb-ci-
     - **DotNet Publish**: publica la aplicación y sus dependencias en una carpeta para la implementación en un sistema de hospedaje. En este caso, es **Build.ArtifactStagingDirectory**.
 
 1. Haz clic en el botón **Guardar** para guardar la definición de canalización
-1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
 
 #### Tarea 2: Directivas de rama
 
@@ -132,7 +130,7 @@ En esta tarea, agregarás la definición de compilación de YAML que se usará p
 
 Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
-1. Ve a **Canalizaciones>Canalizaciones**.
+1. Vaya a **Pipelines (Canalizaciones) > Pipelines (Canalizaciones)**.
 1. Haz clic en el botón **Nueva canalización**.
 1. Seleccione **GIT de Azure Repos** (YAML).
 1. Selecciona el repositorio **eShopOnWeb**.
@@ -146,6 +144,8 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
     - **DotNet Publish**: publica la aplicación y sus dependencias en una carpeta para la implementación en un sistema de hospedaje. En este caso, es **Build.ArtifactStagingDirectory**.
     - **Publish Artifact - Website**: publica el artefacto de la aplicación (creado en el paso anterior) y habilítalo como artefacto de canalización.
     - **Publish Artifact - Bicep**: publica el artefacto de infraestructura (archivo de Bicep) y habilítalo como artefacto de canalización.
+
+1. Haz clic en **Ejecutar** y espera a que la canalización se ejecute correctamente.
 
 #### Tarea 2: habilitar la integración continua
 
@@ -172,7 +172,7 @@ La definición de canalización de compilación predeterminada no habilita la in
 1. Seleccione **Crear una rama nueva para este commit**.
 1. Mantén activado el nombre de rama predeterminado y la opción **Iniciar solicitud de incorporación de cambios**.
 1. Haga clic en **Guardar**.
-1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
 1. Vaya a **Repositorios > Solicitudes de incorporación de cambios**.
 1. Haga clic en la solicitud de incorporación de cambios **"Actualizar eshoponweb-ci.yml para Azure Pipelines"**.
 1. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora puedes hacer clic en **Completar**.
@@ -182,7 +182,7 @@ La definición de canalización de compilación predeterminada no habilita la in
 
 En esta tarea, crearás una solicitud de incorporación de cambios mediante una nueva rama para combinar un cambio en la rama **principal** protegida, y desencadenarás la canalización de CI automáticamente.
 
-1. Vaya a la sección **Repos**.
+1. Ve a la sección **Repos** y haz clic en **Ramas**.
 1. Cree una rama denominada **Feature02** basada en la rama **principal**.
 1. Haga clic en la nueva rama **Feature02**.
 1. Vaya al archivo **/eShopOnWeb/src/Web/Program.cs** y haga clic en **Editar** en la parte superior derecha.
@@ -199,7 +199,7 @@ En esta tarea, crearás una solicitud de incorporación de cambios mediante una 
 1. La solicitud de incorporación de cambios mostrará algunos requisitos pendientes en función de las directivas aplicadas a la rama **main** de destino.
 1. Después de que todas las validaciones se realicen correctamente, haz clic con el botón derecho en **Aprobar** en la parte superior. Ahora, en la lista desplegable **Establecer autocompletar**, puedes hacer clic en **Completar**.
 1. En la pestaña **Completar solicitud de incorporación de cambios**, haz clic en **Completar la fusión**
-1. Vuelve a **Canalizaciones>Canalizaciones**, y verás que la compilación **eshoponweb-ci** se desencadenó automáticamente después de combinar el código.
+1. Vuelve a **Canalizaciones > Canalizaciones**, y verás que la compilación **eshoponweb-ci** se ha desencadenado automáticamente después de combinar el código.
 1. Haz clic en la compilación **eshoponweb-ci** y selecciona la última ejecución.
 1. Después de su correcta ejecución, haz clic en **Relacionado > Publicado** para controlar los artefactos publicados:
     - Bicep: el artefacto de la infraestructura.

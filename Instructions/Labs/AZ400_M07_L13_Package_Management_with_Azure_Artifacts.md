@@ -6,8 +6,6 @@ lab:
 
 # Administración de paquetes con Azure Artifacts
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -41,9 +39,38 @@ Después de completar este laboratorio, podrá:
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-En este ejercicio, queremos recordarle debe validar los prerrequisitos del laboratorio, teniendo tanto una organización de Azure DevOps lista, como haber creado el proyecto eShopOnWeb. Consulta las instrucciones para obtener más detalles.
+En este ejercicio, configurarás los requisitos previos para el laboratorio.
 
-#### Tarea 1: Configuración de la solución eShopOnWeb en Visual Studio
+#### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
+
+En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usará en varios laboratorios.
+
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y deja los demás campos con los valores predeterminados. Haga clic en **Crear**.
+
+    ![Captura de pantalla del panel Crear nuevo proyecto.](images/create-project.png)
+
+#### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
+
+En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
+
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
+
+    ![Captura de pantalla del panel Importar repositorio.](images/import-repo.png)
+
+1. El repositorio se organiza de la siguiente manera:
+    - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
+
+#### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
+
+1. Ve a **Repos > Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
+#### Tarea 4: Configuración de la solución eShopOnWeb en Visual Studio
 
 En esta tarea, configurarás Visual Studio para prepararte para el laboratorio.
 
@@ -76,7 +103,7 @@ En esta tarea, crearás una fuente y te conectarás a ella.
 
     > **Nota**: esta fuente será una colección de paquetes NuGet disponibles para los usuarios de la organización y se almacenará con con la fuente de NuGet pública como elemento del mismo nivel. El escenario de este laboratorio se centrará en el flujo de trabajo para usar Azure Artifacts, por lo que las decisiones de arquitectura y desarrollo reales son meramente ilustrativas.  Esta fuente incluirá funciones comunes que se pueden compartir entre proyectos de esta organización.
 
-1. En el panel **Crear nueva fuente**, en el cuadro de texto **Nombre**, escriba **eShopOnWebShared**, en la sección **Ámbito**, seleccione la opción **Organización**, deje otras opciones con sus valores predeterminados y haga clic en **Crear**.
+1. En el panel **Crear nueva fuente**, en el cuadro de texto **Nombre**, escribe **`eShopOnWebShared`**, en la sección **Ámbito**, selecciona la opción **Organización**, deja otras opciones con sus valores predeterminados y haz clic en **Crear**.
 
     > **Nota**: cualquier usuario que quiera conectarse a esta fuente de NuGet debe configurar su entorno.
 
@@ -129,7 +156,7 @@ En esta tarea, crearás y publicarás un paquete NuGet personalizado desarrollad
     dotnet pack .\eShopOnWeb.Shared.csproj
     ```
 
-    > **Nota**: El comando **dotnet pack** compila el proyecto y crea un paquete NuGet en la carpeta **bin\Release**.
+    > **Nota**: El comando **dotnet pack** compila el proyecto y crea un paquete NuGet en la carpeta **bin\Release**. Si no tienes una carpeta **Versión**, puedes usar la carpeta **Depurar** en su lugar.
 
     > **Nota**: Omite las advertencias que aparecen en la ventana **Administrador: Windows PowerShell**.
 
@@ -228,7 +255,7 @@ Al crear la fuente de paquetes de artefactos de Azure DevOps, por diseño, se pe
 
 1. Vaya al portal de Azure DevOps, vaya a **Artefactos** y seleccione la fuente **eShopOnWebShared**.
 1. Haz clic en **Buscar orígenes de nivel superior**
-1. En la ventana **Ir a un paquete ascendente**, seleccione **NuGet** como Tipo de paquete y escriba **Newtonsoft.Json** en el campo de búsqueda.
+1. En la ventana **Ir a un paquete de nivel superior**, selecciona **NuGet** como Tipo de paquete y escribe **`Newtonsoft.Json`** en el campo de búsqueda.
 1. Para confirmar, presiona el botón **Buscar**.
 1. Esto da como resultado una lista de todos los paquetes Newtonsoft.Json con las distintas versiones disponibles.
 1. Haga clic en la **tecla de dirección izquierda** para volver a la fuente **eShopOnWebShared**.

@@ -6,8 +6,6 @@ lab:
 
 # Implementación de Acciones de GitHub para CI/CD
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -33,7 +31,7 @@ Después de completar este laboratorio, podrá:
 
 ## Instrucciones
 
-### Ejercicio 0: importación de eShopOnWeb al repositorio de GitHub
+### Ejercicio 1: Importar eShopOnWeb al repositorio de GitHub
 
 En este ejercicio, importarás el código del repositorio [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb) existente en tu repositorio privado de GitHub.
 
@@ -50,11 +48,11 @@ En esta tarea, crearás un repositorio de GitHub público vacío e importarás e
 
 1. En el equipo del laboratorio, abre un explorador web, accede al [sitio web de GitHub](https://github.com/), inicia sesión con tu cuenta y haz clic en **Nuevo** para crear un repositorio nuevo.
 
-    ![Crear repositorio](images/github-new.png)
+    ![Captura de pantalla del botón de creación de nuevo repositorio.](images/github-new.png)
 
 1. En la página **Crear un nuevo repositorio**, haz clic en el vínculo **Importar un repositorio** (debajo del título de página).
 
-    > NOTA: también puedes abrir el sitio web de importación directamente en <https://github.com/new/import>
+    > **Nota**: También puedes abrir el sitio web de importación directamente en <https://github.com/new/import>
 
 1. En la página **Importar el proyecto a GitHub**:
 
@@ -69,9 +67,9 @@ En esta tarea, crearás un repositorio de GitHub público vacío e importarás e
 
 1. En la página del repositorio, ve a **Configuración**, haz clic en **Acciones > General** y elige la opción **Permitir todas las acciones y los flujos de trabajo reutilizables**. Haga clic en **Guardar**.
 
-    ![Habilitación de Acciones de GitHub](images/enable-actions.png)
+    ![Captura de pantalla de la opción Habilitar acciones de GitHub.](images/enable-actions.png)
 
-### Ejercicio 1: configuración de tu repositorio de GitHub y el acceso a Azure
+### Ejercicio 2: Configurar el repositorio de GitHub y el acceso a Azure
 
 En este ejercicio, crearás una entidad de servicio de Azure para autorizar a GitHub a acceder a la suscripción de Azure desde las Acciones de GitHub. También configurarás el flujo de trabajo de GitHub que compilará, probará e implementará el sitio web en Azure.
 
@@ -79,20 +77,21 @@ En este ejercicio, crearás una entidad de servicio de Azure para autorizar a Gi
 
 En esta tarea, crearás la entidad de servicio de Azure que usa GitHub para implementar los recursos deseados. Como alternativa, también podrías usar [OpenID connect en Azure](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure), como mecanismo de autenticación sin secretos.
 
-1. En tu equipo del laboratorio, abre el Portal de Azure en una ventana del exploradorhttps://portal.azure.com/).
+1. En tu equipo del laboratorio, abre Azure Portal en una ventana del explorador (<https://portal.azure.com/>).
 1. En el portal, busca **Grupos de recursos** y haz clic en esa opción.
 1. Haz clic en **+ Crear** para crear un nuevo grupo de recursos para el ejercicio.
-1. En la pestaña **Crear un grupo de recursos**, asigne el nombre siguiente al grupo de recursos: **rg-eshoponweb-NAME** (reemplace NAME por un alias único). Haz clic en **Revisar y crear > Crear**.
+1. En la pestaña **Crear un grupo de recursos**, asigne el nombre siguiente al grupo de recursos: **rg-eshoponweb-NAME** (reemplace NAME por un alias único). Haz clic en **Revisar + crear > Crear**.
 1. En el Portal de Azure, abre **Cloud Shell** (junto a la barra de búsqueda).
 
-    > NOTA: si es la primera vez que abres Cloud Shell, debes configurar el [almacenamiento persistente.](https://learn.microsoft.com/azure/cloud-shell/persisting-shell-storage)
+    > **Nota**: Si es la primera vez que abres Cloud Shell, debes configurar el [almacenamiento persistente](https://learn.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
 1. Asegúrate de que el terminal se ejecuta en modo **Bash** y ejecuta el siguiente comando, reemplazando **SUBSCRIPTION-ID** y **RESOURCE-GROUP** con tus propios identificadores (ambos se pueden encontrar en la página **Información general** del grupo de recursos):
 
     `az ad sp create-for-rbac --name GH-Action-eshoponweb --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP --sdk-auth`
 
-    > NOTA: asegúrate de que se introduzca o pegue en una sola línea.
-    > NOTA: este comando creará una entidad de servicio con acceso de colaborador al grupo de recursos creado antes. De este modo, nos aseguramos de que las Acciones de GitHub solo tendrán los permisos necesarios para interactuar solo con este grupo de recursos (no con el resto de la suscripción).
+    > **Nota**: Asegúrate de que se introduzca o pegue en una sola línea.
+
+    > **Nota**: Este comando creará una entidad de servicio con acceso de colaborador al grupo de recursos creado antes. De este modo, nos aseguramos de que las Acciones de GitHub solo tendrán los permisos necesarios para interactuar solo con este grupo de recursos (no con el resto de la suscripción).
 
 1. El comando generará un objeto JSON que más adelante usarás como secreto de GitHub para el flujo de trabajo. Copia el archivo JSON. El archivo JSON contiene los identificadores usados para autenticar en Azure en el nombre de una identidad Microsoft Entra (entidad de servicio).
 
@@ -106,7 +105,7 @@ En esta tarea, crearás la entidad de servicio de Azure que usa GitHub para impl
         }
     ```
 
-1. También debes ejecutar el siguiente comando para registrar el proveedor de recursos para el **Azure App Service** que implementarás más adelante:
+1. (Omitir si ya está registrado) También debes ejecutar el siguiente comando para registrar el proveedor de recursos para el **Azure App Service** que implementarás más adelante:
 
    ```bash
    az provider register --namespace Microsoft.Web
@@ -142,15 +141,15 @@ En esta tarea, revisarás la ejecución del flujo de trabajo de GitHub:
 1. En una ventana del explorador, vuelve al repositorio de GitHub **eShopOnWeb** .
 1. En la página del repositorio, ve a **Acciones** y verás la configuración del flujo de trabajo antes de ejecutarse. Haga clic en él.
 
-    ![Flujo de trabajo de GitHub en curso](images/gh-actions.png)
+    ![Captura de pantalla del flujo de trabajo de GitHub en curso.](images/gh-actions.png)
 
 1. Espera a que finalice la ejecución del flujo de trabajo. En **Resumen**, puedes ver las dos tareas del flujo de trabajo, el estado y los artefactos retenidos de la ejecución. Puedes hacer clic en cada trabajo para revisar los registros.
 
-    ![Ejecución correcta del flujo de trabajo](images/gh-action-success.png)
+    ![Captura de pantalla del flujo de trabajo correcto.](images/gh-action-success.png)
 
 1. En una ventana del explorador, vuelva a Azure Portal (<https://portal.azure.com/>). Abre el grupo de recursos creado antes. Verás que la Acción de GitHub, mediante una plantilla de bicep, ha creado un plan de App Service de Azure y App Service. Puedes ver el sitio web publicado abriendo App Service y haciendo clic en **Examinar**.
 
-    ![Examinar WebApp](images/browse-webapp.png)
+    ![Captura de pantalla de la WebApp de navegación.](images/browse-webapp.png)
 
 #### (OPCIONAL) Tarea 4: agregar la aprobación manual previa a la implementación mediante entornos de GitHub
 
@@ -162,39 +161,23 @@ En esta tarea, usarás entornos de GitHub para solicitar la aprobación manual a
 1. En la página del repositorio, ve a **Configuración**, abre **Entornos** y haz clic en **Nuevo entorno**.
 1. Asígnale el nombre **Desarrollo** y haz clic en **Configurar entorno**.
 
-    > NOTA: si ya existe un entorno denominado **Desarrollo** en la lista **Entornos**, abre tu configuración haciendo clic en el nombre del entorno.  
+    > **Nota**: Si ya existe un entorno denominado **Desarrollo** en la lista **Entornos**, abre su configuración haciendo clic en el nombre del entorno.  
 
 1. En la pestaña **Configurar desarrollo**, activa la opción **Revisores necesarios** y tu cuenta de GitHub como revisor. Haz clic en **Guardar reglas de protección**.
-1. Ahora vamos a probar la regla de protección. En la página del repositorio, ve a **Acciones**, haz clic en el flujo de trabajo **Compilación y prueba de eShopOnWeb** y haz clic en **Ejecutar flujo de trabajo > Ejecutar flujo de trabajo** para la ejecución manual.
+1. Ahora vamos a probar la regla de protección. En la página del repositorio, ve a **Actions**, haz clic en el flujo de trabajo **eShopOnWeb Build and Test** y haz clic en **Run workflow > Run workflow** para la ejecución manual.
 
-    ![flujo de trabajo de desencadenador manual](images/gh-manual-run.png)
+    ![Captura de pantalla del flujo de trabajo de desencadenamiento manual.](images/gh-manual-run.png)
 
 1. Haz clic en la ejecución iniciada del flujo de trabajo y espera a que finalice el trabajo **compilación y prueba**. Verás una solicitud de revisión cuando llegues al trabajo **implementación**.
 
 1. Haz clic en **Revisar implementaciones**, marca **Desarrollo** y haz clic en **Aprobar e implementar**.
 
-    ![aprobación](images/gh-approve.png)
+    ![Captura de pantalla de la aprobación de acciones.](images/gh-approve.png)
 
 1. El flujo de trabajo seguirá ejecutando el trabajo de **implementación** y finalizará.
 
-### Ejercicio 2: eliminación de los recursos del laboratorio de Azure
-
-En este ejercicio, usarás Azure Cloud Shell para quitar los recursos de Azure aprovisionados en este laboratorio para eliminar cargos innecesarios.
-
-1. En Azure Portal, abra la sesión de shell de **Bash** en el panel **Cloud Shell**.
-1. Ejecute el comando siguiente para enumerar todos los grupos de recursos que se han creado en los laboratorios de este módulo:
-
-    ```sh
-    az group list --query "[?starts_with(name,'rg-eshoponweb')].name" --output tsv
-    ```
-
-1. Ejecute el comando siguiente para eliminar todos los grupos de recursos que ha creado en los laboratorios de este módulo:
-
-    ```sh
-    az group list --query "[?starts_with(name,'rg-eshoponweb')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
-    ```
-
-    >**Nota**: El comando se ejecuta de forma asincrónica (según determina el parámetro --nowait). Aunque podrá ejecutar otro comando de la CLI de Azure inmediatamente después en la misma sesión de Bash, los grupos de recursos tardarán unos minutos en quitarse.
+> [!IMPORTANT]
+> Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
 ## Revisar
 

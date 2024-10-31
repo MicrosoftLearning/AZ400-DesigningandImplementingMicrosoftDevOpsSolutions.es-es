@@ -6,8 +6,6 @@ lab:
 
 # Configuración y ejecución de pruebas funcionales
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -30,11 +28,11 @@ Después de completar este laboratorio, podrás configurar una canalización de 
 - Pruebas de integración
 - Pruebas funcionales
 
-## Tiempo estimado: 60 minutos
+## Tiempo estimado: 20 minutos
 
 ## Instrucciones
 
-### Ejercicio 0: configuración de los requisitos previos del laboratorio
+### Ejercicio 0: (omitir si se ha realizado) Configurar los requisitos previos del laboratorio
 
 En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
@@ -48,7 +46,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos > Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -59,7 +57,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 #### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
 
-1. Ve a **Repos>Ramas**.
+1. Ve a **Repos > Ramas**.
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
@@ -73,7 +71,7 @@ En esta tarea, agregarás la definición de compilación de YAML que se usará p
 
 Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
-1. Ve a **Canalizaciones>Canalizaciones**.
+1. Vaya a **Pipelines (Canalizaciones) > Pipelines (Canalizaciones)**.
 1. Haz clic en el botón **Nueva canalización**.
 1. Seleccione **GIT de Azure Repos** (YAML).
 1. Selecciona el repositorio **eShopOnWeb**.
@@ -123,7 +121,7 @@ Verás que la tarea Pruebas unitarias ya forma parte de la canalización.
 
 1. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar los cambios directamente en la rama principal.
 
-#### Tarea 4: comprobar el resumen de las pruebas
+#### Tarea 3: Comprobar el resumen de las pruebas
 
 1. Haz clic en **Ejecutar** y después, en la pestaña **Ejecutar canalización**, haz clic en **Ejecutar** otra vez.
 
@@ -131,14 +129,14 @@ Verás que la tarea Pruebas unitarias ya forma parte de la canalización.
 
 1. Una vez completada, la pestaña **Prueba** se mostrará como parte de la ejecución de la canalización. Hazle clic para ver el resumen. Deberías ver algo similar a esto:
 
-    ![Resumen de pruebas](images/AZ400_M05_L09_Tests_Summary.png)
+    ![Captura de pantalla del resumen de pruebas.](images/AZ400_M05_L09_Tests_Summary.png)
 
 1. Para más información, en la parte inferior de la página, la tabla muestra una lista de las distintas pruebas de ejecución.
 
-    >**Nota**: si la tabla está vacía, debes restablecer los filtros para que se ejecuten todos los detalles sobre las pruebas.
+    > **Nota**: si la tabla está vacía, debes restablecer los filtros para que se ejecuten todos los detalles sobre las pruebas.
 
-    ![Tabla de pruebas](images/AZ400_M05_L09_Tests_Table.png)
+    ![Captura de pantalla de la tabla de pruebas.](images/AZ400_M05_L09_Tests_Table.png)
 
 ## Revisar
 
-En este laboratorio, has aprendido a configurar y ejecutar diferentes tipos de pruebas mediante Azure Pipelines y .Net.
+En este laboratorio, has aprendido a configurar y ejecutar diferentes tipos de pruebas mediante Azure Pipelines y .NET.
