@@ -6,8 +6,6 @@ lab:
 
 # Control de implementaciones mediante puertas de versión
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -54,9 +52,7 @@ Después de completar este laboratorio, podrá:
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-> **Nota**: si ya creaste este proyecto durante los laboratorios anteriores, este ejercicio se puede omitir.
-
-En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+En este ejercicio, configurarás los requisitos previos para el laboratorio.
 
 #### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
 
@@ -64,15 +60,15 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y deja los demás campos con los valores predeterminados. Haga clic en **Crear**.
 
-   ![Crear proyecto](images/create-project.png)
+   ![Captura de pantalla del panel Crear nuevo proyecto.](images/create-project.png)
 
-#### Tarea 2: (omitir si ya la has completado) Importar repositorio de Git eShopOnWeb
+#### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos > Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
-   ![Importar repositorio](images/import-repo.png)
+   ![Captura de pantalla del panel Importar repositorio.](images/import-repo.png)
 
 1. El repositorio se organiza de la siguiente manera:
    - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -81,11 +77,11 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
-1. Ve a **Repos>Ramas**.
+1. Ve a **Repos > Ramas**.
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
-#### Tarea 3: (omitir si ya las has completado) configurar la canalización de CI como código con YAML en Azure DevOps
+#### Tarea 3: Configurar canalización de CI como código con YAML en Azure DevOps
 
 En esta tarea, agregarás una definición de compilación de YAML al proyecto existente.
 
@@ -106,9 +102,9 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
 
    > **Nota**: Cada tarea del archivo YAML está disponible para su revisión, incluidas las advertencias y errores.
 
-1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones>Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar de nombre o mover**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar de nombre o mover**. Asígnale el nombre **`eshoponweb-ci`** y haz clic en **Guardar**.
 
-### Ejercicio 2: creación de los recursos de Azure necesarios para la canalización de versión
+### Ejercicio 1: Crear los recursos de Azure necesarios para la canalización de versión
 
 #### Tarea 1: crear dos aplicaciones web de Azure
 
@@ -126,14 +122,14 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
 
    ```bash
    REGION='centralus'
-   RESOURCEGROUPNAME='az400m04l09-RG'
+   RESOURCEGROUPNAME='az400m03l08-RG'
    az group create -n $RESOURCEGROUPNAME -l $REGION
    ```
 
 1. Crear un plan de App Service
 
    ```bash
-   SERVICEPLANNAME='az400m04l09-sp1'
+   SERVICEPLANNAME='az400m03l08-sp1'
    az appservice plan create -g $RESOURCEGROUPNAME -n $SERVICEPLANNAME --sku S1
    ```
 
@@ -157,13 +153,13 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
 
    | Configuración        | Value                                                                                 |
    | -------------- | ------------------------------------------------------------------------------------- |
-   | Resource group | **az400m04l09-RG**                                                                    |
+   | Resource group | **az400m03l08-RG**                                                                    |
    | Nombre           | el nombre de la aplicación web DevTest que has registrado en la tarea anterior                     |
    | Region         | la misma región de Azure donde implementamos las aplicaciones web en la tarea anterior |
 
 1. Haga clic en **Revisar y crear** y, a continuación, en **Crear**.
 1. Espere a que se complete el proceso de aprovisionamiento.
-1. En Azure Portal, ve al grupo de recursos **az400m04l09-RG** que has creado en la tarea anterior.
+1. En Azure Portal, ve al grupo de recursos **az400m03l08-RG** que has creado en la tarea anterior.
 1. En la lista de recursos, haz clic en la aplicación web **DevTest** que acabas de crear.
 1. En la página de la aplicación web **DevTest**, en el menú vertical de la izquierda, en la sección **Supervisión**, haz clic en **Application Insights**.
 1. En la hoja **Application Insights**, selecciona **Activar Application Insights**.
@@ -195,7 +191,7 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
 
 1. Para confirmar la creación de la regla de alertas, haz clic en **Revisar y crear** y confirma una vez más haciendo clic en **Crear**. Espera a que la regla de alerta se cree correctamente.
 
-### Ejercicio 3: Configuración de la canalización de versión
+### Ejercicio 2: Configurar la canalización de versión
 
 En este ejercicio, configurarás una canalización de versión.
 
@@ -223,7 +219,7 @@ En esta tarea, configurarás las tareas de versión como parte de la canalizaci�
 1. Confirma que el tipo de aplicación está establecido en "Aplicación web en Windows". Luego, en la lista desplegable **Nombre del Servicio de aplicaciones**, selecciona el nombre de la aplicación web **DevTest**.
 1. Selecciona la tarea **Implementar Azure App Service**. En el campo **Paquete o carpeta**, actualiza el valor predeterminado de "$(System.DefaultWorkingDirectory)/\*\*/\*.zip" a "$(System.DefaultWorkingDirectory)/\*\*/Web.zip".
 
-   > Verás un signo de exclamación junto a la pestaña Tareas porque hay que configurar las opciones de la fase de producción.
+   > **Nota**: verás un signo de exclamación junto a la pestaña Tareas porque hay que configurar las opciones de la fase de producción.
 
 1. Abra el panel **Ajustes de aplicación y configuración** y escriba `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development` en el cuadro **Configuración de la aplicación**.
 
@@ -243,13 +239,13 @@ En esta tarea, configurarás las tareas de versión como parte de la canalizaci�
 
 1. En el panel de navegación vertical, en la sección **Canalizaciones**, haz clic en **Versiones** y, en el panel **eshoponweb-cd**, haz clic en la entrada que representa la versión más reciente.
 1. En la hoja **eshoponweb-cd > Release-1**, realiza un seguimiento del progreso de la versión y comprueba que la implementación en ambas aplicaciones web se haya completado correctamente.
-1. Cambia a la interfaz de Azure Portal, ve al grupo de recursos **az400m04l09-RG** y en la lista de recursos, haz clic en la aplicación web **DevTest**. En la hoja de la aplicación web, haz clic en **Examinar** y comprueba que la página web (sitio web de comercio electrónico) se cargue correctamente en una nueva pestaña del explorador web.
-1. Vuelve a la interfaz de Azure Portal. Esta vez, ve al grupo de recursos **az400m04l09-RG** y, en la lista de recursos, haz clic en la aplicación web **Producción**. En la hoja de la aplicación web, haz clic en **Examinar** y comprueba que la página web se cargue correctamente en una nueva pestaña del explorador web.
+1. Cambia a la interfaz de Azure Portal, ve al grupo de recursos **az400m03l08-RG** y en la lista de recursos, haz clic en la aplicación web **DevTest**. En la hoja de la aplicación web, haz clic en **Examinar** y comprueba que la página web (sitio web de comercio electrónico) se cargue correctamente en una nueva pestaña del explorador web.
+1. Vuelve a la interfaz de Azure Portal. Esta vez, ve al grupo de recursos **az400m03l08-RG** y, en la lista de recursos, haz clic en la aplicación web **Producción**. En la hoja de la aplicación web, haz clic en **Examinar** y comprueba que la página web se cargue correctamente en una nueva pestaña del explorador web.
 1. Cierra la pestaña del explorador web que muestra el sitio web **EShopOnWeb**.
 
    > **Nota**: Ya tienes la aplicación con CI/CD configurada. En el ejercicio siguiente, configuraremos validaciones de calidad como parte de una canalización de versión más avanzada.
 
-### Ejercicio 4: Configuración de las validaciones de versión
+### Ejercicio 3: Configurar validaciones de versión
 
 En este ejercicio, configurarás validaciones de calidad en la canalización de versión.
 
@@ -274,7 +270,7 @@ En esta tarea, habilitarás la validación posterior a la implementación del en
 
 1. Cuando vuelvas al panel **Todas las canalizaciones > eshoponweb-cd**, en el borde derecho del rectángulo que representa la fase **DevTest Environment**, haz clic en la forma ovalada que representa las **condiciones posteriores a la implementación**.
 1. En el panel **Condiciones posteriores a la implementación**, coloca el control deslizante **Validaciones** en **Habilitado**, haz clic en **+ Agregar** y, en el menú emergente, haz clic en **Consultar alertas de Azure Monitor**.
-1. En el panel **Condiciones posteriores a la implementación**, en la sección **Consultar las alertas de Azure Monitor**, en la lista desplegable **Suscripción de Azure**, selecciona la entrada **service connection** que representa la conexión a tu suscripción de Azure y, en la lista desplegable de **Grupo de recursos**, selecciona la entrada **az400m04l09-RG**.
+1. En el panel **Condiciones posteriores a la implementación**, en la sección **Consultar alertas de Azure Monitor**, en la lista desplegable **Suscripción a Azure**, selecciona la entrada **conexión de servicio** que representa la conexión a tu suscripción a Azure y, en la lista desplegable **Grupo de recursos**, selecciona la entrada **az400m03l08-RG**.
 1. En el panel **Condiciones posteriores a la implementación**, expande la sección **Opciones avanzadas** y configura las siguientes opciones:
 
    - Tipo de filtro: **Ninguno**
@@ -294,7 +290,7 @@ En esta tarea, habilitarás la validación posterior a la implementación del en
 1. Cierra el panel **Condiciones posteriores a la implementación** haciendo clic en la marca **x** en la esquina superior derecha.
 1. Cuando vuelvas al panel **eshoponweb-cd**, haz clic en **Guardar** y, en el cuadro de diálogo **Guardar**, haz clic en **Aceptar**.
 
-### Ejercicio 5: Comprobación de las validaciones de versión
+### Ejercicio 4: Probar validaciones de versión
 
 En este ejercicio, probarás las validaciones de versión actualizando la aplicación, que desencadenará una implementación.
 
@@ -305,8 +301,8 @@ En esta tarea, primero generarás algunas alertas para la aplicación web DevTes
 1. En Azure Portal, ve al recurso **DevTest Web App** implementado anteriormente.
 1. En el panel Información general, verás el campo **URL** que muestra el hipervínculo de la aplicación web. Haga clic en este vínculo, que le redirige a la aplicación web eShopOnWeb en el explorador.
 1. Para simular una **solicitud con error**, agrega **/discount** a la dirección URL, lo que dará como resultado un mensaje de error, ya que esa página no existe. Actualiza esta página varias veces para generar varios eventos.
-1. En Azure Portal, en el campo "Buscar recursos, servicios y documentos", escribe **Application Insights** y selecciona el recurso **DevTest-AppInsights** creado en el ejercicio anterior. Ahora ve a **Alertas**.
-1. Debe haber al menos **1** nueva alerta en la lista de resultados, con un nivel de **Gravedad 2**. Escribe **Alertas** para abrir el servicio de alertas de Azure Monitor.
+1. En Azure Portal, en el campo "Buscar recursos, servicios y documentos", escribe **`Application Insights`** y selecciona el recurso **DevTest-AppInsights** creado en el ejercicio anterior. Ahora ve a **Alertas**.
+1. Debe haber al menos **1** nueva alerta en la lista de resultados, con un nivel de **Gravedad 2**. Escribe **`Alerts`** para abrir el servicio de alertas de Azure Monitor.
 1. Ten en cuenta que debe haber al menos **1** alerta con error marcada con **Gravedad 2: advertencia** en la lista. Esto se desencadena al validar la dirección URL no existente del sitio web en el ejercicio anterior.
 
    > **Nota:** Si aún no aparece ninguna alerta, espera unos minutos más.
@@ -325,30 +321,8 @@ En esta tarea, primero generarás algunas alertas para la aplicación web DevTes
 
    > **Nota:** Si se produce un error en la validación, cierra la alerta.
 
-### Ejercicio 4: Eliminación de los recursos del laboratorio de Azure
-
-En este ejercicio, quitarás los recursos de Azure aprovisionados en este laboratorio para eliminar cargos inesperados.
-
-> **Nota**: No olvide quitar los recursos de Azure recién creados que ya no use. La eliminación de los recursos sin usar garantiza que no verá cargos inesperados.
-
-#### Tarea 1: eliminar los recursos del laboratorio de Azure
-
-En esta tarea, usarás Azure Cloud Shell para quitar los recursos de Azure aprovisionados en este laboratorio con el propósito de eliminar cargos innecesarios.
-
-1. En Azure Portal, abra la sesión de shell de **Bash** en el panel **Cloud Shell**.
-1. Ejecute el comando siguiente para enumerar todos los grupos de recursos que se han creado en los laboratorios de este módulo:
-
-   ```sh
-   az group list --query "[?starts_with(name,'az400m04l09-RG')].name" --output tsv
-   ```
-
-1. Ejecute el comando siguiente para eliminar todos los grupos de recursos que ha creado en los laboratorios de este módulo:
-
-   ```sh
-   az group list --query "[?starts_with(name,'az400m04l09-RG')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
-   ```
-
-   > **Nota**: El comando se ejecuta de forma asincrónica (según determina el parámetro --nowait). Aunque podrá ejecutar otro comando de la CLI de Azure inmediatamente después en la misma sesión de Bash, los grupos de recursos tardarán unos minutos en quitarse.
+   > [!IMPORTANT]
+   > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
 ## Revisar
 

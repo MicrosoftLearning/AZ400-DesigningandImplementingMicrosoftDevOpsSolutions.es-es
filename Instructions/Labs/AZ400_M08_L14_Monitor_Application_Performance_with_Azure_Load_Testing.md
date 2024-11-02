@@ -6,8 +6,6 @@ lab:
 
 # Supervisión del rendimiento de las aplicaciones con Azure Load Testing
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -42,7 +40,7 @@ Después de completar este laboratorio, podrá:
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+En este ejercicio, configurarás los requisitos previos para el laboratorio.
 
 #### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
 
@@ -50,15 +48,15 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
 
-    ![Crear proyecto](images/create-project.png)
+    ![Captura de pantalla del panel Crear nuevo proyecto.](images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos > Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
-    ![Importar repositorio](images/import-repo.png)
+    ![Captura de pantalla del panel Importar repositorio.](images/import-repo.png)
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** tiene canalizaciones de YAML de Azure DevOps.
@@ -67,23 +65,25 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
     - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
     - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
-1. Ve a **Repos>Ramas**.
+#### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
+
+1. Ve a **Repos > Ramas**.
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
-#### Tarea 3: Creación de recursos de Azure
+#### Tarea 4: Creación de recursos de Azure
 
 En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azure Portal.
 
-1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
+1. En el equipo de laboratorio, inicia un explorador web, ve a [**Azure Portal**](https://portal.azure.com) e inicia sesión.
 1. Haz clic en el icono de la barra de herramientas a la derecha del cuadro de texto de búsqueda en Azure Portal para abrir el panel de **Cloud Shell**.
 1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
-    >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
+    > **Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
 1. En el símbolo del sistema de **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el marcador de posición `<region>` con el nombre de la región de Azure más cercana, como "eastus").
 
     ```bash
-    RESOURCEGROUPNAME='az400m09l16-RG'
+    RESOURCEGROUPNAME='az400m08l14-RG'
     LOCATION='<region>'
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
@@ -91,7 +91,7 @@ En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azu
 1. Ejecuta el comando siguiente para crear un plan de Windows App Service:
 
     ```bash
-    SERVICEPLANNAME='az400l16-sp'
+    SERVICEPLANNAME='az400l14-sp'
     az appservice plan create --resource-group $RESOURCEGROUPNAME \
         --name $SERVICEPLANNAME --sku B3
     ```
@@ -109,62 +109,7 @@ En esta tarea, crearás una aplicación web de Azure mediante Cloud Shell en Azu
 
 En este ejercicio, configurarás las canalizaciones de CI/CD como código con YAML en Azure DevOps.
 
-#### Tarea 1: (omitir si se ha realizado) Crear una conexión de servicio para la implementación
-
-En esta tarea, crearás una entidad de servicio mediante la CLI de Azure, que permitirá que Azure DevOps haga lo siguiente:
-
-- Implementar recursos en tu suscripción de Azure.
-- Tener acceso de lectura en los secretos de Key Vault creados posteriormente.
-
-> **Nota**: Si ya tienes una entidad de servicio, puedes continuar directamente con la siguiente tarea.
-
-Necesitarás una entidad de servicio para implementar recursos de Azure desde Azure Pipelines. Dado que vamos a recuperar secretos en una canalización, es necesario conceder permiso al servicio al crear Azure Key Vault.
-
-Azure Pipelines crea automáticamente una entidad de servicio cuando te conectas a una suscripción de Azure desde dentro de una definición de canalización o al crear una nueva conexión de servicio desde la página de configuración del proyecto (opción automática). También puedes crear manualmente la entidad de servicio desde el portal o mediante la CLI de Azure y volver a usarla en proyectos.
-
-1. En el equipo del laboratorio, abre un explorador web, ve al [**Portal de Azure**](https://portal.azure.com) e inicia sesión con las credenciales de una cuenta de usuario con el rol Propietario en la suscripción que vas a usar en este laboratorio, así como el rol Administrador global en el inquilino de Microsoft Entra asociado a la suscripción.
-1. En el portal de Azure portal, haz clic en el icono de **Cloud Shell**, situado inmediatamente a la derecha del cuadro de texto de búsqueda en la parte superior de la página
-1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
-
-   >**Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
-
-1. En el símbolo del sistema de **Bash**, en el panel **Cloud Shell**, ejecuta los siguientes comandos para recuperar los valores de la id. de suscripción de Azure y los atributos de la id. de suscripción:
-
-    ```bash
-    az account show --query id --output tsv
-    az account show --query name --output tsv
-    ```
-
-    > **Nota**: copia ambos valores en un archivo de texto. Los necesitará más adelante en este laboratorio.
-
-1. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear una entidad de servicio (reemplaza **myServicePrincipalName** por cualquier cadena única de caracteres que consta de letras y dígitos) y **mySubscriptionID** por su subscriptionId de Azure:
-
-    ```bash
-    az ad sp create-for-rbac --name myServicePrincipalName \
-                         --role contributor \
-                         --scopes /subscriptions/mySubscriptionID
-    ```
-
-    > **Nota**: el comando generará una salida JSON. Copie los resultados en un archivo de texto. Lo necesitará más adelante en este laboratorio.
-
-1. Después, desde el equipo del laboratorio, abre un explorador web y ve al proyecto **eShopOnWeb** de Azure DevOps. Haz clic en **Configuración del proyecto>Conexiones de servicio (en Canalizaciones)** y en **Nueva conexión de servicio**.
-
-    ![Nueva conexión de servicio](images/new-service-connection.png)
-
-1. En la hoja **Nueva conexión de servicio**, selecciona **Administrador de recursos de Azure** y luego **Siguiente** (quizá debas desplazarte hacia abajo).
-
-1. Elige **Entidad de servicio (manual)** y haz clic en **Siguiente**.
-
-1. Rellena los campos vacíos con la información recopilada durante los pasos anteriores:
-    - Identificador y nombre de la suscripción.
-    - Identificador de entidad de servicio (appId), clave de entidad de servicio (contraseña) e identificador de inquilino (inquilino).
-    - En **Nombre de conexión de servicio**, escribe **azure subs**. Se hará referencia a este nombre en las canalizaciones de YAML cuando necesites una conexión de servicio de Azure DevOps para comunicarte con la suscripción de Azure.
-
-    ![Conexión del servicio de Azure](images/azure-service-connection.png)
-
-1. Haz clic en **Comprobar y guardar**.
-
-#### Tarea 2: Adición de una definición de compilación e implementación de YAML
+#### Tarea 1: aregar una definición de compilación e implementación de YAML
 
 En esta tarea, agregarás una definición de compilación de YAML al proyecto existente.
 
@@ -251,7 +196,7 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
     - Valide que **Tipo de App Service** apunta a Web App en Windows.
     - En la lista desplegable **Nombre de App Service**, seleccione el nombre de la aplicación web que ha implementado en este mismo laboratorio (**az400eshoponweb...).
     - En el cuadro de texto **Paquete o carpeta**, **actualiza** el valor predeterminado a `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
-    - Expanda **Configuración y ajustes de la aplicación** y agregue el valor `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`
+    - Expande **Configuración y ajustes de la aplicación** y, en el cuadro de texto Configuración de la aplicación, agrega los siguientes pares clave-valor: `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`.
 1. Para confirmar la configuración del panel Asistente, haz clic en el botón **Agregar**.
 
     > **Nota**: esto agregará automáticamente la tarea de implementación a la definición de canalización de YAML.
@@ -271,17 +216,17 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
 
     > **Nota**: el parámetro **packageForLinux** es confuso en este laboratorio, pero es válido para Windows o Linux.
 
-1. Antes de guardar las actualizaciones en el archivo yml, asígnele un nombre más claro. En la parte superior de la ventana del editor de yaml, aparece el nombre **EShopOnweb/azure-pipelines-#.yml**. (donde # es un número, normalmente 1, pero podría ser diferente en su configuración). Seleccione **ese nombre de archivo y cámbielo **por **m09l16-pipeline.yml**
+1. Antes de guardar las actualizaciones en el archivo yml, asígnele un nombre más claro. En la parte superior de la ventana del editor de yaml, aparece el nombre **EShopOnweb/azure-pipelines-#.yml**. (donde # es un número, normalmente 1, pero podría ser diferente en tu configuración). Selecciona **ese nombre de archivo y cámbialo **por **m08l14-pipeline.yml**
 
-1. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama maestra.
+1. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama principal.
 
     > **Nota**: dado que el sistema CI-YAML original no se ha configurado para desencadenar automáticamente una nueva compilación, tenemos que iniciarla manualmente.
 
 1. En el menú a la izquierda de Azure DevOps, ve a la pestaña **Canalizaciones** y selecciona **Canalizaciones**. Luego, seleccione **Todo** para abrir todas las definiciones de canalización, no solo las recientes.
 
-    > **Nota**: si ha guardado todas las canalizaciones de los ejercicios de laboratorio anteriores, es posible que esta nueva canalización haya reutilizado el nombre de secuencia predeterminado **eShopOnWeb (#)** para la canalización, como se muestra en la captura de pantalla siguiente. Seleccione una canalización (si es posible, la que tenga el número de secuencia más alto, seleccione Editar y valide que apunta al archivo de código m09l16-pipeline.yml).
+    > **Nota**: si ha guardado todas las canalizaciones de los ejercicios de laboratorio anteriores, es posible que esta nueva canalización haya reutilizado el nombre de secuencia predeterminado **eShopOnWeb (#)** para la canalización, como se muestra en la captura de pantalla siguiente. Selecciona una canalización (si es posible, la que tenga el número de secuencia más alto, selecciona Editar y valida que apunta al archivo de código m08l14-pipeline.yml).
 
-    ![Captura de pantalla de Azure Pipelines que muestra ejecuciones de eShopOnWeb](images/m3/eshoponweb-m9l16-pipeline.png)
+    ![Captura de pantalla de Azure Pipelines que muestra ejecuciones de eShopOnWeb.](images/m3/eshoponweb-m9l16-pipeline.png)
 
 1. Para confirmar que esta canalización se ejecuta, haga clic en **Ejecutar** en el panel que aparece y haga clic una vez más en **Ejecutar** para confirmar la operación.
 1. Verás que aparecen dos fases diferentes: **Compilar una solución .Net Core** e **Implementar en una aplicación web de Azure**.
@@ -315,13 +260,13 @@ En este ejercicio, implementarás un recurso de Azure Load Testing en Azure y co
 En esta tarea, implementarás un recurso de Azure Load Testing en la suscripción de Azure.
 
 1. En Azure Portal (<https://portal.azure.com>), vaya a **Creación de recursos de Azure**.
-1. En el campo de búsqueda "Buscar servicios y marketplace", escribe **Azure Load Testing**.
+1. En el campo de búsqueda "Buscar servicios y marketplace", escribe **`Azure Load Testing`**.
 1. En los resultados, selecciona **Azure Load Testing** (publicado por Microsoft).
 1. En la página Azure Load Testing, haz clic en **Crear** para iniciar el proceso de implementación.
 1. En la página "Crear un recurso de prueba de carga", proporciona los detalles necesarios para la implementación de recursos:
    - **Suscripción**: selecciona la suscripción de Azure
    - **Grupo de recursos**: selecciona el grupo de recursos que ha usado para implementar Web App Service en el ejercicio anterior.
-   - **Nombre**: eShopOnWebLoadTesting
+   - **Nombre**: `eShopOnWebLoadTesting`
    - **Región**: selecciona una región cercana a tu área
 
     > **Nota**: el servicio Azure Load Testing no está disponible en todas las regiones de Azure.
@@ -337,7 +282,8 @@ En esta tarea, implementarás un recurso de Azure Load Testing en la suscripció
 
 En esta tarea, crearás diferentes pruebas de Azure Load Testing con distintas opciones de configuración de carga.
 
-1. En la hoja del recurso **eShopOnWebLoadTesting** de Azure Load Testing, vaya a **Pruebas**. Haga clic en la opción de menú **+Crear** y seleccione **Crear una prueba basada en URL**.
+1. En la hoja del recurso **eShopOnWebLoadTesting** de Azure Load Testing, ve a **Pruebas** en **Pruebas**. Haz clic en la opción de menú **+Crear** y selecciona **Crear una prueba basada en URL**.
+1. Desactiva la casilla **Habilitar configuración avanzada** para mostrar la configuración avanzada.
 1. Completa los parámetros y la configuración siguientes para crear una prueba de carga:
    - **URL de prueba**: escriba la dirección URL del servicio Azure App Service que implementó en el ejercicio anterior (az400eshoponweb... azurewebsites.net), **incluido https://**
    - **Especificar carga**: usuarios virtuales
@@ -382,27 +328,24 @@ Empiece a automatizar las pruebas de carga en Azure Load Testing agregándolo a 
 
 Después de completar este ejercicio, tendrás un flujo de trabajo de CI/CD configurado para ejecutar una prueba de carga con Azure Load Testing.
 
-#### Tarea 1: identificar los detalles del ADO Service Connection
+#### Tarea 1: Identificación de los detalles de conexión de servicio de Azure DevOps
 
-En esta tarea, concederás los permisos necesarios a la entidad de servicio de Azure DevOps Service Connection.
+En esta tarea, concederás los permisos necesarios a la conexión de servicio de Azure DevOps.
 
-1. En **Azure DevOps Portal**(<https://dev.azure.com>), vaya al proyecto **eShopOnWeb**.
+1. En **Azure DevOps Portal**(<https://aex.dev.azure.com>), vaya al proyecto **eShopOnWeb**.
 1. Selecciona **Configuración del proyecto** en la esquina inferior izquierda.
 1. En la sección **Canalizaciones**, selecciona **Conexiones de servicio**.
 1. Observa la conexión de servicio, que tiene el nombre de la suscripción de Azure que has usado para implementar recursos de Azure al principio del ejercicio del laboratorio.
-1. **Selecciona la conexión de servicio**. En la pestaña **Información general**, ve a **Detalles** y selecciona **Administrar entidad de servicio**.
-1. Esto redirige a Azure Portal, donde figuran los detalles de la **entidad de servicio** del objeto de identidad.
-1. Copie el valor de **nombre para mostrar** (con formato Name_of_ADO_Organization_eShopOnWeb_-b86d9ae1-7552-4b75-a1e0-27fb2ea7f9f4), ya que lo necesitará en los pasos siguientes.
+1. **Selecciona la conexión de servicio**. En la pestaña **Información general**, ve a **Detalles** y selecciona **Administrar roles de conexión de servicio**.
+1. Esto redirige a Azure Portal, desde donde abre los detalles del grupo de recursos en la hoja control de acceso (IAM).
 
-#### Tarea 2: conceder permisos a la entidad de servicio
+#### Tarea 2: Concesión de permisos al recurso de Azure Load Testing
 
-Azure Load Testing usa RBAC de Azure para conceder permisos para realizar actividades específicas en el recurso de prueba de carga. Para ejecutar una prueba de carga desde la canalización de CI/CD, concede el rol **Colaborador de pruebas de carga** a la entidad de servicio.
+Azure Load Testing usa RBAC de Azure para conceder permisos para realizar actividades específicas en el recurso de prueba de carga. Para ejecutar una prueba de carga desde la canalización de CI/CD, concede el rol **Colaborador de pruebas de carga** a la conexión de servicio de Azure DevOps.
 
-1. En el portal de **Azure**, ve al recurso de **Azure Load Testing**.
-1. Selecciona **Control de acceso (IAM)** > Agregar > Agregar asignación de roles.
+1. Seleccione **+ Agregar** y **Agregar asignación de roles**.
 1. En la pestaña **Rol**, seleccione **Colaborador de pruebas de carga** en la lista de roles de funciones de trabajo.
-1. En la pestaña **Miembros**, selecciona **Seleccionar miembros** y luego usa el **nombre para mostrar** que has copiado para buscar en la entidad de servicio.
-1. Selecciona la **entidad de servicio** y luego, **Seleccionar**.
+1. En la **pestaña Miembros**, elige **Seleccionar miembros**, busca y selecciona tu cuenta de usuario y haz clic en **Seleccionar**.
 1. En la **pestaña Revisar + asignar**, seleccione **Revisar + asignar** para agregar la asignación de roles.
 
 Ahora es posible usar la conexión de servicio en la definición de flujo de trabajo de Azure Pipelines para acceder al recurso de prueba de carga de Azure.
@@ -422,7 +365,7 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
    - *config.yaml*: el archivo de configuración de YAML de prueba de carga. Haga referencia a este archivo en la definición de flujo de trabajo de CI/CD.
    - *quick_test.jmx*: el script de prueba de JMeter
 
-1. Confirme todos los archivos de entrada extraídos en el repositorio de control de código fuente. Para ello, vaya a **Azure DevOps Portal**(<https://dev.azure.com>) y vaya al proyecto de DevOps **eShopOnWeb**.
+1. Confirme todos los archivos de entrada extraídos en el repositorio de control de código fuente. Para ello, vaya a **Azure DevOps Portal**(<https://aex.dev.azure.com/>) y vaya al proyecto de DevOps **eShopOnWeb**.
 1. Seleccione **Repositorios**. En la estructura de carpetas de código fuente, observa la subcarpeta **tests**. Observa los puntos suspensivos (...) y selecciona **Nuevo > Carpeta**.
 1. especifica **jmeter** como el nombre de carpeta y **placeholder.txt** como nombre de archivo (Nota: no se puede crear una carpeta vacía).
 1. Haz clic en **Confirmar** para confirmar la creación del archivo de marcador de posición y la carpeta jmeter.
@@ -431,8 +374,6 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
 1. Haz clic en **Confirmar** para confirmar la carga de archivos en el control de código fuente.
 
 #### Tarea 4: actualizar el archivo de definición de YAML del flujo de trabajo de CI/CD
-
-En esta tarea, importarás la extensión Azure Load Testing - Azure DevOps Marketplace y la actualización de la canalización de CI/CD existente con la tarea AzureLoadTest.
 
 1. Para crear y ejecutar una prueba de carga, la definición de flujo de trabajo de Azure Pipelines usa la extensión de **tarea de Azure Load Testing ** del marketplace de Azure DevOps. Abra la [extensión de tarea de Azure Load Testing](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) en el marketplace de Azure DevOps y seleccione **Get it free** (Obtener gratis).
 1. Seleccione la organización de Azure DevOps y, después, seleccione **Install** (Instalar) para instalar la extensión.
@@ -443,7 +384,7 @@ En esta tarea, importarás la extensión Azure Load Testing - Azure DevOps Marke
    - Suscripción de Azure: selecciona la suscripción que ejecuta los recursos de Azure
    - Archivo de prueba de carga: '$(Build.SourcesDirectory)/tests/jmeter/config.yaml'
    - Grupo de recursos de prueba de carga: el grupo de recursos que tiene los recursos de Azure Load Testing
-   - Nombre del recurso de prueba de carga: ESHopOnWebLoadTesting
+   - Nombre del recurso de prueba de carga: `eShopOnWebLoadTesting`
    - Nombre de ejecución de pruebas de carga: ado_run
    - Descripción de la ejecución de pruebas de carga: pruebas de carga desde ADO
 
@@ -454,7 +395,7 @@ En esta tarea, importarás la extensión Azure Load Testing - Azure DevOps Marke
     ```yml
          - task: AzureLoadTest@1
           inputs:
-            azureSubscription: 'AZURE DEMO SUBSCRIPTION(b86d9ae1-1234-4b75-a8e7-27fb2ea7f9f4)'
+            azureSubscription: 'AZURE DEMO SUBSCRIPTION'
             loadTestConfigFile: '$(Build.SourcesDirectory)/tests/jmeter/config.yaml'
             resourceGroup: 'az400m05l11-RG'
             loadTestResource: 'eShopOnWebLoadTesting'
@@ -565,34 +506,12 @@ En esta tarea, usarás criterios de error de prueba de carga para recibir alerta
 
 1. La última línea de la salida de pruebas de carga indica **##[error]TestResult: FAILED**, dado que definimos un **FailCriteria** que tiene un tiempo medio de respuesta de >300 o que tiene un porcentaje de error de >20. Ahora se ve un tiempo de respuesta promedio que es superior a 300, y se marcará que se produjo un error en la tarea.
 
-    > Nota: Imagínese en un escenario de la vida real, usted validaría el rendimiento de la App Service, y si el rendimiento está por debajo de un cierto umbral (por lo general significa que hay más carga en la aplicación web), podría desencadenar una nueva implementación a un Azure App Service adicional. Como no podemos controlar el tiempo de respuesta de los entornos de laboratorio de Azure, decidimos revertir la lógica para garantizar el error.
+    > **Nota**: Ten en cuenta que en un escenario de la vida real, validarías el rendimiento de la App Service, y si el rendimiento está por debajo de un cierto umbral (por lo general significa que hay más carga en la aplicación web), podrías desencadenar una nueva implementación a un Azure App Service adicional. Como no podemos controlar el tiempo de respuesta de los entornos de laboratorio de Azure, decidimos revertir la lógica para garantizar el error.
 
 1. El estado de ERROR de la tarea de canalización refleja realmente una validación exitosa de los criterios de requisitos de Azure Load Testing.
 
-### Ejercicio 3: eliminación de los recursos del laboratorio de Azure
-
-En este ejercicio, quitarás los recursos de Azure aprovisionados en este laboratorio para eliminar cargos inesperados.
-
-> **Nota**: No olvide quitar los recursos de Azure recién creados que ya no use. La eliminación de los recursos sin usar garantiza que no verá cargos inesperados.
-
-#### Tarea 1: eliminar los recursos del laboratorio de Azure
-
-En esta tarea, usarás Azure Cloud Shell para quitar los recursos de Azure aprovisionados en este laboratorio con el propósito de eliminar cargos innecesarios.
-
-1. En Azure Portal, abra la sesión de shell de **Bash** en el panel **Cloud Shell**.
-1. Ejecute el comando siguiente para enumerar todos los grupos de recursos que se han creado en los laboratorios de este módulo:
-
-    ```sh
-    az group list --query "[?starts_with(name,'az400m09l16')].name" --output tsv
-    ```
-
-1. Ejecute el comando siguiente para eliminar todos los grupos de recursos que ha creado en los laboratorios de este módulo:
-
-    ```sh
-    az group list --query "[?starts_with(name,'az400m09l16')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
-    ```
-
-    >**Nota**: El comando se ejecuta de forma asincrónica (según determina el parámetro --nowait). Aunque podrá ejecutar otro comando de la CLI de Azure inmediatamente después en la misma sesión de Bash, los grupos de recursos tardarán unos minutos en quitarse.
+   > [!IMPORTANT]
+   > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
 ## Revisar
 

@@ -6,8 +6,6 @@ lab:
 
 # Configuración de grupos de agentes y descripción de los estilos de canalización
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -33,11 +31,11 @@ Después de completar este laboratorio, podrá:
 - Implementar canalizaciones basadas en YAML.
 - Implementar agentes autohospedados.
 
-## Tiempo estimado: 45 minutos
+## Tiempo estimado: 30 minutos
 
 ## Instrucciones
 
-### Ejercicio 0: configuración de los requisitos previos del laboratorio
+### Ejercicio 0: (omitir si ya lo has completado) Configuración de los requisitos previos del laboratorio
 
 En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
@@ -51,7 +49,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -62,17 +60,212 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 #### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
 
-1. Ve a **Repos>Ramas**.
+1. Ve a **Repos > Ramas**.
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
-### Ejercicio 1: creación de Azure Pipelines basadas en YAML
+### Ejercicio 1: Creación de agentes y configuración de grupos de agentes
+
+En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para crear un agente y configurar grupos de agentes.
+
+#### Tarea 1: Creación de una VM de Azure y conexión a ella
+
+1. En el explorador, abra Azure Portal desde `https://portal.azure.com`. Si se le solicita, inicie sesión con una cuenta con el rol Propietario en su suscripción de Azure.
+
+1. En el cuadro **Buscar recursos, servicios y docuocumentos (G+/)**, escribe **`Virtual Machines`** y selecciónalo en la lista desplegable.
+
+1. Seleccione el botón **Crear**.
+
+1. Seleccione **Máquina virtual de Azure con configuración preestablecida**.
+
+    ![Captura de pantalla de la creación de una máquina virtual con configuración preestablecida.](images/create-virtual-machine-preset.png)
+
+1. Seleccione **Dev/Test** como entorno de carga de trabajo y **De uso general** como tipo de carga de trabajo.
+
+1. Seleccione el botón **Seguir creando una VM**; en la pestaña **Aspectos básicos**, realice las siguientes acciones y, luego, seleccione **Administración**:
+
+   | Configuración | Acción |
+   | -- | -- |
+   | Lista desplegable de **Suscripción** | Seleccione su suscripción a Azure. |
+   | Sección **Grupo de recursos** | Cree un grupo de recursos denominado **rg-eshoponweb-agentpool**. |
+   | Cuadro de texto **Nombre de máquina virtual**  | Introduce el nombre que prefieras, por ejemplo, **`eshoponweb-vm`**. |
+   | Lista desplegable de **Región** | Puedes elegir tu región de [Azure](https://azure.microsoft.com/explore/global-infrastructure/geographies) más cercana. Por ejemplo, "eastus", "eastasia", "westus", etc. |
+   | Lista desplegable **Opciones de disponibilidad** | Seleccione **No se requiere redundancia de la infraestructura**. |
+   | Lista desplegable **Tipo de seguridad** | Seleccione la opción **Máquinas virtuales de inicio seguro**. |
+   | Lista desplegable de **imágenes** | Seleccione la imagen **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**. |
+   | Lista desplegable de **Tamaño** | Seleccione el tamaño **estándar** más barato para realizar pruebas. |
+   | Cuadro de texto **Nombre de usuario** | Escriba el nombre de usuario que prefiera. |
+   | Cuadro de texto **Contraseña** | Escriba la contraseña que prefiera. |
+   | Sección **Puertos de entrada públicos** | Seleccione **Permitir los puertos seleccionados**. |
+   | Lista desplegable **Seleccionar puertos de entrada** | Seleccione **RDP (3389)**. |
+
+1. En la pestaña **Administración**, en la sección **Identidad**, seleccione la casilla de verificación **Habilitar identidad administrada asignada por el sistema** y, luego, seleccione **Revisar y crear**:
+
+1. En la pestaña **Revisar y crear**, seleccione **Crear**.
+
+   > **Nota**: Espere a que se complete el proceso de aprovisionamiento. Este proceso tardará alrededor de 2 minutos.
+
+1. En Azure Portal, vaya a la página que muestra la configuración de la VM de Azure recién creada.
+
+1. En la página de VM de Azure, selecciona **Conectar**, en el menú desplegable, selecciona **Conectar** y después selecciona **Descargar archivo RDP**.
+
+1. Usa el archivo RDP descargado para establecer una sesión de Escritorio remoto en el sistema operativo que se ejecuta en la VM de Azure.
+
+#### Tarea 2: Creación de un grupo de agentes
+
+1. En la sesión de Escritorio remoto a la VM de Azure, inicie el explorador web de Microsoft Edge.
+
+1. En el explorador web, vaya al portal de Azure DevOps en `https://aex.dev.azure.com` e inicie sesión para acceder a la organización.
+
+   > **Nota**: Si es la primera vez que accedes al portal de Azure DevOps, es posible que tengas que crear tu perfil.
+
+1. Abra el proyecto **eShopOnWeb** y seleccione **Configuración del proyecto** en el menú inferior izquierdo.
+
+1. En **Canalizaciones > Grupos de agentes**, seleccione el botón **Agregar grupo**.
+
+1. Elija el tipo de grupo **autohospedado**.
+
+1. Proporcione un nombre para el grupo de agentes, como **eShopOnWebSelfPool** y agregue una descripción opcional.
+
+1. Seleccione **Conceder permiso de acceso a todas las canalizaciones**.
+
+   ![Captura de pantalla que muestra cómo agregar opciones de grupo de agentes con el tipo autohospedado.](images/create-new-agent-pool-self-hosted-agent.png)
+
+   > **Nota:** No se recomienda conceder permiso de acceso a todas las canalizaciones para entornos de producción. Solo se usa en este laboratorio para simplificar la configuración de la canalización.
+
+1. Seleccione el botón **Crear** para crear el grupo de agentes.
+
+#### Tarea 3: Descarga y extracción de los archivos de instalación del agente
+
+1. En el portal de Azure DevOps, seleccione el grupo de agentes recién creado y, luego, seleccione la pestaña **Agentes**.
+
+1. Seleccione el botón **Nuevo agente** y, a continuación, el botón **Descargar** de la nueva ventana emergente **Descargar agente**.
+
+   > **Nota**: Sigue las instrucciones para instalar el agente.
+
+1. Inicie una sesión de PowerShell y ejecute los siguientes comandos para crear una carpeta denominada **agente**.
+
+   ```powershell
+   mkdir agent ; cd agent        
+   ```
+
+   > **Nota**: Asegúrate de que estás en la carpeta donde deseas instalar el agente, por ejemplo, C:\agent.
+
+1. Ejecute el siguiente comando para extraer el contenido de los archivos del instalador del agente descargados:
+
+   ```powershell
+   Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-3.245.0.zip", "$PWD")
+   ```
+
+   > **Nota**: Si has descargado el agente en otra ubicación (o la versión descargada difiere), ajusta el comando anterior en consecuencia.
+
+#### Tarea 4: Creación de un token PAT
+
+> **Nota**: Antes de configurar el agente, debes crear un token PAT (a menos que tengas uno existente). Para crear un token PAT, siga estos pasos:
+
+1. En la sesión de Escritorio remoto de la VM de Azure, abre otra ventana del explorador, ve al portal de Azure DevOps en `https://aex.dev.azure.com` y accede a tu organización y proyecto.
+
+1. Seleccione **Configuración de usuario** en el menú superior derecho (directamente a la izquierda del icono de avatar del usuario).
+
+1. Seleccione el elemento de menú **Token de acceso personal**.
+
+   ![Captura de pantalla que muestra el menú Tokens de acceso personal.](images/personal-access-token-menu.png)
+
+1. Seleccione el botón **Nuevo token**.
+
+1. Proporcione un nombre para el token, como **eShopOnWebToken**.
+
+1. Seleccione la organización de Azure DevOps para la que quiere usar el token.
+
+1. Establezca la fecha de expiración del token (solo se usa para configurar el agente).
+
+1. Seleccione el ámbito definido personalizado.
+
+1. Seleccione mostrar todos los ámbitos.
+
+1. Seleccione el ámbito **Grupos de agentes (Leer y administrar).**
+
+1. Seleccione el botón **Crear** para crear el token.
+
+1. Copie el valor del token y guárdelo en un lugar seguro (no podrá volver a verlo. Solo puede regenerar el token).
+
+   ![Captura de pantalla que muestra la configuración del token de acceso personal.](images/personal-access-token-configuration.png)
+
+   > [!IMPORTANT]
+   > Use la opción de privilegios mínimos, **Grupos de agentes (leer y administrar)**, solo para la configuración del agente. Además, asegúrese de establecer la fecha de expiración mínima para el token si ese es el único propósito del token. Puede crear otro token con los mismos privilegios si necesita volver a configurar el agente.
+
+#### Tarea 5: Configuración del agente
+
+1. En la sesión de Escritorio remoto a la VM de Azure, vuelva a la ventana de PowerShell. Si es necesario, cambie del directorio actual a aquél en el que extrajo los archivos de instalación del agente anteriormente en este ejercicio.
+
+1. Para configurar el agente a fin de que se ejecute desatendido, invoque el siguiente comando:
+
+   ```powershell
+   .\config.cmd
+   ```
+
+   > **Nota**: Si deseas ejecutar el agente de forma interactiva, usa `.\run.cmd` en su lugar.
+
+1. Para configurar el agente, realice las siguientes acciones cuando se le solicite:
+
+   - Escriba la dirección URL de la organización de Azure DevOps (**dirección URL del servidor**) en el formato `https://aex.dev.azure.com`{nombre de la organización}.
+   - Acepta el tipo de autenticación predeterminado (**`PAT`**).
+   - Escriba el valor del token PAT que creó en el paso anterior.
+   - Escribe el nombre del grupo de agentes **`eShopOnWebSelfPool`** que has creado anteriormente en este ejercicio.
+   - Escribe el nombre del agente **`eShopOnWebSelfAgent`**.
+   - Acepte la carpeta de trabajo del agente predeterminada (_work).
+   - Escriba **Y** para configurar el agente a fin de que se ejecute como servicio.
+   - Escriba **Y** para habilitar SERVICE_SID_TYPE_UNRESTRICTED para el servicio del agente.
+   - Escriba **NT AUTHORITY\SYSTEM** para establecer el contexto de seguridad para el servicio.
+
+   > [!IMPORTANT]
+   > En general, debe seguir el principio de privilegios mínimos al configurar el contexto de seguridad del servicio.
+
+   - Acepte la opción predeterminada (**N**) para permitir que el servicio se inicie inmediatamente después de finalizar la configuración.
+
+   ![Captura de pantalla que muestra la configuración del agente.](images/agent-configuration.png)
+
+   > **Nota**: El proceso de configuración del agente tardará unos minutos en completarse. Una vez hecho esto, verás un mensaje que indica que el agente se está ejecutando como servicio.
+
+   > [!IMPORTANT] Si ves un mensaje de error que indica que el agente no se está ejecutando, es posible que tengas que iniciar el servicio manualmente. Para ello, abre el applet **Servicios** del panel de control de Windows, busca el servicio denominado **Agente de Azure DevOps (eShopOnWebSelfAgent)** e inícialo.
+
+   > [!IMPORTANT] Si el agente no se inicia, es posible que tengas que elegir una carpeta diferente para el directorio de trabajo del agente. Para ello, vuelve a ejecutar el script de configuración del agente y elige otra carpeta.
+
+1. Para comprobar el estado del agente, cambie al explorador web que muestra el portal de Azure DevOps, vaya al grupo de agentes y haga clic en la pestaña **Agentes**. Debería ver el nuevo agente en la lista.
+
+   ![Captura de pantalla que muestra el estado del agente.](images/agent-status.png)
+
+   > **Nota**: Para obtener más información sobre los agentes de Windows, consulta: [Agentes de Windows autohospedados](https://learn.microsoft.com/azure/devops/pipelines/agents/windows-agent)
+
+   > [!IMPORTANT]
+   > Para que el agente pueda compilar e implementar recursos de Azure desde las canalizaciones de Azure DevOps (que configurará en los próximos laboratorios), debe instalar la CLI de Azure en el sistema operativo de la máquina virtual de Azure que hospeda el agente.
+
+1. Inicie un explorador web y vaya a la página [Instalación de la CLI de Azure en Windows](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli#install-or-update).
+
+1. Descargue e instale la CLI de Azure.
+
+1. (Opcional) Si lo prefieres, ejecuta el siguiente comando de PowerShell para instalar la CLI de Azure:
+
+   ```powershell
+   $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'; Remove-Item .\AzureCLI.msi
+   ```
+
+   > **Nota**: Si usas una versión diferente de la CLI de Azure, es posible que tengas que ajustar el comando anterior en consecuencia.
+
+1. En el explorador web, ve a la página del instalador del SDK de Microsoft .NET 8.0 en `https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.403-windows-x64-installer`.
+
+   > [!IMPORTANT]
+   > Debes instalar el SDK de .NET 8.0 (o superior) en la VM de Azure que hospeda el agente. Esto es necesario para compilar la aplicación eShopOnWeb en los próximos laboratorios. Cualquier otra herramienta o SDK necesarios para la compilación de la aplicación también debe instalarse en la VM de Azure.
+
+1. Descarga e instala el SDK de Microsoft .NET 8.0.
+
+### Ejercicio 2: Creación de Azure Pipelines basadas en YAML
 
 En este ejercicio, crearás una canalización de compilación del ciclo de vida de la aplicación mediante una plantilla basada en YAML.
 
 #### Tarea 1: Creación de una canalización YAML de Azure DevOps
 
-En esta tarea, crearás una canalización YAML de Azure DevOps basada en plantillas.
+En esta tarea, crearás una canalización basada en YAML para el proyecto **eShopOnWeb**.
 
 1. En el explorador web en el que se muestra el portal de Azure DevOps con el proyecto **eShopOnWeb** abierto, en el panel de navegación vertical del lado izquierdo, haga clic en **Canalizaciones**.
 1. Haga clic en el botón **Crear canalización**, si aún no ha creado ninguna canalización, o haga clic en **Nueva canalización** para crear una nueva.
@@ -94,110 +287,33 @@ En esta tarea, crearás una canalización YAML de Azure DevOps basada en plantil
 
 1. En el panel **Revisar YAML de la canalización**, haz clic en el símbolo de intercalación orientado hacia abajo situado junto al botón **Ejecutar** y haz clic en **Guardar**.
 
-    > Nota: Estamos creando la definición de canalización por ahora, sin ejecutarla. Primero configurarás un grupo de agentes de Azure DevOps y ejecutarás la canalización en un ejercicio posterior. 
+    > **Nota**: Estamos creando la definición de canalización por ahora, sin ejecutarla. Primero configurarás un grupo de agentes de Azure DevOps y ejecutarás la canalización en un ejercicio posterior.
 
-### Ejercicio 2: Administración de grupos de agentes de Azure DevOps
+#### Tarea 2: Actualizar la canalización de YAML con el grupo de agentes autohospedado
 
-En este ejercicio, implementarás un agente de Azure DevOps autohospedado.
-
-#### Tarea 1: Configuración de un agente de Azure DevOps autohospedado
-
-En esta tarea, configurarás la máquina virtual de laboratorio como agente de autohospedaje de Azure DevOps y la usarás para ejecutar una canalización de compilación.
-
-1. Dentro de la máquina virtual de laboratorio (VM de laboratorio) o tu propio equipo, inicia un explorador web, navega hasta el [portal de Azure DevOps](https://dev.azure.com) e inicia sesión con la cuenta Microsoft asociada a tu organización de Azure DevOps.
-
-  > **Nota**: la máquina virtual del laboratorio debe tener instalado todo el software de requisitos previos necesario. Si lo va a instalar en su propio equipo, deberá instalar los SDK de .NET 8 o una versión superior necesarios para compilar el proyecto de demostración. Consulta [Descarga de .NET](https://dotnet.microsoft.com/download/dotnet).
-
-1. En el portal de Azure DevOps, en la esquina superior derecha de la página de Azure DevOps, haz clic en el icono de **Configuración de usuario**. En función de si tienes activadas o no las características de vista previa, deberías ver un elemento **Seguridad** o **Tokens de acceso personal** en el menú. Si ves **Seguridad**, haz clic en esta opción y luego, selecciona **Tokens de acceso personal**. En el panel **Tokens de acceso personal**, haz clic en **+ Nuevo token**.
-1. En el panel **Crear un nuevo token de acceso personal**, haz clic en el vínculo **Mostrar todos los ámbitos**, especifica la siguiente configuración y haz clic en **Crear** (deja las demás opciones con sus valores predeterminados):
-
-    | Configuración | Value |
-    | --- | --- |
-    | Nombre | **eShopOnWeb** |
-    | Ámbito (definido personalizado) | **Grupos de agentes** (mostrar más opciones de ámbitos, aquí abajo, si es necesario)|
-    | Permisos | **Leer y administrar** |
-
-1. En el panel **Correcto**, copia el valor del token de acceso personal en el portapapeles.
-
-    > **Nota**: Asegúrate de copiar el token. No podrás recuperarlo cuando cierres este panel.
-
-1. En el panel **Correcto**, haz clic en **Cerrar**.
-1. En el panel **Token de acceso personal** del portal de Azure DevOps, haz clic en el símbolo de **Azure DevOps** en la esquina superior izquierda y, luego, haz clic en la etiqueta clic en **Configuración de la organización** en la esquina inferior izquierda.
-1. En el lado izquierdo del panel **Información general**, en el menú vertical, en la sección **Canalizaciones**, haz clic en **Grupos de agentes**.
-1. En el panel  **Grupos de agentes**, en la esquina superior derecha, haz clic en **Agregar grupo**.
-1. En el panel **Agregar grupo de agentes**, en la lista desplegable **Tipo de grupo**, selecciona **Autohospedado**. En el cuadro de texto **Nombre**, escribe **az400m03l03a-pool** y después haz clic en **Crear**.
-1. De vuelta en el panel **Grupos de agentes**, haz clic en la entrada que representa el grupo **az400m03l03a** recién creado.
-1. En la pestaña **Trabajos** del panel **az400m03l03a-pool**, haz clic en el botón **Nuevo agente**.
-1. En el panel **Obtener el agente**, asegúrate de que están seleccionadas las pestañas **Windows** y **x64**, y haz clic en **Descargar** para descargar el archivo ZIP que contiene los archivos binarios del agente para descargarlos en la carpeta **Descargas** locales de tu perfil de usuario.
-
-    > **Nota**: Si recibes un mensaje de error en este punto que indica que la configuración actual del sistema te impide descargar el archivo, en la ventana Explorador, en la esquina superior derecha, haz clic en el símbolo de engranaje que designa el encabezado de menú **Configuración**, en el menú desplegable, selecciona **Opciones de Internet**, en el cuadro de diálogo **Opciones de Internet**, haz clic en **Avanzadas**, en la pestaña **Avanzadas**, haz clic en **Restablecer**, en el cuadro de diálogo **Restablecer configuración del explorador**, haz clic en **Restablecer** de nuevo, haz clic en **Cerrar** e intenta la descarga de nuevo.
-
-1. Inicia Windows PowerShell como administrador y, en la consola **Administrador: Windows PowerShell** ejecuta las líneas siguientes para crear el directorio del **agente de C:\\** y extraer el contenido del archivo descargado en él.
-
-    ```powershell
-    cd \
-    mkdir agent ; cd agent
-    $TARGET = Get-ChildItem "$Home\Downloads\vsts-agent-win-x64-*.zip"
-    Add-Type -AssemblyName System.IO.Compression.FileSystem
-    [System.IO.Compression.ZipFile]::ExtractToDirectory($TARGET, "$PWD")
-    ```
-
-1. En la misma consola **Administrador: Windows PowerShell**, ejecuta lo siguiente para configurar el agente:
-
-    ```powershell
-    .\config.cmd
-    ```
-
-1. Cuando te lo soliciten, especifica los valores de la siguiente configuración:
-
-    | Configuración | Valor |
-    | ------- | ----- |
-    | Escribe la dirección URL del servidor | la dirección URL de la organización de Azure DevOps, en el formato **<https://dev.azure.com/>`<organization_name>`**, donde `<organization_name>` representa el nombre de la organización de Azure DevOps |
-    | Escribe el tipo de autenticación (presiona Entrar para PAT) | **Entrar** |
-    | Introduce token de acceso personal | El token de acceso que has registrado anteriormente en esta tarea |
-    | Introduce el grupo de agentes (presiona Entrar para el valor predeterminado) | **az400m03l03a-pool** |
-    | Introduce el nombre del agente | **az104-06-vm0** |
-    | Introduce la carpeta de trabajo (presiona Entrar para _work) | **Entrar** |
-    | **(Solo si se muestra)** Introduce Realizar una tarea Unzip para las tareas de cada paso. (presiona ENTRAR para N) | **ADVERTENCIA**: solo presiona **Entrar** si aparece el mensaje|
-    | Introduce ¿ejecutar agente como servicio? (Y/N) (presiona Entrar para N) | **Y** |
-    | introduce habilitar SERVICE_SID_TYPE_UNRESTRICTED (Y/N) (presiona Entrar para N) | **Y** |
-    | Introduce Cuenta de usuario que se usará para el servicio (presiona Entrar para NT AUTHORITY\NETWORK SERVICE) | **Entrar** |
-    | Introduce si se va a impedir que el servicio se inicie inmediatamente después de que finalice la configuración (Y/N) (presiona Entrar para N) | **Entrar** |
-
-    > **Nota**: puedes ejecutar el agente autohospedado como un servicio o un proceso interactivo. Es posible que quieras empezar con el modo interactivo, ya que esto simplifica la comprobación de la funcionalidad del agente. Para su uso en producción, debes considerar la posibilidad de ejecutar el agente como servicio o como un proceso interactivo con el inicio de sesión automático habilitado, ya que ambos conservan su estado en ejecución y asegúrate de que el agente se inicie automáticamente si se reinicia el sistema operativo.
-
-1. Cambia a la ventana del explorador que muestra el portal de Azure DevOps y cierra el panel **Obtener el agente**.
-1. De nuevo en la pestaña **Agentes** del panel **az400m03l03a-pool**, observa que el agente recién configurado aparece con el estado **En línea**.
-1. En la ventana del explorador web que muestra el portal de Azure DevOps, en la esquina superior izquierda, haz clic en la etiqueta **Azure DevOps**.
-1. En la lista de proyectos, haga clic en el icono que representa el proyecto **eShopOnWeb**.
-1. En el panel **eShopOnWeb**, en el panel de navegación vertical del lado izquierdo, en la sección **Canalizaciones**, haga clic en **Canalizaciones**.
-1. En la pestaña **Recientes** del panel **Canalizaciones**, seleccione **eShopOnWeb** y, en el panel **eShopOnWeb**, seleccione **Editar**.
-1. En el panel de edición de **eShopOnWeb**, en la canalización basada en YAML existente, reemplace la línea 13, que indica que `vmImage: ubuntu-latest` designa el grupo de agentes de destino al siguiente contenido, designando el grupo de agentes autohospedado recientemente creado:
+1. En el portal de Azure DevOps, ve al proyecto **eShopOnWeb** y selecciona **Canalizaciones** en el menú de la izquierda.
+1. Haz clic en el botón **Editar** de la canalización que has creado en la tarea anterior.
+1. En el panel de edición de **eShopOnWeb**, en la canalización basada en YAML existente, elimina la línea 13, que indica que **vmImage: ubuntu-latest** designa el grupo de agentes de destino al siguiente contenido, designando el grupo de agentes autohospedado creado recientemente:
 
     ```yaml
-    name: az400m03l03a-pool
-    demands:
-    - Agent.Name -equals az400m03-vm0
+    pool: 
+      name: eShopOnWebSelfPool
+      demands: Agent.Name -equals eShopOnWebSelfAgent
     ```
 
     > **ADVERTENCIA**: Tenga cuidado con copiar y pegar, asegúrese de que tiene la misma sangría mostrada anteriormente.
 
-    ![Sintaxis del grupo de YAML](images/m3/eshoponweb-ci-pr-pool_v1.png)
+    ![Captura de pantalla que muestra la sintaxis del grupo de YAML.](images/eshoponweb-ci-pr-agent-pool.png)
 
-1. En la esquina superior derecha del panel de **eShopOnWeb**, haga clic en **Validar y guardar**. Esto desencadenará automáticamente la compilación basada en esta canalización.
-1. En el portal de Azure DevOps, en el panel de navegación vertical del lado izquierdo, en la sección **Canalizaciones**, haz clic en **Canalizaciones**. En función de la configuración del laboratorio, es posible que la canalización le solicite permisos. Haga clic en **Permitir** para permitir que se ejecute la canalización. 
-1. En la pestaña **Recientes** del panel **Canalizaciones**, haga clic en la entrada **eShopOnWeb**, en la pestaña **Ejecuciones** del panel **eShopOnWeb**, seleccione la ejecución más reciente, en el panel **Resumen** de la ejecución, desplácese hacia abajo hasta la parte inferior, en la sección **Trabajos**, haga clic en **Fase 1** y supervise el trabajo hasta su finalización correcta.
+1. En la esquina superior derecha del panel de **eShopOnWeb**, haga clic en **Validar y guardar**. A continuación, haga clic en **Save**(Guardar).
+1. En la esquina superior derecha del panel de **eShopOnWeb**, haz clic en **Ejecutar canalización**.
 
-### Ejercicio 3: Eliminar los recursos usados en el laboratorio
+    > **Nota**: La canalización se ejecutará en el grupo de agentes autohospedado que has creado en el ejercicio anterior.
+1. Abre la ejecución de la canalización y supervisa el trabajo hasta que se complete correctamente.
 
-1. Detén y quita el servicio del agente ejecutando `.\config.cmd remove` en el símbolo del sistema.
-   - Se te pedirá que introduzcas de nuevo el token de acceso personal para quitar el agente de tu organización.
-   - Si ya no tienes el token de acceso personal, puedes volver a generar el que creaste inicialmente en el ejercicio 2, tarea 1, paso 2.
-1. Elimina el grupo de agentes.
-1. Revoca el token PAT.
-1. Revierta los cambios en el archivo **eshoponweb-ci-pr.yml**; para ello, vaya a él desde Repos/.ado/eshoponweb-ci-pr.yml, seleccione **Editar** y quite las líneas 13 a 15 (el fragmento de código del grupo de agentes) y cámbielo a `vmImage: ubuntu-latest`, tal como estaba inicialmente. (Esto se debe a que usará el mismo archivo de canalización de ejemplo más adelante en un ejercicio de laboratorio).
+    > **Nota**: Si recibes un mensaje de permisos, haz clic en **Permitir** para permitir que se ejecute la canalización.
 
-![Revertir el grupo de canalizaciones a la configuración de vmImage](images/m3/eshoponweb-ci-pr-vmimage_v2.png)
+1. Una vez completada la ejecución de la canalización, revisa la salida y comprueba que la canalización se ha ejecutado correctamente.
 
 ## Revisar
 

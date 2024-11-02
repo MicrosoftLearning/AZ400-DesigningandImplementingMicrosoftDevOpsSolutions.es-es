@@ -6,15 +6,13 @@ lab:
 
 # Control de versiones con Git en Azure Repos
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
 
 - **Configurar una organización de Azure DevOp:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization).
 
-- Si no tienes instalado Git 2.29.2 o una versión posterior, inicia un explorador web, ve a la [página de descarga de Git para Windows](https://gitforwindows.org/) e instálalo.
+- Si no tienes instalado Git 2.47.0 o una versión posterior, inicia un explorador web, ve a la [página de descarga de Git para Windows](https://gitforwindows.org/) e instálalo.
 - Si aún no tienes instalado Visual Studio Code, ve a la [página de descarga de Visual Studio Code](https://code.visualstudio.com/) desde la ventana del explorador, descarga e instala esta aplicación.
 - Si aún no tienes instalada la extensión C# de Visual Studio, ve a la [página de instalación de la extensión C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) en la ventana del explorador e instala la extensión.
 
@@ -39,7 +37,7 @@ Después de completar este laboratorio, podrá:
 - Revisar el historial de cambios.
 - Trabajar con ramas mediante Visual Studio Code.
 
-## Tiempo estimado: 60 minutos
+## Tiempo estimado: 45 minutos
 
 ## Instrucciones
 
@@ -47,36 +45,7 @@ Después de completar este laboratorio, podrá:
 
 En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
-#### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
-
-En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usará en varios laboratorios.
-
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
-
-    ![Crear proyecto](images/create-project.png)
-
-#### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
-
-En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
-
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
-
-    ![Importar repositorio](images/import-repo.png)
-
-1. El repositorio se organiza de la siguiente manera:
-    - La carpeta **.ado** tiene canalizaciones de YAML de Azure DevOps.
-    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
-    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
-    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
-    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
-
-#### Tarea 3: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
-
-1. Ve a **Repos>Ramas**.
-1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
-1. Haz clic en **Establecer como rama predeterminada**.
-
-#### Tarea 3: configurar Git y Visual Studio Code
+#### Tarea 1: Configurar Git y Visual Studio Code
 
 En esta tarea, instalarás y configurarás Git y Visual Studio Code, incluida la configuración del asistente de credenciales de Git para almacenar de forma segura las credenciales de Git que usas para comunicarte con Azure DevOps. Si ya has implementado estos requisitos previos, puedes ir directamente a la siguiente tarea.
 
@@ -99,9 +68,40 @@ En esta tarea, instalarás y configurarás Git y Visual Studio Code, incluida la
     git config --global user.email <johndoe@example.com>
     ```
 
+#### Tarea 2: (omitir si ya la has completado) Crear y configurar el proyecto del equipo
+
+En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usará en varios laboratorios.
+
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asígnale al proyecto el nombre **eShopOnWeb** y elige **Scrum** en la lista desplegable **Proceso del elemento de trabajo**. Haga clic en **Crear**.
+
+    ![Captura de pantalla de Crear nuevo panel de proyecto.](images/create-project.png)
+
+#### Tarea 3: (omitir si ya la has completado) Importar repositorio de Git eShopOnWeb
+
+En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
+
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
+
+    ![Captura de pantalla del Importar panel de repositorio.](images/import-repo.png)
+
+1. El repositorio se organiza de la siguiente manera:
+    - La carpeta **.ado** tiene canalizaciones de YAML de Azure DevOps.
+    - El contenedor de carpetas **.devcontainer** está configurado para realizar el desarrollo con contenedores (ya sea localmente en VS Code o GitHub Codespaces).
+    - La carpeta **infra** contiene la infraestructura de Bicep y ARM como plantillas de código usadas en algunos escenarios de laboratorio.
+    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
+    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
+
+#### Tarea 4: (omitir si ya la has completado) Establecer la rama principal como rama predeterminada
+
+1. Ve a **Repos>Ramas**.
+1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
+1. Haz clic en **Establecer como rama predeterminada**.
+
 ### Ejercicio 1: clonación de un repositorio existente
 
-En este ejercicio, usarás Visual Studio Code para clonar el repositorio de Git que has aprovisionado como parte del ejercicio anterior.
+En este ejercicio, usarás Visual Studio Code para confirmar los cambios en la rama **principal** del repositorio **eShopOnWeb**.
+
+> **Nota**: La rama **principal** es la rama predeterminada en el repositorio **eShopOnWeb** y es la rama que usarás para el resto del laboratorio.
 
 #### Tarea 1: clonar un repositorio existente
 
@@ -112,7 +112,7 @@ En esta tarea, aprenderás a clonar un repositorio de Git con Visual Studio Code
 
 1. En la esquina superior derecha del panel del repositorio **eShopOnWeb**, haz clic en **Clonar**.
 
-    ![Clonación del repositorio de Git](images/clone-repo.png)
+    ![Captura de pantalla de Clonar repositorio Git.](images/clone-repo.png)
 
     > **Nota**: la obtención de una copia local de un repo de Git se denomina *clonación*. Cada herramienta de desarrollo estándar admite esto y podrá conectarse a Azure Repos para extraer las fuentes más recientes para trabajar.
 
@@ -128,7 +128,7 @@ En esta tarea, aprenderás a clonar un repositorio de Git con Visual Studio Code
 
 1. En el símbolo de la paleta de comandos, ejecuta el comando **Git: Clone**.
 
-    ![Paleta de comandos de VS Code](images/vscode-command.png)
+    ![Captura de pantalla de la paleta de comandos de VS Code.](images/vscode-command.png)
 
     > **Nota**: para ver todos los comandos pertinentes, puedes empezar escribiendo **Git**.
 
@@ -166,9 +166,9 @@ En esta tarea, usarás Visual Studio Code para confirmar los cambios.
 
 1. Presione **CTRL+S** para guardar el cambio.
 1. En la ventana de Visual Studio Code, selecciona la pestaña **CONTROL DE CÓDIGO FUENTE** para comprobar que Git ha reconocido el cambio más reciente en el archivo que reside en el clon local del repositorio de Git.
-1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la parte superior del panel, en el cuadro de texto, escribe **Mi confirmación** como mensaje de confirmación y presiona **Ctrl+Entrar** para confirmarlo en el equipo local.
+1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la parte superior del panel, en el cuadro de texto, escribe **`My commit`** como mensaje de confirmación y presiona **Ctrl+Intro** para confirmarlo en el equipo local.
 
-    ![Primera confirmación](images/first-commit.png)
+    ![Captura de pantalla de la primera confirmación.](images/first-commit.png)
 
 1. Si debes almacenar de manera automática y provisional los cambios, y confirmarlos directamente, haz clic en **Siempre**.
 
@@ -184,7 +184,7 @@ En esta tarea, usarás el portal de Azure DevOps para revisar las confirmaciones
 1. En el panel de navegación vertical del portal de Azure DevOps, en la sección **Repos**, selecciona **Confirmaciones**.
 1. Comprueba que la confirmación aparezca en la parte superior de la lista.
 
-    ![Confirmaciones del repo de ADO](images/ado-commit.png)
+    ![Captura de pantalla de las confirmaciones del repositorio de ADO.](images/ado-commit.png)
 
 #### Tarea 3: cambiar fases
 
@@ -208,9 +208,9 @@ En esta tarea, descubrirás el uso de cambios de almacenamiento provisional medi
 
     > **Nota**: esto solo establece el cambio en el archivo **Program.cs**, únicamente para la confirmación y sin **Constants.cs**.
 
-1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la parte superior del panel, en el cuadro de texto, escribe **Comentarios agregados** como mensaje de confirmación.
+1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la parte superior del panel, en el cuadro de texto, escribe **`Added comments`** como mensaje de confirmación.
 
-    ![Cambios almacenados provisionalmente](images/staged-changes.png)
+    ![Captura de pantalla de los cambios preconfigurados.](images/staged-changes.png)
 
 1. En la parte superior de la pestaña **CONTROL DE CÓDIGO FUENTE**, haz clic en los puntos suspensivos. En el menú desplegable, selecciona **Confirmar** y, en el menú en cascada, selecciona **Confirmar elementos almacenados provisionalmente**.
 1. En la esquina inferior izquierda de la ventana de Visual Studio Code, haz clic en el botón **Sincronizar cambios** para sincronizar los cambios confirmados con el servidor y, si el sistema te pregunta si quieres continuar, haz clic en **Aceptar** para insertar y extraer confirmaciones hacia los elementos **origin/main** y desde ellos.
@@ -231,7 +231,7 @@ En esta tarea, conocerás el historial de confirmaciones mediante el portal de A
 
 1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** de la ventana de Visual Studio Code abierta, selecciona **Constants.cs** que representa la versión no almacenada provisionalmente del archivo.
 
-    ![Comparación de archivos](images/file-comparison.png)
+    ![Captura de pantalla de la comparación de archivos.](images/file-comparison.png)
 
     > **Nota**: se abre una vista de comparación que te permite localizar fácilmente los cambios realizados. En este caso, es solo un comentario.
 
@@ -239,7 +239,7 @@ En esta tarea, conocerás el historial de confirmaciones mediante el portal de A
 1. Desplázate hacia abajo hasta la entrada **Mi confirmación** (insertada anteriormente) y mantén el puntero del mouse sobre esta hasta ver los puntos suspensivos a la derecha.
 1. Haz clic en los puntos suspensivos y, en el menú desplegable, selecciona **Examinar archivos** y revisa los resultados.
 
-    ![Exploración de la confirmación](images/commit-browse.png)
+    ![Captura de pantalla de Confirmar búsqueda.](images/commit-browse.png)
 
     > **Nota**: esta vista representa el estado del origen correspondiente a la confirmación, lo que te permite revisar y descargar los archivos de origen.
 
@@ -259,10 +259,10 @@ En esta tarea, crearás una rama mediante Visual Studio Code.
 1. Con la pestaña **CONTROL DE CÓDIGO FUENTE** seleccionada, en la esquina inferior izquierda de la ventana de Visual Studio Code, haz clic en **main**.
 1. En la ventana emergente, selecciona **+ Crear nueva rama desde...**.
 
-    ![Crear rama](images/create-branch.png)
+    ![Captura de pantalla de la opción Crear rama.](images/create-branch.png)
 
 1. En el **Seleccione una referencia para crear la rama desde** cuadro de texto, seleccione **principal** como rama de referencia.
-1. En el cuadro de texto **Nombre de rama**, escribe **dev** para especificar la nueva rama y presiona **Entrar**.
+1. En el cuadro de texto **Branch name**, escribe **`dev`** para especificar la nueva rama y presiona **Entrar**.
 
     > **Nota**: aquí cambias automáticamente a la rama **dev**.
 
@@ -278,22 +278,22 @@ Git realiza un seguimiento de la rama en la que estás trabajando y se asegura d
 1. Mantén el puntero del mouse sobre la entrada de la rama **dev** para ver los puntos suspensivos a la derecha.
 1. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Eliminar rama** y, cuando el sistema te pida confirmación, haz clic en **Eliminar**.
 
-    ![Eliminar rama](images/delete-branch.png)
+    ![Captura de pantalla de la opción Eliminar rama.](images/delete-branch.png)
 
 1. Vuelve a la ventana de **Visual Studio Code** y, con la pestaña ** CONTROL DE CÓDIGO FUENTE** seleccionada, en la esquina inferior izquierda de la ventana de Visual Studio Code, haz clic en la entrada **dev**. Verás las ramas existentes en la parte superior de la ventana de Visual Studio Code.
 1. Comprueba que haya dos ramas **dev** en la lista.
 1. Vaya al explorador web que muestra la pestaña **Mías** de **Ramas**
 1. En la pestaña **Mías** del panel **Ramas**, selecciona la pestaña **Todas**.
-1. En la pestaña **Todas** del panel **Ramas**, en el cuadro de texto **Buscar nombre de rama**, escribe **dev**.
+1. En la pestaña **Todo** del panel **Ramas**, en el cuadro de texto **Buscar nombre de rama**, escribe **`dev`**.
 1. Revisa la sección **Ramas eliminadas** que contiene la entrada que representa la rama eliminada recientemente.
 1. En la sección **Ramas eliminadas**, mantén el puntero del mouse sobre la entrada de rama **dev** para ver los puntos suspensivos a la derecha.
 1. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Restaurar rama**.
 
-    ![restaurar rama](images/restore-branch.png)
+    ![Captura de pantalla de la opción Restaurar rama.](images/restore-branch.png)
 
     > **Nota**: puedes usar esta funcionalidad para restaurar una rama eliminada si conoces su nombre exacto.
 
-#### Tarea 4: directivas de rama
+#### Tarea 3: Directivas de rama
 
 En esta tarea, usarás el portal de Azure DevOps para agregar directivas a la rama principal y solo permitir cambios mediante solicitudes de incorporación de cambios que cumplan las directivas definidas. Deberías asegurarte de que los cambios de una rama se revisen antes de combinarlos.
 
@@ -303,14 +303,14 @@ Para simplificar, trabajaremos directamente en el editor de repositorios del exp
 1. En la pestaña **Mías** del panel **Ramas**, mantén el puntero del mouse sobre la entrada de rama **main** para ver los puntos suspensivos a la derecha.
 1. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Directivas de ramas**.
 
-    ![Directivas de ramas](images/branch-policies.png)
+    ![Captura de pantalla de la opción Directivas de ramas.](images/branch-policies.png)
 
 1. En la pestaña **main** de la configuración del repositorio, habilita la opción **Requerir un número mínimo de revisores**. Agrega **1** revisor y activa la casilla **Permitir que los solicitantes aprueben sus propios cambios** (ya que eres el único usuario del proyecto para el laboratorio)
 1. En la pestaña **main** de la configuración del repositorio, habilita la opción **Buscar elementos de trabajo vinculados** y déjala configurada como **Obligatorio**.
 
-    ![Configuración de directivas](images/policy-settings.png)
+    ![Captura de pantalla de Configuración de la directiva.](images/policy-settings.png)
 
-#### Tarea 5: prueba de la directiva de ramas
+#### Tarea 4: Probar la directiva de rama
 
 En esta tarea, usarás el portal de Azure DevOps para probar la directiva y crear la primera solicitud de incorporación de cambios.
 
@@ -324,11 +324,11 @@ En esta tarea, usarás el portal de Azure DevOps para probar la directiva y crea
 
 1. Haz clic en **Confirmar > Confirmar**. Verás una advertencia: los cambios realizados en la rama principal solo se pueden hacer mediante una solicitud de incorporación de cambios.
 
-    ![Confirmación denegada de la directiva](images/policy-denied.png)
+    ![Captura de pantalla de la confirmación denegada de la directiva.](images/policy-denied.png)
 
 1. Haz clic en **Cancelar** para omitir la confirmación.
 
-#### Tarea 6: trabajar con solicitudes de incorporación de cambios
+#### Tarea 5: Trabajar con solicitudes de incorporación de cambios
 
 En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de incorporación de cambios mediante la rama **dev** para combinar un cambio dentro de la rama **principal** protegida. Un elemento de trabajo de Azure DevOps se vinculará a los cambios para hacer un seguimiento del trabajo pendiente con la actividad del código.
 
@@ -344,7 +344,7 @@ En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de inc
 1. Haz clic en **Confirmar > Confirmar** (deja el mensaje de confirmación predeterminado). Esta vez la confirmación funciona, la rama **dev** no tiene directivas.
 1. Aparecerá un mensaje que propone crear una solicitud de incorporación de cambios (ya que la rama **dev** ahora tiene más cambios, en comparación con **main**). Haz clic en **Crear solicitud de incorporación de cambios**.
 
-    ![Crear una solicitud de cambios](images/create-pr.png)
+    ![Captura de pantalla de la opción Crear una solicitud de cambios.](images/create-pr.png)
 
 1. En la pestaña **Nueva solicitud de incorporación de cambios**, deja los valores predeterminados y haz clic en **Crear**.
 1. La solicitud de incorporación de cambios mostrará algunos requisitos con errores o pendientes, en función de las directivas aplicadas a nuestra rama **main** de destino.
@@ -353,7 +353,7 @@ En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de inc
 
 1. En las opciones del lado derecho, haz clic en el botón **+** situado junto a **Elementos de trabajo**. Haz clic en el elemento de trabajo creado anteriormente para vincularlo a la solicitud de incorporación de cambios. Verás uno de los cambios de estado de los requisitos.
 
-    ![Vincular elemento de trabajo](images/link-wit.png)
+    ![Captura de pantalla de Vincular elemento de trabajo.](images/link-wit.png)
 
 1. A continuación, abre la pestaña **Archivos** para revisar los cambios propuestos. En una solicitud de incorporación de cambios más completa, podrías revisar los archivos uno por uno (marcado como revisado) y abrir comentarios en las líneas que se pueden prestar a confusión (pasa el mouse sobre el número de línea y verás la opción de publicar un comentario).
 1. Vuelve a la pestaña **Información general** y, en la parte superior derecha, haz clic en **Aprobar**. Todos los requisitos se verán en verde. Ahora puedes hacer clic en **Completar**.
@@ -364,13 +364,13 @@ En esta tarea, usarás el portal de Azure DevOps para crear una solicitud de inc
 
 1. Haz clic en **Completar combinación**
 
-#### Tarea 7: aplicar etiquetas
+#### Tarea 6: Aplicar etiquetas
 
 El equipo del producto ha decidido que la versión actual del sitio debe publicarse como v1.1.0-beta.
 
 1. En el panel de navegación vertical del portal de Azure DevOps, en la sección **Repos**, selecciona **Etiquetas**.
 1. En el panel **Etiquetas**, haz clic en **Nueva etiqueta**.
-1. En el panel **Crear una etiqueta**, en el cuadro de texto **Nombre**, escribe **v1.1.0-beta**; en la lista desplegable **Basado en**, deja seleccionada la entrada **main**. En el cuadro de texto **Descripción**, escribe **Versión beta v1.1.0** y haz clic en **Crear**.
+1. En el panel **Crear una etiqueta**, en el cuadro de texto **Nombre**, escribe **`v1.1.0-beta`**, en la lista desplegable **Basado en** deja seleccionada la entrada **principal**, en el cuadro de texto **Descripción**, escribe **`Beta release v1.1.0`** y haz clic en **Crear**.
 
     > **Nota**: ahora has etiquetado el repositorio en esta versión (la confirmación más reciente se vincula a la etiqueta). Puedes etiquetar confirmaciones por diversos motivos, y Azure DevOps te permite editarlas y eliminarlas, así como administrar sus permisos.
 
@@ -382,15 +382,15 @@ Al pasar por los diferentes laboratorios del curso en el orden en que se present
 1. En la pestaña **Mina** del panel **Ramas**, pase el puntero del ratón por encima de la entrada de la rama **principal** para que aparezca el símbolo de puntos suspensivos (...) a la derecha.
 1. Haz clic en los puntos suspensivos y, en el menú emergente, selecciona **Directivas de ramas**.
 
-    ![Configuración de directivas](images/policy-settings.png)
+    ![Captura de pantalla de Configuración de la directiva.](images/policy-settings.png)
 
 1. En la pestaña **principal** de la configuración del repositorio, desactive la opción para **Requerir un número mínimo de revisores**.
 1. En la pestaña **principal** de la configuración del repositorio, desactive la opción de **Comprobar elementos de trabajo vinculados**.
 
-    ![Directivas de ramas](images/branch-policies.png)
+    ![Captura de pantalla de las directivas de ramas.](images/branch-policies.png)
 
 1. Ahora ha deshabilitado o quitado las directivas de rama de la rama principal.
 
 ## Revisar
 
-En este laboratorio, has usado el portal de Azure DevOps para administrar ramas y repositorios.
+En este laboratorio, has aprendido a usar Git para el control de versiones en Azure Repos.

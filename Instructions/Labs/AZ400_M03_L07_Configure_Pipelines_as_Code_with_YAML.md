@@ -6,8 +6,6 @@ lab:
 
 # Configuración de canalizaciones como código con YAML
 
-## Manual de laboratorio para alumnos
-
 ## Requisitos del laboratorio
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://docs.microsoft.com/azure/devops/server/compatibility).
@@ -28,13 +26,13 @@ Después de completar este laboratorio, podrá:
 
 - Configure canalizaciones de CI/CD como código con YAML en Azure DevOps.
 
-## Tiempo estimado: 60 minutos
+## Tiempo estimado: 45 minutos
 
 ## Instrucciones
 
 ### Ejercicio 0: configuración de los requisitos previos del laboratorio
 
-En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
+En este ejercicio, configurarás los requisitos previos para el laboratorio.
 
 #### Tarea 1: (omitir si ya la has completado) crear y configurar el proyecto del equipo
 
@@ -42,15 +40,15 @@ En esta tarea, crearás un proyecto de **eShopOnWeb_MultiStageYAML** Azure DevOp
 
 1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps. Haz clic en **Nuevo proyecto**. Asigna al proyecto el nombre **eShopOnWeb_MultiStageYAML** y deja el resto de los campos con los valores predeterminados. Haga clic en **Crear**.
 
-   ![Crear proyecto](images/create-project.png)
+   ![Captura de pantalla del panel Crear nuevo proyecto.](images/create-project.png)
 
 #### Tarea 2: (omitir si ha terminado) Importar repositorio de Git eShopOnWeb
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo de laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto de **eShopOnWeb_MultiStageYAML creado **anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **Import** (Importar). En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
+1. En el equipo de laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto de **eShopOnWeb_MultiStageYAML creado **anteriormente. Haz clic en **Repos > Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL https://github.com/MicrosoftLearning/eShopOnWeb.git y haz clic en **Importar**:
 
-   ![Importar repositorio](images/import-repo.png)
+   ![Captura de pantalla del panel Importar repositorio.](images/import-repo.png)
 
 1. El repositorio se organiza de la siguiente manera:
    - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
@@ -59,11 +57,11 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
-1. Ve a **Repos>Ramas**.
+1. Ve a **Repos > Ramas**.
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
-#### Tarea 2: Crear recursos de Azure
+#### Tarea 3: Creación de recursos de Azure
 
 En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
 
@@ -73,7 +71,7 @@ En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
 
    > **Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
 
-   > **Nota:** Para obtener una lista de regiones y su alias, ejecuta el siguiente comando desde Azure Cloud Shell - Bash:
+   > **Nota:** Para obtener una lista de regiones y sus alias, ejecuta el siguiente comando desde Azure Cloud Shell - Bash:
 
    ```bash
    az account list-locations -o table
@@ -86,14 +84,14 @@ En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
    ```
 
    ```bash
-   RESOURCEGROUPNAME='az400m05l11-RG'
+   RESOURCEGROUPNAME='az400m03l07-RG'
    az group create --name $RESOURCEGROUPNAME --location $LOCATION
    ```
 
 1. Ejecuta el comando siguiente para crear un plan de Windows App Service:
 
    ```bash
-   SERVICEPLANNAME='az400m05l11-sp1'
+   SERVICEPLANNAME='az400m03l07-sp1'
    az appservice plan create --resource-group $RESOURCEGROUPNAME --name $SERVICEPLANNAME --sku B3
    ```
 
@@ -151,7 +149,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
      jobs:
        - job: Deploy
          pool:
-           vmImage: "windows-2019"
+           vmImage: "windows-latest"
          steps:
    ```
 
@@ -195,7 +193,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
 1. Especifica los siguientes parámetros para esta tarea:
    - Descarga de los artefactos producidos por: **Compilación actual**
    - Tipo de descarga: **Artefacto específico**
-   - Nombre de artefacto: **selecciona "Sitio web" en la lista** (o **escribe "Sitio web"** directamente si no aparece automáticamente en la lista).
+   - Nombre de artefacto: **selecciona "Sitio web" en la lista** (o **escribe "`Website`"** directamente si no aparece automáticamente en la lista)
    - Directorio de destino: **$(Build.ArtifactStagingDirectory)**
 1. Haga clic en **Agregar**.
 1. El fragmento de código agregado debe tener un aspecto similar al siguiente:
@@ -297,7 +295,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
     jobs:
     - job: Deploy
       pool:
-        vmImage: 'windows-2019'
+        vmImage: 'windows-latest'
       steps:
       - task: DownloadBuildArtifacts@0
         inputs:
@@ -316,7 +314,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
 
    ```
 
-#### Tarea 4: Revisar el sitio implementado
+#### Tarea 3: Revisión del sitio implementado
 
 1. Vuelve a la ventana del explorador web que muestra el portal de Azure y ve a la hoja que muestra las propiedades de la aplicación web de Azure.
 1. En la hoja de aplicación web de Azure, haz clic en **Información general** y, en la hoja de información general, haz clic en **Examinar** para abrir el sitio en una nueva pestaña del explorador web.
@@ -333,11 +331,10 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
 1. En el proyecto de Azure DevOps **eShopOnWeb_MultiStageYAML**, vaya a **Canalizaciones**.
 1. En el menú Canalizaciones de la izquierda, selecciona **Entornos**.
 1. Haz clic en **Crear entorno**.
-1. En el panel **Nuevo entorno**, agrega un nombre para el entorno, denominado **aprobaciones**.
+1. En el panel **Nuevo entorno**, agrega un nombre para el entorno, denominado **`approvals`**.
 1. En **Recursos**, selecciona **Ninguno**.
 1. Confirma la configuración presionando el botón **Crear**.
-1. Una vez creado el entorno, haz clic en el botón "puntos suspensivos" (...) situado junto al botón "Agregar recurso".
-1. Selecciona **Aprobaciones y comprobaciones**.
+1. Una vez creado el entorno, selecciona la pestaña **Aprobaciones y comprobaciones** en el entorno **Aprobaciones**.
 1. En la casilla **Agregue su primera comprobación**, selecciona **Aprobaciones**.
 1. Agrega el nombre de la cuenta de usuario de Azure DevOps al campo **aprobadores**.
 
@@ -360,12 +357,12 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
      - job: Deploy
        environment: approvals
        pool:
-         vmImage: "windows-2019"
+         vmImage: "windows-latest"
    ```
 
 1. Dado que el entorno es una configuración específica de una fase de implementación, no se puede usar en "trabajos". Por lo tanto, tenemos que realizar algunos cambios adicionales en la definición de trabajo actual.
 1. En la línea **60**, cambia el nombre "- job: Deploy" por **- deployment: Deploy**
-1. Después, en la línea **63** (vmImage: Windows-2019), agrega una nueva línea vacía.
+1. Después, en la línea **63** (vmImage: windows-latest), agrega una nueva línea vacía.
 1. Pega el siguiente código YAML:
 
    ```yaml
@@ -385,7 +382,7 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
        - deployment: Deploy
          environment: approvals
          pool:
-           vmImage: "windows-2019"
+           vmImage: "windows-latest"
          strategy:
            runOnce:
              deploy:
@@ -420,30 +417,8 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
 
    > **Nota:** Aunque en este ejemplo solo se usan las aprobaciones, debes saber que las otras comprobaciones como Azure Monitor, la API REST, etc. se pueden usar de forma similar.
 
-### Ejercicio 3: eliminación de los recursos del laboratorio de Azure
-
-En este ejercicio, quitarás los recursos de Azure aprovisionados en este laboratorio para eliminar cargos inesperados.
-
-> **Nota**: No olvide quitar los recursos de Azure recién creados que ya no use. La eliminación de los recursos sin usar garantiza que no verá cargos inesperados.
-
-#### Tarea 1: eliminar los recursos del laboratorio de Azure
-
-En esta tarea, usarás Azure Cloud Shell para quitar los recursos de Azure aprovisionados en este laboratorio con el propósito de eliminar cargos innecesarios.
-
-1. En Azure Portal, abra la sesión de shell de **Bash** en el panel **Cloud Shell**.
-1. Ejecute el comando siguiente para enumerar todos los grupos de recursos que se han creado en los laboratorios de este módulo:
-
-   ```sh
-   az group list --query "[?starts_with(name,'az400m05l11-RG')].name" --output tsv
-   ```
-
-1. Ejecute el comando siguiente para eliminar todos los grupos de recursos que ha creado en los laboratorios de este módulo:
-
-   ```sh
-   az group list --query "[?starts_with(name,'az400m05l11-RG')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
-   ```
-
-   > **Nota**: El comando se ejecuta de forma asincrónica (según determina el parámetro --nowait). Aunque podrá ejecutar otro comando de la CLI de Azure inmediatamente después en la misma sesión de Bash, los grupos de recursos tardarán unos minutos en quitarse.
+   > [!IMPORTANT]
+   > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
 ## Revisar
 
