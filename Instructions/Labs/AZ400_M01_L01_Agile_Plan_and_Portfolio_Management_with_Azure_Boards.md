@@ -31,7 +31,7 @@ Después de completar este laboratorio, podrá:
 
 ## Instrucciones
 
-### Ejercicio 0: (omitir si se ha realizado) Configurar los requisitos previos del laboratorio
+### Ejercicio 0: (omitir si se ha realizado) Configuración de los requisitos previos del laboratorio
 
 En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 

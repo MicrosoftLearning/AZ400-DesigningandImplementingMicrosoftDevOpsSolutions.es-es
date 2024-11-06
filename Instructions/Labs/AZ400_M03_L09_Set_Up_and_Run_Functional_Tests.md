@@ -32,7 +32,7 @@ Después de completar este laboratorio, podrás configurar una canalización de 
 
 ## Instrucciones
 
-### Ejercicio 0: (omitir si se ha realizado) Configurar los requisitos previos del laboratorio
+### Ejercicio 0: (omitir si se ha realizado) Configuración de los requisitos previos del laboratorio
 
 En este ejercicio, configurarás los requisitos previos para el laboratorio, lo que supone crear un nuevo proyecto de Azure DevOps con un repositorio basado en [eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb).
 
@@ -46,7 +46,7 @@ En esta tarea, crearás un proyecto de **eShopOnWeb** de Azure DevOps que se usa
 
 En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en varios laboratorios.
 
-1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos > Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
+1. En el equipo del laboratorio, en una ventana del explorador, abre la organización de Azure DevOps y el proyecto **eShopOnWeb** creado anteriormente. Haz clic en **Repos>Archivos**, **Importar un repositorio**. Seleccione **importar**. En la ventana **Importar un repositorio de Git**, pega la siguiente dirección URL <https://github.com/MicrosoftLearning/eShopOnWeb.git> y haz clic en **Importar**:
 
 1. El repositorio se organiza de la siguiente manera:
     - La carpeta **.ado** contiene canalizaciones de YAML de Azure DevOps.
