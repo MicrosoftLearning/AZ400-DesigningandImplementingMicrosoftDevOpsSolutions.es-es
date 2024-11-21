@@ -121,7 +121,7 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
    > **Nota**: las posibles ubicaciones se pueden encontrar ejecutando el siguiente comando. Usa el **Nombre** en `<region>`: `az account list-locations -o table`
 
    ```bash
-   REGION='centralus'
+   REGION='<region>'
    RESOURCEGROUPNAME='az400m03l08-RG'
    az group create -n $RESOURCEGROUPNAME -l $REGION
    ```
