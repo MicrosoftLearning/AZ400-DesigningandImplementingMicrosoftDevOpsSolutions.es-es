@@ -47,7 +47,7 @@ En esta tarea, publicarás una rama de un repositorio de Azure DevOps como wiki.
 
     > **Nota**: usarás esta imagen en el siguiente ejercicio de este laboratorio.
 
-1. Almacenaremos los archivos de origen de la wiki en una carpeta independiente dentro de la estructura de carpetas actual de Repos. Desde **Repos**, selecciona **Archivos**. Observe el título del repositorio **eShopOnWeb** en la parte superior de la estructura de carpetas. **Selecciona los puntos suspensivos (3 puntos)**, elige **Nuevo/Carpeta** y asígnale el nombre **Documentos** a la carpeta nueva. Como un repo no permite crear una carpeta vacía, asígnale el nombre **READ.ME** al archivo nuevo.
+1. Almacenaremos los archivos de origen de la wiki en una carpeta independiente dentro de la estructura de carpetas actual de Repos. Desde **Repos**, selecciona **Archivos**. Observe el título del repositorio **eShopOnWeb** en la parte superior de la estructura de carpetas. **Selecciona los puntos suspensivos (3 puntos)**, elige **Nuevo/Carpeta** y asígnale el título **`Documents`** al nombre de la carpeta nueva. Puesto que un repo no te permite crear una carpeta vacía, asígnale el nombre **`READ.ME`** al archivo nuevo.
 1. Confirma la creación de la carpeta y el archivo presionando **pulsando el botón Crear**.
 1. El archivo READ.ME se abrirá en el modo de vista integrada. Dado que se almacena "como código", debes **Confirmar** los cambios haciendo clic en el botón **Confirmar**. En la ventana Confirmar, presiona **Confirmar** una vez más.
 1. En el menú vertical de Azure DevOps del lado izquierdo, haz clic en **Información general**; en la sección **Información general**, selecciona **Wiki** y **Publicar código como wiki*.
@@ -58,7 +58,7 @@ En esta tarea, publicarás una rama de un repositorio de Azure DevOps como wiki.
     | Repositorio | **eShopOnWeb** |
     | Sucursal | **principal** |
     | Carpeta | **Documentos** |
-    | Nombre de wiki | **eShopOnWeb (documentos)** |
+    | Nombre de wiki | **`eShopOnWeb (Documents)`** |
 
     > **Nota**: esto abrirá automáticamente la sección Wiki y publicará **el editor**, donde puedes introducir un título de página wiki y agregar contenido. Ten en cuenta que se recomienda usar el formato MarkDown, pero usa la cinta de opciones para ayudar con algunas de las sintaxis de diseño de MarkDown.
 
@@ -173,7 +173,7 @@ En esta tarea, administrarás la wiki de un proyecto recién creado.
 
 > **Nota**: para empezar, revertirás el cambio más reciente a la página wiki.
 
-1. En el equipo de laboratorio, en el portal de Azure DevOps, en el que se muestra el **panel Wiki** del proyecto **eShopOnWeb**, con el contenido de la wiki **Diseño de proyecto** seleccionado, en la esquina superior derecha, haga clic en el símbolo de puntos suspensivos verticales y, en el menú desplegable, haga clic en **Ver revisiones**.
+1. En el equipo de laboratorio, en el portal de Azure DevOps, en el que se muestra el **panel Wiki** del proyecto **eShopOnWeb**, con el contenido de la wiki **Diseño de proyecto** seleccionado, en la esquina superior derecha, haz clic en el símbolo de puntos suspensivos verticales y, en el menú desplegable, haz clic en **Ver revisiones**.
 1. En el panel **Revisiones**, haz clic en la entrada que representa el cambio más reciente.
 1. En el panel que aparece, revisa la comparación entre la versión anterior y la versión actual del documento, haz clic en **Revertir** y, cuando se solicite la confirmación, haz clic en **Revertir** de nuevo y haz clic en **Examinar página**.
 1. Cuando vuelvas al panel **Diseño del proyecto**, comprueba si el cambio se revierte correctamente.

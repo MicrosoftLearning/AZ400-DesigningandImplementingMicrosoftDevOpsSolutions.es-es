@@ -97,7 +97,7 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
     - La tarea de **PowerShell** toma la salida de Bicep (servidor de inicio de sesión acr) y crea una variable de canalización.
     - La tarea **DockerCompose** compila e inserta las imágenes de contenedor para eShopOnWeb en Azure Container Registry.
 
-1. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci-dockercompose** y haz clic en **Guardar**.
+1. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **`eshoponweb-ci-dockercompose`** y haz clic en **Guardar**.
 
 1. Una vez finalizada la ejecución, en Azure Portal, abre el grupo de recursos definido previamente y verás la instancia de Azure Container Registry (ACR) con las imágenes de contenedor creadas, **eshoppublicapi** y **eshopwebmvc**. Solo usarás **eshopwebmvc** en la fase de implementación.
 
@@ -107,7 +107,7 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
 
     ![Captura de pantalla de la ubicación de la contraseña de ACR.](images/acr-password.png)
 
-#### Tarea 2: crear una instancia del Almacén de claves de Azure
+#### Tarea 2: Creación de Azure Key Vault
 
 En esta tarea, crearás una instancia del Almacén de claves de Azure mediante el portal de Azure.
 
@@ -119,7 +119,7 @@ En este escenario de laboratorio, tendremos una instancia de Azure Container (AC
 
     | Configuración | Valor |
     | --- | --- |
-    | Suscripción | nombre de la suscripción de Azure que usa en este laboratorio |
+    | Suscripción | nombre de la suscripción a Azure que usas en este laboratorio |
     | Resource group | el nombre de un nuevo grupo de recursos **AZ400-EWebShop-NAME** |
     | Nombre del almacén de claves | cualquier nombre válido único, como **ewebshop-kv-NAME** (reemplaza NAME) |
     | Region | una región de Azure más cercana a la ubicación del entorno de laboratorio |
@@ -157,7 +157,7 @@ En esta tarea, crearás un grupo de variables en Azure DevOps que recuperará el
 
 1. En el equipo de laboratorio, inicia un explorador web y navega hasta el proyecto de Azure DevOps **eShopOnWeb**.
 
-1. En el panel de navegación vertical del portal de Azure DevOps, seleccione **Pipelines (Canalizaciones) > Library (Biblioteca)**. Haz clic en **+ Grupo de variables**.
+1. En el panel de navegación vertical del portal de Azure DevOps, selecciona **Canalizaciones > Biblioteca**. Haz clic en **+ Grupo de variables**.
 
 1. En el panel **Nuevo grupo de variables**, configura las opciones siguientes:
 
@@ -165,7 +165,7 @@ En esta tarea, crearás un grupo de variables en Azure DevOps que recuperará el
     | --- | --- |
     | Nombre del grupo de variables | **eshopweb-vg** |
     | Vincular secretos desde un Almacén de claves de Azure | **enable** |
-    | Suscripción de Azure | **Conexiones disponibles del servicio de Azure > Suscripciones de Azure** |
+    | Suscripción a Azure | **Conexiones disponibles del servicio de Azure > Suscripciones de Azure** |
     | Nombre del almacén de claves | Nombre del almacén de claves|
 
 1. En **Variables**, haz clic en **+ Agregar** y selecciona el secreto **acr-secret**. Haga clic en **Aceptar**.
@@ -205,9 +205,9 @@ En esta tarea, importarás una canalización de CD, la personalizarás y ejecuta
    > [!IMPORTANT]
    > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
-En este laboratorio, integrarás el Almacén de claves de Azure con una canalización de Azure DevOps siguiendo estos pasos:
+En este laboratorio, has integrado Azure Key Vault con una canalización de Azure DevOps siguiendo estos pasos:
 
 - Instancia de Azure Key Vault creada para almacenar una contraseña de ACR como secreto.
 - Acceso facilitado a secretos en Azure Key Vault.

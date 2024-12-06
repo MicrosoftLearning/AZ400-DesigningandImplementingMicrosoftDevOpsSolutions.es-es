@@ -147,7 +147,7 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
 
 #### Tarea 2: crear un recurso de Application Insights
 
-1. En Azure Portal, usa el cuadro de texto **Buscar recursos, servicios y documentos** en la parte superior de la página para buscar **Application Insights**. Después, en la lista de resultados, selecciona **Application Insights**.
+1. En Azure Portal, usa el cuadro de texto **Buscar recursos, servicios y documentos** en la parte superior de la página para buscar **`Application Insights`**. Después, en la lista de resultados, selecciona **Application Insights**.
 1. En la hoja **Application Insights** seleccione **+ Crear**.
 1. En la hoja **Application Insights**, en la pestaña **Aspectos básicos**, especifica las siguientes opciones de configuración (deja las demás con los valores predeterminados):
 
@@ -203,9 +203,9 @@ En esta tarea, configurarás las tareas de versión como parte de la canalizaci�
 1. Haz clic en **Nueva canalización**.
 1. En la ventana **Seleccionar una plantilla**, **elige** **Implementación de Azure App Service** (Implementa la aplicación en Azure App Service. Elige entre Aplicación web en Windows, Linux, contenedores, Function Apps o WebJobs en la lista **Destacados** de plantillas.
 1. Haga clic en **Aplicar**.
-1. En la ventana **Fase** que aparece, actualiza el nombre de fase predeterminado "Fase 1" a **DevTest**. Cierra la ventana emergente con el botón **X**. Ahora estarás en el editor gráfico de la Canalización de versión, donde se muestra la fase DevTest.
-1. En la parte superior de la página, cambia el nombre de la canalización actual de **Nueva canalización de versión** a **eshoponweb-cd**.
-1. Mantén el cursor sobre la fase DevTest y haz clic en el botón **Clonar** para copiar la fase DevTest en una fase adicional. Ponle a esta fase el nombre de **Producción**.
+1. En la ventana **Fase** que aparece, actualiza el nombre de fase predeterminado "Fase 1" a **`DevTest`**. Cierra la ventana emergente con el botón **X**. Ahora estarás en el editor gráfico de la Canalización de versión, donde se muestra la fase DevTest.
+1. En la parte superior de la página, cambia el nombre de la canalización actual de **Nueva canalización de versión** a **`eshoponweb-cd`**.
+1. Mantén el cursor sobre la fase DevTest y haz clic en el botón **Clonar** para copiar la fase DevTest en una fase adicional. Asigna a esta fase el nombre **`Production`**.
 
    > **Nota**: La canalización tiene ahora dos fases llamadas **DevTest** y **Producción**.
 
