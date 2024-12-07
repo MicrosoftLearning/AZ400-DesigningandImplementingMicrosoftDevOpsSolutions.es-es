@@ -322,7 +322,7 @@ Una vez completadas ambas pruebas rápidas, vamos a hacer algunos cambios en ell
 1. A continuación, se representan muchos de estos valores en líneas gráficas del panel y tablas.
 1. Dedica unos minutos a **comparar los resultados** de las pruebas simuladas entre sí, y a **identificar el impacto** de más usuarios en el rendimiento de App Service.
 
-### Ejercicio 2: Automatización de una prueba de carga con CI/CD en Azure Pipelines
+### Ejercicio 3: Automatización de una prueba de carga con CI/CD en Azure Pipelines
 
 Empiece a automatizar las pruebas de carga en Azure Load Testing agregándolo a una canalización de CI/CD. Después de ejecutar una prueba de carga en Azure Portal, exporta los archivos de configuración y configura una canalización de CI/CD en Azure Pipelines (Acciones de GitHub tiene una función similar).
 
@@ -397,7 +397,7 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
           inputs:
             azureSubscription: 'AZURE DEMO SUBSCRIPTION'
             loadTestConfigFile: '$(Build.SourcesDirectory)/tests/jmeter/config.yaml'
-            resourceGroup: 'az400m05l11-RG'
+            resourceGroup: 'az400m08l14-RG'
             loadTestResource: 'eShopOnWebLoadTesting'
             loadTestRunName: 'ado_run'
             loadTestRunDescription: 'load testing from ADO'
@@ -430,7 +430,7 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
     Test '0d295119-12d0-482d-94be-a7b84787c004' already exists
     Uploaded test plan for the test
     Creating and running a testRun for the test
-    View the load test run in progress at: https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/NewReport//resourceId/%2fsubscriptions%4b75-a1e0-27fb2ea7f9f4%2fresourcegroups%2faz400m05l11-rg%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2feshoponwebloadtesting/testId/0d295119-12d0-787c004/testRunId/161046f1-d2d3-46f7-9d2b-c8a09478ce4c
+    View the load test run in progress at: https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/NewReport//resourceId/%2fsubscriptions%4b75-a1e0-27fb2ea7f9f4%2fresourcegroups%2faz400m08l14-RG%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2feshoponwebloadtesting/testId/0d295119-12d0-787c004/testRunId/161046f1-d2d3-46f7-9d2b-c8a09478ce4c
     TestRun completed
     
     -------------------Summary ---------------
@@ -474,7 +474,7 @@ En esta tarea, usarás criterios de error de prueba de carga para recibir alerta
 
     ```text
     Creating and running a testRun for the test
-    View the load test run in progress at: https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/NewReport//resourceId/%2fsubscriptions%2fb86d9ae1-7552-47fb2ea7f9f4%2fresourcegroups%2faz400m05l11-rg%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2feshoponwebloadtesting/testId/0d295119-12d0-a7b84787c004/testRunId/f4bec76a-8b49-44ee-a388-12af34f0d4ec
+    View the load test run in progress at: https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/NewReport//resourceId/%2fsubscriptions%2fb86d9ae1-7552-47fb2ea7f9f4%2fresourcegroups%2faz400m08l14-RG%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2feshoponwebloadtesting/testId/0d295119-12d0-a7b84787c004/testRunId/f4bec76a-8b49-44ee-a388-12af34f0d4ec
     TestRun completed
     
     -------------------Summary ---------------

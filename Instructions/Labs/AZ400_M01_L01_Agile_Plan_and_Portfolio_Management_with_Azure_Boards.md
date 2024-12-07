@@ -283,7 +283,7 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 
 1. En la sección **Criterios de regla**, en la lista desplegable **Campo**, selecciona **Actividad**, en la lista desplegable **Operador**, selecciona **=** y, en la lista desplegable **Valor**, selecciona **Desarrollo.**
 
-    ![Captura de pantalla de la configuración del estilo del panel.](images/m1/EShop-WEB-styles_v2.jpg)
+    ![Captura de pantalla de la configuración del estilo del panel.](images/m1/EShop-WEB-styles_v2.JPG)
 
 1. Haz clic en **Guardar** para guardar y cerrar la configuración.
 
