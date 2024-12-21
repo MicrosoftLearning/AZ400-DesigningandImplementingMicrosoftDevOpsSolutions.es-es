@@ -13,7 +13,6 @@ En la preparación para los laboratorios, es fundamental tener el entorno config
 - **Configurar una suscripción de Azure:** si aún no tiene una suscripción de Azure, cree una siguiendo las instrucciones de esta página o visite [https://azure.microsoft.com/free](https://azure.microsoft.com/free) para registrarse de forma gratuita.
 
 - **Configurar una organización de Azure DevOps:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization).
-  
 - Página de descarga de [Git para Windows](https://gitforwindows.org/). Esto se instalará como parte de los requisitos previos para este laboratorio.
 
 - [Visual Studio Code](https://code.visualstudio.com/). Esto se instalará como parte de los requisitos previos para este laboratorio.
@@ -38,13 +37,13 @@ En la preparación para los laboratorios, es fundamental tener el entorno config
 
 1. En el cuadro desplegable de la izquierda, seleccione **Directorio predeterminado**, en lugar de **Cuenta de Microsoft**.
 
-1. Si se le solicita (*“Necesitamos más detalles”),* proporcione su nombre, dirección de correo electrónico y ubicación, y haga clic en **Continuar**.
+1. Si se le solicita (_“Necesitamos más detalles”),_ proporcione su nombre, dirección de correo electrónico y ubicación, y haga clic en **Continuar**.
 
 1. De nuevo en `https://aex.dev.azure.com` con **el directorio predeterminado** seleccionado, haz clic en el botón azul **Crear nueva organización.**
 
-1. Acepta los *Términos de servicio* haciendo clic en **Continuar**.
+1. Acepta los _Términos de servicio_ haciendo clic en **Continuar**.
 
-1. Si aparece un mensaje (*“Casi listo”),* deje el nombre de la organización de Azure DevOps de forma predeterminada (debe ser un nombre único global) y elija una ubicación de hospedaje cercana a usted en la lista.
+1. Si aparece un mensaje (_“Casi listo”),_ deje el nombre de la organización de Azure DevOps de forma predeterminada (debe ser un nombre único global) y elija una ubicación de hospedaje cercana a usted en la lista.
 
 1. Una vez que se abra la organización recién creada en **Azure DevOps**, seleccione **Configuración de la organización** en la esquina inferior izquierda.
 
@@ -54,7 +53,7 @@ En la preparación para los laboratorios, es fundamental tener el entorno config
 
 1. Una vez que la pantalla muestre el identificador de suscripción de Azure vinculado en la parte superior, cambie el número de **trabajos paralelos de pago** de **CI/CD hospedados de MS** de 0 a **1**. Después, haga clic en el botón **Guardar** de la parte inferior.
 
-   > **Nota**: puedes **esperar un par de minutos antes de usar las funcionalidades de CI/CD** para que la nueva configuración se refleje en el backend. De lo contrario, verá el mensaje *“No se ha comprado o concedido ningún paralelismo hospedado”.*
+   > **Nota**: puedes **esperar un par de minutos antes de usar las funcionalidades de CI/CD** para que la nueva configuración se refleje en el backend. De lo contrario, verá el mensaje _“No se ha comprado o concedido ningún paralelismo hospedado”._
 
 1. En **Organización Configuración**, ve a la sección **Canalizaciones** y haz clic en **Configuración**.
 
@@ -81,6 +80,7 @@ En primer lugar, creará un proyecto **eShopOnWeb** de Azure DevOps que se usar�
 1. Abra su explorador y navegue a su organización de Azure DevOps.
 
 1. Seleccione la opción **Nuevo proyecto** y use la siguiente configuración:
+
    - Nombre: **eShopOnWeb**
    - visibilidad: **Privado**
    - Avanzado: Control de versiones: **Git**
@@ -90,17 +90,17 @@ En primer lugar, creará un proyecto **eShopOnWeb** de Azure DevOps que se usar�
 
    ![Captura de pantalla del panel Crear nuevo proyecto.](images/create-project.png)
 
-### Importación del repositorio de Git de eShopOnWeb
+### Importación del repositorio Git de eShopOnWeb
 
-Ahora, importará eShopOnWeb en el repositorio de Git.
+Ahora, importarás eShopOnWeb en el repositorio Git.
 
-1. Abra su explorador y navegue a su organización de Azure DevOps.
+1. Abre el explorador y ve a tu organización de Azure DevOps.
 
-1. Abra el proyecto **eShopOnWeb** creado anteriormente.
+1. Abre el proyecto **eShopOnWeb** creado anteriormente.
 
-1. Seleccione **Repositorios > Archivos**, **Importar un repositorio** y, después, seleccione **Importar**.
+1. Selecciona **Repositorios > Archivos**, **Importar un repositorio** y, después, selecciona **Importar**.
 
-1. En la ventana **Importar un repositorio de Git**, pegue la siguiente dirección URL `https://github.com/MicrosoftLearning/eShopOnWeb` y seleccione **Importar**:
+1. En la ventana **Importar un repositorio Git**, pega la siguiente dirección URL `https://github.com/MicrosoftLearning/eShopOnWeb` y selecciona **Importar**:
 
    ![Captura de pantalla del panel Importar repositorio.](images/import-repo.png)
 
@@ -112,7 +112,7 @@ Ahora, importará eShopOnWeb en el repositorio de Git.
    - Definiciones de flujo de trabajo de GitHub del contenedor de carpetas **.github**.
    - La carpeta **src** contiene el sitio web de .NET 8 que se usa en los escenarios de laboratorio.
 
-1. Deje abierta la ventana del explorador web.  
+1. Deja abierta la ventana del explorador web.
 
 1. Ve a **Repos > Ramas**.
 
@@ -132,25 +132,28 @@ Necesitarás crear una conexión de servicio en Azure DevOps que te permitirá i
 
 1. Abra el proyecto **eShopOnWeb** y selecciona **Configuración del proyecto** en la esquina inferior izquierda del portal.
 
-1. En Canalizaciones, seleccione **Conexiones de servicio** y, después, seleccione **Crear conexión de servicio**.
+1. En Canalizaciones, selecciona **Conexiones de servicio** y, después, selecciona el botón **Crear conexión de servicio**.
 
    ![Captura de pantalla del botón para crear la nueva conexión de servicio.](images/new-service-connection.png)
 
-1. En la hoja **New service connection (Nueva conexión de servicio)**, seleccione **Azure Resource Manager** y, después, seleccione **Next (Siguiente)** (es posible que deba desplazarse hacia abajo).
+1. En la hoja **Nueva conexión de servicio**, selecciona **Azure Resource Manager** y, después, **Siguiente** (es posible que debas desplazarte hacia abajo).
 
-1. Selecciona **Federación de identidades de carga de trabajo (automática)** y **Siguiente**.
+1. Selecciona **Registro de aplicaciones (automático)** en el Dropbox **Tipo de identidad**.
 
-   > **Nota**: También puedes usar **Federación de identidades de carga de trabajo (manual)** si prefieres configurar manualmente la conexión de servicio. Sigue los pasos de la [Documentación de Azure DevOps](https://learn.microsoft.com/azure/devops/pipelines/library/connect-to-azure) para crear una conexión de servicio manualmente.
+1. Selecciona **Federación de identidades de carga de trabajo** y **Suscripción** en el **Nivel de ámbito**.
+
+   > **Nota**: también puedes usar **Registro de aplicaciones o identidad administrada (manual)** si prefieres configurar manualmente la conexión de servicio. Sigue los pasos de la [Documentación de Azure DevOps](https://learn.microsoft.com/azure/devops/pipelines/library/connect-to-azure) para crear una conexión de servicio manualmente.
 
 1. Rellena los campos vacíos con la información:
-    - **Suscripción**: Seleccione su suscripción a Azure.
-    - **Grupo de recursos**: selecciona el grupo de recursos en el que deseas implementar los recursos. Si no tienes un grupo de recursos, puedes crear uno en Azure Portal siguiendo las instrucciones de [Administración de grupos de recursos de Azure mediante Azure Portal](https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
-    - **Nombre de conexión del servicio**: tipo **`azure subs`**. Se hará referencia a este nombre en las canalizaciones YAML para acceder a tu suscripción de Azure.
+
+   - **Suscripción**: selecciona tu suscripción a Azure.
+   - **Grupo de recursos**: selecciona el grupo de recursos en el que deseas implementar los recursos. Si no tienes un grupo de recursos, puedes crear uno en Azure Portal siguiendo las instrucciones de [Administración de grupos de recursos de Azure mediante Azure Portal](https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   - **Nombre de conexión del servicio**: tipo **`azure subs`**. Se hará referencia a este nombre en las canalizaciones YAML para acceder a tu suscripción de Azure.
 
 1. Asegúrate de que la opción **Conceder permiso de acceso a todas las canalizaciones** está desactivada y selecciona **Guardar**.
 
-   > **Nota:** La opción **Conceder permiso de acceso a todas las canalizaciones** no se recomienda para entornos de producción. Solo se usa en este laboratorio para simplificar la configuración de la canalización.
+   > **Importante:** la opción **Conceder permiso de acceso a todas las canalizaciones** no se recomienda para entornos de producción. Solo se usa en este laboratorio para simplificar la configuración de la canalización.
 
-   > **Nota**: Si ves un mensaje de error que indica que no tienes los permisos necesarios para crear una conexión de servicio, inténtalo de nuevo o configura la conexión de servicio manualmente.
+   > **Nota**: si ves un mensaje de error que indica que no tienes los permisos necesarios para crear una conexión de servicio, inténtalo de nuevo o configura la conexión de servicio manualmente.
 
-Ya ha completado los pasos previos necesarios para continuar con los laboratorios.
+Ya has completado los pasos previos necesarios para continuar con los laboratorios.
