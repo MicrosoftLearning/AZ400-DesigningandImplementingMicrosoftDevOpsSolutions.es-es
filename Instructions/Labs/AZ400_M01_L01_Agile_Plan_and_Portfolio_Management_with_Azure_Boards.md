@@ -375,7 +375,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 
     > **Nota**: a medida que el equipo actualiza el estado del trabajo mientras avanza de una fase a la siguiente, esto ayuda a que lleguen a un acuerdo respecto a lo que significa **Listo**. Al especificar la **Definición de Listo** para cada columna Kanban, ayudas a compartir las tareas esenciales que se deben completar antes de mover un elemento a una fase de nivel inferior.
 
-1. En la pestaña **Control de calidad aprobado**, en la parte inferior del panel, en el cuadro de texto **Definición de Listo**, escribe **`Passes \*\*all\*\* tests`**.
+1. En la pestaña **Control de calidad aprobado**, en la parte inferior del panel, en el cuadro de texto **Definición de Listo**, escribe **`Passes **all** tests`**.
 1. Haz clic en **Guardar** para guardar y cerrar la configuración.
 
     ![Captura de pantalla de la columna dividida de configuración y la definición de la configuración finalizada.](images/m1/dd_v1.png)
