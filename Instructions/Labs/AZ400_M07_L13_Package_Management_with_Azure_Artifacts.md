@@ -144,23 +144,23 @@ En esta tarea, crearás y publicarás un paquete NuGet personalizado desarrollad
 1. En tu estación de trabajo de laboratorio, abre el menú Inicio y busca **Windows PowerShell**. A continuación, en el menú en cascada, haz clic en **Abrir Windows PowerShell como administrador**.
 1. En la ventana **Administrador: de Windows PowerShell**, vaya a la carpeta eShopOnWeb.Shared ejecutando el siguiente comando:
 
-   ```text
+   ```powershell
    cd c:\eShopOnWeb\eShopOnWeb.Shared
    ```
 
    > **Nota**: La carpeta **eShopOnWeb.Shared** es la ubicación del archivo **eShopOnWeb.Shared.csproj**. Si elegiste una ubicación o un nombre de proyecto diferente, ve a esa ubicación en su lugar.
 
-1. Ejecuta el comando siguiente para crear un archivo **.nupkg** a partir del proyecto.
+1. Ejecuta lo siguiente para crear un archivo **.nupkg** desde el proyecto (cambia el valor del marcador de posición `XXXXXX` con una cadena única).
 
    ```powershell
-   dotnet pack .\eShopOnWeb.Shared.csproj
+   dotnet pack .\eShopOnWeb.Shared.csproj -p:PackageId=eShopOnWeb-XXXXX.Shared
    ```
 
    > **Nota**: El comando **dotnet pack** compila el proyecto y crea un paquete NuGet en la carpeta **bin\Release**. Si no tienes una carpeta **Versión**, puedes usar la carpeta **Depurar** en su lugar.
 
    > **Nota**: Omite las advertencias que aparecen en la ventana **Administrador: Windows PowerShell**.
 
-   > **Nota**: dotnet pack compila un paquete mínimo basado en la información que puede identificar del proyecto. Por ejemplo, tenga en cuenta que el nombre es **eShopOnWeb.Shared.1.0.0.nupkg**. Ese número de versión se ha recuperado del ensamblado.
+   > **Nota**: dotnet pack compila un paquete mínimo basado en la información que puede identificar del proyecto. El argumento `-p:PackageId=eShopOnWeb-XXXXXX.Shared` permite crear un paquete con un nombre específico, en su lugar mediante el nombre que contiene en el proyecto. Por ejemplo, si sustituyes la cadena `12345` por el marcador de posición `XXXXXX`, el nombre del paquete será **eShopOnWeb-12345.Shared.1.0.0.nupkg**. El número de versión se ha recuperado del ensamblado.
 
 1. En la ventana de PowerShell, ejecute el siguiente comando para abrir la carpeta **bin\Release**:
 

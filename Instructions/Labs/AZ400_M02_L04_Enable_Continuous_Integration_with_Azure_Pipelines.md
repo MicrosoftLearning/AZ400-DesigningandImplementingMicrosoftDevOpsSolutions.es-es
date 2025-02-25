@@ -168,7 +168,7 @@ La definición de canalización de compilación predeterminada no habilita la in
 
     Dado que has habilitado las directivas de rama, debes pasar por una solicitud de incorporación de cambios para actualizar el código.
 
-1. Haz clic en el botón **Guardar** (no en **Guardar y ejecutar**) para guardar la definición de la canalización.
+1. Haz clic en el botón **Validar y guardar** para validar y guardar la definición de la canalización.
 1. Seleccione **Crear una rama nueva para este commit**.
 1. Mantén activado el nombre de rama predeterminado y la opción **Iniciar solicitud de incorporación de cambios**.
 1. Haga clic en **Guardar**.
