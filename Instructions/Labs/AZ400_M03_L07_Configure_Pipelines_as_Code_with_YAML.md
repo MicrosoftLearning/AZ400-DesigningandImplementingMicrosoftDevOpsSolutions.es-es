@@ -243,8 +243,8 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
       - repository: self
         trigger: none
 
-   stages:
-   - stage: Build
+  stages:
+  - stage: Build
     displayName: Build .Net Core Solution
     jobs:
     - job: Build
@@ -420,6 +420,6 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
    > [!IMPORTANT]
    > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
 En esta pestaña, has configurado las canalizaciones de CI/CD como código con YAML en Azure DevOps.
