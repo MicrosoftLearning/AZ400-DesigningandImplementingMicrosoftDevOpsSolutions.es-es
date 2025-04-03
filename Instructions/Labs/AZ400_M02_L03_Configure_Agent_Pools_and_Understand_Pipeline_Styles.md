@@ -101,9 +101,9 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
 
 1. En la pestaña **Administración**, en la sección **Identidad**, seleccione la casilla de verificación **Habilitar identidad administrada asignada por el sistema** y, luego, seleccione **Revisar y crear**:
 
-1. En la pestaña **Revisar y crear**, seleccione **Crear**.
+1. En la pestaña **Revisar y crear**, selecciona **Crear**.
 
-   > **Nota**: Espere a que se complete el proceso de aprovisionamiento. Este proceso tardará alrededor de 2 minutos.
+   > **Nota**: espera a que se complete el proceso de aprovisionamiento. Este proceso tardará alrededor de 2 minutos.
 
 1. En Azure Portal, vaya a la página que muestra la configuración de la VM de Azure recién creada.
 
@@ -240,7 +240,7 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
    > [!IMPORTANT]
    > Para que el agente pueda compilar e implementar recursos de Azure desde las canalizaciones de Azure DevOps (que configurará en los próximos laboratorios), debe instalar la CLI de Azure en el sistema operativo de la máquina virtual de Azure que hospeda el agente.
 
-1. Inicie un explorador web y vaya a la página [Instalación de la CLI de Azure en Windows](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli#install-or-update).
+1. Inicie un explorador web y vaya a la página [Instalación de la CLI de Azure en Windows](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli&pivots=msi#install-or-update).
 
 1. Descargue e instale la CLI de Azure.
 
