@@ -378,6 +378,11 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
 1. En **Estructura de carpeta**, ve a la nueva subcarpeta **jmeter** creada. Haz clic en los **puntos suspensivos (...)** y selecciona **Cargar archivos**.
 1. Con la opción **Examinar**, ve a la ubicación del archivo ZIP extraído y selecciona **config.yaml** y **quick_test.jmx**.
 1. Haz clic en **Confirmar** para confirmar la carga de archivos en el control de código fuente.
+1. En Repos, ve a la subcarpeta **/tests/jmeter** que acabas de crear.
+1. Abre el archivo de prueba de carga **config.yaml**. Haz clic en **Editar** para permitir la edición del archivo.
+1. Reemplaza los atributos **displayName** y **testId** por el valor **ado_load_test**
+
+  ![Captura de pantalla del archivo de configuración editado.](images/config_edit.png)
 
 #### Tarea 4: actualizar el archivo de definición de YAML del flujo de trabajo de CI/CD
 
@@ -467,7 +472,7 @@ En esta tarea, usarás criterios de error de prueba de carga para recibir alerta
 1. En Azure DevOps, vaya al proyecto eShopOnWeb y abra **Repositorios**.
 1. En Repos, ve a la subcarpeta **/tests/jmeter** creada y usada anteriormente.
 1. Abre el archivo de Load Testing \*config.yaml**. Haz clic en **Editar\*\* para permitir la edición del archivo.
-1. Reemplace `failureCriteria: []` por el siguiente fragmento de código:
+1. Reemplaza `failureCriteria: []` si está presente, de lo contrario agrega el siguiente fragmento de código:
 
    ```text
    failureCriteria:
@@ -520,6 +525,6 @@ En esta tarea, usarás criterios de error de prueba de carga para recibir alerta
    > [!IMPORTANT]
    > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
 En este ejercicio, has implementado una aplicación web para Azure App Service mediante Azure Pipelines, así como la implementación de un recurso de Azure Load Testing con TestRuns. A continuación, ha integrado el archivo config.yaml de pruebas de carga de JMeter en el control de código fuente de Azure Repos y amplía la canalización de CI/CD con Azure Load Testing. En el último ejercicio, has aprendido a definir los criterios de éxito de LoadTest.
