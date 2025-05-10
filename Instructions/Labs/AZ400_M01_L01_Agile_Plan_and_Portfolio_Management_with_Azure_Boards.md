@@ -65,7 +65,7 @@ Cada proyecto nuevo se configura con un equipo predeterminado, que coincide con 
 
 1. Haz clic en el icono de engranaje con la etiqueta **Configuración del proyecto** situada en la esquina inferior izquierda de la página para abrir la página **Configuración del proyecto**.
 
-    ![Captura de pantalla de la página de configuración de Azure DevOps.](images/m1/project_settings_v1.png)
+    ![Captura de pantalla de la página de configuración de Azure DevOps.](images/m1/project_settings_v1.png) 
 
 1. En la sección **General**, seleccione la pestaña **Teams**. Ya hay un equipo predeterminado en este proyecto, **eShopOnWeb Team**, pero creará uno nuevo para este laboratorio. Haz clic en **Nuevo equipo**.
 
@@ -143,13 +143,13 @@ Los elementos de trabajo cumplen un rol destacado en Azure DevOps. Ya sea que se
 
     ![Captura de pantalla de la creación del vínculo de un elemento de trabajo.](images/m1/EShop-WEB-create_child_feature.png)
 
-1. Haga clic en **Agregar vínculo** para guardar el elemento secundario.
+1. Haz clic en **Agregar vínculo** para guardar el elemento secundario.
 
     ![Captura de pantalla del área de trabajo relacionada con el elemento de trabajo.](images/m1/EShop-WEB-epic_with_linked_item_v1.png)
 
     > **Nota**: en el **panel de entrenamiento**, ten en cuenta que la asignación, el **área** y la **iteración** ya están establecidos en los mismos valores de la epopeya en la que se basa la característica. Asimismo, la característica se vincula automáticamente con el elemento primario desde el cual se creó.
 
-1. En el **Panel de formación** (Nueva característica), haga clic en **Guardar y cerrar**.
+1. En el **Panel de formación** (Nueva característica), haz clic en **Guardar y cerrar**.
 
 1. En el panel de navegación vertical del portal de Azure DevOps, en la lista de elementos **Paneles**, selecciona **Paneles**.
 1. En el panel **Paneles**, selecciona la entrada **paneles de EShop-WEB**. Se abrirá el panel para ese equipo determinado.
@@ -279,9 +279,9 @@ El trabajo pendiente de sprint debe contener toda la información que el equipo 
 1. Haz clic en el icono de engranaje **Configurar ajustes del equipo** (situado a la derecha del icono de embudo).
 1. En el panel **Configuración**, selecciona la pestaña **Estilos**, haz clic en **+ Agregar regla de estilos**; en la etiqueta **Nombre de la regla**, en el cuadro de texto **Nombre**, escribe **`Development`** y, en la lista desplegable **Color**, selecciona el rectángulo verde.
 
-    > **Nota**: todas las tarjetas aparecerán de color verde si cumplen los criterios de regla establecidos a continuación, en la sección **Criterios de regla**.
+    > **Note**: todas las tarjetas aparecerán de color verde si cumplen los criterios de regla establecidos justo debajo del nombre de regla.
 
-1. En la sección **Criterios de regla**, en la lista desplegable **Campo**, selecciona **Actividad**, en la lista desplegable **Operador**, selecciona **=** y, en la lista desplegable **Valor**, selecciona **Desarrollo.**
+1. En la sección bajo el nombre de regla, en la lista desplegable **Campo**, selecciona **Actividad**, en la lista desplegable **Operador**, selecciona **=** y, en la lista desplegable **Valor**, selecciona **Desarrollo**.
 
     ![Captura de pantalla de la configuración del estilo del panel.](images/m1/EShop-WEB-styles_v2.JPG)
 
@@ -337,7 +337,7 @@ Para maximizar la capacidad de un equipo de ofrecer software de alta calidad de 
 1. En la vista detallada de elementos, en la parte superior del panel, a la derecha de la entrada **0 comentarios**, haga clic en **Añadir etiqueta**.
 1. En el cuadro de texto que aparece, escribe **`data`** y presiona la tecla **Entrar**.
 1. Repite el paso anterior para agregar la etiqueta **`ux`**.
-1. Guarde estas modificaciones haciendo clic en **Guardar y cerrar**.
+1. Haz clic en **Guardar y cerrar** para guardar estas modificaciones.
 
     ![Captura de pantalla de las dos nuevas etiquetas visibles en la tarjeta.](images/m1/EShop-WEB-tags_v1.png)
 
@@ -428,7 +428,9 @@ Los paneles permiten a los equipos visualizar el estado y supervisar el progreso
 
 1. En el panel **Configuración**, haz clic en **Cerrar** sin realizar ningún cambio.
 1. Cuando vuelvas al panel **Agregar widget**, en el cuadro de texto **Buscar**, escribe **`sprint`** nuevamente para buscar widgets existentes que se centren en sprints. En la lista de resultados, selecciona **Capacidad de sprint** y haz clic en **Agregar**.
+
     > **Nota**: si el widget muestra "Establecer capacidad para usar el widget de capacidad de sprint", puedes seleccionar el vínculo **Establecer capacidad** para establecer la capacidad. Establece la actividad en Desarrollo y la capacidad en 1. Haz clic en **Guardar** y vuelve al panel.
+    
 1. En la vista **Panel**, en la parte superior del panel, haz clic en **Edición finalizada**.
 
     ![Captura de pantalla del panel con dos nuevos widgets.](images/m1/EShop-WEB-finished_dashboard_v1.png)
