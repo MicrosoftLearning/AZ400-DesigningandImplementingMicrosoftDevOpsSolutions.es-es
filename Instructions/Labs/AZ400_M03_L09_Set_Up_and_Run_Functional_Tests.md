@@ -28,7 +28,7 @@ Después de completar este laboratorio, podrás configurar una canalización de 
 - Pruebas de integración
 - Pruebas funcionales
 
-## Tiempo estimado: 20 minutos
+## Tiempo estimado: 20 minutos
 
 ## Instrucciones
 
@@ -71,8 +71,8 @@ En esta tarea, agregarás la definición de compilación de YAML que se usará p
 
 Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
-1. Vaya a **Pipelines (Canalizaciones) > Pipelines (Canalizaciones)**.
-1. Haz clic en el botón **Nueva canalización**.
+1. Ve a **Canalizaciones > Canalizaciones**.
+1. Haz clic en el botón **Nueva canalización**, o bien en **Crear canalización** si no tienes ninguna canalización.
 1. Seleccione **GIT de Azure Repos** (YAML).
 1. Selecciona el repositorio **eShopOnWeb**.
 1. Selecciona el **archivo YAML de Azure Pipelines existente**.
@@ -85,7 +85,7 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
     - **DotNet Publish**: publica la aplicación y sus dependencias en una carpeta para la implementación en un sistema de hospedaje. En este caso, es **Build.ArtifactStagingDirectory**.
     - **Publish Artifact - Website**: publica el artefacto de la aplicación (creado en el paso anterior) y habilítalo como artefacto de canalización.
     - **Publish Artifact - Bicep**: publica el artefacto de infraestructura (archivo de Bicep) y habilítalo como artefacto de canalización.
-1. Haz clic en el botón **Guardar** (no en **Guardar y ejecutar**) para guardar la definición de la canalización.
+1. Haz clic en el botón **Guardar** (no en **Guardar y ejecutar**) en la parte superior derecha de la página para guardar la definición de la canalización. Para encontrar el botón **Guardar**, haz clic en la flecha situada a la derecha del botón **Guardar y ejecutar**, o bien en **Ejecutar**.
 
 #### Tarea 2: agregar pruebas a la canalización de CI
 
@@ -95,6 +95,7 @@ Verás que la tarea Pruebas unitarias ya forma parte de la canalización.
 
 - Una **prueba unitaria** verifica un solo elemento de la lógica de la aplicación. Se puede describir aún más enumerando algunas de las cosas que no hace. Una prueba unitaria no prueba el funcionamiento del código con dependencias o infraestructura; eso lo comprueban las pruebas de integración.
 
+1. Edita la canalización que creaste en la tarea anterior; para ello, presiona el botón **Editar**.
 1. Ahora debes agregar la tarea Pruebas de integración después de la tarea Pruebas unitarias:
 
     ```YAML
@@ -119,7 +120,7 @@ Verás que la tarea Pruebas unitarias ya forma parte de la canalización.
 
     > **Las pruebas funcionales** se escriben desde la perspectiva del usuario y comprueban la exactitud del sistema en función de sus requisitos. Las pruebas de integración se escriben desde la perspectiva del desarrollador, para comprobar que algunos componentes del sistema funcionen correctamente en conjunto.
 
-1. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar los cambios directamente en la rama principal.
+1. Haz clic en el botón **Validar y guardar** y, si la validación es correcta, haz clic en **Guardar** de nuevo para confirmar los cambios directamente en la rama principal.
 
 #### Tarea 3: Comprobar el resumen de las pruebas
 

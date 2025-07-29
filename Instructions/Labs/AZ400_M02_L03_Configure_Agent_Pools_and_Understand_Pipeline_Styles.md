@@ -76,7 +76,7 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
 
 1. Seleccione el botón **Crear**.
 
-1. Seleccione **Máquina virtual de Azure con configuración preestablecida**.
+1. Selecciona los **Valores preestablecidos**.
 
     ![Captura de pantalla de la creación de una máquina virtual con configuración preestablecida.](images/create-virtual-machine-preset.png)
 
@@ -143,6 +143,8 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
 
    > **Nota**: Sigue las instrucciones para instalar el agente.
 
+   > **Nota**: El nombre del archivo ZIP que descargó con el botón **Descargar** debe ser similar al siguiente `vsts-agent-win-x64-X.YYY.Z.zip` (en el momento en que se redacta este laboratorio, el nombre de archivo es `vsts-agent-win-x64-4.255.0.zip`). El nombre de archivo se usará más adelante en uno de los comandos de instalación del agente.
+
 1. Inicie una sesión de PowerShell y ejecute los siguientes comandos para crear una carpeta denominada **agente**.
 
    ```powershell
@@ -154,10 +156,12 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
 1. Ejecute el siguiente comando para extraer el contenido de los archivos del instalador del agente descargados:
 
    ```powershell
-   Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-3.245.0.zip", "$PWD")
+   Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-4.255.0.zip", "$PWD")
    ```
 
    > **Nota**: Si has descargado el agente en otra ubicación (o la versión descargada difiere), ajusta el comando anterior en consecuencia.
+
+   > **Nota**: Asegúrate de que el nombre de archivo ZIP especificado dentro del comando `ExtractToDirectory` es el mismo que el nombre de archivo ZIP que descargaste anteriormente.
 
 #### Tarea 4: Creación de un token PAT
 
@@ -208,7 +212,7 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
 
 1. Para configurar el agente, realice las siguientes acciones cuando se le solicite:
 
-   - Escriba la dirección URL de la organización de Azure DevOps (**dirección URL del servidor**) en el formato `https://aex.dev.azure.com`{nombre de la organización}.
+   - Escribe la dirección URL de la organización de Azure DevOps (**dirección URL del servidor**) con el formato `https://dev.azure.com/{your organization name}`.
    - Acepta el tipo de autenticación predeterminado (**`PAT`**).
    - Escriba el valor del token PAT que creó en el paso anterior.
    - Escribe el nombre del grupo de agentes **`eShopOnWebSelfPool`** que has creado anteriormente en este ejercicio.
@@ -240,7 +244,7 @@ En este ejercicio, creará una máquina virtual (VM) de Azure y la usará para c
    > [!IMPORTANT]
    > Para que el agente pueda compilar e implementar recursos de Azure desde las canalizaciones de Azure DevOps (que configurará en los próximos laboratorios), debe instalar la CLI de Azure en el sistema operativo de la máquina virtual de Azure que hospeda el agente.
 
-1. Inicie un explorador web y vaya a la página [Instalación de la CLI de Azure en Windows](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli&pivots=msi#install-or-update).
+1. Inicia un explorador web y ve a la página `https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli&pivots=msi#install-or-update`.
 
 1. Descargue e instale la CLI de Azure.
 
@@ -306,7 +310,7 @@ En esta tarea, crearás una canalización basada en YAML para el proyecto **eSho
     ![Captura de pantalla que muestra la sintaxis del grupo de YAML.](images/eshoponweb-ci-pr-agent-pool.png)
 
 1. En la esquina superior derecha del panel de **eShopOnWeb**, haga clic en **Validar y guardar**. A continuación, haga clic en **Save**(Guardar).
-1. En la esquina superior derecha del panel de **eShopOnWeb**, haz clic en **Ejecutar canalización**.
+1. En el panel de edición de **eShopOnWeb**, en la esquina superior derecha del panel, haz clic en **Ejecutar**.
 
     > **Nota**: La canalización se ejecutará en el grupo de agentes autohospedado que has creado en el ejercicio anterior.
 1. Abre la ejecución de la canalización y supervisa el trabajo hasta que se complete correctamente.

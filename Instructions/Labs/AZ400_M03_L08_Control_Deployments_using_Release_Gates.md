@@ -114,7 +114,7 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
 1. Haz clic en el icono de **Cloud Shell** a la derecha del cuadro de texto de búsqueda en la parte superior de la página en el portal de Azure.
 1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
 
-   > **Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
+   > **Nota**: Si es la primera vez que inicias **Cloud Shell** y recibes el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que usas en este laboratorio y haz clic en **Aplicar**.
 
 1. En el símbolo del sistema **Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el marcador de posición variable de `<region>` por el nombre de la región de Azure que hospedará las dos aplicaciones web de Azure, como "westeurope" o "centralus" o cualquier otra región disponible):
 
@@ -142,6 +142,8 @@ En esta tarea, crearás dos aplicaciones web de Azure que representan los entorn
    ```
 
    > **Nota**: registra el nombre de la aplicación web DevTest. Lo necesitará más adelante en este laboratorio.
+
+   > **Nota**: Si se produce un error "La suscripción no está registrada para usar el espacio de nombres 'Microsoft.Web'", ejecuta el siguiente comando para registrar el proveedor de recursos Microsoft.Web: `az provider register --namespace Microsoft.Web` y espera a que se complete el registro antes de crear las aplicaciones web.
 
 1. Espera a que el proceso de aprovisionamiento de recursos de Web App Services se complete y cierra el panel de **Cloud Shell**.
 
@@ -324,6 +326,6 @@ En esta tarea, primero generarás algunas alertas para la aplicación web DevTes
    > [!IMPORTANT]
    > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
 En este laboratorio, configuraste canalizaciones de versión y, luego, configuraste y probaste las validaciones de versión.

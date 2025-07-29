@@ -10,6 +10,8 @@ lab:
 
 - Este laboratorio requiere **Microsoft Edge** o un [explorador compatible con Azure DevOps](https://learn.microsoft.com/azure/devops/server/compatibility).
 
+- **Completa la validación del entorno de laboratorio:** Antes de iniciar este laboratorio, asegúrate de que has completado el [entorno de validación del laboratorio](AZ400_M00_Validate_lab_environment.md) que configura la organización, el proyecto y la conexión de servicio de Azure DevOps necesarios para este laboratorio.
+
 - **Configurar una organización de Azure DevOp:**: si aún no tiene una organización Azure DevOps que pueda usar para este laboratorio, cree una siguiendo las instrucciones disponibles en [Creación de una organización o colección de proyectos](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization).
 - Identifique una suscripción de Azure existente o cree una.
 
@@ -88,9 +90,9 @@ En esta tarea, importarás una definición de canalización de CI YAML existente
 
 1. En la definición de canalización de YAML, personalice el nombre del grupo de recursos reemplazando **NAME** en **AZ400-EWebShop-NAME** por un valor único y reemplace **YOUR-SUBSCRIPTION-ID** por su propio subscriptionId de Azure.
 
-1. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente.
+1. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente. Es posible que tengas que hacer clic en **Guardar y ejecutar** una segunda vez para completar el proceso de creación y ejecución de la canalización.
 
-    > **Importante**: si ves el mensaje “Esta canalización necesita permisos para acceder a los recursos antes de que la ejecución pueda pasar de Docker Compose a ACI”, haz clic en Ver, Permitir y Permitir nuevamente. Esto es necesario para permitir que la canalización cree el recurso.
+    > **Importante**: si ves el mensaje “Esta canalización necesita permisos para acceder a los recursos antes de que la ejecución pueda pasar de Docker Compose a ACI”, haz clic en Ver, Permitir y Permitir nuevamente. Esto es necesario para permitir que la canalización cree el recurso. Debes hacer clic en el trabajo de compilación para ver el mensaje de permiso.
 
     > **Nota**: la compilación tardará algunos minutos en completarse. La canalización de compilación está formada por las siguientes tareas:
     - **AzureResourceManagerTemplateDeployment** usa **Bicep** para implementar una instancia de Azure Container Registry.
@@ -119,7 +121,7 @@ En este escenario de laboratorio, tendremos una instancia de Azure Container (AC
 
     | Configuración | Valor |
     | --- | --- |
-    | Suscripción | nombre de la suscripción a Azure que usas en este laboratorio |
+    | Suscripción | Nombre de la suscripción a Azure que usas en este laboratorio |
     | Resource group | el nombre de un nuevo grupo de recursos **AZ400-EWebShop-NAME** |
     | Nombre del almacén de claves | cualquier nombre válido único, como **ewebshop-kv-NAME** (reemplaza NAME) |
     | Region | una región de Azure más cercana a la ubicación del entorno de laboratorio |
@@ -130,10 +132,10 @@ En este escenario de laboratorio, tendremos una instancia de Azure Container (AC
 
 1. En la pestaña **Configuración de acceso** de la hoja **Crear un almacén de claves**, selecciona **Directiva de acceso del almacén** y, luego, en la sección **Directivas de acceso**, haz clic en **+ Crear** para configurar una nueva directiva.
 
-    > **Nota**: Debes proteger el acceso a los almacenes de claves permitiendo el acceso únicamente a aplicaciones y usuarios autorizados. Para acceder a los datos del almacén, deberás facilitar permisos de lectura (Obtiene o enumera) a la entidad de servicio creada anteriormente que usarás para la autenticación en la canalización.
+    > **Nota**: Debes proteger el acceso a los almacenes de claves permitiendo el acceso únicamente a aplicaciones y usuarios autorizados. Para acceder a los datos del almacén, deberás proporcionar permisos de lectura (Get/List) a la conexión de servicio que creaste durante la validación del entorno de laboratorio para la autenticación en la canalización.
 
     1. En la hoja **Permisos**, debajo de **Permisos de secretos**, marca  los permisos **Obtener** y **enumerar**. Haga clic en **Siguiente**.
-    2. En la hoja **Entidad principal**, busca la **entidad de servicio creada anteriormente**, ya sea mediante el identificador o el nombre especificados y selecciónala en la lista. Haz clic en **Siguiente**, **Siguiente**, **Crear** (directiva de acceso).
+    2. En la hoja **Entidad de seguridad**, busca la **conexión del servicio de suscripción de Azure** (creada durante la validación del entorno de laboratorio, normalmente denominada "azure subs") y selecciónala en la lista. Puedes encontrar el nombre de la entidad de seguridad de servicio en Azure DevOps, en Configuración del proyecto > Conexiones de servicio > azure subs > Administrar entidad de servicio. Si se produce un error de permisos al seleccionar la suscripción de Azure, haz clic en el botón **Autorizar**, que creará automáticamente la directiva de acceso en el almacén de claves. Haz clic en **Siguiente**, **Siguiente**, **Crear** (directiva de acceso).
     3. En la hoja **Revisar y crear**, haz clic en **Crear**.
 
 1. De nuevo en la hoja **Crear un almacén de claves**, haz clic en **Revisar y crear > Crear.**
@@ -149,7 +151,7 @@ En este escenario de laboratorio, tendremos una instancia de Azure Container (AC
     | --- | --- |
     | Opciones de carga | **Manual** |
     | Nombre | **acr-secret** |
-    | Value | Contraseña de acceso de ACR copiada en la tarea anterior |
+    | Valor del secreto | Contraseña de acceso de ACR copiada en la tarea anterior |
 
 #### Tarea 3: Creación de un grupo de variables conectado a Azure Key Vault
 
@@ -190,7 +192,7 @@ En esta tarea, importarás una canalización de CD, la personalizarás y ejecuta
     - ** YOUR-ACR.azurecr.io** y **ACR-USERNAME** con el servidor de inicio de sesión de ACR (ambos necesitan el nombre de ACR, se pueden revisar en ACR > Claves de acceso).
     - Reemplaza **AZ400-EWebShop-NAME** con el nombre del grupo de recursos definido antes en el laboratorio.
 
-1. Haz clic en **Guardar y ejecutar**.
+1. Haz clic en **Guardar y ejecutar**. Es posible que tengas que hacer clic en **Guardar y ejecutar** una segunda vez para completar el proceso de creación y ejecución de la canalización. Debes hacer clic en el trabajo de compilación para ver los mensajes de permiso.
 1. Abre la canalización y espera a que se ejecute correctamente.
 
     > **Importante**: si ves el mensaje “Esta canalización necesita permisos para acceder a los recursos antes de que la ejecución pueda pasar de Docker Compose a ACI”, haz clic en Ver, Permitir y Permitir nuevamente. Esto es necesario para permitir que la canalización cree el recurso.
@@ -199,6 +201,8 @@ En esta tarea, importarás una canalización de CD, la personalizarás y ejecuta
     - **Recursos**: están preparados para desencadenarse automáticamente en función de la finalización de la canalización de CI. También descarga el repositorio para el archivo Bicep.
     - **Variables (para la fase de implementación)** se conecta con el grupo de variables para utilizar el secreto del Almacén de claves de Azure, **acr-secret**
     - **AzureResourceManagerTemplateDeployment** implementa la instancia de Azure Container (ACI) mediante la plantilla de bicep y proporciona los parámetros de inicio de sesión de ACR para permitir que ACI descargue la imagen de contenedor creada anteriormente desde Azure Container Registry (ACR).
+
+1. Para comprobar los resultados de la implementación de canalización, en Azure Portal, busca y selecciona el grupo de recursos **AZ400-EWebShop-NAME**. En la lista de recursos, comprueba que la canalización creó la instancia de contenedor **az400eshop**.
 
 1. La canalización tomará un nombre en función del nombre del proyecto. Permite **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-cd-aci** y haz clic en **Guardar**.
 

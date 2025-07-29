@@ -28,7 +28,7 @@ Después de completar este laboratorio, podrá:
 - Insertar una imagen en Azure Container Registry.
 - Implementar una imagen de Docker como un contenedor en Azure App Service mediante Azure DevOps.
 
-## Tiempo estimado: 20 minutos
+## Tiempo estimado: 20 minutos
 
 ## Instrucciones
 
@@ -65,7 +65,7 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 En este ejercicio, configurarás la conexión de servicio con la suscripción de Azure y luego importarás y ejecutarás la canalización de CI.
 
-#### Tarea 1: importar y ejecutar la canalización de CI
+#### Tarea 1: importación y ejecución de la canalización de CI
 
 1. Ve a **Canalizaciones > Canalizaciones**
 1. Haga clic en el botón **Nueva canalización** (o **Crear canalización** si no tiene otras canalizaciones creadas previamente)
@@ -122,6 +122,8 @@ En esta tarea, importarás y ejecutarás la canalización de CD.
 
 1. Abre la ejecución de la canalización. Si ves el mensaje de advertencia "Esta canalización necesita permisos para acceder a un recurso antes de que la ejecución pueda continuar con la implementación", haz clic en **Ver**, **Permitir** y **Permitir** de nuevo. Esto permitirá que la canalización acceda a la suscripción a Azure.
 
+    > **Importante**: Si no autorizas la canalización al realizar la configuración, se producirán errores de permiso durante la ejecución. Los mensajes de error comunes incluyen "Esta canalización necesita permiso para acceder a un recurso" o "Error de ejecución de canalización debido a permisos insuficientes". Para resolver estos errores, ve a la ejecución de la canalización, haz clic en **Ver** junto a la solicitud de permisos y, a continuación, haz clic en **Permitir** para conceder el acceso necesario a la suscripción y los recursos de Azure.
+
     > **Nota**: la implementación puede tardar unos minutos en completarse.
 
     > [!IMPORTANT]
@@ -139,9 +141,11 @@ En esta tarea, importarás y ejecutarás la canalización de CD.
 
 1. Ve a App Service y luego haz clic en **Examinar**, lo que te llevará al sitio web.
 
+1. Comprueba que la aplicación eShopOnWeb se está ejecutando correctamente. Una vez confirmado, has completado correctamente el laboratorio.
+
 > [!IMPORTANT]
 > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
 En este laboratorio, has aprendido a usar una canalización de CI/CD de Azure DevOps para compilar una imagen de Docker personalizada, insertarla en Azure Container Registry e implementarla como un contenedor en Azure App Service.

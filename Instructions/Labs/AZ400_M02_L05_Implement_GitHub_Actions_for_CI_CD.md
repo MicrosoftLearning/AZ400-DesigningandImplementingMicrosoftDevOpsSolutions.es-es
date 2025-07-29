@@ -56,9 +56,9 @@ En esta tarea, crearás un repositorio de GitHub público vacío e importarás e
 
 1. En la página **Importar el proyecto a GitHub**:
 
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
-    | Dirección URL clon del repositorio anterior| <https://github.com/MicrosoftLearning/eShopOnWeb> |
+    | Dirección URL del repositorio de origen| <https://github.com/MicrosoftLearning/eShopOnWeb> |
     | Propietario | Alias de tu cuenta |
     | Nombre del repositorio | eShopOnWeb |
     | Privacidad | **Pública** |
@@ -83,7 +83,7 @@ En esta tarea, crearás la entidad de servicio de Azure que usa GitHub para impl
 1. En la pestaña **Crear un grupo de recursos**, asigne el nombre siguiente al grupo de recursos: **rg-eshoponweb-NAME** (reemplace NAME por un alias único). Haz clic en **Revisar + crear > Crear**.
 1. En el Portal de Azure, abre **Cloud Shell** (junto a la barra de búsqueda).
 
-    > **Nota**: Si es la primera vez que abres Cloud Shell, debes configurar el [almacenamiento persistente](https://learn.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+    > **Nota**: Si Azure Portal te pide que crees un almacenamiento, puedes elegir la opción **No se requiere ninguna cuenta de almacenamiento** y, después, selecciona tu suscripción y haz clic en el botón **Aplicar**.
 
 1. Asegúrate de que el terminal se ejecuta en modo **Bash** y ejecuta el siguiente comando, reemplazando **SUBSCRIPTION-ID** y **RESOURCE-GROUP** con tus propios identificadores (ambos se pueden encontrar en la página **Información general** del grupo de recursos):
 
@@ -132,7 +132,7 @@ En esta tarea, modificarás el flujo de trabajo de GitHub determinado y lo ejecu
     - Reemplaza **NAME** en **WEBAPP-NAME** por un alias único. Se usará para crear un sitio web único globalmente mediante Azure App Service.
 1. Lee detenidamente el flujo de trabajo y los comentarios que se proporcionan para entender mejor.
 
-1. Haz clic en **Iniciar confirmación** y **Confirmar cambios** dejando los valores predeterminados (cambiando la rama principal). El flujo de trabajo se ejecutará automáticamente.
+1. Haz clic en **Confirmar cambios...** en la parte superior derecha y en **Confirmar cambios** dejando los valores predeterminados (cambiando la rama principal). El flujo de trabajo se ejecutará automáticamente.
 
 #### Tarea 3: revisar la ejecución del flujo de trabajo de GitHub
 
@@ -179,6 +179,6 @@ En esta tarea, usarás entornos de GitHub para solicitar la aprobación manual a
 > [!IMPORTANT]
 > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
 En este laboratorio, aprenderás a implementar un flujo de trabajo de Acción de GitHub que implementa una aplicación web de Azure.

@@ -109,6 +109,10 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
    }
    ```
 
+1. Cambia el valor predeterminado del parámetro `publicIPAllocationMethod` de `Dynamic` por `Static` en la línea 20.
+
+1. Cambia el valor predeterminado del parámetro `publicIpSku` de `Basic` por `Standard` en la línea 27.
+
 1. Sin embargo, confirma el archivo. Aún no hemos terminado con él.
 
    ![Captura de pantalla del botón de confirmación de archivo.](./images/m06/commit.png)
@@ -138,9 +142,9 @@ En esta tarea, crearás un módulo de plantilla de almacenamiento **storage.bice
    output storageURI string = storageAccount.properties.primaryEndpoints.blob
    ```
 
-#### Tarea 3: Modificar la plantilla principal para usar el módulo de plantilla
+#### Tarea 3: Modificación de la plantilla simple-windows-vm para usar el módulo de plantilla
 
-En esta tarea, modificarás la plantilla principal para hacer referencia al módulo de plantilla que creaste en la tarea anterior.
+En esta tarea, modificarás la plantilla `simple-windows-vm.bicep` para hacer referencia al módulo de plantilla que creaste en la tarea anterior.
 
 1. Vuelve a navegar al archivo `simple-windows-vm.bicep` y haz clic de nuevo en el botón **Editar**.
 
@@ -203,9 +207,11 @@ En este laboratorio, crearás una canalización de YAML de Azure DevOps para imp
 1. Espere a que finalice la implementación y revise los resultados.
    ![Captura de pantalla de la implementación correcta de recursos en Azure mediante canalizaciones de YAML.](./images/m06/deploy.png)
 
+   > **Nota**: Recuerda conceder permiso de canalización para usar la conexión de servicio creada anteriormente.
+
    > [!IMPORTANT]
    > Recuerda eliminar los recursos creados en Azure Portal para evitar cargos innecesarios.
 
-## Revisar
+## Revisión
 
 En este laboratorio, has aprendido a crear una plantilla de Azure Bicep, modularizarla mediante un módulo de plantilla, modificar la plantilla de implementación principal para usar el módulo y las dependencias actualizadas y, por último, implementar las plantillas en Azure mediante canalizaciones de YAML.

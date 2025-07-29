@@ -83,7 +83,7 @@ Empecemos importando la canalización de compilación denominada [eshoponweb-ci-
     - **DotNet Test**: controlador de prueba de .Net para ejecutar pruebas unitarias.
     - **DotNet Publish**: publica la aplicación y sus dependencias en una carpeta para la implementación en un sistema de hospedaje. En este caso, es **Build.ArtifactStagingDirectory**.
 
-1. Haz clic en el botón **Guardar** para guardar la definición de canalización
+1. En el panel **Revisar YAML de la canalización**, haz clic en el símbolo de intercalación orientado hacia abajo situado junto al botón **Ejecutar** y haz clic en **Guardar**.
 1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haga clic en los puntos suspensivos y, después, en la opción **Cambiar nombre/mover**. Asígnale el nombre **eshoponweb-ci-pr** y haz clic en **Guardar**.
 
 #### Tarea 2: Directivas de rama
@@ -151,7 +151,7 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
 
 La definición de canalización de compilación predeterminada no habilita la integración continua.
 
-1. Haz clic en el botón **Editar** en la esquina superior derecha.
+1. Haz clic en la opción **Editar canalización** en el menú de puntos suspensivos situado cerca del botón **Ejecutar nuevo** en la parte superior derecha.
 1. Ahora debes reemplazar el **desencadenador #:** y **# - líneas principales** por el código siguiente:
 
     ```YAML

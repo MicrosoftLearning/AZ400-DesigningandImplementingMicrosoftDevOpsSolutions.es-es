@@ -64,11 +64,11 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 
 En este ejercicio, importarás canalizaciones de CI/CD para compilar e implementar la aplicación eShopOnWeb. La canalización de CI ya está preparada para compilar la aplicación y ejecutar pruebas. La canalización de CD implementará la aplicación en una aplicación web de Azure.
 
-#### Tarea 1: importar y ejecutar la canalización de CI
+#### Tarea 1: importación y ejecución de la canalización de CI
 
 Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-ci.yml).
 
-1. Vaya a **Pipelines (Canalizaciones) > Pipelines (Canalizaciones)**.
+1. Ve a **Canalizaciones > Canalizaciones**.
 1. Haz clic en el botón **Crear canalización** (si no hay canalizaciones) o en **Nueva canalización** (si ya hay canalizaciones creadas).
 1. Selecciona **GIT de Azure Repos (YAML)**.
 1. Selecciona el repositorio **eShopOnWeb**.
@@ -77,7 +77,7 @@ Empecemos importando la canalización de CI denominada [eshoponweb-ci.yml](https
 1. Haga clic en el botón **Run** (Ejecutar) para ejecutar la canalización.
 1. La canalización tomará un nombre en función del nombre del proyecto. Vamos a **cambiarle el nombre** para identificar mejor la canalización. Ve a **Canalizaciones > Canalizaciones** y haz clic en la canalización creada recientemente. Haz clic en los puntos suspensivos y en la opción **Cambiar el nombre/Quitar**. Asígnale el nombre **eshoponweb-ci** y haz clic en **Guardar**.
 
-#### Tarea 2: Importar y ejecutar la canalización de CD
+#### Tarea 2: Importación y ejecución de la canalización de CD
 
 Vamos a importar la canalización de CD denominada [eshoponweb-cd-webapp-code.yml](https://github.com/MicrosoftLearning/eShopOnWeb/blob/main/.ado/eshoponweb-cd-webapp-code.yml).
 
@@ -93,6 +93,8 @@ Vamos a importar la canalización de CD denominada [eshoponweb-cd-webapp-code.ym
    - Reemplaza **AZ400-EWebShop-NAME** con el nombre del grupo de recursos definido antes en el laboratorio.
 
 1. Haz clic en **Guardar y ejecutar** y espera a que la canalización se ejecute correctamente.
+
+    > **Nota**: Debes hacer clic en **Guardar y ejecutar** dos veces. Si la ventana Trabajos muestra un mensaje de permiso necesario, selecciona **Implementar** en la ventana Trabajos, selecciona **Ver** y, a continuación, **Permitir** dos veces para completar la ejecución de la canalización.
 
     > **Nota**: la implementación puede tardar unos minutos en completarse.
 
@@ -128,8 +130,8 @@ Si quieres saber cómo implementar esto en la aplicación, echa un vistazo a est
 1. En la sección **Configuración**, haz clic en **Identidad** y luego cambia el estado a **Activado**; en la sección **Asignado por el sistema**, haz clic en **guardar > sí** y espera unos segundos a que finalice la operación.
 1. Vuelve al servicio App Configuration y haz clic en **Control de acceso** y, después, en **Agregar asignación de roles**.
 1. En la sección **Rol**, selecciona **Lector de datos de App Configuration**.
-1. En la sección **Miembros**, marca la opción **Administrar identidad** y luego selecciona la identidad administrada de la aplicación web (deben tener el mismo nombre).
-1. Haz clic en **Revisar y asignar**.
+1. En la sección **Miembros**, marca **Administrar identidad** y haz clic en **+ Seleccionar miembros**. En el campo **Identidad administrada**, selecciona **App Service (1)**, selecciona el servicio de aplicaciones y haz clic en **Seleccionar**.
+1. Haz clic en **Revisar y asignar** dos veces para completar la asignación de roles.
 
 #### Tarea 3: configurar la aplicación web
 

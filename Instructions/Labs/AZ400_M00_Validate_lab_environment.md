@@ -152,7 +152,9 @@ Necesitarás crear una conexión de servicio en Azure DevOps que te permitirá i
 
 1. Asegúrate de que la opción **Conceder permiso de acceso a todas las canalizaciones** está desactivada y selecciona **Guardar**.
 
-   > **Importante:** la opción **Conceder permiso de acceso a todas las canalizaciones** no se recomienda para entornos de producción. Solo se usa en este laboratorio para simplificar la configuración de la canalización.
+   > **Importante:** La opción **Conceder permiso de acceso a todas las canalizaciones** no se recomienda para entornos de producción: seleccionar la opción significa conceder acceso a la conexión de servicio a todas las canalizaciones del proyecto, no seleccionar la opción permite aprobar el acceso a la conexión de servicio en la primera ejecución de cada canalización.
+
+   > **Nota**: Si la opción **Conceder permiso de acceso a todas las canalizaciones** está deshabilitada (está en gris) y no se puede cambiar, continúa con el laboratorio.
 
    > **Nota**: si ves un mensaje de error que indica que no tienes los permisos necesarios para crear una conexión de servicio, inténtalo de nuevo o configura la conexión de servicio manualmente.
 
