@@ -61,6 +61,8 @@ En esta tarea, importarás el repositorio de Git eShopOnWeb que se usará en var
 1. Mantén el puntero sobre la rama **main** y haz clic en los puntos suspensivos a la derecha de la columna.
 1. Haz clic en **Establecer como rama predeterminada**.
 
+    > **Nota**: Si la rama principal ya es la rama predeterminada, la opción **Establecer como rama predeterminada** aparecerá atenuada. En este caso, continúa con las instrucciones.
+
 #### Tarea 3: Creación de recursos de Azure
 
 En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
@@ -69,13 +71,7 @@ En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
 1. Haz clic en el icono de la barra de herramientas a la derecha del cuadro de texto de búsqueda en Azure Portal para abrir el panel de **Cloud Shell**.
 1. Si se le pide que seleccione **Bash** o **PowerShell**, seleccione **Bash**.
 
-   > **Nota**: si es la primera vez que inicias **Cloud Shell** y aparece el mensaje **No tienes ningún almacenamiento montado**, selecciona la suscripción que utilizas en este laboratorio y haz clic en **Crear almacenamiento**.
-
-   > **Nota:** Para obtener una lista de regiones y sus alias, ejecuta el siguiente comando desde Azure Cloud Shell - Bash:
-
-   ```bash
-   az account list-locations -o table
-   ```
+   > **Nota**: Si es la primera vez que inicias **Cloud Shell** y te aparece la ventana emergente **Introducción**, selecciona **No se requiere ninguna cuenta de almacenamiento** y la suscripción que usas en este laboratorio y, luego, haz clic en **Aplicar**.
 
 1. En el símbolo del **sistema de Bash**, en el panel de **Cloud Shell**, ejecuta el siguiente comando para crear un grupo de recursos (reemplaza el `<region>` marcador de posición por el nombre de la región de Azure más cercana, como “centralus”, “westeurope” u otra región que prefieras).
 
@@ -94,6 +90,8 @@ En este ejercicio, se usa Azure Portal para crear una aplicación web de Azure.
    SERVICEPLANNAME='az400m03l07-sp1'
    az appservice plan create --resource-group $RESOURCEGROUPNAME --name $SERVICEPLANNAME --sku B3
    ```
+
+    > **Nota**: Si recibes un error como "La suscripción no está registrada para usar el espacio de nombres 'Microsoft.Web'" al ejecutar el comando anterior, ejecuta lo siguiente `az provider register --namespace Microsoft.Web` y, a continuación, vuelve a ejecutar el comando que generó el error.
 
 1. Crea una nueva aplicación web con un nombre único.
 
@@ -163,7 +161,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
    - En la lista desplegable **Suscripción a Azure**, selecciona la suscripción en la que has implementado los recursos de Azure en el laboratorio, haz clic en **Autorizar** y, cuando se solicite, ingresa con las credenciales de la misma cuenta que has usado durante la implementación de recursos de Azure.
    - En la lista desplegable **Nombre de App Service**, selecciona el nombre de la aplicación web que has implementado en el laboratorio.
    - En el cuadro de texto **Paquete o carpeta**, **actualiza** el valor predeterminado a `$(Build.ArtifactStagingDirectory)/**/Web.zip`.
-   - En **Configuración y opciones de la aplicación**, agregue `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`.
+   - Abre la sección **Configuración y opciones de la aplicación** y, en el cuadro de texto **Configuración de la aplicación**, agrega `-UseOnlyInMemoryDatabase true -ASPNETCORE_ENVIRONMENT Development`.
 
 1. Para confirmar la configuración del panel Asistente, haz clic en el botón **Agregar**.
 
@@ -207,16 +205,16 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
        downloadPath: "$(Build.ArtifactStagingDirectory)"
    ```
 
-1. Si la sangría de YAML está desactivada, con la tarea agregada aún seleccionada en el editor, presiona la tecla **Tabulador** dos veces para sangría en cuatro espacios.
+1. Si la sangría de YAML está desactivada, con la tarea agregada aún seleccionada en el editor, presiona la tecla **Tabulador** dos veces para aplicar una sangría de cuatro espacios.
 
    > **Nota**: aquí puede que también quieras agregar una línea vacía antes y después para facilitar la lectura.
 
-1. Haz clic en **Guardar**. En el panel **Guardar**, haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama principal.
+1. Haz clic en **Validar y guardar**y, en el panel **Validar y guardar**, haz clic en **Guardar** de nuevo para confirmar el cambio directamente en la rama principal.
 
    > **Nota**: dado que el sistema CI-YAML original no se ha configurado para desencadenar automáticamente una nueva compilación, tenemos que iniciarla manualmente.
 
 1. En el menú a la izquierda de Azure DevOps, ve a la pestaña **Canalizaciones** y selecciona **Canalizaciones**.
-1. Abra la canalización de **eShopOnWeb_MultiStageYAML** y haga clic en **Ejecutar canalización**.
+1. Abre la canalización **eShopOnWeb_MultiStageYAML** y haz clic en **Ejecutar canalización**.
 1. Confirma la opción **Ejecutar** desde el panel que aparece.
 1. Verás que aparecen dos fases diferentes: **Compilar una solución .Net Core** e **Implementar en una aplicación web de Azure**.
 1. Espera a que se inicie la canalización y a que finalice la fase de compilación.
@@ -228,7 +226,7 @@ En esta tarea, agregarás la entrega continua a la definición basada en YAML de
 
 1. Haz clic en **Ver**.
 1. En el panel **Esperando revisión**, haz clic en **Permitir**.
-1. Valida el mensaje en la ventana **Permitir ventana emergente** y confirma haciendo clic en **Permitir**.
+1. Valida el mensaje en la ventana **¿Permitir el acceso?** y confirma haciendo clic en **Permitir**.
 1. Esto activa la fase de implementación. Espera a que la implementación se complete correctamente.
 
    > **Nota**: si se debe producir un error en la implementación, debido a un problema con la sintaxis de canalización de YAML, usa esto como referencia:
@@ -408,10 +406,9 @@ Las canalizaciones de YAML como código no tienen puertas de versión o calidad,
 1. Haz clic en **Ejecutar canalización** para desencadenar una nueva ejecución de canalización; para ello, haz clic en **Ejecutar**.
 1. Al igual que antes, la fase de compilación comienza según lo previsto. Espera a que la implementación se complete correctamente.
 1. A continuación, dado que tenemos el _entorno: aprobaciones_ configuradas para la fase de implementación, solicitarás una confirmación de aprobación antes de que se inicie.
-1. Esto es visible desde la vista Canalización, donde indica **Esperando (0/1 comprobaciones pasadas).** También se muestra un mensaje de notificación que indica que **la aprobación necesita revisión antes de que esta ejecución pueda continuar con la Implementación en una aplicación web de Azure**.
-1. Haz clic en el botón **Vista** situado junto a este mensaje.
-1. En el panel que aparece **Comprobaciones y validaciones manuales para Implementar en Azure Web App**, haz clic en el **mensaje Aprobación en espera**.
-1. Haga clic en **Approve** (Aprobar).
+1. Esto aparece en la vista Canalización, donde se indica **Esperando (1 comprobación en curso)**. También se muestra un mensaje de notificación que indica que **una aprobación necesita revisión antes de que esta ejecución pueda continuar con la implementación en una aplicación web de Azure**.
+1. Haz clic en el botón **Revisar** situado junto a este mensaje.
+1. En el panel **Esperando revisión** que aparece, haz clic en el botón **Aprobar**.
 1. Esto permite que la fase de implementación inicie e implemente correctamente el código fuente de Azure Web App.
 
    > **Nota:** Aunque en este ejemplo solo se usan las aprobaciones, debes saber que las otras comprobaciones como Azure Monitor, la API REST, etc. se pueden usar de forma similar.
