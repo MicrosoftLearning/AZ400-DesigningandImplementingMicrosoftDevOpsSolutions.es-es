@@ -202,6 +202,7 @@ En este ejercicio, configurarás una canalización de versión.
 En esta tarea, configurarás las tareas de versión como parte de la canalización de versión.
 
 1. En el proyecto **eShopOnWeb** del portal de Azure DevOps, en el panel de navegación vertical, selecciona **Canalizaciones** y luego en la sección **Canalizaciones**, haz clic en **Versiones**.
+   > **Nota**: Si la sección **Versiones** no se ve, es probable que se deba a que el botón de acción **Deshabilitar la creación de canalizaciones de versión clásicas** esté establecido en **Activado** en la sección **Configuración del proyecto** > **Canalizaciones** > **Configuración** > **General**.
 1. Haz clic en **Nueva canalización**.
 1. En la ventana **Seleccionar una plantilla**, **elige** **Implementación de Azure App Service** (Implementa la aplicación en Azure App Service. Elige entre Aplicación web en Windows, Linux, contenedores, Function Apps o WebJobs en la lista **Destacados** de plantillas.
 1. Haga clic en **Aplicar**.
