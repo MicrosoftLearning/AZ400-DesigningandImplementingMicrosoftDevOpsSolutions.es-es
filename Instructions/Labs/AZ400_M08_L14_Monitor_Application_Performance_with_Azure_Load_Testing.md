@@ -204,7 +204,7 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
 1. El fragmento de código agregado al editor debe ser similar al siguiente, lo que refleja el nombre de los parámetros azureSubscription y WebappName:
 
    ```yml
-   - task: AzureRmWebAppDeployment@4
+   - task: AzureRmWebAppDeployment@5
      inputs:
        ConnectionType: "AzureRM"
        azureSubscription: "SERVICE CONNECTION NAME"
@@ -228,7 +228,7 @@ En esta tarea, agregarás una definición de compilación de YAML al proyecto ex
 
    ![Captura de pantalla de Azure Pipelines que muestra ejecuciones de eShopOnWeb.](images/m3/eshoponweb-m9l16-pipeline.png)
 
-1. Para confirmar que esta canalización se ejecuta, haga clic en **Ejecutar** en el panel que aparece y haga clic una vez más en **Ejecutar** para confirmar la operación.
+1. Para confirmar que esta canalización se ejecuta, haga clic en **Ejecutar canalización** en el panel que aparece y haga clic una vez más en **Ejecutar** para confirmar la operación.
 1. Verás que aparecen dos fases diferentes: **Compilar una solución .Net Core** e **Implementar en una aplicación web de Azure**.
 1. Espere a que se inicie la canalización.
 
@@ -389,8 +389,8 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
 1. Para crear y ejecutar una prueba de carga, la definición de flujo de trabajo de Azure Pipelines usa la extensión de **tarea de Azure Load Testing ** del marketplace de Azure DevOps. Abra la [extensión de tarea de Azure Load Testing](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) en el marketplace de Azure DevOps y seleccione **Get it free** (Obtener gratis).
 1. Seleccione la organización de Azure DevOps y, después, seleccione **Install** (Instalar) para instalar la extensión.
 1. Desde el Portal de Azure DevOps y Project, ve a **Canalizaciones** y selecciona la canalización creada al principio de este ejercicio. Haga clic en **Editar**.
-1. En el script YAML, ve a la **línea 56** y presiona ENTRAR/RETORNO para agregar una nueva línea vacía. (aparece justo antes de la fase de implementación del archivo YAML).
-1. En la línea 57, selecciona el Asistente para tareas a la derecha y busca **Azure Load Testing**.
+1. En el script de YAML, vaya a la **línea 64** y presione ENTRAR/RETORNO para agregar una nueva línea vacía. (aparece justo antes de la fase de implementación del archivo YAML).
+1. En la línea 65, seleccione el Asistente para tareas en el lado derecho y busque **Azure Load Testing** (asegúrese de colocar el cursor en la sangría del nivel de tarea anterior).
 1. Completa el panel gráfico con la configuración correcta del escenario:
 
    - Suscripción de Azure: selecciona la suscripción que ejecuta los recursos de Azure
@@ -424,12 +424,12 @@ Realice los pasos siguientes para descargar los archivos de entrada de una prueb
    ```
 
 1. Si la sangría del fragmento de código YAML proporciona errores (líneas onduladas rojas), corríjalas agregando dos espacios o pestañas para colocar el fragmento correctamente.
-1. Con ambos fragmentos de código agregados a la canalización de CI/CD, haz clic en **Guardar**.
+1. Con ambos fragmentos de código agregados a la canalización de CI/CD, haga clic en **Validar y guardar** y después **Guarde** los cambios.
 1. Una vez que hayas guardados, haz clic en **Ejecutar** para desencadenar la canalización.
 1. Confirma la rama (principal) y haz clic en el botón **Ejecutar** para iniciar la ejecución de la canalización.
-1. En la página de estado de la canalización, haz clic en la fase **Compilación** para abrir los detalles de registro detallados de las distintas tareas de la canalización.
-1. Espera a que la canalización inicie la fase de compilación hasta la tarea **AzureLoadTest** del flujo de canalización.
-1. Mientras se ejecuta la tarea, ve a **Azure Load Testing** en Azure Portal y examina la forma en que la canalización crea un runTest nuevo, denominado **adoloadtest1**. Puedes seleccionarlo para ver los valores de resultado del trabajo TestRun.
+1. En la página de estado de la canalización, haga clic en la fase **Compilación** para abrir los detalles de registro detallados de las distintas tareas de la canalización.
+1. Espere a que la canalización inicie la fase de implementación y llegue hasta la tarea **AzureLoadTest** del flujo de la canalización.
+1. Mientras se ejecuta la tarea, vaya a **Azure Load Testing** en Azure Portal y vea cómo la canalización crea una instancia de RunTest denominada **ado_load_test**. Puedes seleccionarlo para ver los valores de resultado del trabajo TestRun.
 1. Vuelve a la vista Ejecución de canalización de CI/CD de Azure DevOps, donde la tarea **AzureLoadTest** se ha completado correctamente. En los resultados del registro detallado, los valores resultantes de la prueba de carga también serán visibles:
 
    ```text
